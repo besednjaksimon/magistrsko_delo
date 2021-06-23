@@ -218,6 +218,24 @@
   doi     = {10.6028/jres.079b.005},
 }
 
+@Article{dietz1993algebraic,
+  author    = {Dietz, Roland and Hoschek, Josef and J{\"u}ttler, Bert},
+  journal   = {Computer Aided Geometric Design},
+  title     = {An algebraic approach to curves and surfaces on the sphere and on other quadrics},
+  year      = {1993},
+  number    = {3-4},
+  pages     = {211--229},
+  volume    = {10},
+  publisher = {Elsevier},
+}
+
+@Book{farin2014curves,
+  author    = {Farin, Gerald},
+  publisher = {Elsevier},
+  title     = {Curves and surfaces for computer-aided geometric design: a practical guide},
+  year      = {2014},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}
 
 @Comment{jabref-meta: fileDirectoryLatex-simon-DESKTOP-QH7H5BT:C:\\Users\\simon\\Desktop\\magistrsko_delo\\predloga;}

@@ -76,6 +76,7 @@
 
 % DRUGI TVOJI PAKETI:
 % tukaj
+\newcommand{\iu}{\mathrm{i}\mkern1mu} % za imaginarno enoto
 
 \setlength{\overfullrule}{50pt} % označi predlogo vrstico
 \pagestyle{plain}               % samo številka strani na dnu, nobene glave / noge
@@ -181,10 +182,9 @@ Literatura mora biti tukaj posebej samostojno navedena (po pomembnosti) in ne
 le citirana. V tem razdelku literature ne oštevilčimo po svoje, ampak uporabljamo
 okolje itemize in ukaz plancite, saj je celotna literatura oštevilčena na koncu.
 \begin{itemize}
-  \plancite{lebedev2009introduction}
-  \plancite{gurtin1982introduction}
-  \plancite{zienkiewicz2000finite}
-  \plancite{STtemplate}
+  \plancite{DPHclanek1}
+  \plancite{DPHclanek2}
+  \plancite{farouki2008pythagorean}
 \end{itemize}
 
 \vspace{2cm}
@@ -223,13 +223,16 @@ the content and not the structure of your work.
 \setcounter{page}{1}    % od sedaj naprej začni zopet z 1
 \pagenumbering{arabic}  % in z arabskimi številkami
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Uvod}
+
 Napišite kratek zgodovinski in matematični uvod.  Pojasnite motivacijo za problem, kje
 nastopa, kje vse je bil obravnavan. Na koncu opišite tudi organizacijo dela -- kaj je v
 katerem razdelku.
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Prostorske krivulje}
 \subsection{Osnovne lastnosti}
+
 \cite{struik1961lectures}
 Krivulje v prostoru si lahko predstavljamo kot tirnice, po katerih potuje točka v gibanju. Najlažje jih podamo
 v parametrični obliki $\mathbf{r}:I \to \R^3, I \subseteq \R$, \newline $\mathbf{r}(\xi)=(x(\xi),y(\xi),z(\xi)), \text{ } \xi \in I$, kjer so 
@@ -237,95 +240,232 @@ $x,\text{ } y \text{ in } z$ običajne skalarne funkcije parametra $\xi.$ Več r
 isto krivuljo. V nadaljevanju bomo predpostavili, da so $x$, $y$ in $z$ vsaj dvakrat zvezno odvedljive funkcije.
 Odvod krivulje $\mathbf{r}$ dobimo tako, da krivuljo odvajamo po komponentah:
 $$\mathbf{r}':I \to \R^3, \quad \mathbf{r}'(\xi)=(x'(\xi),y'(\xi),z'(\xi)) \text{ za } \xi \in I.$$
+Vektorsko polje, ki ga pri tem dobimo, imenujemo tudi \textit{hodograf} krivulje $\mathbf{r}.$
+
 \subsection{Ločna dolžina in tangenta na krivuljo}
+
 \cite{farouki2008pythagorean}
 Pravimo, da je krivulja $\mathbf{r}$ regularna, če je njen odvod $\mathbf{r}'(\xi) \neq 0$ za vse vrednosti $\xi$ z intervala $I.$ Od sedaj bomo privzeli, da je krivulja regularna. Odvod regularne krivulje pa lahko zapišemo tudi v malce drugačni obliki
 \begin{equation}
-\label{eq2_1}
-\mathbf{r'}(\xi)=\sigma(\xi)\mathbf{t}(\xi),
+	\label{eq2_1}
+	\mathbf{r'}(\xi)=\sigma(\xi)\mathbf{t}(\xi),
 \end{equation}
 kjer je $\sigma(\xi)$ funkcija, ki slika z začetne domene $I$ v $\R$
 \begin{equation}
-\sigma(\xi)=\lVert \mathbf{r'}(\xi)\rVert=\sqrt{x'^2(\xi)+y'^2(\xi)+z'^2(\xi)}
+	\sigma(\xi)=\lVert \mathbf{r'}(\xi)\rVert=\sqrt{x'^2(\xi)+y'^2(\xi)+z'^2(\xi)}
 \end{equation}
 in predstavlja spremembo ločne dolžine krivulje v odvisnosti od parametra $\xi.$ V enačbi \eqref{eq2_1} je s $\mathbf{t}(\xi)$ označeno enotsko tangentsko vektorsko polje na krivuljo $\mathbf{r},$ izračunano pri parametru $\xi$
 \begin{equation}
-\mathbf{t}(\xi)=\frac{\mathbf{r'}(\xi)}{\lVert \mathbf{r'}(\xi) \rVert}=
-\frac{\mathbf{r'}(\xi)}{\sigma(\xi)}.
+	\mathbf{t}(\xi)=\frac{\mathbf{r'}(\xi)}{\lVert \mathbf{r'}(\xi) \rVert}=
+	\frac{\mathbf{r'}(\xi)}{\sigma(\xi)}.
 \end{equation}
 S pomočjo funkcije $\sigma(\xi)$ lahko izrazimo tudi dolžino loka krivulje. Če je $I=[a,b],$ je potem ločna dolžina enaka
 \begin{equation}
-\int_a^b\sqrt{x'^2(\xi)+y'^2(\xi)+z'^2(\xi)}d\xi=\int_a^b\lVert \mathbf{r'}(\xi) \rVert d\xi =\int_a^b\sigma(\xi)d\xi.
+	\int_a^b\sqrt{x'^2(\xi)+y'^2(\xi)+z'^2(\xi)}d\xi=\int_a^b\lVert \mathbf{r'}(\xi) \rVert d\xi =\int_a^b\sigma(\xi)d\xi.
 \end{equation}
+
 \subsection{Ukrivljenost in Frenetovo ogrodje}
+
 Sedaj bomo uvedli dve novi enotski vektorski polji, ki bodo skupaj z enotsko tangento tvorili ortonormalno bazo za prostor $\R^3.$ V nadaljevanju bomo ponekod v enačbah in izpeljavah zaradi preglednosti izpustili parameter $\xi.$
 
 Ker je $\mathbf{t}$ enotsko tangento polje, vedno velja $\mathbf{t} \cdot \mathbf{t}=\lVert \mathbf{t} \rVert^2 =1.$ Če to enačbo odvajamo, dobimo, da je $\mathbf{t'} \cdot \mathbf{t}=0,$ kar pomeni, da je $\mathbf{t'}$ pravokoten na $\mathbf{t}$ pri vsakemu parametru $\xi.$ Torej lahko (implicitno) definiramo enotsko vektorsko polje $\mathbf{p}$ na naslednji način: odvod enotske tangente je enak
 \begin{equation}
-\label{eq2_5}
-\mathbf{t'}(\xi)=\sigma(\xi)\kappa(\xi)\mathbf{p}(\xi),
+	\label{eq2_5}
+	\mathbf{t'}(\xi)=\sigma(\xi)\kappa(\xi)\mathbf{p}(\xi),
 \end{equation}
 kjer je $\kappa(\xi)$ nenegativna funkcija parametra $\xi.$ Tako ima vektorsko polje $\mathbf{p}$ isto smer kot $\mathbf{t'}.$ Prav tako je $\mathbf{p}$ pravokoten na enotsko tangento $\mathbf{t}.$ Da bi lahko $\kappa(\xi)$ in $\mathbf{p}$ eksplicitno izrazili, si s pomočjo enačbe \eqref{eq2_1} oglejmo drugi odvod krivulje $\mathbf{r}:$
 \begin{equation}
-\label{eq2_6}
-\mathbf{r''}=\sigma'\mathbf{t}+\sigma\mathbf{t'}.
+	\label{eq2_6}
+	\mathbf{r''}=\sigma'\mathbf{t}+\sigma\mathbf{t'}.
 \end{equation}
 Iz \eqref{eq2_1} in zgornje enačbe sledi naslednja enakost
 \begin{equation}
-\label{eq2_7}
-\mathbf{r'}(\xi) \times \mathbf{r''}(\xi)=\sigma^3(\xi)\kappa(\xi)\mathbf{t}(\xi) \times \mathbf{p}(\xi).
+	\label{eq2_7}
+	\mathbf{r'}(\xi) \times \mathbf{r''}(\xi)=\sigma^3(\xi)\kappa(\xi)\mathbf{t}(\xi) \times \mathbf{p}(\xi).
 \end{equation}
 Ker je $\mathbf{p}$ definirano kot enotsko vektorsko polje, ki je ortogonalno na $\mathbf{t},$ je potem
 \begin{equation}
-\label{kappa1}
-\kappa(\xi)=\frac{\lVert \mathbf{r'}(\xi) \times \mathbf{r''}(\xi) \rVert}{\lVert \mathbf{r'}(\xi) \rVert^3}=\frac{\lVert \mathbf{r'}(\xi) \times \mathbf{r''}(\xi) \rVert}{\sigma^3(\xi)}.
+	\label{kappa1}
+	\kappa(\xi)=\frac{\lVert \mathbf{r'}(\xi) \times \mathbf{r''}(\xi) \rVert}{\lVert \mathbf{r'}(\xi) \rVert^3}=\frac{\lVert \mathbf{r'}(\xi) \times \mathbf{r''}(\xi) \rVert}{\sigma^3(\xi)}.
 \end{equation}
 To lahko naredimo, saj smo predpostavili, da je $\kappa(\xi)$ nenegativna funkcija. Sedaj si oglejmo, čemu je enaka naslednja količina:
-\begin{align*}
-\frac{\mathbf{r'}\times \mathbf{r''}}{\lVert \mathbf{r'}\times \mathbf{r''} \rVert} \times \mathbf{t} &= \frac{1}{\lVert \mathbf{r'}\times \mathbf{r''} \rVert} \left ( \sigma^3 \frac{\lVert \mathbf{r'}\times \mathbf{r''} \rVert}{\sigma^3}\mathbf{t} \times \mathbf{p}\right ) \times \mathbf{t} \\
-&= (\mathbf{t} \times \mathbf{p}) \times \mathbf{t}\\
-&= -(\mathbf{t} \cdot \mathbf{p})\mathbf{t} + (\mathbf{t} \cdot \mathbf{t})\mathbf{p}\\
-&= \mathbf{p}.
-\end{align*}
+\begin{align}
+	\frac{\mathbf{r'}\times \mathbf{r''}}{\lVert \mathbf{r'}\times \mathbf{r''} \rVert} \times \mathbf{t} &= \frac{1}{\lVert \mathbf{r'}\times \mathbf{r''} \rVert} \left ( \sigma^3 \frac{\lVert \mathbf{r'}\times \mathbf{r''} \rVert}{\sigma^3}\mathbf{t} \times \mathbf{p}\right ) \times \mathbf{t} \nonumber \\
+	&= (\mathbf{t} \times \mathbf{p}) \times \mathbf{t} \nonumber \\
+	&= -(\mathbf{t} \cdot \mathbf{p})\mathbf{t} + (\mathbf{t} \cdot \mathbf{t})\mathbf{p} \nonumber \\
+	&= \mathbf{p}. \label{normala}
+\end{align}
 Količini $\mathbf{p}$ pravimo \textit{normala} ali \textit{glavna normala} na krivuljo $\mathbf{r},$ količini $\kappa$ pa \textit{fleksijska ukrivljenost} krivulje $\mathbf{r}.$ Da se preveriti, da je fleksijska ukrivljenost neodvisna od izbire parametrizacije krivulje.
 Definirali smo že enotsko tangento in enotsko normalo. Najti moramo še eno enotsko vektorsko polje, ki je ortogonalno na obe prejšnji. To lahko naredimo direktno z vektorskim produktom
 \begin{equation}
-\label{binormala}
-\mathbf{b}=\mathbf{t} \times \mathbf{p}=\frac{\mathbf{r'}\times \mathbf{r''}}{\lVert \mathbf{r'}\times \mathbf{r''} \rVert}.
+	\label{binormala}
+	\mathbf{b}=\mathbf{t} \times \mathbf{p}=\frac{\mathbf{r'}\times \mathbf{r''}}{\lVert \mathbf{r'}\times \mathbf{r''} \rVert}.
 \end{equation}
-Tej vrednosti pravimo \textit{binormala} krivulje $\mathbf{r}.$ Vektorska polja $\mathbf{t},\mathbf{ p}, \mathbf{ b}$ na vsaki točki krivulje $\mathbf{r}$ tvorijo ortonormirano bazo prostora $\R^3.$ To trojico imenujemo tudi \textit{Frenetovo ogrodje}. Če je binormala nek konstanten vektor za vsak parameter $\xi$ (z dolžino 1), sledi, da vektorski polji $\mathbf{t}$ in $\mathbf{p}$ ležita v isti ravnini, kar pomeni, da celotna krivulja $\mathbf{r}$ leži v tej isti ravnini.
+Tej vrednosti pravimo \textit{binormala} krivulje $\mathbf{r}.$ Vektorska polja $\mathbf{t},\mathbf{ p}, \mathbf{ b}$ na vsaki točki krivulje $\mathbf{r}$ tvorijo ortonormirano bazo prostora $\R^3.$ To trojico imenujemo tudi \textit{Frenetovo ogrodje}. Če je binormala nek konstanten vektor za vsak parameter $\xi$ (z dolžino~1), sledi, da vektorski polji $\mathbf{t}$ in $\mathbf{p}$ ležita v isti ravnini, kar pomeni, da celotna krivulja $\mathbf{r}$ leži v tej isti ravnini.
 
 Recimo, da velja $\mathbf{b'} \neq 0.$ To pomeni, da imamo res opravka s prostorsko krivuljo. Če odvajamo enačbo \eqref{binormala} in uporabimo \eqref{eq2_5}, dobimo, da je odvod binormale enak $\mathbf{b'}=\mathbf{t} \times \mathbf{p'}.$ Ker ima za vsak parameter $\xi$ vektor $\mathbf{p}$ dolžino 1, sta potem vektorski polji $\mathbf{p}$ in $\mathbf{p'}$ ortogonalni (to lahko takoj preverimo z odvajanjem skalarnega produkta vektorskega polja $\mathbf{p}$ s samim seboj). Torej se da izraziti $\mathbf{p'}$ z $\mathbf{b}$ in $\mathbf{t},$ kar pa pomeni, da se da $\mathbf{b'}$ izraziti z $\mathbf{t} \times \mathbf{b}:$
 \begin{equation}
-\mathbf{b'}(\xi)=\sigma(\xi)\tau(\xi)\mathbf{t}(\xi)\times \mathbf{b}(\xi)=-\sigma(\xi)\tau(\xi)\mathbf{p}(\xi).
+	\mathbf{b'}(\xi)=\sigma(\xi)\tau(\xi)\mathbf{t}(\xi)\times \mathbf{b}(\xi)=-\sigma(\xi)\tau(\xi)\mathbf{p}(\xi).
 \end{equation}
 Funkciji $\tau(\xi)$ pravimo \textit{torzijska ukrivljenost} krivulje $\mathbf{r}.$ Da se dokopljemo do njenega eksplicitnega zapisa, najprej preuredimo in odvajamo enačbo \eqref{eq2_7}:
 \begin{align*}
-(\mathbf{r'} \times \mathbf{r''})'&=(\sigma^3\kappa \mathbf{b})'\\
-\mathbf{r'} \times \mathbf{r'''} &= 3\sigma^2\sigma'\kappa\mathbf{b}+\sigma^3\kappa'\mathbf{b}+\sigma^3\kappa\mathbf{b'}\\
-&=-\sigma^4\kappa\tau\mathbf{p}+\sigma^2(3\sigma'\kappa+\sigma\kappa')\mathbf{p.}
+	(\mathbf{r'} \times \mathbf{r''})'&=(\sigma^3\kappa \mathbf{b})'\\
+	\mathbf{r'} \times \mathbf{r'''} &= 3\sigma^2\sigma'\kappa\mathbf{b}+\sigma^3\kappa'\mathbf{b}+\sigma^3\kappa\mathbf{b'}\\
+	&=-\sigma^4\kappa\tau\mathbf{p}+\sigma^2(3\sigma'\kappa+\sigma\kappa')\mathbf{p.}
 \end{align*}
 V zadnjem koraku smo upoštevali vrednost količine $\mathbf{b'}.$ Če vrednost $\mathbf{r'}\times \mathbf{r'''}$ skalarno pomnožimo z $\mathbf{r''},$ dobimo
 \begin{equation}
-(\mathbf{r'}\times\mathbf{r'''})\cdot\mathbf{r''}=-\sigma^6\kappa^2\tau.
+	(\mathbf{r'}\times\mathbf{r'''})\cdot\mathbf{r''}=-\sigma^6\kappa^2\tau.
 \end{equation}
 Pri tem smo upoštevali \eqref{eq2_6}, \eqref{eq2_5} in ortonormiranost Frenetovega ogrodja. Če obrnemo mešani produkt v zgornji enačbi in upoštevamo \eqref{kappa1}, vidimo, da je torzijska ukrivljenost enaka
 \begin{equation}
-\label{tau1}
-\tau(\xi)=\frac{[\mathbf{r'}(\xi), \mathbf{r''}(\xi), \mathbf{r'''}(\xi)]}{\lVert \mathbf{r'}(\xi)\times \mathbf{r''}(\xi) \rVert^2}
+	\label{tau1}
+	\tau(\xi)=\frac{[\mathbf{r'}(\xi), \mathbf{r''}(\xi), \mathbf{r'''}(\xi)]}{\lVert \mathbf{r'}(\xi)\times \mathbf{r''}(\xi) \rVert^2}
 \end{equation}
 Vidimo torej, da torzijska ukrivljenost krivulje neničelna natanko takrat, ko so $\mathbf{r'}, \text{ } \mathbf{r''}$ in $\mathbf{r'''}$ linearno neodvisni, kar je ravno takrat, ko je krivulja res prostorska.
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Bernsteinovi polinomi in Bézierjeve krivulje}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Krivulje s pitagorejskim hodografom}
 
-\section{Izražanje prostorskih PH krivulj v kvaternionski obliki}
+Polinomske in racionalne krivulje se v računalniško podprtem geometrijskem oblikovanju na široko uporabljajo, saj nam omogočajo učinkoviteje računanje. Pomemben podrazred takih krivulj so krivulje s piagorejskim hodografom, saj je pri le-teh izračun dolžine loka krivulj zelo preprost. Poleg tega ponujajo še marsikatere druge privlačne lastnosti, zato jih je že zaradi tega zanimivo analizirati. Uporablja pa se jih tudi v realnem svetu, npr. pri CNC strojih. V tem poglavju si bomo ogledali definicijo in nekaj osnovnih lastnosti.
+
+\subsection{Definicije}
+
+\begin{definicija}
+	Prostorska polinomska krivulja $\mathbf{r}:I \to \R^3,$ $\mathbf{r}(\xi)=(x(\xi),y(\xi),z(\xi)),$ kjer je $I$ zaprt interval v $\R^3,$ ima \emph{pitagorejski hodograf}, če obstaja tak realen polinom $\sigma,$ da velja
+	\begin{equation}
+		\label{pitagorejski}
+		x'^2(\xi)+y'^2(\xi)+z'^2(\xi)=\sigma^2(\xi).
+	\end{equation}
+\end{definicija}
+
+Temu pogoju pravimo tudi \emph{pitagorejski pogoj,} krivulji pa lahko krajše rečemo PH krivulja. Naslednji izrek nam bo pokazal, kako izpolniti ta pogoj.
+
+\begin{izrek}
+	Naj za paroma tuje realne polinome $a(\xi),b(\xi),c(\xi)$ in $d(\xi)$ velja pitagorejski pogoj
+	\begin{equation}
+		\label{pogoj_izrek4_2}
+		a^2(\xi)+b^2(\xi)+c^2(\xi)=d^2(\xi).
+	\end{equation}
+	Potem obstajajo taki realni polinomi $u(\xi),v(\xi),p(\xi)$ in $q(\xi),$ da se $a(\xi),b(\xi),c(\xi)$ in $d(\xi)$ izražajo na naslednji način:
+	\begin{align}
+		a(\xi)&=u^2(\xi)+v^2(\xi)-p^2(\xi)-q^2(\xi), \nonumber \\
+		b(\xi)&=2[u(\xi)q(\xi)+v(\xi)p(\xi)], \nonumber \\
+		c(\xi)&=2[v(\xi)q(\xi)-u(\xi)p(\xi)], \nonumber \\
+		d(\xi)&=u^2(\xi)+v^2(\xi)+p^2(\xi)+q^2(\xi). \label{izrek4_3}
+	\end{align}
+\end{izrek}
+
+\begin{proof}
+	Enačbo \eqref{pogoj_izrek4_2} obrnemo in nato razstavimo
+	\begin{align}
+		b^2(\xi)+c^2(\xi)&=d^2(\xi)-a^2(\xi), \nonumber \\
+		[b(\xi)+\iu c(\xi)][b(\xi)-\iu c(\xi)]&=[d(\xi)-a(\xi)][d(\xi)+a(\xi)] \label{dokaz4_4}
+	\end{align}
+	Ker sta si realna polinoma $b(\xi)$ in $c(\xi)$ tuja, potem kompleksna polinoma $b(\xi)+\iu c(\xi)$ in $b(\xi)-\iu c(\xi)$ nimata skupnih ničel. To sledi iz lastnosti računanja največjega skupnega delitelja polinomov. Velja tudi, da nimata realnih ničel in zapisa je očitno, da je ničla enega polinoma enaka konjugirani vrednosti drugega polinoma. Ker sta $d(\xi)-a(\xi)$ in $d(\xi)+a(\xi)$ realna polinoma, se ju lahko razcepi na pare konjugiranih si linearnih kompleksnih polinomov na tak način, da en polinom iz vsakega para deli polinom $b(\xi)+\iu c(\xi),$ drug polinom iz para pa deli polinom $b(\xi)-\iu c(\xi).$ Povedano drugače, polinoma $b(\xi) \pm \iu c(\xi)$ imata obliko
+	\begin{equation}
+	\label{dokaz4_5}
+		b(\xi)+ \iu c(\xi)=f(\xi)\bar{g}(\xi), \quad b(\xi)-\iu c(\xi)=\bar{f}(\xi)g(\xi),
+	\end{equation}
+	kjer sta $f(\xi)$ in $g(\xi)$ taka dva kompleksna polinoma, da velja
+	\begin{equation}
+		\label{dokaz4_6}
+		d(\xi)-a(\xi)=f(\xi)\bar{f}(\xi), \quad d(\xi)+a(\xi)=g(\xi)\bar{g}(\xi).
+	\end{equation}
+	Kompleksna polinoma $f(\xi)$ in $g(\xi)$ lahko zapišemo tudi kot $f(\xi)=\sqrt{2}[p(\xi)+\iu q(\xi)]$ in $g(\xi)=\sqrt{2}[v(\xi)+\iu u(\xi)],$ kjer so $p(\xi),q(\xi),v(\xi)$ in $u(\xi)$ realni polinomi. Če vnesemo te izraze v enačbe \eqref{dokaz4_5} in \eqref{dokaz4_6}, lahko iz njih dobimo izraze za polinome $a(\xi),b(\xi),c(\xi)$ in $d(\xi),$ kot so zapisani v \eqref{izrek4_3}.\\
+\texttt{[Se mi zdi, da tu ni potrebno nič več dodati?]}
+\end{proof}
+
+Z nekaj računanja lahko preverimo, da ima za dane realne polinome $p(\xi),$ $q(\xi),$ $v(\xi)$ in $u(\xi)$ prostorska krivulja $\mathbf{r}(\xi)$ pitagorejski hodograf, če za njene komponente velja
+\begin{align}
+	x'(\xi)&=u^2(\xi)+v^2(\xi)-p^2(\xi)-q^2(\xi), \nonumber \\
+	y'(\xi)&=2[u(\xi)q(\xi)+v(\xi)p(\xi)], \nonumber \\
+	z'(\xi)&=2[v(\xi)q(\xi)-u(\xi)p(\xi)]. \label{eq4_7}
+\end{align}
+
+Pri tako podani krivulji sicer nimamo zagotovila, da je ta krivulja res regularna, saj imajo lahko komponente hodografa skupne polinomske faktorje.
+
+\begin{definicija}
+	Za krivuljo s pitagorejskim hodografom $\mathbf{r'}(\xi)=(x'(\xi),y'(\xi),z'(\xi))$ pravimo, da ima \emph{primitiven} pitagorejski hodograf, če je največji skupni delitelj komponent hodografa konstanten: $\mathrm{gcd}(x'(\xi),y'(\xi),z'(\xi))~=~\mathrm{konstanta}.$
+\end{definicija}
+
+V praksi se raje uporablja primitivne hodografe, saj je skupna ničla komponent hodografa v splošnem lahko tudi točka obrata krivulja (torej točka, kjer tangentni vektor spremeni smer \texttt{[to poved se mora še rahlo preoblikovati]}). Izbira paroma si tujih polinomov $p,q,v$ in $u$ še ne zagotavlja, da je potem hodograf res primitiven. 
+
+\begin{izrek}
+	Naj bodo realni polinomi $p,$ $q,$ $v$ in $u$ paroma si tuji in komponente hodografa take kot v \eqref{eq4_7}. Potem velja
+	\begin{equation}
+		\mathrm{gcd}(x',y',z')=|\mathrm{gcd}(u+\iu v,p-\iu q)|^2.
+	\end{equation}
+\end{izrek}
+\begin{proof}
+	Dokaz najdemo v \cite{faroukietal2004}.
+\end{proof}
+
+Vidimo torej, da je v primeru paroma si tujih polinomov $p,$ $q,$ $v$ in $u$ največji skupni delitelj komponent hodografa realen polinom sode stopnje, ki nima realnih ničel. To pa pomeni, da realna krivulja, ki je porojena s temi polinomi, res nima točk obrata in je torej regularna.
+
+\subsection{Lastnosti}
+
+Oglejmo si nekaj glavnih lastnosti krivulj s pitagorejskim hodografom. Začnimo kar z dolžino poti.
+\begin{trditev}
+	Naj bo $\mathbf{r}(t)=(x(t),y(t),z(t))$ regularna krivulja s pitagorejskim hodografom. Potem lahko za poljubni točki točki $a$, $b$ z definicijskega območja krivulje velja, da lahko dolžino loka krivulje med $\mathbf{r}(a)$ in $\mathbf{r}(b)$ natančno izračunamo.
+\end{trditev}
+\begin{proof}
+	Ločna dolžina krivulje med točkama $\mathbf{r}(a)$ in $\mathbf{r}(b)$ je enaka
+	\begin{equation}
+		\int_a^b\lVert \mathbf{r'}(t) \rVert dt=\int_a^b\sqrt{x'^2(t)+y'^2(t)+z'^2(t)}dt=\int_a^b\sqrt{\sigma^2(t)}dt=\int_a^b|\sigma(t)|dt
+	\end{equation}
+	Ker je krivulja $\mathbf{r}$ regularna, je potem $\lVert \mathbf{r'}(t) \rVert \neq 0$ za vsak $t$ z definicijskega območja krivulje. Torej $\lVert \mathbf{r'}(t) \rVert$ ne spreminja predznaka. Ker je $|\sigma(t)|=\lVert \mathbf{r'}(t) \rVert,$ se torej predznak $\sigma(t)$ ohranja za vsak $t.$ Ker se predznak $\sigma(t)$ ohranja in ker je $\sigma(t)$ polinom, sledi, da se da zgornji izraz (ločno dolžino) natančno izračunati.
+\end{proof}
+
+Integral polinoma, ki ga tako dobimo, ni zaželjen le, ker dobimo z njim natančen rezultat, ampak tudi zaradi tega, ker je hitro izračunljiv. Dalje si oglejmo, kako izgleda Frenetovo ogrodje PH krivulje. Kot lahko razberemo iz \eqref{eq2_7}, in v skladu s karakterizacijo PH krivulje s polinomi $p,$ $q,$ $v$ in $u$ \eqref{eq4_7}, se lahko enotska tangenta krivulje izrazi na naslednji način
+\begin{align}
+	\mathbf{t}&=\frac{\mathbf{r'}}{\lVert \mathbf{r'} \rVert}=\frac{\mathbf{r'}}{\sigma}=\frac{(x',y',z')}{\sigma} \nonumber \\
+	&=\frac{(u^2+v^2-p^2-q^2,2(uq+vp),2(vq-up))}{p^2+q^2+v^2+u^2}.
+\end{align}
+
+Vidimo, da je enotska tangenta PH krivulje racionalna funkcija parametra $t.$ Ali velja enako tudi za normalo in binormalo? Če se spomnimo \eqref{normala} in \eqref{binormala}, vidimo, da sta tako normala kot binormala odvisni od količine $\lVert \mathbf{r'} \times \mathbf{r''} \rVert.$ Oglejmo si njen kvadrat
+\begin{equation}
+	\lVert \mathbf{r'} \times \mathbf{r''} \rVert^2=(y'z''-y''z')^2+(z'x''-z''x')^2+(x'y''-x''y')^2.
+\end{equation}
+Če vstavimo v zgornjo enačbo vrednosti iz \eqref{eq4_7} in upoštevamo vrednost $\sigma,$ z nekaj računanja ugotovimo \cite{farouki2002exact}, da je
+\begin{equation}
+	\label{eq4_12}
+	\lVert \mathbf{r'} \times \mathbf{r''} \rVert^2=\sigma^2\rho,
+\end{equation}
+kjer je
+\begin{align}
+	\rho=4[&(up'-u'p)^2+(uq'-u'q)^2+(vp'-v'p)^2 \nonumber \\
+	&+(vq'-v'q)^2+2(uv'-u'v)(pq'-p'q)]. \label{rho1}
+\end{align}
+Zgornjo količino se da izraziti \cite{beltranmonterde} tudi drugače:
+\begin{equation}
+	\label{rho2}
+	\rho=4[(up'-u'p+vq'-v'q)^2+(uq'-u'q+vp'-v'p)^2].
+\end{equation}
+Iz vsega povedanega lahko sklepamo, da vsebujeta tako normala kot binormala člen $\sqrt{\rho(t)},$ kar pomeni, da v splošnem tako normala kot binormala nista racionalni funkciji parametra $t.$
+
+Izrazimo sedaj še ukrivljenosti PH krivulj. Fleksijska ukrivljenost \eqref{kappa1} se izraža kot
+\begin{equation}
+	\label{kappa2}
+	\kappa=\frac{\lVert \mathbf{r'} \times \mathbf{r''} \rVert}{\sigma^3}=\frac{\sqrt{\rho}}{\sigma^2}.
+\end{equation}
+Sledi, da v splošnem tudi fleksijska ukrivljenost ni racionalna funkcija parametra $t.$ Iz izraza za torzijsko ukrivljenost \eqref{tau1} pa je razvidno, da je le-ta racionalna funkcija parametra $t,$ saj se v števcu nahaja skalarni produkt vektorjev $\mathbf{r'}\times \mathbf{r''}$ in $\mathbf{r'''},$ ki pa se ga da zapisati kot polinom, v imenovalcu pa imamo izraz \eqref{eq4_12}, ki je tudi polinom.
+
+Krivulje s pitagorejskim hodografom imajo zanimivo povezavo z ``vijačnimi'' polinomskimi krivulji. Oglejmo si najprej definicijo vijačnice.
+\begin{definicija}
+	Vijačnica blablabla
+\end{definicija}
+
+\subsection{Izražanje prostorskih PH krivulj v kvaternionski obliki}
 nekaj nekja
 
-\section{Izražanje prostorskih PH krivulj s Hopfovo preslikavo}
+\subsection{Izražanje prostorskih PH krivulj s Hopfovo preslikavo}
 nekjaj nkaj
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Dvojne PH krivulje}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Integrali po \texorpdfstring{$\omega$}{ω}-kompleksih}
 \subsection{Definicija}
 \begin{definicija}
