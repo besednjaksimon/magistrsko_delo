@@ -305,6 +305,7 @@ Tej vrednosti pravimo \textit{binormala} krivulje $\mathbf{r}.$ Vektorska polja 
 
 Recimo, da velja $\mathbf{b'} \neq 0.$ To pomeni, da imamo res opravka s prostorsko krivuljo. Če odvajamo enačbo \eqref{binormala} in uporabimo \eqref{eq2_5}, dobimo, da je odvod binormale enak $\mathbf{b'}=\mathbf{t} \times \mathbf{p'}.$ Ker ima za vsak parameter $\xi$ vektor $\mathbf{p}$ dolžino 1, sta potem vektorski polji $\mathbf{p}$ in $\mathbf{p'}$ ortogonalni (to lahko takoj preverimo z odvajanjem skalarnega produkta vektorskega polja $\mathbf{p}$ s samim seboj). Torej se da izraziti $\mathbf{p'}$ z $\mathbf{b}$ in $\mathbf{t},$ kar pa pomeni, da se da $\mathbf{b'}$ izraziti z $\mathbf{t} \times \mathbf{b}:$
 \begin{equation}
+	\label{eq2_11}
 	\mathbf{b'}(\xi)=\sigma(\xi)\tau(\xi)\mathbf{t}(\xi)\times \mathbf{b}(\xi)=-\sigma(\xi)\tau(\xi)\mathbf{p}(\xi).
 \end{equation}
 Funkciji $\tau(\xi)$ pravimo \textit{torzijska ukrivljenost} krivulje $\mathbf{r}.$ Da se dokopljemo do njenega eksplicitnega zapisa, najprej preuredimo in odvajamo enačbo \eqref{eq2_7}:
@@ -452,10 +453,71 @@ Izrazimo sedaj še ukrivljenosti PH krivulj. Fleksijska ukrivljenost \eqref{kapp
 \end{equation}
 Sledi, da v splošnem tudi fleksijska ukrivljenost ni racionalna funkcija parametra $t.$ Iz izraza za torzijsko ukrivljenost \eqref{tau1} pa je razvidno, da je le-ta racionalna funkcija parametra $t,$ saj se v števcu nahaja skalarni produkt vektorjev $\mathbf{r'}\times \mathbf{r''}$ in $\mathbf{r'''},$ ki pa se ga da zapisati kot polinom, v imenovalcu pa imamo izraz \eqref{eq4_12}, ki je tudi polinom.
 
-Krivulje s pitagorejskim hodografom imajo zanimivo povezavo z ``vijačnimi'' polinomskimi krivulji. Oglejmo si najprej definicijo vijačnice.
+Krivulje s pitagorejskim hodografom imajo zanimivo povezavo z ``vijačnimi'' polinomskimi krivulji. Oglejmo si najprej definicijo vijačnice.\cite{kreyszig2019differential}
 \begin{definicija}
-	Vijačnica blablabla
+	Krivulja $\mathbf{r}$ je vijačnica, če oklepa njena enotska tangenta $\mathbf{t}$ konstanten kot $\psi$ (kjer je $0<\psi \leq \frac{\pi}{2}$) z nekim fiksnim enotskim vektorjem $\mathbf{a}.$ Vektor $\mathbf{a}$ predstavlja os vrtenja vijačnice.
 \end{definicija}
+Ker sta vektorja $\mathbf{a}$ in $\mathbf{t}$ enotska, potem velja
+\begin{equation}
+	\label{pogoj_vijacnica}
+	\mathbf{a} \cdot \mathbf{t}=\cos \psi.
+\end{equation}
+\texttt{[Mogoče manjka kakšna slika tukaj?]}\\
+Zanimivo dejstvo o vijačnicah, ki nam bo prišlo prav kasneje, je Lancretov izrek.\cite{kreyszig2019differential}
+\begin{izrek}[Lancret]
+	\label{lancret}
+	Krivulja z neničelno fleksijsko ukrivljenostjo je vijačnica natanko takrat, ko je za vse njene točke razmerje med torzijsko in fleksijsko ukrivljenostjo konstantno.
+\end{izrek}
+\begin{proof}
+	Naj bo krivulja $\mathbf{r}(s)$ vijačnica izražena v naravni parametrizaciji. Torej drži enačba \eqref{pogoj_vijacnica} za nek vektor $\mathbf{a}$ in kot $\psi.$ Če to enačbo odvajamo po $s$ in upoštevamo \eqref{eq2_5}, dobimo
+	\begin{equation}
+		\mathbf{a} \cdot \mathbf{t'}=\kappa \mathbf{a} \cdot \mathbf{p}.
+	\end{equation}
+	Zaradi predpostavke in nenegativnosti $\kappa$ sledi, da je $\kappa > 0.$ Potem je
+	\begin{equation}
+	\label{eq4_18}
+	\mathbf{a} \cdot \mathbf{p}=0.
+	\end{equation}
+	To pomeni, da je v vsaki točki na krivulji enotska normala pravokotna na os vrtenja $\mathbf{a}.$ Vektor $\mathbf{a}$ se torej ves čas nahaja na ravnini, ki jo razpenjati enotska tangenta $\mathbf{t}$ ter enotska binormala $\mathbf{b}.$ Če velja formula \eqref{pogoj_vijacnica}, mora potem veljati tudi
+	\begin{equation}
+		\mathbf{a} \cdot \mathbf{b}=\sin \psi.
+	\end{equation}
+	Sedaj odvajajmo enačbo \eqref{eq4_18} in upoštevamo Frenetovo formulo za odvod enotske normale v naravni parametrizaciji \cite{kreyszig2019differential}. Dobimo naslednji izraz:
+	\begin{equation}
+		\mathbf{a} \cdot \mathbf{p'}=\mathbf{a} \cdot (-\kappa \mathbf{t}+\tau \mathbf{b})=-\kappa \cos \psi + \tau \sin \psi=0
+	\end{equation}
+	Torej je $\frac{\tau(s)}{\kappa(s)}=\cot \psi,$ kar je res konstantna vrednost.\\
+	Dokaz v drugo smer je dostopen v \cite{kreyszig2019differential}.
+\end{proof}
+Naslednja trditev nam bo osvetila povezavo med vijačnimi polinomskimi krivuljami (vijačnicami, ki so hkrati tudi polinomske krivulje) in PH krivuljami.\cite{faroukietal2004}
+\begin{trditev}
+	Če je polinomska krivulja vijačnica, ima potem tudi pitagorejski hodograf.
+\end{trditev}
+\begin{proof}
+	Za prostorko krivuljo $\mathbf{r}(\xi)$ lahko njeno enotsko tangento zapišemo kot $\frac{\mathbf{r'}(\xi)}{\lVert \mathbf{r'}(\xi) \rVert}.$ Potem lahko enačbo \eqref{pogoj_vijacnica} preoblikujemo kot
+	\begin{equation}
+		\mathbf{a} \cdot \mathbf{r'}(\xi)=\cos \psi \lVert \mathbf{r'}(\xi) \rVert.
+	\end{equation}
+	Leva stran enačba predstavlja polinom v spremenljivki $\xi.$ Na desni strani enačbe se lahko nahaja polinom, če je $\mathbf{r}(\xi)$ PH krivulja, kajti samo PH krivulje lahko imajo hitrost $\lVert \mathbf{r'}(\xi) \rVert$ polinomsko.
+\end{proof}
+Če je krivulja polinomska vijačnica, je potem tudi PH krivulja. Ali velja tudi obratno? Odgovor na to vprašanje je negativen, kot lahko vidimo iz spodnjega primera.\cite{beltranmonterde}
+\begin{primer}
+	Dana je naslednja PH krivulja
+	\begin{equation*}
+		\mathbf{r}(t)=\left ( \frac{t^7}{21}+\frac{t^5}{5}+t^3-3t,-\frac{t^4}{2}+3t^2,-2t^3 \right ).
+	\end{equation*}
+	Če izračunamo njeno hitrost in količino $\lVert \mathbf{r'} \times \mathbf{r''} \rVert,$ dobimo
+	\begin{equation*}
+		\lVert \mathbf{r'}(t) \rVert=\sigma(t)=\frac{1}{3}(t^6+3t^4+9t^2+9) \quad \text{in} \quad \lVert \mathbf{r'} \times \mathbf{r''} \rVert=2(t^2+1)(t^6+3t^4+9t^2+9).
+	\end{equation*}
+	Če upoštevamo formuli \eqref{kappa1} ter \eqref{tau1} in izračunamo razmerje
+	\begin{equation*}
+		\frac{\tau}{\kappa}=\frac{2t^6+9t^4-9}{9(t^2+1)^2},
+	\end{equation*}
+	vidimo, da po Lancretovemu izreku (\ref{lancret}) krivulja $\mathbf{r}(t)$ ne more biti vijačnica, saj razmerje med torzijsko in fleksijsko ukrivljenostjo ni konstantno.
+\end{primer}
+
+
 
 \subsection{Izražanje prostorskih PH krivulj v kvaternionski obliki}
 nekaj nekja
