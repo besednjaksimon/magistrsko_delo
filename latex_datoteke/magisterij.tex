@@ -77,6 +77,7 @@
 % DRUGI TVOJI PAKETI:
 % tukaj
 \newcommand{\iu}{\mathrm{i}\mkern1mu} % za imaginarno enoto
+\allowdisplaybreaks
 
 \setlength{\overfullrule}{50pt} % označi predlogo vrstico
 \pagestyle{plain}               % samo številka strani na dnu, nobene glave / noge
@@ -382,12 +383,18 @@ Z nekaj računanja lahko preverimo, da ima za dane realne polinome $p(\xi),$ $q(
 \begin{align}
 	x'(\xi)&=u^2(\xi)+v^2(\xi)-p^2(\xi)-q^2(\xi), \nonumber \\
 	y'(\xi)&=2[u(\xi)q(\xi)+v(\xi)p(\xi)], \nonumber \\
-	z'(\xi)&=2[v(\xi)q(\xi)-u(\xi)p(\xi)]. \label{eq4_7}
+	z'(\xi)&=2[v(\xi)q(\xi)-u(\xi)p(\xi)], \label{eq4_7}
 \end{align}
+ter za parametrično hitrost
+\begin{equation}
+	\label{eq4_8}
+	\sigma(\xi)=u^2(\xi)+v^2(\xi)+p^2(\xi)+q^2(\xi).
+\end{equation}
 
 Pri tako podani krivulji sicer nimamo zagotovila, da je ta krivulja res regularna, saj imajo lahko komponente hodografa skupne polinomske faktorje.
 
 \begin{definicija}
+	\label{primitiven_hodo}
 	Za krivuljo s pitagorejskim hodografom $\mathbf{r'}(\xi)=(x'(\xi),y'(\xi),z'(\xi))$ pravimo, da ima \emph{primitiven} pitagorejski hodograf, če je največji skupni delitelj komponent hodografa konstanten: $\mathrm{gcd}(x'(\xi),y'(\xi),z'(\xi))~=~\mathrm{konstanta}.$
 \end{definicija}
 
@@ -406,6 +413,7 @@ V praksi se raje uporablja primitivne hodografe, saj je skupna ničla komponent 
 Vidimo torej, da je v primeru paroma si tujih polinomov $p,$ $q,$ $v$ in $u$ največji skupni delitelj komponent hodografa realen polinom sode stopnje, ki nima realnih ničel. To pa pomeni, da realna krivulja, ki je porojena s temi polinomi, res nima točk obrata in je torej regularna.
 
 \subsection{Lastnosti}
+\label{subsec_lastnosti}
 
 Oglejmo si nekaj glavnih lastnosti krivulj s pitagorejskim hodografom. Začnimo kar z dolžino poti.
 \begin{trditev}
@@ -431,7 +439,7 @@ Vidimo, da je enotska tangenta PH krivulje racionalna funkcija parametra $t.$ Al
 \end{equation}
 Če vstavimo v zgornjo enačbo vrednosti iz \eqref{eq4_7} in upoštevamo vrednost $\sigma,$ z nekaj računanja ugotovimo \cite{farouki2002exact}, da je
 \begin{equation}
-	\label{eq4_12}
+	\label{eq4_13}
 	\lVert \mathbf{r'} \times \mathbf{r''} \rVert^2=\sigma^2\rho,
 \end{equation}
 kjer je
@@ -451,7 +459,7 @@ Izrazimo sedaj še ukrivljenosti PH krivulj. Fleksijska ukrivljenost \eqref{kapp
 	\label{kappa2}
 	\kappa=\frac{\lVert \mathbf{r'} \times \mathbf{r''} \rVert}{\sigma^3}=\frac{\sqrt{\rho}}{\sigma^2}.
 \end{equation}
-Sledi, da v splošnem tudi fleksijska ukrivljenost ni racionalna funkcija parametra $t.$ Iz izraza za torzijsko ukrivljenost \eqref{tau1} pa je razvidno, da je le-ta racionalna funkcija parametra $t,$ saj se v števcu nahaja skalarni produkt vektorjev $\mathbf{r'}\times \mathbf{r''}$ in $\mathbf{r'''},$ ki pa se ga da zapisati kot polinom, v imenovalcu pa imamo izraz \eqref{eq4_12}, ki je tudi polinom.
+Sledi, da v splošnem tudi fleksijska ukrivljenost ni racionalna funkcija parametra $t.$ Iz izraza za torzijsko ukrivljenost \eqref{tau1} pa je razvidno, da je le-ta racionalna funkcija parametra $t,$ saj se v števcu nahaja skalarni produkt vektorjev $\mathbf{r'}\times \mathbf{r''}$ in $\mathbf{r'''},$ ki pa se ga da zapisati kot polinom, v imenovalcu pa imamo izraz \eqref{eq4_13}, ki je tudi polinom.
 
 Krivulje s pitagorejskim hodografom imajo zanimivo povezavo z ``vijačnimi'' polinomskimi krivulji. Oglejmo si najprej definicijo vijačnice.\cite{kreyszig2019differential}
 \begin{definicija}
@@ -475,14 +483,14 @@ Zanimivo dejstvo o vijačnicah, ki nam bo prišlo prav kasneje, je Lancretov izr
 	\end{equation}
 	Zaradi predpostavke in nenegativnosti $\kappa$ sledi, da je $\kappa > 0.$ Potem je
 	\begin{equation}
-	\label{eq4_18}
+	\label{eq4_19}
 	\mathbf{a} \cdot \mathbf{p}=0.
 	\end{equation}
 	To pomeni, da je v vsaki točki na krivulji enotska normala pravokotna na os vrtenja $\mathbf{a}.$ Vektor $\mathbf{a}$ se torej ves čas nahaja na ravnini, ki jo razpenjati enotska tangenta $\mathbf{t}$ ter enotska binormala $\mathbf{b}.$ Če velja formula \eqref{pogoj_vijacnica}, mora potem veljati tudi
 	\begin{equation}
 		\mathbf{a} \cdot \mathbf{b}=\sin \psi.
 	\end{equation}
-	Sedaj odvajajmo enačbo \eqref{eq4_18} in upoštevamo Frenetovo formulo za odvod enotske normale v naravni parametrizaciji \cite{kreyszig2019differential}. Dobimo naslednji izraz:
+	Sedaj odvajajmo enačbo \eqref{eq4_19} in upoštevamo Frenetovo formulo za odvod enotske normale v naravni parametrizaciji \cite{kreyszig2019differential}. Dobimo naslednji izraz:
 	\begin{equation}
 		\mathbf{a} \cdot \mathbf{p'}=\mathbf{a} \cdot (-\kappa \mathbf{t}+\tau \mathbf{b})=-\kappa \cos \psi + \tau \sin \psi=0
 	\end{equation}
@@ -517,103 +525,168 @@ Naslednja trditev nam bo osvetila povezavo med vijačnimi polinomskimi krivuljam
 	vidimo, da po Lancretovemu izreku (\ref{lancret}) krivulja $\mathbf{r}(t)$ ne more biti vijačnica, saj razmerje med torzijsko in fleksijsko ukrivljenostjo ni konstantno.
 \end{primer}
 
-
-
 \subsection{Izražanje prostorskih PH krivulj v kvaternionski obliki}
-nekaj nekja
+
+Za študij PH krivulj je zelo prikladna kvaternionska predstavitev le-teh. To obliko so najprej opisali avtorji v \cite{choi2002clifford}. Spomnimo se predstavitve PH krivulje $\mathbf{r}(t)$ s pomočjo polinomov $u(t),$ $v(t),$ $p(t),$ $q(t)$. Če so ti polinomi stopnje največ $m,$ je potem PH krivulja, ki jo pridobimo z integriranjem hodografa $\mathbf{r'}(t),$ lihe stopnje, ki je enaka $n=2m+1.$
+
+Tvorimo kvaternionski polinom na naslednji način
+\begin{equation}
+	\mathcal{A}(t)=u(t)+v(t)\mathbf{i}+p(t)\mathbf{j}+q(t)\mathbf{k}.
+\end{equation}
+Če identificiramo imaginarne komponente s komponentami v $\R^3,$ ugotovimo, da lahko enačbe \eqref{eq4_7} precej bolj kompaktno zapišemo s pomočjo zgornjega polinoma
+\begin{align}
+	\mathbf{r'}(t)=\mathcal{A}(t)\mathbf{i}\mathcal{A}^*(t)=&[u^2(t)+v^2(t)-p^2(t)-q^2(t)]\mathbf{i}, \nonumber \\
+	&+2[u(t)q(t)+v(t)p(t)]\mathbf{j}, \nonumber \\
+	&+2[v(t)q(t)-u(t)p(t)]\mathbf{k}, \label{kvaternion}
+\end{align}
+kjer je
+\begin{equation}
+	\mathcal{A}^*(t)=u(t)-v(t)\mathbf{i}-p(t)\mathbf{j}-q(t)\mathbf{k}.
+\end{equation}
+konjugirana vrednost polinoma $\mathcal{A}(t).$ Ta polinom lahko izrazimo tudi v Bernsteinovi obliki
+\begin{equation}
+	\mathcal{A}(t)=u(t)+v(t)\mathbf{i}+p(t)\mathbf{j}+q(t)\mathbf{k}=\sum_{l=0}^m\mathcal{A}_l \binom{m}{l}(1-t)^{m-l}t^l,
+\end{equation}
+kjer so z $\mathcal{A}_l$ označeni Bernsteinovi koeficienti, ki so enaki
+\begin{equation}
+	\mathcal{A}_l=u_l+v_l\mathbf{i}+p_l\mathbf{j}+q_l\mathbf{k} \quad \text{za} \quad l=0,\dots m.
+\end{equation}
+Zgoraj so z $u_l,$ $v_l,$ $p_l,$ $q_l$ označeni Bernsteinovi koeficienti za vsak polinom $u(t),$ $v(t),$ $p(t),$ $q(t)$ posebej (za $l=0,\dots m$).
+
+Spomnimo se sedaj definicije \ref{primitiven_hodo} o primitivnem pitagorejskem hodografu. Če je največji skupni delitelj komponent hodografa nekonstanten, je torej enak nekemu polinomu $h(t),$ ki je sode stopnje brez realnih ničel. Potem se lahko tak ``neprimitiven'' hodograf zapiše kot
+\begin{equation}
+	\mathbf{r'}(t)=h(t)\mathcal{B}(t)\mathbf{i}\mathcal{B}^*(t)
+\end{equation}
+za nek kvaternionski polinom $\mathcal{B}(t)$ stopnje $m-r,$ kjer je $\mathrm{st}(h)=2r.$
 
 \subsection{Izražanje prostorskih PH krivulj s Hopfovo preslikavo}
-nekjaj nkaj
+
+Poleg kvaternionske oblike poznamo še drugi način za izražanje prostorskih PH krivulj in sicer s Hopfovo preslikavo. Definiramo jo na naslednji način.
+\begin{definicija}
+	\label{hopf_def}
+	\emph{Hopfova preslikava} $H$ je preslikava, ki slika iz $\C \times \C \to \R^3$ in ima naslednji predpis za $\boldsymbol\alpha, \boldsymbol\beta \in \C:$
+	\begin{equation}
+		\label{hoph}
+		H(\boldsymbol\alpha, \boldsymbol\beta)=(|\boldsymbol\alpha|^2-|\boldsymbol\beta|^2,2\mathrm{Re}(\boldsymbol\alpha \bar{\boldsymbol\beta}),2\mathrm{Im}(\boldsymbol\alpha \bar{\boldsymbol\beta})).
+	\end{equation}
+\end{definicija}
+S pomočjo že znanih polinomov $u(t),$ $v(t),$ $p(t)$ in $q(t)$ lahko definiramo kompleksna polinoma $\boldsymbol\alpha(t)=u(t)+\iu v(t)$ ter $\boldsymbol\beta(t)=q(t)+\iu p(t).$ Z malo računanja ugotovimo, da velja ravno $\mathbf{r'}(t)=H(\boldsymbol\alpha(t),\boldsymbol\beta(t)).$
+
+Parametrična hitrost ima v Hopfovi predstavitvi enostaven zapis in sicer \\ $\lVert \mathbf{r'}(t) \rVert=|\boldsymbol\alpha(t)|^2+|\boldsymbol\beta(t)|^2.$ Kot bomo videli v nadaljevanju, je Hopfova oblika primernejša za obravnavo dvojnih PH krivulj.
+
+\subsubsection{Pretvorba med predstavitvama}
+
+Spoznali smo dva načina, kako izražati hodograf PH krivulje: s pomočjo kvaternionske predstavitve ter predstavitve s Hopfovo preslikavo. Pretvorba med eno in drugo predstavitvijo je dokaj enostavna. Če identificiramo imaginarno enoto v kompleksnih številih $\iu$ z imaginarno enoto $\mathbf{i}$ v kvaternionih, vidimo, da se do kvaternionske oblike $\mathcal{A}(t)=u(t)+v(t)\mathbf{i}+p(t)\mathbf{j}+q(t)\mathbf{k}$ da priti s pomočjo kompleksnih polinomov $\boldsymbol\alpha(t)=u(t)+\iu v(t)$ in $\boldsymbol\beta(t)=q(t)+\iu p(t)$ na naslednji način:
+\begin{align}
+	\label{comp_to_quat}
+	\boldsymbol\alpha(t)+\mathbf{k}\boldsymbol\beta(t) &= u(t)+\iu v(t)+\mathbf{k}(q(t)+ \iu p(t)) \nonumber \\
+	&=u(t)+v(t)\mathbf{i} + p(t)\mathbf{j}+ q(t)\mathbf{k} \nonumber \\
+	&= \mathcal{A}(t).
+\end{align}
+
+Tudi kompleksna polinoma $\boldsymbol\alpha(t)$ in $\boldsymbol\beta(t)$ ni težko pridobiti iz kvaternionskega polinoma $\mathcal{A}(t).$ Hitro se da preveriti, da res velja
+\begin{equation}
+	\label{quat_to_comp}
+		\boldsymbol\alpha(t) = \frac{1}{2}[\mathcal{A}(t)-\mathbf{i}\mathcal{A}(t)\mathbf{i}] \quad \text{in} \quad \boldsymbol\beta(t)= \frac{1}{2}\mathbf{k}[\mathcal{A}(t)+\mathbf{i}\mathcal{A}(t)\mathbf{i}].
+\end{equation}
+\texttt{[Za dani hodograf je možno pridobiti enoparametrsko družino kvaternionskih polinomov, prav tako velja to za kompleksna polinoma. Mogoče dodam kasneje.]}
+
+\subsection{Izrojeni primeri prostorskih PH krivulj}
+
+\texttt{Če bo potrebno, bom tudi tukaj kaj spisal, sicer to podpoglavje črtam.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Dvojne PH krivulje}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Integrali po \texorpdfstring{$\omega$}{ω}-kompleksih}
-\subsection{Definicija}
-\begin{definicija}
-  Neskončno zaporedje kompleksnih števil, označeno z $\omega = (\omega_1, \omega_2, \ldots)$,
-  se imenuje \emph{$\omega$-kompleks}.\footnote{To ime je izmišljeno.}
 
-  Črni blok zgoraj je tam namenoma. Označuje, da \LaTeX{} ni znal vrstice prelomiti pravilno
-  in vas na to opozarja. Preoblikujte stavek ali mu pomagajte deliti problematično besedo z
-  ukazom \verb|\hyphenation{an-ti-ko-mu-ta-ti-ven}| v preambuli.
-\end{definicija}
-\begin{trditev}[Znano ime ali avtor]
-  \label{trd:obstoj-omega}
-  Obstaja vsaj en $\omega$-kompleks.
-\end{trditev}
-\begin{proof}
-  Naštejmo nekaj primerov:
-  \begin{align}
-    \omega &= (0, 0, 0, \dots), \label{eq:zero-kompleks} \\
-    \omega &= (1, i, -1, -i, 1, \ldots), \nonumber \\
-    \omega &= (0, 1, 2, 3, \ldots). \nonumber \qedhere  % postavi QED na zadnjo vrstico enačbe
-  \end{align}
-\end{proof}
-
-\section{Tehnični napotki za pisanje}
-
-\subsection{Sklicevanje in citiranje}
-Za sklice uporabljamo \verb|\ref|, za sklice na enačbe \verb|\eqref|, za citate \verb|\cite|. Pri
-sklicevanju in citiranju sklicano številko povežemo s prejšnjo besedo z nedeljivim presledkom
-$\sim$, kot npr.\ \verb|iz trditve~\ref{trd:obstoj-omega} vidimo|.
-
-\begin{primer}
-  Zaporedje~\eqref{eq:zero-kompleks} iz dokaza trditve~\ref{trd:obstoj-omega} na
-  strani~\pageref{trd:obstoj-omega} lahko najdemo tudi v Spletni enciklopediji zaporedij~\cite{oeis}.
-  Citiramo lahko tudi bolj natančno~\cite[trditev 2.1, str.\ 23]{lebedev2009introduction}.
-\end{primer}
-
-\subsection{Okrajšave}
-Pri uporabi okrajšav \LaTeX{} za piko vstavi predolg presledek, kot npr. tukaj. Zato se za vsako
-piko, ki ni konec stavka doda presledek običajne širine z ukazom \verb*|\ |, kot npr.\ tukaj.
-Primerjaj z okrajšavo zgoraj za razliko.
-
-\subsection{Vstavljanje slik}
-Sliko vstavimo v plavajočem okolju \texttt{figure}. Plavajoča okolja \emph{plavajo} po tekstu, in
-jih lahko postavimo na vrh strani z opcijskim parametrom `\texttt{t}', na lokacijo, kjer je v kodi s
-`\texttt{h}', in če to ne deluje, potem pa lahko rečete \LaTeX u, da ga \emph{res} želite tukaj,
-kjer ste napisali, s `\texttt{h!}'. Lepo je da so vstavljene slike vektorske (recimo \texttt{.pdf}
-ali \texttt{.eps} ali \texttt{.svg}) ali pa \texttt{.png} visoke resolucije (več kot
-\unit[300]{dpi}).  Pod vsako sliko je napis in na vsako sliko se skličemo v besedilu. Primer
-vektorske slike je na sliki~\ref{fig:sample}. Vektorsko sliko prepoznate tako, da močno
-zoomate v sliko, in še vedno ostane gladka. Več informacij je na voljo na
-\url{https://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions}. Če so slike bitne, kot na
-primer slika~\ref{fig:image}, poskrbite, da so v dovolj visoki resoluciji.
-
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=0.6\textwidth]{images/sample.pdf}
-% \caption[caption za v kazalo]{Dolg caption pod sliko}
-  \caption[Primer vektorske slike.]{Primer vektorske slike z oznakami v enaki pisavi, kot jo
-     uporablja \LaTeX{}.  Narejena je s programom Inkscape, \LaTeX{} oznake so importane v
-     Inkscape iz pomožnega PDF.}
-  \label{fig:sample}
-\end{figure}
-
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=0.8\textwidth]{images/image.png}
-  \caption[Primer bitne slike.]{Primer bitne slike, izvožene iz Matlaba. Poskrbite, da so slike v
-  dovolj visoki resoluciji in da ne vsebujejo prosojnih elementov (to zahteva PDF/A-1b format).}
-  \label{fig:image}
-\end{figure}
-
-\subsection{Kako narediti stvarno kazalo}
-Dodate ukaze \verb|\index{polje}| na besede, kjer je pojavijo, kot tukaj\index{tukaj}.
-Več o stvarnih kazalih je na voljo na \url{https://en.wikibooks.org/wiki/LaTeX/Indexing}.
-
-\subsection{Navajanje literature}
-%Članke citiramo z uporabo \verb|\cite{label}|, \verb|\cite[text]{label}| ali pa več naenkrat s
-%\verb|\cite\{label1, label2}|. Tudi tukaj predhodno besedo in citat povežemo z nedeljivim presledkom
-%$\sim$. Na primer~\cite{chen2006meshless,liu2001point}, ali pa \cite{kibriya2007empirical}, ali pa
-%\cite[str.\ 12]{trobec2015parallel}, \cite[enačba (2.3)]{pereira2016convergence}.
-%Vnosi iz \verb|.bib| datoteke, ki niso citirani, se ne prikažejo v seznamu literature, zato jih
-%tukaj citiram.~\cite{vene2000categorical}, \cite{gregoric2017stopniceni}, \cite{slak2015induktivni},
-%\cite{nsphere}, \cite{kearsley1975linearly}, \cite{STtemplate}, \cite{NunbergerTand}.
-
-Tu na novo citiram \cite{DPHclanek1}, \cite{DPHclanek2}, \cite{beltranmonterde}, \cite{choi2002clifford},
-\cite{struik1961lectures}, \cite{kreyszig2019differential}, \cite{faroukietal2004}, \cite{farouki2008pythagorean}. 
+%\section{Integrali po \texorpdfstring{$\omega$}{ω}-kompleksih}
+%\subsection{Definicija}
+%\begin{definicija}
+%  Neskončno zaporedje kompleksnih števil, označeno z $\omega = (\omega_1, \omega_2, \ldots)$,
+%  se imenuje \emph{$\omega$-kompleks}.\footnote{To ime je izmišljeno.}
+%
+%  Črni blok zgoraj je tam namenoma. Označuje, da \LaTeX{} ni znal vrstice prelomiti pravilno
+%  in vas na to opozarja. Preoblikujte stavek ali mu pomagajte deliti problematično besedo z
+%  ukazom \verb|\hyphenation{an-ti-ko-mu-ta-ti-ven}| v preambuli.
+%\end{definicija}
+%\begin{trditev}[Znano ime ali avtor]
+%  \label{trd:obstoj-omega}
+%  Obstaja vsaj en $\omega$-kompleks.
+%\end{trditev}
+%\begin{proof}
+%  Naštejmo nekaj primerov:
+%  \begin{align}
+%    \omega &= (0, 0, 0, \dots), \label{eq:zero-kompleks} \\
+%    \omega &= (1, i, -1, -i, 1, \ldots), \nonumber \\
+%    \omega &= (0, 1, 2, 3, \ldots). \nonumber \qedhere  % postavi QED na zadnjo vrstico enačbe
+%  \end{align}
+%\end{proof}
+%
+%\section{Tehnični napotki za pisanje}
+%
+%\subsection{Sklicevanje in citiranje}
+%Za sklice uporabljamo \verb|\ref|, za sklice na enačbe \verb|\eqref|, za citate \verb|\cite|. Pri
+%sklicevanju in citiranju sklicano številko povežemo s prejšnjo besedo z nedeljivim presledkom
+%$\sim$, kot npr.\ \verb|iz trditve~\ref{trd:obstoj-omega} vidimo|.
+%
+%\begin{primer}
+%  Zaporedje~\eqref{eq:zero-kompleks} iz dokaza trditve~\ref{trd:obstoj-omega} na
+%  strani~\pageref{trd:obstoj-omega} lahko najdemo tudi v Spletni enciklopediji zaporedij~\cite{oeis}.
+%  Citiramo lahko tudi bolj natančno~\cite[trditev 2.1, str.\ 23]{lebedev2009introduction}.
+%\end{primer}
+%
+%\subsection{Okrajšave}
+%Pri uporabi okrajšav \LaTeX{} za piko vstavi predolg presledek, kot npr. tukaj. Zato se za vsako
+%piko, ki ni konec stavka doda presledek običajne širine z ukazom \verb*|\ |, kot npr.\ tukaj.
+%Primerjaj z okrajšavo zgoraj za razliko.
+%
+%\subsection{Vstavljanje slik}
+%Sliko vstavimo v plavajočem okolju \texttt{figure}. Plavajoča okolja \emph{plavajo} po tekstu, in
+%jih lahko postavimo na vrh strani z opcijskim parametrom `\texttt{t}', na lokacijo, kjer je v kodi s
+%`\texttt{h}', in če to ne deluje, potem pa lahko rečete \LaTeX u, da ga \emph{res} želite tukaj,
+%kjer ste napisali, s `\texttt{h!}'. Lepo je da so vstavljene slike vektorske (recimo \texttt{.pdf}
+%ali \texttt{.eps} ali \texttt{.svg}) ali pa \texttt{.png} visoke resolucije (več kot
+%\unit[300]{dpi}).  Pod vsako sliko je napis in na vsako sliko se skličemo v besedilu. Primer
+%vektorske slike je na sliki~\ref{fig:sample}. Vektorsko sliko prepoznate tako, da močno
+%zoomate v sliko, in še vedno ostane gladka. Več informacij je na voljo na
+%\url{https://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions}. Če so slike bitne, kot na
+%primer slika~\ref{fig:image}, poskrbite, da so v dovolj visoki resoluciji.
+%
+%\begin{figure}[h]
+%  \centering
+%  \includegraphics[width=0.6\textwidth]{images/sample.pdf}
+%% \caption[caption za v kazalo]{Dolg caption pod sliko}
+%  \caption[Primer vektorske slike.]{Primer vektorske slike z oznakami v enaki pisavi, kot jo
+%     uporablja \LaTeX{}.  Narejena je s programom Inkscape, \LaTeX{} oznake so importane v
+%     Inkscape iz pomožnega PDF.}
+%  \label{fig:sample}
+%\end{figure}
+%
+%\begin{figure}[h]
+%  \centering
+%  \includegraphics[width=0.8\textwidth]{images/image.png}
+%  \caption[Primer bitne slike.]{Primer bitne slike, izvožene iz Matlaba. Poskrbite, da so slike v
+%  dovolj visoki resoluciji in da ne vsebujejo prosojnih elementov (to zahteva PDF/A-1b format).}
+%  \label{fig:image}
+%\end{figure}
+%
+%\subsection{Kako narediti stvarno kazalo}
+%Dodate ukaze \verb|\index{polje}| na besede, kjer je pojavijo, kot tukaj\index{tukaj}.
+%Več o stvarnih kazalih je na voljo na \url{https://en.wikibooks.org/wiki/LaTeX/Indexing}.
+%
+%\subsection{Navajanje literature}
+%%Članke citiramo z uporabo \verb|\cite{label}|, \verb|\cite[text]{label}| ali pa več naenkrat s
+%%\verb|\cite\{label1, label2}|. Tudi tukaj predhodno besedo in citat povežemo z nedeljivim presledkom
+%%$\sim$. Na primer~\cite{chen2006meshless,liu2001point}, ali pa \cite{kibriya2007empirical}, ali pa
+%%\cite[str.\ 12]{trobec2015parallel}, \cite[enačba (2.3)]{pereira2016convergence}.
+%%Vnosi iz \verb|.bib| datoteke, ki niso citirani, se ne prikažejo v seznamu literature, zato jih
+%%tukaj citiram.~\cite{vene2000categorical}, \cite{gregoric2017stopniceni}, \cite{slak2015induktivni},
+%%\cite{nsphere}, \cite{kearsley1975linearly}, \cite{STtemplate}, \cite{NunbergerTand}.
+%
+%Tu na novo citiram \cite{DPHclanek1}, \cite{DPHclanek2}, \cite{beltranmonterde}, \cite{choi2002clifford},
+%\cite{struik1961lectures}, \cite{kreyszig2019differential}, \cite{faroukietal2004}, \cite{farouki2008pythagorean}. 
 
 % Literatura:
 % Primer navajanja na http://www.fmf.uni-lj.si/storage/24240/LiteraturaM.pdf,
