@@ -1,0 +1,27 @@
+% Matematični ukazi
+\newcommand{\R}{\mathbb R}
+\newcommand{\N}{\mathbb N}
+LaTeX okrajšave
+\newcommand{\Z}{\mathbb Z}
+\renewcommand{\C}{\mathbb C}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\tangenta}{\frac{\mathbf{r}'}{\lVert \mathbf{r}'\rVert}}
+\newcommand{\normala}{\frac{\mathbf{r}'\times\mathbf{r}''}{\lVert \mathbf{r}'\times\mathbf{r}'' \rVert}\times \mathbf{t}}
+\newcommand{\binormala}{\frac{\mathbf{r}'\times\mathbf{r}''}{\lVert \mathbf{r}'\times\mathbf{r}'' \rVert}}
+\newcommand{\fleksija}{\frac{\lVert \mathbf{r}'\times\mathbf{r}'' \rVert}{\sigma^3}}
+\newcommand{\torzija}{\frac{(\mathbf{r}'\times\mathbf{r}'')\cdot\mathbf{r}'''}{\lVert \mathbf{r}'\times\mathbf{r}'' \rVert^2}}
+\newcommand{\tV}{\mathbf{t}}
+\newcommand{\aV}{\mathbf{a}}
+\newcommand{\bV}{\mathbf{b}}
+\newcommand{\pV}{\mathbf{p}}
+\newcommand{\rV}{\mathbf{r}}
+\newcommand{\iV}{\mathbf{i}}
+\newcommand{\jV}{\mathbf{j}}
+\newcommand{\kV}{\mathbf{k}}
+\newcommand{\ndr}{\lVert \mathbf{r}'\rVert} % norma prvega odvoda
+\newcommand{\ndrtddr}{\lVert \mathbf{r}'\times \mathbf{r}'' \rVert} % norma vektorskega produkta prvega in drugega odvoda
+\newcommand{\AQ}{\mathcal{A}}
+\newcommand{\BQ}{\mathcal{B}}
+\newcommand{\CQ}{\mathcal{C}}
+\newcommand{\boldalpha}{\boldsymbol \alpha}
+\newcommand{\boldbeta}{\boldsymbol \beta}

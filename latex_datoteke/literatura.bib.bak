@@ -236,6 +236,28 @@
   year      = {2014},
 }
 
+@Article{farouki2002exact,
+  author    = {Farouki, Rida T},
+  journal   = {Graphical Models},
+  title     = {Exact rotation-minimizing frames for spatial Pythagorean-hodograph curves},
+  year      = {2002},
+  number    = {6},
+  pages     = {382--395},
+  volume    = {64},
+  publisher = {Elsevier},
+}
+
+@Article{kubota1972pythagorean,
+  author    = {Kubota, Kub K},
+  journal   = {The American Mathematical Monthly},
+  title     = {Pythagorean triples in unique factorization domains},
+  year      = {1972},
+  number    = {5},
+  pages     = {503--505},
+  volume    = {79},
+  publisher = {Taylor \& Francis},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}
 
 @Comment{jabref-meta: fileDirectoryLatex-simon-DESKTOP-QH7H5BT:C:\\Users\\simon\\Desktop\\magistrsko_delo\\predloga;}
