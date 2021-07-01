@@ -23,5 +23,6 @@ LaTeX okrajšave
 \newcommand{\AQ}{\mathcal{A}}
 \newcommand{\BQ}{\mathcal{B}}
 \newcommand{\CQ}{\mathcal{C}}
+\newcommand{\QQ}{\mathcal{Q}}
 \newcommand{\boldalpha}{\boldsymbol \alpha}
 \newcommand{\boldbeta}{\boldsymbol \beta}

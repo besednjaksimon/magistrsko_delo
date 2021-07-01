@@ -121,6 +121,7 @@
 \newcommand{\AQ}{\mathcal{A}}
 \newcommand{\BQ}{\mathcal{B}}
 \newcommand{\CQ}{\mathcal{C}}
+\newcommand{\QQ}{\mathcal{Q}}
 \newcommand{\boldalpha}{\boldsymbol \alpha}
 \newcommand{\boldbeta}{\boldsymbol \beta}
 
@@ -558,6 +559,7 @@ Lancretov izrek nam omogoča, da za polinomsko vijačnico še drugače izrazimo 
 Iz tega lahko sklepamo, da je PH krivulja polinomska vijačnica tedaj, ko je izpolnjen pogoj $\rho^{3/2}=\tan \psi (\rV'\times\rV'')\cdot\rV'''.$
 
 \subsection{Izražanje prostorskih PH krivulj v kvaternionski obliki}
+\label{PH_kvaternioni}
 
 Za študij PH krivulj je zelo prikladna kvaternionska predstavitev le-teh. To obliko so najprej opisali avtorji v \cite{choi2002clifford}. Spomnimo se predstavitve PH krivulje $\rV(t)$ s pomočjo polinomov $u(t),$ $v(t),$ $p(t),$ $q(t)$. Če so ti polinomi stopnje največ $m,$ je potem PH krivulja, ki jo pridobimo z integriranjem hodografa $\rV'(t),$ lihe stopnje, ki je enaka $n=2m+1.$
 
@@ -583,10 +585,16 @@ kjer so z $\AQ_l$ označeni Bernsteinovi koeficienti, ki so enaki
 \begin{equation}
 	\AQ_l=u_l+v_l\iV+p_l\jV+q_l\kV \quad \text{za} \quad l=0,\dots m.
 \end{equation}
-Zgoraj so z $u_l,$ $v_l,$ $p_l,$ $q_l$ označeni Bernsteinovi koeficienti za vsak polinom $u(t),$ $v(t),$ $p(t),$ $q(t)$ posebej (za $l=0,\dots m$).
+Zgoraj so z $u_l,$ $v_l,$ $p_l,$ $q_l$ označeni Bernsteinovi koeficienti za vsak polinom $u(t),$ $v(t),$ $p(t),$ $q(t)$ posebej (za $l=0,\dots m$). Parametrična hitrost krivulje $\rV$ se prav tako preprosto izrazi kot
+\begin{equation}
+	\label{kvaternionska_hitrost}
+	\lVert \rV'(t) \rVert=\sigma(t)=\AQ(t) \AQ^*(t)=\lVert \AQ(t) \rVert^2=u^2(t)+v^2(t)+p^2(t)+q^2(t)
+\end{equation}
+zmnožek kvaternionskega polinoma $\AQ$ s konjugirano vrednostjo samega sebe.
 
 Spomnimo se sedaj definicije \ref{primitiven_hodo} o primitivnem pitagorejskem hodografu. Če je največji skupni delitelj komponent hodografa nekonstanten, je torej enak nekemu polinomu $h(t),$ ki je sode stopnje brez realnih ničel. Potem se lahko tak ``neprimitiven'' hodograf zapiše kot
 \begin{equation}
+	\label{Bkvaternion}
 	\rV'(t)=h(t)\BQ(t)\iV\BQ^*(t)
 \end{equation}
 za nek kvaternionski polinom $\BQ(t)$ stopnje $m-r,$ kjer je $\mathrm{st}(h)=2r.$
@@ -663,7 +671,7 @@ vidimo, da polinomi $2(up'-u'p+vq'-v'q),$ $2(uq'-u'q-vp'+v'p)$ in $\omega$ tvori
 \begin{align}
 	up'-u'p+vq'-v'q&=h(a^2-b^2), \nonumber \\
 	uq'-u'q-vp'+v'p&=2hab, \nonumber \\
-	\omega&=2h(a^2+b^2),
+	\omega&=2h(a^2+b^2), \label{kubota}
 \end{align}
 da bo res pitagorejska za polinome $h(t),$ $a(t),$ $b(t),$ kjer sta si $a(t)$ in $b(t)$ tuja. Če sta si tudi polinoma $up'-u'p+vq'-v'q$ in $uq'-u'q-vp'+v'p$ tuja, lahko potem vzamemo $h(t)\equiv 1.$ V takem primeru pravimo, da imamo \emph{primitivno} pitagorejsko trojico.
 
@@ -694,7 +702,98 @@ Iz enačbe \eqref{rho3over2} je razvidno, da je za DPH krivulje razmerje med fle
 
 \subsection{Kvaternionska predstavitev dvojnih PH krivulj}
 
+Kot smo že videli v poglavju \ref{PH_kvaternioni} o izražanju PH krivulj v kvaternionski obliki se lahko hodograf običajne PH krivulje $\rV(t)$ izraža s pomočjo kvaternionskega polinoma $\AQ(t)$ kot $\rV'(t)=\AQ(t)\iV\AQ^*(t)$ ter parametrično hitrost kot $\sigma(t)=\lVert \AQ(t) \rVert^2.$ 
+
+Sedaj bomo izpeljali izraz za $\rho,$ kot smo ga navedli v \eqref{rho2}. Začnemo z $\rV''(t)=\AQ'(t)\iV\AQ^*(t)+\AQ(t)\iV\AQ'^*(t).$ Če obravnavamo $\rV'(t)$ in $\rV''(t)$ kot kvaterniona brez skalarnega dela, se potem njun vektorski produkt $\rV'(t)\times\rV''(t)$ izrazi kot polovica njunega produkta brez polovice produkta njunih konjugiranih vrednosti. Tako imamo
+\begin{equation*}
+	\rV'\times\rV''=\frac{1}{2}\left ( (\AQ\iV\AQ^*)(\AQ'\iV\AQ^*+\AQ\iV\AQ'^*)-(\AQ'\iV\AQ^*+\AQ\iV\AQ'^*)^*(\AQ\iV\AQ^*)^* \right )
+\end{equation*}
+in ko malce poenostavimo, dobimo
+\begin{equation*}
+	\rV'\times\rV''=\frac{1}{2}\left ( \AQ\iV(\AQ^*\AQ'-\AQ'^*\AQ)\iV\AQ'^*+\sigma(\AQ'\AQ^*-\AQ\AQ'^*) \right ).
+\end{equation*}
+Ker je $\sigma(t)=\AQ(t)\AQ^*(t)=\AQ^*(t)\AQ(t)$ je potem res
+\begin{equation*}
+	\sigma'=\AQ'\AQ^*+\AQ\AQ'^*=\AQ'^*\AQ+\AQ^*\AQ'.
+\end{equation*}
+Člena $\AQ^*\AQ'-\AQ'^*\AQ$ in $\AQ'\AQ^*-\AQ\AQ'^*$ se lahko izrazita s pomočjo $\sigma'$ in sicer tako, da je $\AQ^*\AQ'-\AQ'^*\AQ=\sigma'-2\AQ'^*\AQ$ ter $\AQ'\AQ^*-\AQ\AQ'^*=\sigma'-2\AQ\AQ'^*.$ Če vstavimo ta dva izraza v izraz za $\rV'\times\rV''$ in upoštevamo $\sigma=\AQ\AQ^*,$ se nekaj členov pokrajša in ostane
+\begin{equation*}
+	\rV'\times\rV''=\AQ\iV\AQ^*\AQ'\iV\AQ^* + \sigma\AQ'\AQ^*=\AQ(\iV\AQ^*\AQ'\iV + \AQ^*\AQ')\AQ^*.
+\end{equation*}
+Če izrazimo $\AQ(t)$ s polinomi $u(t),$ $v(t),$ $p(t)$ in $q(t)$ sta potem produkta $\AQ^*\AQ'$ in $\iV\AQ^*\AQ'\iV$ enaka
+\begin{align*}
+	\AQ^*\AQ'=&(uu'+vv'+pp'+qq')+(uv'-u'v-pq'+p'q)\iV \\
+	&+(up'-u'p+vq'-v'q)\jV+(uq'-u'q-vp'+v'p)\kV, \\
+	\iV\AQ^*\AQ'\iV=&-(uu'+vv'+pp'+qq')-(uv'-u'v-pq'+p'q)\iV \\
+	&+(up'-u'p+vq'-v'q)\jV+(uq'-u'q-vp'+v'p)\kV.
+\end{align*}
+Sedaj definirajmo dva nova polinoma
+\begin{align}
+	f(t)=u(t)p'(t)-u'(t)p(t)+v(t)q'(t)-v'(t)q(t), \nonumber \\
+	g(t)=u(t)q'(t)-u'(t)q(t)-v(t)p'(t)+v'(t)q(t). \label{polinoma_f_g}
+\end{align}
+Vidimo, da se skalarni del v $\rV'\times\rV''$ (pričakovano) pokrajša. Pokrajša se tudi imaginarni del pri komponenti $\iV,$ ostalo lahko izrazimo krajše s pomočjo polinomov $f(t)$ in $g(t)$ takole:
+\begin{equation}
+	\label{drtddr}
+	\rV'(t)\times\rV''(t)=2\AQ(t)[f(t)\jV+g(t)\kV]\AQ^*(t).
+\end{equation}
+Spet izrazimo $\AQ(t)$ z znanimi polinomi in nato produkt pomnožimo. Po dolgem računanju in obračanju izrazov dobimo
+\begin{align*}
+	\label{drtddr}
+	\rV'\times\rV''=&2 \big (2((vp-uq)f+(up+vq)g)\iV+(2(u^2-v^2+p^2-q^2)f+2(pq-uv)g)\jV \\
+	&+(2(uv+pq)f+(u^2-v^2-p^2+q^2)g)\kV \big ).
+\end{align*}
+Če si sedaj končno pogledamo kvadrat norme vektorskega produkta imamo spočetka dolg izraz
+\begin{align*}
+	\lVert\rV'\times&\rV''\rVert^2=4 \Big( 4(vp-uq)^2f^2+8(vp-uq)(up+vq)fg+4(up+vq)^2g^2\\
+	&+(u^2-v^2+p^2-q^2)^2f^2+4(u^2-v^2+p^2-q^2)(pq-uv)fg+4(pq-uv)^2g^2\\
+	&+4(uv+pq)^2f^2+4(uv+pq)(u^2-v^2-p^2+q^2)fg+(u^2-v^2-p^2+q^2)^2g^2 \Big)
+\end{align*}
+Vidimo, da se mešani členi $fg$ uničijo, člena pri $f^2$ in $g^2$ pa se skupaj seštejeta ravno v $\sigma^2=(u^2+v^2+p^2+q^2)^2.$ Dobimo
+\begin{equation}
+	\lVert\rV'(t)\times\rV''(t)\rVert^2=4\sigma^2(t)\big(f^2(t)+g^2(t)\big).
+\end{equation}
+Tako smo končno pokazali, da res drži enačba \eqref{rho2}, saj sta kvadrata polinomov $f(t)$ in $g(t)$ natanko tista izraza, ki se pojavita v formuli za $\rho.$ Imamo opravka s pravzaprav isto pitagorejsko trojico kot pri \eqref{kubota}, tako da sta potem polinoma $f(t)$ in $g(t)$ enaka $f(t)=h(t)\big(a^2(t)-b^2(t)\big)$ ter $g(t)=2h(t)a(t)b(t)$ za polinome $a(t),$ $b(t)$ ter $h(t)$, kjer sta si $a(t)$ in $b(t)$ tuja.
+
+Vektorski produkt $\rV'(t)\times\rV''(t)$ lahko pri DPH krivuljah s pomočjo kvaternionskih polinomov zapišemo še malce bolj kompaktno. To si oglejmo v naslednji trditvi.
+\begin{trditev}
+	\label{drtddr_za_DPH}
+	Naj bo $\rV(t)$ dvojna PH krivulja s kvaternionskim polinomom $\AQ(t)=u(t)+v(t)\iV+p(t)\jV+q(t)\kV.$ Potem se vektorski produkt $\rV'(t)\times\rV''(t)$ da izraziti s pomočjo kvaternionskega polinoma $\BQ(t)$ preko oblike, kot jo že poznamo iz \eqref{Bkvaternion}. Ta polinom se izraža kot $\BQ(t)=\AQ(t)\CQ(t),$ kjer je $\CQ(t)=-b(t)+a(t)\iV+a(t)\jV+b(t)\kV,$ polinoma $a(t)$ in $b(t)$ pa sta znana iz \eqref{kubota}.
+\end{trditev}
+\begin{proof}
+	Če upoštevamo enačbo \eqref{drtddr} in obliko \eqref{Bkvaternion} za $\rV'(t)\times\rV''(t)$ ter vrednosti polinov $f(t)$ in $g(t)$, je potem vektorski produkt enak
+	\begin{align}
+		\rV'(t)\times\rV''(t)&=h(t)\Big(2\AQ(t)\big((a^2(t)-b^2(t))\jV+2a(t)b(t)\kV\big)\AQ^*(t)\Big) \nonumber \\
+		&=h(t)\BQ(t)\iV\BQ^*(t)
+	\end{align}
+	Če izraz $\BQ(t)\iV\BQ^*(t)$ pomnožimo z leve z $\AQ^*(t)$ ter z desne z $\AQ(t),$ dobimo
+	\begin{equation*}
+		\QQ(t)\iV\QQ^*(t)=2\sigma^2(t)\big((a^2(t)-b^2(t))\jV+2a(t)b(t)\kV\big),
+	\end{equation*}
+	kjer je $\QQ(t)=\AQ^*(t)\BQ(t).$ Po izpeljavi, ki se nahaja v poglavju 3.2 v \cite{farouki2002hermite}, ima potem splošna rešitev te enačbe obliko
+	\begin{equation*}
+		\QQ=\sigma\frac{((a^2+b^2)\iV+(a^2-b^2)\jV+2ab\kV)}{\sqrt{a^2+b^2}}(\cos\phi+\sin\phi\iV),
+	\end{equation*}
+	kjer je $\phi$ prost parameter. Sledi, da je $\BQ$ enak
+	\begin{equation*}
+		\BQ=\AQ\frac{((a^2+b^2)\iV+(a^2-b^2)\jV+2ab\kV)}{\sqrt{a^2+b^2}}(\cos\phi+\sin\phi\iV).
+	\end{equation*}
+	Želimo, da je $\BQ(t)$ kvaternionski polinom, zato moramo izbrati nek $\phi$ v odvisnosti od $t,$ pri kateremu to res drži. Implicitno definiramo $\phi(t)$ z naslednjima formulama
+	\begin{equation*}
+		\sin\phi(t)=\frac{b(t)}{\sqrt{a^2(t)+b^2(t)}}\quad\text{in}\quad\cos\phi(t)=\frac{a(t)}{\sqrt{a^2(t)+b^2(t)}}.
+	\end{equation*}
+	Vstavimo ta dva izraza v izraz za $\BQ(t)$ in poenostavimo
+	\begin{align*}
+		\BQ&=\AQ\left(-b+a\iV+\frac{a(a^2-b^2)+2ab^2}{a^2+b^2}\jV+\frac{2a^2b-b(a^2-b^2)}{a^2+b^2}\kV\right)\\
+		&=\AQ(-b+a\iV+a\jV+b\kV)=\AQ\CQ.
+	\end{align*}
+	Torej res drži $\BQ(t)=\AQ(t)\CQ(t),$ kar smo hoteli dokazati.
+\end{proof}
+
+
 \subsection{Predstavitev dvojnih PH krivulj s Hopfovo preslikavo}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %\section{Integrali po \texorpdfstring{$\omega$}{ω}-kompleksih}
