@@ -5,6 +5,7 @@ LaTeX okrajšave
 \newcommand{\Z}{\mathbb Z}
 \renewcommand{\C}{\mathbb C}
 \newcommand{\Q}{\mathbb Q}
+\newcommand{\quat}{\mathbb H}
 \newcommand{\tangenta}{\frac{\mathbf{r}'}{\lVert \mathbf{r}'\rVert}}
 \newcommand{\normala}{\frac{\mathbf{r}'\times\mathbf{r}''}{\lVert \mathbf{r}'\times\mathbf{r}'' \rVert}\times \mathbf{t}}
 \newcommand{\binormala}{\frac{\mathbf{r}'\times\mathbf{r}''}{\lVert \mathbf{r}'\times\mathbf{r}'' \rVert}}
@@ -18,11 +19,15 @@ LaTeX okrajšave
 \newcommand{\iV}{\mathbf{i}}
 \newcommand{\jV}{\mathbf{j}}
 \newcommand{\kV}{\mathbf{k}}
+\newcommand{\wV}{\mathbf{w}}
 \newcommand{\ndr}{\lVert \mathbf{r}'\rVert} % norma prvega odvoda
 \newcommand{\ndrtddr}{\lVert \mathbf{r}'\times \mathbf{r}'' \rVert} % norma vektorskega produkta prvega in drugega odvoda
 \newcommand{\AQ}{\mathcal{A}}
 \newcommand{\BQ}{\mathcal{B}}
 \newcommand{\CQ}{\mathcal{C}}
+\newcommand{\DQ}{\mathcal{D}}
 \newcommand{\QQ}{\mathcal{Q}}
-\newcommand{\boldalpha}{\boldsymbol \alpha}
-\newcommand{\boldbeta}{\boldsymbol \beta}
+\newcommand{\balpha}{\boldsymbol \alpha}
+\newcommand{\bbeta}{\boldsymbol \beta}
+\DeclareMathOperator{\st}{st}
+\DeclareMathOperator{\hopf}{H}

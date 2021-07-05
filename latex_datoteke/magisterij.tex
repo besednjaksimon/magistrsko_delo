@@ -103,6 +103,7 @@
 \newcommand{\Z}{\mathbb Z}
 \renewcommand{\C}{\mathbb C}
 \newcommand{\Q}{\mathbb Q}
+\newcommand{\quat}{\mathbb H}
 \newcommand{\tangenta}{\frac{\mathbf{r}'}{\lVert \mathbf{r}'\rVert}}
 \newcommand{\normala}{\frac{\mathbf{r}'\times\mathbf{r}''}{\lVert \mathbf{r}'\times\mathbf{r}'' \rVert}\times \mathbf{t}}
 \newcommand{\binormala}{\frac{\mathbf{r}'\times\mathbf{r}''}{\lVert \mathbf{r}'\times\mathbf{r}'' \rVert}}
@@ -116,16 +117,20 @@
 \newcommand{\iV}{\mathbf{i}}
 \newcommand{\jV}{\mathbf{j}}
 \newcommand{\kV}{\mathbf{k}}
+\newcommand{\wV}{\mathbf{w}}
 \newcommand{\ndr}{\lVert \mathbf{r}'\rVert} % norma prvega odvoda
 \newcommand{\ndrtddr}{\lVert \mathbf{r}'\times \mathbf{r}'' \rVert} % norma vektorskega produkta prvega in drugega odvoda
 \newcommand{\AQ}{\mathcal{A}}
 \newcommand{\BQ}{\mathcal{B}}
 \newcommand{\CQ}{\mathcal{C}}
+\newcommand{\DQ}{\mathcal{D}}
 \newcommand{\QQ}{\mathcal{Q}}
-\newcommand{\boldalpha}{\boldsymbol \alpha}
-\newcommand{\boldbeta}{\boldsymbol \beta}
+\newcommand{\balpha}{\boldsymbol \alpha}
+\newcommand{\bbeta}{\boldsymbol \beta}
 
 % \DeclareMathOperator{\tr}{tr}  % morda potrebuješ operator za sled ali kaj drugega?
+\DeclareMathOperator{\st}{st}
+\DeclareMathOperator{\hopf}{H}
 
 % bold matematika znotraj \textbf{ }, tudi v naslovih, kot \omega spodaj
 \makeatletter \g@addto@macro\bfseries{\boldmath} \makeatother
@@ -363,8 +368,12 @@ Polinomske in racionalne krivulje se v računalniško podprtem geometrijskem obl
 	\end{equation}
 \end{definicija}
 
-Temu pogoju pravimo tudi \emph{pitagorejski pogoj,} krivulji pa lahko krajše rečemo PH krivulja. Naslednji izrek nam bo pokazal, kako izpolniti ta pogoj.
-
+Temu pogoju pravimo tudi \emph{pitagorejski pogoj,} krivulji pa lahko krajše rečemo PH krivulja. Če imamo ravninsko krivuljo $\rV:I \to \R^2,$ $\rV(t)=(x(t),y(t)),$ je ta krivulja \emph{ravninska krivulja s pitagorejskim hodografom}, če velja
+\begin{equation}
+	\label{ravninski_pitagorejski}
+	x'^2(t)+y'^2(t)=\sigma^2(t)
+\end{equation}
+za nek realen polinom $\sigma(t).$ Naslednji izrek nam bo pokazal, kako izpolniti pitagorejski pogoj za prostorske krivulje.
 \begin{izrek}
 	Naj za paroma tuje realne polinome $a(\xi),b(\xi),c(\xi)$ in $d(\xi)$ velja pitagorejski pogoj
 	\begin{equation}
@@ -412,11 +421,27 @@ ter za parametrično hitrost
 	\sigma(\xi)=u^2(\xi)+v^2(\xi)+p^2(\xi)+q^2(\xi).
 \end{equation}
 
-Pri tako podani krivulji sicer nimamo zagotovila, da je ta krivulja res regularna, saj imajo lahko komponente hodografa skupne polinomske faktorje.
+\begin{opomba}
+	\label{opomba1}
+	Za obravnavo ravninskih PH krivulj se pogoj prejšnjega izreka poenostavi na $a^2(t)+b^2(t)=c^2(t),$ ki velja natanko takrat, če se da te polinome izraziti s polinomi $u(t),$ $v(t)$ in $w(t)$ kot
+	\begin{align}
+		a(t)&=\big(u^2(t)-v^2(t)\big)w(t),\nonumber\\
+		b(t)&=2u(t)v(t)w(t),\nonumber\\
+		c(t)&=\big(u^2(t)+v^2(t)\big)w(t),\label{ravninska_PH}
+	\end{align}
+	kjer sta si $u(t)$ in $v(t)$ tuja polinoma. Dokaz je dostopen na strani 386 v \cite{farouki2008pythagorean}. Tako je potem ravninska PH krivulja $\rV(t)=(x(t),y(t))$ definirana s pomočjo polinomov $u(t),$ $v(t)$ in $w(t)$ preko odvodov
+	\begin{equation}
+		\label{poly_ravninska_PH}
+		x'^2(t)=\big(u^2(t)-v^2(t)\big)w(t)\quad\text{in}\quad y'^2(t)=2u(t)v(t)w(t),
+	\end{equation}
+	ki jih potem še integriramo.
+\end{opomba}
+
+Pri krivulji, ki je podana z enačbami \eqref{eq4_7} sicer nimamo zagotovila, da je ta krivulja res regularna, saj imajo lahko komponente hodografa skupne polinomske faktorje.
 
 \begin{definicija}
 	\label{primitiven_hodo}
-	Za krivuljo s pitagorejskim hodografom $\rV'(\xi)=(x'(\xi),y'(\xi),z'(\xi))$ pravimo, da ima \emph{primitiven} pitagorejski hodograf, če je največji skupni delitelj komponent hodografa konstanten: $\mathrm{gcd}(x'(\xi),y'(\xi),z'(\xi))~=~\mathrm{konstanta}.$
+	Za krivuljo s pitagorejskim hodografom $\rV'(\xi)=(x'(\xi),y'(\xi),z'(\xi))$ pravimo, da ima \emph{primitiven} pitagorejski hodograf, če je največji skupni delitelj komponent hodografa konstanten: $\gcd(x'(\xi),y'(\xi),z'(\xi))~=~\mathrm{konstanta}.$
 \end{definicija}
 
 V praksi se raje uporablja primitivne hodografe, saj je skupna ničla komponent hodografa v splošnem lahko tudi točka obrata krivulja (torej točka, kjer tangentni vektor spremeni smer \texttt{[to poved se mora še rahlo preoblikovati]}). Izbira paroma si tujih polinomov $p,q,v$ in $u$ še ne zagotavlja, da je potem hodograf res primitiven. 
@@ -424,7 +449,7 @@ V praksi se raje uporablja primitivne hodografe, saj je skupna ničla komponent 
 \begin{izrek}
 	Naj bodo realni polinomi $p,$ $q,$ $v$ in $u$ paroma si tuji in komponente hodografa take kot v \eqref{eq4_7}. Potem velja
 	\begin{equation}
-		\mathrm{gcd}(x',y',z')=|\mathrm{gcd}(u+\iu v,p-\iu q)|^2.
+		\gcd(x',y',z')=|\gcd(u+\iu v,p-\iu q)|^2.
 	\end{equation}
 \end{izrek}
 \begin{proof}
@@ -583,6 +608,7 @@ konjugirana vrednost polinoma $\AQ(t).$ Ta polinom lahko izrazimo tudi v Bernste
 \end{equation}
 kjer so z $\AQ_l$ označeni Bernsteinovi koeficienti, ki so enaki
 \begin{equation}
+	\label{bern_koef_quat}
 	\AQ_l=u_l+v_l\iV+p_l\jV+q_l\kV \quad \text{za} \quad l=0,\dots m.
 \end{equation}
 Zgoraj so z $u_l,$ $v_l,$ $p_l,$ $q_l$ označeni Bernsteinovi koeficienti za vsak polinom $u(t),$ $v(t),$ $p(t),$ $q(t)$ posebej (za $l=0,\dots m$). Parametrična hitrost krivulje $\rV$ se prav tako preprosto izrazi kot
@@ -600,34 +626,35 @@ Spomnimo se sedaj definicije \ref{primitiven_hodo} o primitivnem pitagorejskem h
 za nek kvaternionski polinom $\BQ(t)$ stopnje $m-r,$ kjer je $\mathrm{st}(h)=2r.$
 
 \subsection{Izražanje prostorskih PH krivulj s Hopfovo preslikavo}
+\label{hopf}
 
 Poleg kvaternionske oblike poznamo še drugi način za izražanje prostorskih PH krivulj in sicer s Hopfovo preslikavo. Definiramo jo na naslednji način.
 \begin{definicija}
 	\label{hopf_def}
-	\emph{Hopfova preslikava} $H$ je preslikava, ki slika iz $\C \times \C \to \R^3$ in ima naslednji predpis za $\boldalpha, \boldbeta \in \C:$
+	\emph{Hopfova preslikava} $H$ je preslikava, ki slika iz $\C \times \C \to \R^3$ in ima naslednji predpis za $\balpha, \bbeta \in \C:$
 	\begin{equation}
 		\label{hoph}
-		H(\boldalpha, \boldbeta)=(|\boldalpha|^2-|\boldbeta|^2,2\mathrm{Re}(\boldalpha \bar{\boldbeta}),2\mathrm{Im}(\boldalpha \bar{\boldbeta})).
+		\hopf(\balpha, \bbeta)=(|\balpha|^2-|\bbeta|^2,2\mathrm{Re}(\balpha \bar{\bbeta}),2\mathrm{Im}(\balpha \bar{\bbeta})).
 	\end{equation}
 \end{definicija}
-S pomočjo že znanih polinomov $u(t),$ $v(t),$ $p(t)$ in $q(t)$ lahko definiramo kompleksna polinoma $\boldalpha(t)=u(t)+\iu v(t)$ ter $\boldbeta(t)=q(t)+\iu p(t).$ Z malo računanja ugotovimo, da velja ravno $\rV'(t)=H(\boldalpha(t),\boldbeta(t)).$
+S pomočjo že znanih polinomov $u(t),$ $v(t),$ $p(t)$ in $q(t)$ lahko definiramo kompleksna polinoma $\balpha(t)=u(t)+\iu v(t)$ ter $\bbeta(t)=q(t)+\iu p(t).$ Z malo računanja ugotovimo, da velja ravno $\rV'(t)=H(\balpha(t),\bbeta(t)).$
 
-Parametrična hitrost ima v Hopfovi predstavitvi enostaven zapis in sicer \\ $\lVert \rV'(t) \rVert=|\boldalpha(t)|^2+|\boldbeta(t)|^2.$ Kot bomo videli v nadaljevanju, je Hopfova oblika primernejša za obravnavo dvojnih PH krivulj.
+Parametrična hitrost ima v Hopfovi predstavitvi enostaven zapis in sicer \\ $\lVert \rV'(t) \rVert=|\balpha(t)|^2+|\bbeta(t)|^2.$ Kot bomo videli v nadaljevanju, je Hopfova oblika primernejša za obravnavo dvojnih PH krivulj.
 
 \subsubsection{Pretvorba med predstavitvama}
 
-Spoznali smo dva načina, kako izražati hodograf PH krivulje: s pomočjo kvaternionske predstavitve ter predstavitve s Hopfovo preslikavo. Pretvorba med eno in drugo predstavitvijo je dokaj enostavna. Če identificiramo imaginarno enoto v kompleksnih številih $\iu$ z imaginarno enoto $\iV$ v kvaternionih, vidimo, da se do kvaternionske oblike $\AQ(t)=u(t)+v(t)\iV+p(t)\jV+q(t)\kV$ da priti s pomočjo kompleksnih polinomov $\boldalpha(t)=u(t)+\iu v(t)$ in $\boldbeta(t)=q(t)+\iu p(t)$ na naslednji način:
+Spoznali smo dva načina, kako izražati hodograf PH krivulje: s pomočjo kvaternionske predstavitve ter predstavitve s Hopfovo preslikavo. Pretvorba med eno in drugo predstavitvijo je dokaj enostavna. Če identificiramo imaginarno enoto v kompleksnih številih $\iu$ z imaginarno enoto $\iV$ v kvaternionih, vidimo, da se do kvaternionske oblike $\AQ(t)=u(t)+v(t)\iV+p(t)\jV+q(t)\kV$ da priti s pomočjo kompleksnih polinomov $\balpha(t)=u(t)+\iu v(t)$ in $\bbeta(t)=q(t)+\iu p(t)$ na naslednji način:
 \begin{align}
 	\label{comp_to_quat}
-	\boldalpha(t)+\kV\boldbeta(t) &= u(t)+\iu v(t)+\kV(q(t)+ \iu p(t)) \nonumber \\
+	\balpha(t)+\kV\bbeta(t) &= u(t)+\iu v(t)+\kV(q(t)+ \iu p(t)) \nonumber \\
 	&=u(t)+v(t)\iV + p(t)\jV+ q(t)\kV \nonumber \\
 	&= \AQ(t).
 \end{align}
 
-Tudi kompleksna polinoma $\boldalpha(t)$ in $\boldbeta(t)$ ni težko pridobiti iz kvaternionskega polinoma $\AQ(t).$ Hitro se da preveriti, da res velja
+Tudi kompleksna polinoma $\balpha(t)$ in $\bbeta(t)$ ni težko pridobiti iz kvaternionskega polinoma $\AQ(t).$ Hitro se da preveriti, da res velja
 \begin{equation}
 	\label{quat_to_comp}
-		\boldalpha(t) = \frac{1}{2}[\AQ(t)-\iV\AQ(t)\iV] \quad \text{in} \quad \boldbeta(t)= \frac{1}{2}\kV[\AQ(t)+\iV\AQ(t)\iV].
+		\balpha(t) = \frac{1}{2}[\AQ(t)-\iV\AQ(t)\iV] \quad \text{in} \quad \bbeta(t)= \frac{1}{2}\kV[\AQ(t)+\iV\AQ(t)\iV].
 \end{equation}
 \texttt{[Za dani hodograf je možno pridobiti enoparametrsko družino kvaternionskih polinomov, prav tako velja to za kompleksna polinoma. Mogoče dodam kasneje.]}
 
@@ -676,6 +703,7 @@ vidimo, da polinomi $2(up'-u'p+vq'-v'q),$ $2(uq'-u'q-vp'+v'p)$ in $\omega$ tvori
 da bo res pitagorejska za polinome $h(t),$ $a(t),$ $b(t),$ kjer sta si $a(t)$ in $b(t)$ tuja. Če sta si tudi polinoma $up'-u'p+vq'-v'q$ in $uq'-u'q-vp'+v'p$ tuja, lahko potem vzamemo $h(t)\equiv 1.$ V takem primeru pravimo, da imamo \emph{primitivno} pitagorejsko trojico.
 
 \subsection{DPH krivulje in vijačnice}
+\label{sec_DPH_in_vijacnice}
 
 V trditvi \ref{trditev_vijacnica_PH} smo pokazali, da so vse polinomske vijačnice hkrati tudi PH krivulje. Da se pokazati še več.
 \begin{trditev}
@@ -743,11 +771,11 @@ Spet izrazimo $\AQ(t)$ z znanimi polinomi in nato produkt pomnožimo. Po dolgem 
 	\rV'\times\rV''=&2 \big (2((vp-uq)f+(up+vq)g)\iV+(2(u^2-v^2+p^2-q^2)f+2(pq-uv)g)\jV \\
 	&+(2(uv+pq)f+(u^2-v^2-p^2+q^2)g)\kV \big ).
 \end{align*}
-Če si sedaj končno pogledamo kvadrat norme vektorskega produkta imamo spočetka dolg izraz
+Če si sedaj končno pogledamo kvadrat norme vektorskega produkta, imamo spočetka dolg izraz
 \begin{align*}
 	\lVert\rV'\times&\rV''\rVert^2=4 \Big( 4(vp-uq)^2f^2+8(vp-uq)(up+vq)fg+4(up+vq)^2g^2\\
 	&+(u^2-v^2+p^2-q^2)^2f^2+4(u^2-v^2+p^2-q^2)(pq-uv)fg+4(pq-uv)^2g^2\\
-	&+4(uv+pq)^2f^2+4(uv+pq)(u^2-v^2-p^2+q^2)fg+(u^2-v^2-p^2+q^2)^2g^2 \Big)
+	&+4(uv+pq)^2f^2+4(uv+pq)(u^2-v^2-p^2+q^2)fg+(u^2-v^2-p^2+q^2)^2g^2 \Big).
 \end{align*}
 Vidimo, da se mešani členi $fg$ uničijo, člena pri $f^2$ in $g^2$ pa se skupaj seštejeta ravno v $\sigma^2=(u^2+v^2+p^2+q^2)^2.$ Dobimo
 \begin{equation}
@@ -790,9 +818,82 @@ Vektorski produkt $\rV'(t)\times\rV''(t)$ lahko pri DPH krivuljah s pomočjo kva
 	Torej res drži $\BQ(t)=\AQ(t)\CQ(t),$ kar smo hoteli dokazati.
 \end{proof}
 
-
 \subsection{Predstavitev dvojnih PH krivulj s Hopfovo preslikavo}
 
+Za nadaljnjo obravnavo in klasifikacijo dvojnih PH krivulj se predstavitev le-teh s Hopfovo preslikavo izkaže za bolj primerno od predstavitve s kvaternionskim polinomom. Za kompleksna polinoma $\balpha(t)=u(t)+\iu v(t)$ in $\bbeta(t)=q(t)+\iu p(t)$ lahko podamo krivuljo s pomočjo preslikave kot smo že videli v podpoglavju \ref{hopf}. Oglejmo si, čemu je enak polinom $\balpha(t)\bbeta'(t)-\balpha'(t)\bbeta(t):$
+\begin{align}
+	\balpha\bbeta'-\balpha'\bbeta&=(u+\iu v)(p'+\iu q')-(u'+\iu q')(p+\iu q) \nonumber \\
+	&=(up'-u'p+v'q-vq')+\iu(uq'-u'q+vp'-v'p).
+\end{align}
+Če primerjamo kvadrat razdalje izračunane količine z enačbo \eqref{rho2}, vidimo da je
+\begin{equation}
+	\label{rho_propoly}
+	\rho(t)=4|\balpha(t)\bbeta'(t)-\balpha'(t)\bbeta(t)|^2.
+\end{equation}
+Tu se nam ponudi nova karakterizacija DPH krivulj: DPH krivulje so tiste prostorske krivulje, za katere je $|\balpha(t)\bbeta'(t)-\balpha'(t)\bbeta(t)|^2$ popolni kvadrat nekega realnega polinoma. Izkaže se, da je polinom $\balpha(t)\bbeta'(t)-\balpha'(t)\bbeta(t)$ pomemben za nadaljnji študij DPK krivulj, zato si zasluži tudi svojo definicijo.\texttt{[Ali je spodnje ime/prevod primeren?]}
+\begin{definicija}
+	Polinomu $\balpha(t)\bbeta'(t)-\balpha'(t)\bbeta(t)$, ki ga sestavimo iz polinomov $\balpha(t)=u(t)+\iu v(t)$ ter $\bbeta(t)=p(t)+\iu q(t)$ za neke realne polinome $u(t),$ $v(t),$ $p(t)$ ter $q(t),$ pravimo tudi \emph{proporcionalni polinom} polinomov $\balpha(t)$ in $\bbeta(t).$
+\end{definicija}
+Enostavno je videti, da je proporcionalni polinom identično enak nič natanko takrat, ko se polinoma $\balpha(t)$ in $\bbeta(t)$ razlikujeta za multiplikativno kompleksno konstanto. V eno smer se to pokaže direktno, za dokaz v drugo smer se pa reši preprosto diferencialno enačbo.
+S proporcionalnim polinomom se da lepo izraziti tudi fleksijsko ukrivljenost DPH krivulj in sicer kot
+\begin{equation}
+	\kappa=\frac{\sqrt{rho}}{\sigma^2}=2\frac{|\balpha(t)\bbeta'(t)-\balpha'(t)\bbeta(t)|}{|\balpha|^2+|\bbeta|^2}.
+\end{equation}
+Iz tega je razvidno, da vkolikor je za dano DPH krivuljo njen proporcionalni polinom identično enak 0, je potem tudi fleksijska ukrivljenost te krivulje enaka 0, kar pomeni, da imamo pravzaprav opravka z daljico (ravno črto). Če ima ta polinom kakšno realno ničlo, je ta točka lahko točka obrata za normalo in binormalo, ki vsebujeta člen $\omega,$ ki je odvisen od vrednosti proporcionalnega polinoma. Isto velja tudi za torzijsko ukrivljenost.
+
+Sedaj lahko preoblikujemo DPH pogoj v primernejšo obliko za nadaljnjo obravnavamo. Spomnimo se enakosti \eqref{kubota}. Če to primerjamo s proporcionalnim polinomom, vidimo, da je
+\begin{align}
+	\balpha(t)\bbeta'(t)-\balpha'(t)\bbeta(t)&=(u(t)p'(t)-u'(t)p(t)+v'(t)q(t)-v(t)q'(t))\nonumber \\
+	&+\iu(u(t)q'(t)-u'(t)q(t)+v(t)p'(t)-v'(t)p(t)) \nonumber \\
+	&=h(t)\big(a^2(t)-b^2(t)+\iu 2a(t)b(t)\big) \nonumber \\
+	&=h(t)\wV^2(t) \label{propor_poly_izpeljava}
+\end{align}
+kjer je $\wV(t)=a(t)+\iu b(t).$ Polinoma $a(t)$ in $b(t)$ morata biti tuja, tako da velja tudi
+\begin{equation}
+	\st(h(t))+2\st(\wV(t))=2\st(\balpha(t),\bbeta(t))-2.
+	\end{equation}
+Če identificiramo $\C$ z $\R^2,$ potem kompleksna polinoma $\balpha(t)$ in $\bbeta(t)$ porodita ravninske krivulje, npr.\ $\rV_{\balpha}(t)=(u(t),v(t))$ in $\rV_{\bbeta}(t)=(p(t),q(t)).$ Ob upoštevanju enakosti \eqref{poly_ravninska_PH} iz opombe \ref{opomba1} ter izpeljave \eqref{propor_poly_izpeljava} je jasno, da velja naslednja trditev.
+\begin{trditev}
+	Naj bo $\rV$ prostorska PH krivulja, podana s Hopfovo preslikavo polinomov $\balpha(t)$ ter $\bbeta(t).$ Potem je $\rV$ dvojna PH krivulja natanko takrat, ko proporcionalni polinom polinomov $\balpha(t)$ in $\bbeta(t)$ porodi ravninsko PH krivuljo.
+\end{trditev}
+
+Iz enačbe za $\rho(t)$ \eqref{rho_propoly} in karakterizacije DPH pogoja s pomočjo proporcionalnega polinoma \eqref{propor_poly_izpeljava} sledi, da je za DPH krivulje $\rho(t)$ enak $\rho(t)=4h^2(t)|\wV(t)|^4.$ Ker je kvadrat polinoma $\omega(t)$ enak polinomu $\rho(t)$ in če predpostavimo, da je polinom $h(t)$ nenegativen, je potem res $\omega(t)=2h(t)|\wV(t)|^2.$ Kot smo že videli v poglavju \ref{sec_DPH_in_vijacnice}, je za vijačne DPH krivulje razmerje med mešanim produktom $\big(\rV'(t)\times\rV''(t)\big)\cdot\rV'''(t)$ in kubom polinoma $\omega(t)$ konstantno, zato je tudi razmerje med $\big(\rV'(t)\times\rV''(t)\big)\cdot\rV'''(t)$ in $\big(2h(t)|\wV(t)|^2\big)^3$ konstantno.
+
+Proporcionalni polinom se da izraziti tudi v jeziku kvaternionov. Najprej identificiramo imaginarno enoto $\iu$ v $\C$ z imaginarno enoto $\iV$ v $\quat.$ Polinoma $\balpha(t)$ in $\bbeta(t)$ lahko zapišemo v Bernsteinovi bazi s koeficienti
+\begin{equation*}
+	\balpha_l=\alpha_l+a_l\iV\quad\text{in}\quad\bbeta_l=\beta_l+b_l\iV\quad\text{za}\quad l=0,\dots,m.
+\end{equation*}
+Bernsteinovi koeficienti kvaternionskega polinoma $\AQ(t)$ so potem po pretvorbi \eqref{comp_to_quat} enaki
+\begin{equation*}
+	\AQ_l=\balpha_l+\kV\bbeta_l=\alpha_l+a_l\iV+b_l\jV+\beta_l\kV
+\end{equation*}
+za $l=0,\dots,m.$ Ko razpišemo izraz $\frac{1}{2}(\AQ_k^*\AQ_l-\AQ_l^*\AQ_k)\times\iV$ vidimo, da je enak
+\begin{align*}
+	\frac{1}{2}(\AQ_k^*\AQ_l-\AQ_l^*\AQ_k)\times\iV&=(\alpha_k\beta_l+b_ka_l-\beta_k\alpha_l-a_kb_l)\jV\\
+	&+(\beta_ka_l+b_k\alpha_l-\alpha_kb_l-a_k\beta_l)\kV.
+\end{align*}
+Pri tem skalarni del $\AQ_k^*\AQ_l-\AQ_l^*\AQ_k$ odpade, tako da ta kvaternion obravnamo kot vektor in ga lahko vektorsko množimo z $\iV.$ Isti izraz dobimo, če poračunamo $\jV(\balpha_k\bbeta_l-\balpha_l\bbeta_k).$ Iz teh enakosti (\texttt{in lastnosti Bernsteinovih polinomov?}) lahko sklepamo, da se da proporcionalni polinom polinomov $\balpha(t)$ in $\bbeta(t)$ izraziti s kvaternionskim polinom $\AQ(t)$ kot
+\begin{equation}
+	\label{propor_kot_quat}
+	\jV\big(\balpha(t)\bbeta'(t)-\balpha'(t)\bbeta(t)\big)=\frac{1}{2}\big(\AQ^*(t)\AQ'(t)-\AQ'^*(t)\AQ(t)\big)\times\iV.
+\end{equation}
+
+S pomočjo pravkar izpeljanega izraza lahko tudi DPH pogoj \eqref{propor_poly_izpeljava} izrazimo malce drugače. Uporabimo polinom $\CQ(t)=-b(t)+a(t)\iV+a(t)\jV+b(t)\kV$ iz trditve \ref{drtddr_za_DPH}. Potem velja
+\begin{equation*}
+	\frac{1}{2}\CQ(t)\iV\CQ^*(t)=\big(a^2(t)-b^2(t)\big)\jV+2a(t)b(t)\kV=\wV^2(t)\jV.
+\end{equation*}
+Pomnožimo sedaj desno stran enačbe \eqref{propor_kot_quat} z desne z $\jV.$ Dobimo
+\begin{align*}
+	\left(\frac{1}{2}\big(\AQ^*(t)\AQ'(t)-\AQ'^*(t)\AQ(t)\big)\times\iV\right)\jV&=\jV\big(\balpha(t)\bbeta'(t)-\balpha'(t)\bbeta(t)\big)\jV\\
+	&=h(t)\jV\wV^2(t)\jV\\
+	&=\frac{1}{2}h(t)\jV\CQ(t)\iV\CQ^*(t).
+\end{align*}
+Rezultat lahko še lepše izrazimo v obliki
+\begin{equation}
+	\label{dvojnaPH_quat_pogoj}
+	\big(\AQ^*(t)\AQ'(t)-\AQ'^*(t)\AQ(t)\big)\times\iV=h(t)\DQ(t)\iV\DQ^*(t),
+\end{equation}
+kjer je $\DQ(t)=\jV\CQ(t)=-a(t)+b(t)\iV-b(t)\jV-a(t)\kV.$ Če povzamemo: prostorska PH krivulja, podana s kvaternionskim polinomom $\AQ(t),$ je dvojna PH krivulja natanko takrat, ko drži zgornja enačba za nek kvaternionski polinom $\DQ(t),$ ki mora biti predpisane oblike, pri čimer sta si polinoma $a(t)$ ter $b(t)$ tuja.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
