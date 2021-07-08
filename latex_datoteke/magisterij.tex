@@ -118,6 +118,7 @@
 \newcommand{\jV}{\mathbf{j}}
 \newcommand{\kV}{\mathbf{k}}
 \newcommand{\wV}{\mathbf{w}}
+\newcommand{\zV}{\mathbf{z}}
 \newcommand{\ndr}{\lVert \mathbf{r}'\rVert} % norma prvega odvoda
 \newcommand{\ndrtddr}{\lVert \mathbf{r}'\times \mathbf{r}'' \rVert} % norma vektorskega produkta prvega in drugega odvoda
 \newcommand{\AQ}{\mathcal{A}}
@@ -139,6 +140,9 @@
 \addto\captionsslovene{
   \renewcommand{\listfigurename}{Kazalo slik}%
 }
+
+\usepackage{titlesec}
+\titleformat*{\subsubsection}{\em} % da podpodpoglavja niso bold
 
 % če želiš, da se poglavja začnejo na lihih straneh zgoraj
 % \let\oldsection\section
@@ -894,6 +898,141 @@ Rezultat lahko še lepše izrazimo v obliki
 	\big(\AQ^*(t)\AQ'(t)-\AQ'^*(t)\AQ(t)\big)\times\iV=h(t)\DQ(t)\iV\DQ^*(t),
 \end{equation}
 kjer je $\DQ(t)=\jV\CQ(t)=-a(t)+b(t)\iV-b(t)\jV-a(t)\kV.$ Če povzamemo: prostorska PH krivulja, podana s kvaternionskim polinomom $\AQ(t),$ je dvojna PH krivulja natanko takrat, ko drži zgornja enačba za nek kvaternionski polinom $\DQ(t),$ ki mora biti predpisane oblike, pri čimer sta si polinoma $a(t)$ ter $b(t)$ tuja.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Klasifikacija DPH krivulj nizkih stopenj}
+
+V tem poglavju si bomo ogledali različne tipe DPH krivulj, ki se pojavljajo pri nizkih stopnjah. Analizirali bomo tipe krivulj pri tretji, peti in sedmi stopnji. Glavno orodje pri tej analizi bo Hopfova oblika DPH krivulj s proporcionalnim polinomom. Izpeljali bomo pogoje (odvisne od koeficientov proporcionalnega polinoma), pri katerih je dana PH krivulja tudi DPH krivulja. Pri tem bomo privzeli, da sta polinoma $\balpha(t)$ in $\bbeta(t)$ podana v Bernsteinovi obliki
+\begin{equation*}
+	\balpha(t)=\sum_{l=0}^m\balpha_l\binom{m}{l}(1-t)^{m-l}t^l\quad\text{in}\quad\bbeta(t)=\sum_{l=0}^m\bbeta_l\binom{m}{l}(1-t)^{m-l}t^l,
+\end{equation*}
+kjer je $m$ enak $m=\frac{n-1}{2},$ pri čimer je $n$ stopnja krivulje.
+
+\subsection{Dvojne PH krivulje tretje in pete stopnje}
+
+Naj bo $\rV(t)$ prostorska PH krivulja tretje stopnje, podana s kompleksnima polinomoma $\balpha(t)$ in $\bbeta(t).$ Potem sta oba kompleksna polinoma pravzaprav linearna $\balpha(t)=\balpha_0(1-t)+\balpha_1t$ in $\bbeta(t)=\bbeta_0(1-t)+\bbeta_1t.$ Po krajšem računu hitro vidimo, da je proporcionalni polinom enak
+\begin{align*}
+	\balpha(t)\bbeta'(t)-\balpha'(t)\bbeta(t)&=\balpha_0\bbeta_1(1-t)-\balpha_0\bbeta_0(1-t)+\balpha_1\bbeta_1t-\balpha_1\bbeta_0t\\
+	&-\balpha_1\bbeta_0(1-t)-\balpha_1\bbeta_1t+\balpha_0\bbeta_0(1-t)-\balpha_0\bbeta_1t\\
+	&=\balpha_0\bbeta_1-\balpha_1\bbeta_0.
+\end{align*}
+Proporcionalni polinom je torej konstanten in je po \eqref{propor_poly_izpeljava} enak $h(t)\wV^2(t).$ Iz zgornjega računa vidimo, da je $\st(h(t))=\st(\wV(t))=0.$ Brez škode za splošnost lahko privzamemo, da je $h(t)=1$ ter $\wV(t)=\wV_0$ za neko konstanto $\wV_0\in\C.$ Potem lahko DPH pogoj izrazimo kot $\balpha_0\bbeta_1-\balpha_1\bbeta_0=\wV_0^2.$ Ta pogoj jasno velja za vse možne izbire $\balpha_0,$ $\balpha_1,$ $\bbeta_0$ in $\bbeta_1,$ saj lahko za $\wV_0$ vzamemo $\pm\sqrt{\balpha_0\bbeta_1-\balpha_1\bbeta_0},$ ki je v kompleksnih številih vedno definirano število. Zato je vsaka prostorska PH krivulja tretje stopnje tudi dvojna PH krivulja.
+
+Naj bo sedaj $\rV(t)$ prostorska PH krivulja pete stopnje, ki je podana s kompleksnima polinomoma $\balpha(t)$ in $\bbeta(t).$ V tem primeru sta ta dva polinoma kvadratična. Tokrat je proporcionalni polinom enak
+\begin{align}
+	\balpha(t)\bbeta'(t)-\balpha'(t)\bbeta(t)&=2(\balpha_0\bbeta_1-\balpha_1\bbeta_0)(1-t)^2+(\balpha_0\bbeta_2-\balpha_2\bbeta_0)2(1-t)t\nonumber\\
+	&+2(\balpha_1\bbeta_2-\balpha_2\bbeta_1)t^2.\label{propoly_bern_5}
+\end{align}
+Krivulja je DPH krivulja, ko je zgornji izraz enak $h(t)\wV^2(t)$ za nek realen polinom $h(t)$ in nek kompleksni polinom $\wV(t).$ Tu ločimo dva primera: ali je $\st(h(t))=0$ in $\st(\wV(t))=1$ ali pa $\st(h(t))=2$ in $\st(\wV(t))=0.$
+
+\subsubsection*{Primer $\st(h(t))=0$ in $\st(\wV(t))=1$}
+
+Recimo, da je $\st(h(t))=0$ in $\st(\wV(t))=1.$ Kot prej lahko brez škode za splošnost privzamemo, da je $h(t)=1,$ polinom $\wV(t)$ pa je enak $\wV(t)=\wV_0(1-t)+\wV_1t,$ torej je $\wV^2(t)=\wV_0^2(1-t)^2+\wV_0\wV_12(1-t)t+\wV_1^2t^2.$ Če enačimo koeficiente izraza $h(t)\wV^2(t)$ s koeficienti izraza \eqref{propoly_bern_5}, dobimo naslednje enačbe:
+\begin{equation}
+	2(\balpha_0\bbeta_1-\balpha_1\bbeta_0)=\wV_0^2,\quad \balpha_0\bbeta_2-\balpha_2\bbeta_0=\wV_0\wV_1,\quad 2(\balpha_1\bbeta_2-\balpha_2\bbeta_1)=\wV_1^2.
+\end{equation}
+Če pomnožimo prvo in tretjo enačbo, vidimo, da je zmnožek enak kvadratu druge enačbe. Torej te enačbe res držijo za neka $\wV_0$ in $\wV_1$ natanko takrat, ko za koeficiente polinomov $\balpha(t)$ in $\bbeta(t)$ drži enačba
+\begin{equation}
+	\label{st5h0w1}
+	4(\balpha_0\bbeta_1-\balpha_1\bbeta_0)(\balpha_1\bbeta_2-\balpha_2\bbeta_1)=(\balpha_0\bbeta_2-\balpha_2\bbeta_0)^2.
+\end{equation}
+\subsubsection*{Primer $\st(h(t))=2$ in $\st(\wV(t))=0$}
+Oglejmo si še drugi primer, ko je $\st(h(t))=2$ in $\st(\wV(t))=0.$ Polinom $h(t)=h_0(1-t)^2+h_12(1-t)t+h_2t^2$ prav tako podamo v Bernsteinovi obliki, za $\wV(t)$ pa postavimo $\wV(t)=\wV_0.$ Spet enačimo koeficiente izraza $h(t)\wV^2(t)$ s koeficienti izraza \eqref{propoly_bern_5}. Dobimo naslednji sistem enačb:
+\begin{equation}
+	2(\balpha_0\bbeta_1-\balpha_1\bbeta_0)=h_0\wV_0^2,\quad \balpha_0\bbeta_2-\balpha_2\bbeta_0=h_1\wV_0^2,\quad 2(\balpha_1\bbeta_2-\balpha_2\bbeta_1)=h_2\wV_0^2.\label{st5h2w0}
+\end{equation}
+Ta sistem enačb je rešljiv natanko takrat, ko kompleksna števila $\balpha_0\bbeta_1-\balpha_1\bbeta_0,$ $\balpha_0\bbeta_2-\balpha_2\bbeta_0$ ter $\balpha_1\bbeta_2-\balpha_2\bbeta_1$ ležijo na isti premici v kompleksni ravnini.
+
+\subsection{Dvojne PH krivulje sedme stopnje}
+
+Imejmo $\rV(t)$ prostorsko PH krivulja sedme stopnje, ki je podana s kompleksnima polinomoma $\balpha(t)$ in $\bbeta(t).$ Tokrat sta ta dva polinoma kubična. Po daljšem računanju vidimo, da je proporcionalni polinom enak
+\begin{align}
+	\balpha(t)\bbeta'(t)-\balpha'(t)\bbeta(t)&=3(\balpha_0\bbeta_1-\balpha_1\bbeta_0)(1-t)^4+\frac{3}{2}(\balpha_0\bbeta_2-\balpha_2\bbeta_0)4(1-t)^3t\nonumber\\
+	&+\big(\frac{1}{2}(\balpha_0\bbeta_3-\balpha_3\bbeta_0)\frac{3}{2}(\balpha_1\bbeta_2-\balpha_2\bbeta_1)\big)6(1-t)^2t^2\nonumber\\
+	&+\frac{3}{2}(\balpha_1\bbeta_3-\balpha_3\bbeta_1)4(1-t)t^3+3(\balpha_2\bbeta_3-\balpha_3\bbeta_2)t^4. \label{propoly_bern_7}
+\end{align}
+Za izpolnitev DPH pogoja imamo tokrat tri možnosti: ali je $\st(h(t))=0$ in \\$\st(\wV(t))~=~2$ ali je $\st(h(t))=2$ in $\st(\wV(t))~=~1$ ali je $\st(h(t))=4$ in $\st(\wV(t))=0.$ Opozoriti velja na dejstvo, da vrednosti $\balpha_i\bbeta_j-\balpha_j\bbeta_i$ za $0\leq i,j\leq 3,$ kjer sta $i\neq j,$ ki se pojavljajo kot členi znotraj koeficientov proporcionalnega polinoma, niso med seboj neodvisni. Za njih velja pogoj, ki mu bomo rekli \emph{pogoj kompatibilnosti}. Po tem pogoju za te vrednosti velja enakost
+\begin{align}
+	(\balpha_0\bbeta_1-\balpha_1\bbeta_0)(\balpha_2\bbeta_3-\balpha_3\bbeta_2)&=(\balpha_0\bbeta_2-\balpha_2\bbeta_0)(\balpha_1\bbeta_3-\balpha_3\bbeta_1)\nonumber\\
+	&-(\balpha_1\bbeta_2-\balpha_2\bbeta_1)(\balpha_0\bbeta_3-\balpha_3\bbeta_0).\label{pogoj_kompatibilnosti}
+\end{align}
+\texttt{[Še vedno ne vem, kako pridemo do tega. Fino bi bilo, da tudi to potem razložim.]}
+
+\subsubsection*{Primer $\st(h(t))=0$ in $\st(\wV(t))=2$}
+
+Lahko vzamemo kar $h(t)=1.$ Naj ima kvadratičen kompleksni polinom $\wV(t)$ Bernsteinove koeficiente $\wV_0,$ $\wV_1$ in $\wV_2.$ Če ta polinom kvadriramo in primerjamo koeficiente s koeficienti v enačbi \eqref{propoly_bern_7}, dobimo naslednje enačbe:
+\begin{align}
+	3(\balpha_0\bbeta_1-\balpha_1\bbeta_0)&=\wV_0^2,\nonumber\\
+	3(\balpha_0\bbeta_2-\balpha_2\bbeta_0)&=2\wV_0\wV_1,\nonumber\\
+	(\balpha_0\bbeta_3-\balpha_3\bbeta_0)+3(\balpha_1\bbeta_2-\balpha_2\bbeta_1)&=\frac{2}{3}(2\wV_1^2+\wV_0\wV_2),\nonumber\\
+	3(\balpha_1\bbeta_3-\balpha_3\bbeta_1)&=2\wV_1\wV_2,\nonumber\\
+	3(\balpha_2\bbeta_3-\balpha_3\bbeta_2)&=\wV_2^2.\label{sistem_st7h0w2}
+\end{align}
+Vrednost $\balpha_1\bbeta_2-\balpha_2\bbeta_1$ označimo z $\zV.$ Potem se v zgornjih enačb tretja enačba preoblikuje v $\balpha_0\bbeta_3-\balpha_3\bbeta_0=\frac{4}{3}\wV_1^2+\frac{2}{3}\wV_0\wV_2-3\zV.$ Sedaj uporabimo pogoj kompatibilnosti \eqref{pogoj_kompatibilnosti} in izrazimo vse člene s koeficienti polinoma $\wV(t)$ in številom $\zV.$ Dobimo
+\begin{equation*}
+	\left(\frac{1}{3}\wV_0^2\right)\left(\frac{1}{3}\wV_2^2\right)=\left(\frac{2}{3}\wV_0\wV_1\right)\left(\frac{2}{3}\wV_1\wV_2\right)-\zV\left(\frac{4}{3}\wV_1^2+\frac{2}{3}\wV_0\wV_2-3\zV\right).
+\end{equation*}
+Ko to enačbo poenostavimo, vidimo, da imamo opravka s kvadratno enačbo v $\zV.$ Le-ta je enaka
+\begin{equation*}
+	27\zV^2-(12\wV_1^2+6\wV_0\wV_2)\zV+(4\wV_1^2-\wV_0\wV_2)\wV_0\wV_2=0.
+\end{equation*}
+Ker ima kvadratna enačba dve rešitvi, lahko vrednost $\balpha_1\bbeta_2-\balpha_2\bbeta_1$ podamo s pomočjo koeficientov $\wV_0,$ $\wV_1$ in $\wV_2$ kot
+\begin{equation}
+	\label{st7h0w2}
+	\zV=\balpha_1\bbeta_2-\balpha_2\bbeta_1=\frac{1}{3}\wV_0\wV_2\quad\text{ali}\quad\zV=\balpha_1\bbeta_2-\balpha_2\bbeta_1=\frac{1}{9}(4\wV_1^2-\wV_0\wV_2).
+\end{equation}
+Na začetku lahko torej poljubno izberemo koeficiente $\wV_0,$ $\wV_1$ in $\wV_2$ (in s tem polinom $\wV(t)$) ter še tri koeficiente polinomov $\balpha(t)$ in $\bbeta(t)$ (recimo $\balpha_0,$ $\balpha_1$ in $\bbeta_0$) in nato rešimo bilinearni sistem enačb \eqref{sistem_st7h0w2}. Ob upoštevanju zadnje enakosti so potem vse vrednosti Bernsteinovih koeficientov polinomov $\balpha(t)$ in $\bbeta(t)$ tako določene, da je prostorska PH krivulja, ki je porojena iz teh dveh kompleksnih polinomov, res dvojna PH krivulja.
+
+\subsubsection*{Primer $\st(h(t))=2$ in $\st(\wV(t))=1$}
+
+Vzamemo $h_0,$ $h_1,$ $h_2$ za Bernsteinove koeficiente polinoma $h(t)$ ter $\wV_0$ in $\wV_1$ za Bernsteinove koeficiente polinoma $\wV(t).$ Če poračunamo $h(t)\wV^2(t)$ in primerjamo Bernsteinove tega polinoma s koeficienti proporcionalnega polinoma \eqref{propoly_bern_7}, dobimo naslednji sistem enačb:
+\begin{align}
+	3(\balpha_0\bbeta_1-\balpha_1\bbeta_0)&=h_0\wV_0^2,\nonumber\\
+	3(\balpha_0\bbeta_2-\balpha_2\bbeta_0)&=h_1\wV_0^2+h_0\wV_0\wV_1,\nonumber\\
+	(\balpha_0\bbeta_3-\balpha_3\bbeta_0)+3(\balpha_1\bbeta_2-\balpha_2\bbeta_1)&=\frac{1}{3}(h_2\wV_0^2+4h_1\wV_0\wV_1+h_0\wV_1^2),\nonumber\\
+	3(\balpha_1\bbeta_3-\balpha_3\bbeta_1)&=h_2\wV_0\wV_1+h_1\wV_1^2,\nonumber\\
+	3(\balpha_2\bbeta_3-\balpha_3\bbeta_2)&=h_2\wV_1^2.\label{sistem_st7h2w1}
+\end{align}
+Uporabimo isti trik kot že v prejšnjem primeru. Nastavimo $\balpha_1\bbeta_2-\balpha_2\bbeta_1=\zV.$ Potem je vrednost $\balpha_0\bbeta_3-\balpha_3\bbeta_0$ po tretji enačbi zgoraj enaka $\frac{1}{3}(h_2\wV_0^2+4h_1\wV_0\wV_1+h_0\wV_1^2)-3\zV.$ Spet uporabimo pogoj kompatibilnosti \eqref{pogoj_kompatibilnosti}. Dobimo enačbo
+\begin{align*}
+	\left(\frac{1}{3}h_0\wV_0^2\right)\left(\frac{1}{3}h_2\wV_1^2\right)&=\frac{1}{3}(h_1\wV_0^2+h_0\wV_0\wV_1)\frac{1}{3}(h_2\wV_0\wV_1+h_1\wV_1^2)\nonumber\\
+	&-\zV\Big(\frac{1}{3}(h_2\wV_0^2+4h_1\wV_0\wV_1+h_0\wV_1^2)-3\zV\Big).
+\end{align*}
+Preoblikujemo jo v (standardno) kvadratno enačbo za $\zV.$ Vidimo, da je enaka
+\begin{equation*}
+	27\zV^2-3(h_2\wV_0^2+4h_1\wV_0\wV_1+h_0\wV_1^2)\zV+h_1\wV_0\wV_1(h_2\wV_0^2+h_1\wV_0\wV_1+h_0\wV_1^2)=0.
+\end{equation*}
+Rešitvi kvadratne enačbe podamo s pomočjo koeficientov polinomov $h(t)$ in $\wV(t)$ kot
+\begin{align}
+	\zV&=\balpha_1\bbeta_2-\balpha_2\bbeta_1=\frac{1}{3}h_1\wV_0\wV_1\quad\text{ali}\nonumber\\
+	\zV&=\balpha_1\bbeta_2-\balpha_2\bbeta_1=\frac{1}{9}(h_2\wV_0^2+h_1\wV_0\wV_1-h_0\wV_1^2).\label{st7h2w1}
+\end{align}
+Postopamo podobno kot prej. Poljubno izberemo koeficiente $h_0,$ $h_1,$ $h_2,$ $\wV_0,$ $\wV_1$ ter še tri koeficiente polinomov $\balpha(t)$ in $\bbeta(t)$ (recimo $\balpha_0,$ $\balpha_1$ in $\bbeta_0$). Potem rešimo sistem enačb \eqref{sistem_st7h2w1}. Ob upoštevanju zadnje enakosti je sklep isti kot prej. Vse vrednosti Bernsteinovih koeficientov polinomov $\balpha(t)$ in $\bbeta(t)$ so s tem tako določene, da je prostorska PH krivulja, ki je porojena iz teh dveh kompleksnih polinomov, res dvojna PH krivulja.
+
+\subsubsection*{Primer $\st(h(t))=4$ in $\st(\wV(t)=0)$}
+
+Obravnavajmo še zadnji primer. Naj bodo $h_0,$ $h_1,$ $h_2,$ $h_3$ in $h_4$ Bernsteinovi koeficienti polinoma $h(t),$ polinom $\wV(t)$ pa naj bo identično enak konstanti $\wV_0.$ Če spet primerjamo istoležne koeficiente proporcionalnega polinoma \eqref{propoly_bern_7} s koeficienti polinoma $h(t)\wV^2(t)$ in jih enačimo, dobimo
+\begin{align}
+	3(\balpha_0\bbeta_1-\balpha_1\bbeta_0)&=h_0\wV_0^2,\nonumber\\
+	3(\balpha_0\bbeta_2-\balpha_2\bbeta_0)&=2h_1\wV_0^2,\nonumber\\
+	(\balpha_0\bbeta_3-\balpha_3\bbeta_0)+3(\balpha_1\bbeta_2-\balpha_2\bbeta_1)&=2h_2\wV_0^2,\nonumber\\
+	3(\balpha_1\bbeta_3-\balpha_3\bbeta_1)&=2h_3\wV_0^2,\nonumber\\
+	3(\balpha_2\bbeta_3-\balpha_3\bbeta_2)&=h_4\wV_0^2.\label{sistem_st7h4w0}
+\end{align}
+Spet nastavimo $\balpha_1\bbeta_2-\balpha_2\bbeta_1=\zV.$ Iz tretje enačbe izrazimo $\balpha_0\bbeta_3-\balpha_3\bbeta_0,$ tokrat je ta vrednost enaka $2h_2\wV_0^2-3\zV.$ Po pogoju kompatibilnosti \eqref{pogoj_kompatibilnosti} dobimo enačbo
+\begin{equation*}
+	\left(\frac{1}{3}h_0\wV_0^2\right)\left(\frac{1}{3}h_4\wV_0^2\right)=\left(\frac{2}{3}h_1\wV_0^2\right)\left(\frac{2}{3}h_3\wV_0^2\right)-\zV(2h_2\wV_0^2-3\zV).
+\end{equation*}
+Ta enačba se preoblikuje v
+\begin{equation*}
+	27\zV^2-18h_2\wV_0^2\zV+(4h_1h_3-h_0h_4)\wV_0^4.
+\end{equation*}
+Ta kvadratna enačba za $\zV$ ima rešitvi podani s koeficienti $h_0,\dots,h_4$ in $\wV_0.$ Rešitvi sta enaki
+\begin{equation}
+	\zV=\balpha_1\bbeta_2-\balpha_2\bbeta_1=\frac{1}{9}\left(3h_2\pm\sqrt{9h_2^2+3h_0h_4-12h_1h_3}\right)\wV_0^2.\label{st7h4w0}
+\end{equation}
+Obnovimo: na začetku poljubno izberemo koeficiente $h_0,\dots,h_4,$ $\wV_0$ ter še tri koeficiente polinomov $\balpha(t)$ in $\bbeta(t).$ Kot smo že videli v prejšnjih primerih, ponavadi izberemo kar $\balpha_0,$ $\balpha_1$ in $\bbeta_0.$ S pomočjo teh znanih podatkov rešimo sistem enačb \eqref{sistem_st7h4w0} in upoštevamo zadnjo enakost. Pridobljena PH krivulja je s tem res DPH krivulja.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

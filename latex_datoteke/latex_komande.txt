@@ -20,6 +20,7 @@ LaTeX okrajšave
 \newcommand{\jV}{\mathbf{j}}
 \newcommand{\kV}{\mathbf{k}}
 \newcommand{\wV}{\mathbf{w}}
+\newcommand{\zV}{\mathbf{z}}
 \newcommand{\ndr}{\lVert \mathbf{r}'\rVert} % norma prvega odvoda
 \newcommand{\ndrtddr}{\lVert \mathbf{r}'\times \mathbf{r}'' \rVert} % norma vektorskega produkta prvega in drugega odvoda
 \newcommand{\AQ}{\mathcal{A}}
