@@ -7,3 +7,4 @@ hodographs I. Quaternion and Hopf map representations*.
 - V datoteki `magisterij.pdf` se nahaja vsebina doslej napisane magistrske naloge. Priporočam ogled z uporabo funkcije `Download`, saj Github ne daje pravilnega predogleda.
 - V datoteki `worked_examples.nb` se nahajajo izračunani primeri krivulj, ki so podani tudi v članku *Helical polynomial curves and double Pythagorean
 hodographs II. Enumeration of low-degree curves*. Za ogled si je potrebno datoteko naložiti na računalnik in jo odpreti s programom *Mathematica*.
+- V datoteki `izpeljave.nb` se nahajajo nekatere izpeljave, ki jih je lažje preveriti s pomočjo *Mathematice* kot ročno.
