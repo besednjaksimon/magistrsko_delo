@@ -112,6 +112,8 @@
 \newcommand{\tV}{\mathbf{t}}
 \newcommand{\aV}{\mathbf{a}}
 \newcommand{\bV}{\mathbf{b}}
+\newcommand{\cV}{\mathbf{c}}
+\newcommand{\eV}{\mathbf{e}}
 \newcommand{\pV}{\mathbf{p}}
 \newcommand{\rV}{\mathbf{r}}
 \newcommand{\iV}{\mathbf{i}}
@@ -128,10 +130,14 @@
 \newcommand{\QQ}{\mathcal{Q}}
 \newcommand{\balpha}{\boldsymbol \alpha}
 \newcommand{\bbeta}{\boldsymbol \beta}
+\newcommand{\dFrac}[2][t]{\frac{\mathrm{d}#2}{\mathrm{d}#1}} %odvod, default spremenljivka je t
 
 % \DeclareMathOperator{\tr}{tr}  % morda potrebuješ operator za sled ali kaj drugega?
 \DeclareMathOperator{\st}{st}
 \DeclareMathOperator{\hopf}{H}
+\DeclareMathOperator{\ReC}{Re}
+\DeclareMathOperator{\ImC}{Im}
+\DeclareMathOperator{\nhopf}{\hat{H}}
 
 % bold matematika znotraj \textbf{ }, tudi v naslovih, kot \omega spodaj
 \makeatletter \g@addto@macro\bfseries{\boldmath} \makeatother
@@ -638,7 +644,7 @@ Poleg kvaternionske oblike poznamo še drugi način za izražanje prostorskih PH
 	\emph{Hopfova preslikava} $H$ je preslikava, ki slika iz $\C \times \C \to \R^3$ in ima naslednji predpis za $\balpha, \bbeta \in \C:$
 	\begin{equation}
 		\label{hoph}
-		\hopf(\balpha, \bbeta)=(|\balpha|^2-|\bbeta|^2,2\mathrm{Re}(\balpha \bar{\bbeta}),2\mathrm{Im}(\balpha \bar{\bbeta})).
+		\hopf(\balpha, \bbeta)=(|\balpha|^2-|\bbeta|^2,2\ReC(\balpha \bar{\bbeta}),2\ImC(\balpha \bar{\bbeta})).
 	\end{equation}
 \end{definicija}
 S pomočjo že znanih polinomov $u(t),$ $v(t),$ $p(t)$ in $q(t)$ lahko definiramo kompleksna polinoma $\balpha(t)=u(t)+\iu v(t)$ ter $\bbeta(t)=q(t)+\iu p(t).$ Z malo računanja ugotovimo, da velja ravno $\rV'(t)=H(\balpha(t),\bbeta(t)).$
@@ -1033,6 +1039,147 @@ Ta kvadratna enačba za $\zV$ ima rešitvi podani s koeficienti $h_0,\dots,h_4$ 
 	\zV=\balpha_1\bbeta_2-\balpha_2\bbeta_1=\frac{1}{9}\left(3h_2\pm\sqrt{9h_2^2+3h_0h_4-12h_1h_3}\right)\wV_0^2.\label{st7h4w0}
 \end{equation}
 Obnovimo: na začetku poljubno izberemo koeficiente $h_0,\dots,h_4,$ $\wV_0$ ter še tri koeficiente polinomov $\balpha(t)$ in $\bbeta(t).$ Kot smo že videli v prejšnjih primerih, ponavadi izberemo kar $\balpha_0,$ $\balpha_1$ in $\bbeta_0.$ S pomočjo teh znanih podatkov rešimo sistem enačb \eqref{sistem_st7h4w0} in upoštevamo zadnjo enakost. Pridobljena PH krivulja je s tem res DPH krivulja.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Vijačnice in Hopfova preslikava}
+
+V trditvi \ref{trditev_vijacnica_DPH} smo pokazali, da je vsaka polinomska vijačnica tudi DPH krivulja. V tem poglavju bomo podrobneje raziskali strukturo vijačnic in pogoje, ki so potrebni za njihovo konstrukcijo. Te pogoje bomo opredelili s pomočjo Hopfove preslikave. Za začetek nam bom prišla prav naslednja trditev. Povzeta je po \cite{lipschutz1969schaum}, stran 72.
+\begin{trditev}
+	Naj bo krivulja $\rV(s)=(x(s),y(s),z(s))$ naravno parametrizirana vijačna krivulja , katere tangenta oklepa z osjo $\aV$ kot $\psi.$ Potem obstajajo ortonormirani vektorji $\eV_1,$ $\eV_2$ in $\eV_3,$ tako da lahko krivuljo izrazimo v obliki
+	\begin{equation}
+		\label{vijacnica_spremenjene_koord}
+		\rV(s^*)=\hat{x}(s^*)\eV_1+\hat{y}(s^*)\eV_2+s^*(\cos\psi)\eV_3.
+	\end{equation}
+\end{trditev}
+\begin{proof}
+	Za vektor $\eV_3$ vzamemo kar vektor $\aV,$ tako da je $\eV_3$ vzporeden osi vijačnice. Ostala dva vektorja si izberemo tako, da lahko potem vijačnico izrazimo v obliki
+	\begin{equation*}
+		\rV(s)=\hat{x}(s)\eV_1+\hat{y}(s)\eV_2+\hat{z}(s)\eV_3.
+	\end{equation*}
+	Dodatno še predpostavimo, da središče spremenjenega koordinatnega sistema leži na krivulji. Potem je po definiciji \eqref{pogoj_vijacnica} res
+	\begin{equation*}
+		\cos\psi=\aV\cdot\tV=\eV_3\cdot\tV=\eV_3\cdot\rV'(s)=\hat{z}'(s).
+	\end{equation*}
+	Sedaj integriramo $\hat{z}'(s).$ Dobimo, da je $\hat{z}(s)=s\cos\psi+c,$ kjer je $c\in\R$ konstanta. Ločimo dva primera: če je $\psi\neq \pi/2,$ vzamemo nov parameter $s^*=s+\frac{c}{\cos\psi}.$ Potem je $\hat{z}(s^*)=s^*\cos\psi$ in tako res lahko izrazimo vijačnico v obliki \eqref{vijacnica_spremenjene_koord}. Če pa je $\psi=\pi/2,$ je potem $\hat{z}(s)=c=0,$ saj središče leži na krivulji. Potem je $\rV(s)=\hat{x}(s)\eV_1+\hat{y}(s)\eV_2.$ V tem primeru imamo opravka z ravninsko krivuljo, ki leži v ravnini, ki jo oklepata vektorja $\eV_1$ in $\eV_2.$ Taka krivulja je pa trivialna vijačnica. Formula \eqref{vijacnica_spremenjene_koord} prav tako drži.
+\end{proof}
+\begin{posledica}
+	\label{vijacnica_slika_tangente}
+	Slika enotske tangente splošne vijačnice na (enotski) sferi tvori krožnico.
+\end{posledica}
+\begin{proof}
+	Sledimo karakterizaciji vijačnice po prejšnji trditvi in izračunamo odvod
+	\begin{equation*}
+		\rV'(s)=x'(s)+y'(s)+\cos\psi.
+	\end{equation*}
+	Ker je krivulja naravno parametrizirana, velja
+	\begin{equation*}
+		x'^2(s)+y'^2(s)+\cos^2\psi=1.
+	\end{equation*}
+	Če damo $\cos^2\psi$ na drugo stran enačbe, dobimo ravno enačbo za krožnico s polmerom $1-\cos^2\psi.$ Tako je slika enotske tangente vijačnice na sferi res krožnica.
+\end{proof}
+
+Spomnimo se predpisa za Hopfovo preslikavo \eqref{hopf} in formule za enotsko tangento. Potem lahko enotsko tangento za hodograf, definiran s pomočjo Hopfove preslikave kompleksnih polinomov $\balpha(t)$ in $\bbeta(t)$ podamo v obliki
+\begin{equation}
+	\label{tangenta_hopf}
+	\tV=\frac{\rV'}{\lVert\rV'\rVert}=\frac{\hopf(\balpha,\bbeta)}{|\balpha|^2+|\bbeta|^2}=\frac{(|\balpha|^2-|\bbeta|^2,2\ReC(\balpha\bar{\bbeta}),2\ImC(\balpha\bar{\bbeta}))}{|\balpha|^2+|\bbeta|^2}.
+\end{equation}
+Ta izraz nam bo prišel prav v nadaljnji obravnavi, zato ga ustrezno poimenujmo.
+\begin{definicija}
+	\label{norm_hopf_def}
+	\emph{Normalizirana Hopfova preslikava} je preslikava, ki slika iz $\C\times\C\to\R^3$ in ima naslednji predpis za $\balpha,\bbeta\in\C:$
+	\begin{equation}
+		\label{norm_hopf}
+		\nhopf(\balpha,\bbeta)=\frac{(|\balpha|^2-|\bbeta|^2,2\ReC(\balpha\bar{\bbeta}),2\ImC(\balpha\bar{\bbeta}))}{|\balpha|^2+|\bbeta|^2}.
+	\end{equation}
+\end{definicija}
+Ker velja 
+\begin{equation}
+	(|\balpha|^2+|\bbeta|^2)^2=(|\balpha|^2-|\bbeta|^2)^2+(2\ReC(\balpha\bar{\bbeta}))^2+(2\ImC(\balpha\bar{\bbeta}))^2,
+\end{equation}
+slika normalizirane Hopfove preslikave leži na enotski sferi $S^2.$ To pravzaprav ni presenteljivo, saj smo normalizirano Hopfovo preslikavo izpeljali iz izraza za enotsko tangento \eqref{tangenta_hopf}.
+\texttt{[Morda zgornjo enačbo dokažem?]}
+
+Zelo lahko je videti, da za $\bbeta\neq0$ velja $\nhopf(\balpha/\bbeta,1)=\nhopf(\balpha,\bbeta).$ Najprej pomnožimo števec in imenovalec izraza za $\nhopf(\balpha/\bbeta,1)$ z $|\bbeta|^2:$
+\begin{align*}
+	\nhopf\left(\balpha/\bbeta,1\right)&=\frac{(|\balpha/\bbeta|^2-|1|^2,2\ReC(\balpha/\bbeta\cdot 1),2\ImC(\balpha/\bbeta\cdot 1))}{|\balpha/\bbeta|^2+|1|^2}\\
+	&=\frac{(|\balpha|^2-|\bbeta|^2,2\ReC(|\bbeta|^2\cdot\balpha/\bbeta),2\ImC(|\bbeta|^2\cdot\balpha/\bbeta))}{|\balpha|^2+|\bbeta|^2}
+\end{align*}
+Upoštevamo še dejstvo $\bbeta\cdot\bar{\bbeta}=|\bbeta|^2.$ Res sledi enakost $\nhopf(\balpha/\bbeta,1)=\nhopf(\balpha,\bbeta).$
+
+To dejstvo nam pove, da je za obravnavo enotskih tangent PH krivulj dovolj pogledati razmerje polinomov $\balpha(t)/\bbeta(t).$ Različne PH krivulje, ki so porojene z različnimi kompleksnimi polinomi imajo lahko torej isto enotsko tangento, če so le polinomi v enakem razmerju. Pri takih krivuljah se v dani točki $t$ hitrostni vektor $\rV'(t)$ razlikuje po velikosti, ne pa po smeri.
+
+Razmerje $\zV(t)=\balpha(t)/\bbeta(t)$ nam poda racionalno krivuljo v kompleksni ravnini. To razmerje preslikamo s normalizirano Hopfovo preslikavo, da dobimo sliko $\cV(t)=\nhopf(\zV(t),1)$ na enotski sferi $S^2.$ Izkaže se, da je preslikava $\zV\to\nhopf(\zV,1)$ v resnici inverz stereografske projekcije. Pri inverzni stereografski projekciji potegnemo premico skozi severni tečaj sfere $S^2$ in točko $\zV$ na razširjeni kompleksni ravnini (ki jo identificiramo z $\R^2\cup\{\infty\}$). Točka, ki je slika točke $\zV$ z inverzno stereografsko projekcijo, se nahaja na presečišču te premice s sfero. ``Točka v neskončnosti'' $\infty$ se tako preslika v severni tečaj.\\
+\texttt{[Morda je za dodat še kaj malega o stereografski projekciji.]}
+
+Zelo uporabna lastnost stereografske projekcije je, da se vse krožnice na $S^2$ preslikajo v premice ali krožnice na kompleksni ravnini. To je razloženo v poglavju ``Stereographic projection'' v \cite{needham1998visual}. Ker je po posledici \ref{vijacnica_slika_tangente} slika enotske tangente splošne vijačnice na sferi krožnica, lahko pridobimo potrebne pogoje za konstrukcijo vijačnic tako, da izberemo taka kompleksna polinoma $\balpha(t)$ in $\bbeta(t),$ katerih razmerje $\zV(t)=\balpha(t)/\bbeta(t)$ nam poda racionalno parametrizacijo premice oziroma krožnice v $\C.$ Slika premice oziroma krožnice z normalizirano Hopfovo preslikavo je torej krožnica na $S^2,$ torej je po posledici \ref{vijacnica_slika_tangente} taka krivulja res vijačna.
+
+\subsection{Kompleksne premice in krožnice}
+
+Za konstrukcijo različnih vijačnih polinomskih krivulj bo pomembna naslednja funkcija, ki realno os preslika v množico točk v kompleksni ravnini. Ima predpis
+\begin{equation}
+	\label{transformacija}
+	\zV(t)=\frac{\aV_0(1-t)+\aV_1t}{\bV_0(1-t)+\bV_1t},
+\end{equation}
+kjer so $\aV_0,$ $\aV_1,$ $\bV_0$ in $\bV_1$ kompleksna števila, za katera velja $\aV_0\bV_1-\aV_1\bV_0\neq 0.$ Izkaže se, da lahko s tem predpisom podamo vse premice in krožnice v kompleksni ravnini ( \cite{schwerdtfeger2020geometry}, \cite{needham1998visual}).
+
+V katerih primerih imamo opravka s krožnicami in v katerih primerih s premicami?
+\begin{itemize}
+	\item Če je $\bV_1\bar{\bV}_0-\bar{\bV}_1\bV_0=2\iu\ImC(\bV_1\bar{\bV}_0)\neq 0,$ nam potem predpis \eqref{transformacija} poda izraz za krožnico. To lahko preverimo na naslednji način. Naj bosta
+	\begin{equation*}
+		\zV_c=\frac{\aV_1\bar{\bV}_0-\aV_0\bar{\bV}_1}{\bV_1\bar{\bV}_0-\bar{\bV}_1\bV_0}\quad\text{in}\quad R=\left|\frac{\aV_0\bV_1-\aV_1\bV_0}{\bV_1\bar{\bV}_0-\bar{\bV}_1\bV_0}\right|.
+	\end{equation*}
+	Trdimo, da je $\zV_c$ središče te krožnice, vrednost $R$ je pa enaka polmeru. Oglejmo si torej izraz $|\zV(t)-\zV_c|^2.$Enak je
+	\begin{align*}
+		|\zV(t)-\zV_c|^2&=\left|\frac{\aV_0(1-t)+\aV_1t}{\bV_0(1-t)+\bV_1t}-\frac{\aV_1\bar{\bV}_0-\aV_0\bar{\bV}_1}{\bV_1\bar{\bV}_0-\bar{\bV}_1\bV_0}\right|^2\\
+		&=\left|\frac{(\aV_0\bV_1-\aV_1\bV_0)((1-t)\bar{\bV}_0+t\bar{\bV}_1)}{(\bV_1\bar{\bV}_0-\bar{\bV}_1\bV_0)((1-t)\bV_0+t\bV_1)}\right|^2.
+	\end{align*}
+	Če s $\xi$ označimo $(1-t)\bV_0+t\bV_1,$ je potem zgornji izraz enak
+	\begin{equation*}
+		\left|\frac{\aV_0\bV_1-\aV_1\bV_0)}{\bV_1\bar{\bV}_0-\bar{\bV}_1\bV_0}\right|^2\cdot\left|\frac{\bar{\xi}}{\xi}\right|^2=R^2\cdot1^2=R^2.
+	\end{equation*}
+	Torej imamo v tem primeru res opravka s krožnico.
+	\item Če pa je $\bV_1\bar{\bV}_0-\bar{\bV}_1=0,$ potem $R$ naraste čez vse meje, središče $\zV_c$ pa postane ``točka v neskončnosti''. Izraz \eqref{transformacija} tako definira premico, kar lahko pokažemo s pomočjo odvoda
+	\begin{equation*}
+		\dFrac{\zV}=\frac{\aV_1\bV_0-\aV_0\bV_1}{(\bV_0(1-t)+\bV_1t)^2}.
+	\end{equation*}
+	Potem je smer odvoda (bolje rečeno kot) enaka
+	\begin{equation*}
+		\arg\left(\dFrac{\zV}\right)=\arg(\aV_1\bV_0-\aV_0\bV_1)-2\arg(\bV_0(1-t)+\bV_1t).
+	\end{equation*}
+	Zapišimo $\bV_0=b_0+\iu\beta_0$ in $\bV_1=b_1+\iu\beta_1.$ Potem je
+	\begin{equation*}
+		\arg(\bV_0(1-t)+\bV_1t)=\tan^{-1}\frac{\beta_0(1-t)+\beta_1t}{b_0(1-t)+b_1t}\mod\pi.
+	\end{equation*}
+	Osredotočimo se na izraz $\frac{\beta_0(1-t)+\beta_1t}{b_0(1-t)+b_1t}.$ Pokažimo, da je konstanten natanko takrat, ko  velja $b_0\beta_1-b_1\beta_0=\ImC(\bV_1\bar{\bV}_0)=(\bV_1\bar{\bV}_0-\bar{\bV}_1)/2\iu=0.$ Recimo, da je konstanten. Potem je $\beta_0(1-t)+\beta_1t=c(b_0(1-t)+b_1t)$ za nek $c\in\R.$ To enačbo malce preuredimo, da dobimo
+	\begin{equation*}
+		(\beta_0-cb_0)(1-t)+(\beta_1-cb_1)t=0,
+	\end{equation*}
+	kar je res za vsak $t.$ To pomeni, da je potem $\beta_0=cb_0$ in $\beta_1=cb_1.$ Vidimo, da je izraz $b_0\beta_1-b_1\beta_0$ res enak 0.\\
+	Obratno, recimo, da drži $b_0\beta_1-b_1\beta_0=0.$ Števec in imenovalec zgornjega ulomka množimo z $b_0.$ Ker je $b_0\beta_1=b_1\beta_0,$ dobimo
+	\begin{equation*}
+		\frac{\beta_0(1-t)+\beta_1t}{b_0(1-t)+b_1t}=\frac{\beta_0b_0(1-t)+\beta_0b_1t}{b_0^2(1-t)+b_1b_0t}=\frac{\beta_0(b_0(1-t)+b_1t)}{b_0(b_0(1-t)+b_1t)}=\frac{\beta_0}{b_0},
+	\end{equation*}
+	kar pa je res enako konstantni vrednosti.\\
+	Torej je res izraz $\frac{\beta_0(1-t)+\beta_1t}{b_0(1-t)+b_1t}$ konstanten natanko takrat, ko je $b_0\beta_1-b_1\beta_0=0.$ Iz tega pogoja sledi, da velja $\bV_0=k_0\wV$ in $\bV_1=k_1\wV$ za $k_0,k_1\in\R$ ter $\wV\in\C.$ Označimo $\cV_0=\aV_0/\wV$ in $\cV_1=\aV_1/\wV.$ Potem lahko v tem primeru izraz \eqref{transformacija} zapišemo kot
+	\begin{equation*}
+		\zV(t)=\frac{\cV_0(1-t)+\cV_1t}{k_0(1-t)+k_1t}.
+	\end{equation*}
+	Izraz torej predstavlja premico natanko takrat, ko ima realen imenovalec.
+\end{itemize}
+S pomočjo izraza \eqref{transformacija} bomo lahko konstruirali različne tipe polinomskih vijačnih krivulj višjih stopenj. Ločimo dva načina. Prvič, lahko pomnožimo števec in imenovalec ulomka s kompleksnim polinomom, da dobimo $\zV(t)=\balpha(t)/\bbeta(t).$ Tako pridobljena $\balpha(t)$ in $\bbeta(t)$ sta si tuja. Ta dva polinoma preslikamo s Hopfovo preslikavo, da dobimo hodograf $\rV'(t).$ Zaradi tega postopka (torej množenja obeh strani ulomka) se smer vektorja $\rV'(t)$ v točki $t$ ne spremeni, spremeni pa se velikost vektorja v tej točki. Tako pridobljenim krviuljam pravimo \emph{monotone vijačnice}.
+
+Drug tip vijačnic pa pridobimo s reparametrizacijo parametra $t.$ Uporabimo racionalno parametrizacijo $t\to\frac{f(t)}{g(t)},$ kjer sta $f(t)$ in $g(t)$ realna polinoma vsaj druge stopnje, ki sta si med seboj tuja. Spet pridobimo izraz oblike $\zV(t)=\balpha(t)/\bbeta(t),$ le da si tokrat $\balpha(t)$ in $\bbeta(t)$ nista nujno tuja. Pridobljene vijačne krivulje lahko tako imajo točke obrata, kjer tangenta spremeni smer. Takim krivuljam pravimo \emph{splošne vijačnice.} Ta dva postopka lahko tudi kombiniramo in pridobljene splošne vijačnice imajo stopnjo enako vsaj sedem.
+
+%\subsection{Vijačne PH krivulje 3.\ in 5.\ stopnje}
+
+%\subsection{Vijačne PH krivulje 7.\ stopnje}
+
+%\subsection{Vijačne PH krivulje višjih stopenj}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\section{Nevijačne dvojne PH krivulje}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
