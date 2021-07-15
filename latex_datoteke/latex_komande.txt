@@ -29,6 +29,7 @@ LaTeX okrajšave
 \newcommand{\CQ}{\mathcal{C}}
 \newcommand{\DQ}{\mathcal{D}}
 \newcommand{\QQ}{\mathcal{Q}}
+\newcommand{\VQ}{\mathcal{V}}
 \newcommand{\balpha}{\boldsymbol \alpha}
 \newcommand{\bbeta}{\boldsymbol \beta}
 \newcommand{\dFrac}[2][t]{\frac{\mathrm{d}#2}{\mathrm{d}#1}} %odvod, default spremenljivka je t

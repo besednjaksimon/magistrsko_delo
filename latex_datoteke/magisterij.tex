@@ -128,6 +128,7 @@
 \newcommand{\CQ}{\mathcal{C}}
 \newcommand{\DQ}{\mathcal{D}}
 \newcommand{\QQ}{\mathcal{Q}}
+\newcommand{\VQ}{\mathcal{V}}
 \newcommand{\balpha}{\boldsymbol \alpha}
 \newcommand{\bbeta}{\boldsymbol \beta}
 \newcommand{\dFrac}[2][t]{\frac{\mathrm{d}#2}{\mathrm{d}#1}} %odvod, default spremenljivka je t
@@ -153,6 +154,9 @@
 % če želiš, da se poglavja začnejo na lihih straneh zgoraj
 % \let\oldsection\section
 % \def\section{\cleardoublepage\oldsection}
+
+% Pravilno deljenje besed
+\hyphenation{kro-žnic} 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%           DOCUMENT           %%%%%%
@@ -932,7 +936,7 @@ Naj bo sedaj $\rV(t)$ prostorska PH krivulja pete stopnje, ki je podana s komple
 \end{align}
 Krivulja je DPH krivulja, ko je zgornji izraz enak $h(t)\wV^2(t)$ za nek realen polinom $h(t)$ in nek kompleksni polinom $\wV(t).$ Tu ločimo dva primera: ali je $\st(h(t))=0$ in $\st(\wV(t))=1$ ali pa $\st(h(t))=2$ in $\st(\wV(t))=0.$
 
-\subsubsection*{Primer $\st(h(t))=0$ in $\st(\wV(t))=1$}
+\subsubsection{Primer \texorpdfstring{$\st(h(t))=0$}{st(h(t))=0} in \texorpdfstring{$\st(\wV(t)=1)$}{st(w(t))=1}}
 
 Recimo, da je $\st(h(t))=0$ in $\st(\wV(t))=1.$ Kot prej lahko brez škode za splošnost privzamemo, da je $h(t)=1,$ polinom $\wV(t)$ pa je enak $\wV(t)=\wV_0(1-t)+\wV_1t,$ torej je $\wV^2(t)=\wV_0^2(1-t)^2+\wV_0\wV_12(1-t)t+\wV_1^2t^2.$ Če enačimo koeficiente izraza $h(t)\wV^2(t)$ s koeficienti izraza \eqref{propoly_bern_5}, dobimo naslednje enačbe:
 \begin{equation}
@@ -943,7 +947,9 @@ Recimo, da je $\st(h(t))=0$ in $\st(\wV(t))=1.$ Kot prej lahko brez škode za sp
 	\label{st5h0w1}
 	4(\balpha_0\bbeta_1-\balpha_1\bbeta_0)(\balpha_1\bbeta_2-\balpha_2\bbeta_1)=(\balpha_0\bbeta_2-\balpha_2\bbeta_0)^2.
 \end{equation}
-\subsubsection*{Primer $\st(h(t))=2$ in $\st(\wV(t))=0$}
+
+\subsubsection{Primer \texorpdfstring{$\st(h(t))=2$}{st(h(t))=2} in \texorpdfstring{$\st(\wV(t)=0)$}{st(w(t))=0}}
+
 Oglejmo si še drugi primer, ko je $\st(h(t))=2$ in $\st(\wV(t))=0.$ Polinom $h(t)=h_0(1-t)^2+h_12(1-t)t+h_2t^2$ prav tako podamo v Bernsteinovi obliki, za $\wV(t)$ pa postavimo $\wV(t)=\wV_0.$ Spet enačimo koeficiente izraza $h(t)\wV^2(t)$ s koeficienti izraza \eqref{propoly_bern_5}. Dobimo naslednji sistem enačb:
 \begin{equation}
 	2(\balpha_0\bbeta_1-\balpha_1\bbeta_0)=h_0\wV_0^2,\quad \balpha_0\bbeta_2-\balpha_2\bbeta_0=h_1\wV_0^2,\quad 2(\balpha_1\bbeta_2-\balpha_2\bbeta_1)=h_2\wV_0^2.\label{st5h2w0}
@@ -965,7 +971,7 @@ Za izpolnitev DPH pogoja imamo tokrat tri možnosti: ali je $\st(h(t))=0$ in \\$
 \end{align}
 \texttt{[Še vedno ne vem, kako pridemo do tega. Fino bi bilo, da tudi to potem razložim.]}
 
-\subsubsection*{Primer $\st(h(t))=0$ in $\st(\wV(t))=2$}
+\subsubsection{Primer \texorpdfstring{$\st(h(t))=0$}{st(h(t))=0} in \texorpdfstring{$\st(\wV(t)=2)$}{st(w(t))=2}}
 
 Lahko vzamemo kar $h(t)=1.$ Naj ima kvadratičen kompleksni polinom $\wV(t)$ Bernsteinove koeficiente $\wV_0,$ $\wV_1$ in $\wV_2.$ Če ta polinom kvadriramo in primerjamo koeficiente s koeficienti v enačbi \eqref{propoly_bern_7}, dobimo naslednje enačbe:
 \begin{align}
@@ -990,7 +996,7 @@ Ker ima kvadratna enačba dve rešitvi, lahko vrednost $\balpha_1\bbeta_2-\balph
 \end{equation}
 Na začetku lahko torej poljubno izberemo koeficiente $\wV_0,$ $\wV_1$ in $\wV_2$ (in s tem polinom $\wV(t)$) ter še tri koeficiente polinomov $\balpha(t)$ in $\bbeta(t)$ (recimo $\balpha_0,$ $\balpha_1$ in $\bbeta_0$) in nato rešimo bilinearni sistem enačb \eqref{sistem_st7h0w2}. Ob upoštevanju zadnje enakosti so potem vse vrednosti Bernsteinovih koeficientov polinomov $\balpha(t)$ in $\bbeta(t)$ tako določene, da je prostorska PH krivulja, ki je porojena iz teh dveh kompleksnih polinomov, res dvojna PH krivulja.
 
-\subsubsection*{Primer $\st(h(t))=2$ in $\st(\wV(t))=1$}
+\subsubsection{Primer \texorpdfstring{$\st(h(t))=2$}{st(h(t))=2} in \texorpdfstring{$\st(\wV(t)=1)$}{st(w(t))=1}}
 
 Vzamemo $h_0,$ $h_1,$ $h_2$ za Bernsteinove koeficiente polinoma $h(t)$ ter $\wV_0$ in $\wV_1$ za Bernsteinove koeficiente polinoma $\wV(t).$ Če poračunamo $h(t)\wV^2(t)$ in primerjamo Bernsteinove tega polinoma s koeficienti proporcionalnega polinoma \eqref{propoly_bern_7}, dobimo naslednji sistem enačb:
 \begin{align}
@@ -1016,7 +1022,7 @@ Rešitvi kvadratne enačbe podamo s pomočjo koeficientov polinomov $h(t)$ in $\
 \end{align}
 Postopamo podobno kot prej. Poljubno izberemo koeficiente $h_0,$ $h_1,$ $h_2,$ $\wV_0,$ $\wV_1$ ter še tri koeficiente polinomov $\balpha(t)$ in $\bbeta(t)$ (recimo $\balpha_0,$ $\balpha_1$ in $\bbeta_0$). Potem rešimo sistem enačb \eqref{sistem_st7h2w1}. Ob upoštevanju zadnje enakosti je sklep isti kot prej. Vse vrednosti Bernsteinovih koeficientov polinomov $\balpha(t)$ in $\bbeta(t)$ so s tem tako določene, da je prostorska PH krivulja, ki je porojena iz teh dveh kompleksnih polinomov, res dvojna PH krivulja.
 
-\subsubsection*{Primer $\st(h(t))=4$ in $\st(\wV(t)=0)$}
+\subsubsection{Primer \texorpdfstring{$\st(h(t))=4$}{st(h(t))=4} in \texorpdfstring{$\st(\wV(t)=0)$}{st(w(t))=0}}
 
 Obravnavajmo še zadnji primer. Naj bodo $h_0,$ $h_1,$ $h_2,$ $h_3$ in $h_4$ Bernsteinovi koeficienti polinoma $h(t),$ polinom $\wV(t)$ pa naj bo identično enak konstanti $\wV_0.$ Če spet primerjamo istoležne koeficiente proporcionalnega polinoma \eqref{propoly_bern_7} s koeficienti polinoma $h(t)\wV^2(t)$ in jih enačimo, dobimo
 \begin{align}
@@ -1171,11 +1177,221 @@ S pomočjo izraza \eqref{transformacija} bomo lahko konstruirali različne tipe 
 
 Drug tip vijačnic pa pridobimo s reparametrizacijo parametra $t.$ Uporabimo racionalno parametrizacijo $t\to\frac{f(t)}{g(t)},$ kjer sta $f(t)$ in $g(t)$ realna polinoma vsaj druge stopnje, ki sta si med seboj tuja. Spet pridobimo izraz oblike $\zV(t)=\balpha(t)/\bbeta(t),$ le da si tokrat $\balpha(t)$ in $\bbeta(t)$ nista nujno tuja. Pridobljene vijačne krivulje lahko tako imajo točke obrata, kjer tangenta spremeni smer. Takim krivuljam pravimo \emph{splošne vijačnice.} Ta dva postopka lahko tudi kombiniramo in pridobljene splošne vijačnice imajo stopnjo enako vsaj sedem.
 
-%\subsection{Vijačne PH krivulje 3.\ in 5.\ stopnje}
+\subsection{Vijačne krivulje 3.\ in 5.\ stopnje}
 
-%\subsection{Vijačne PH krivulje 7.\ stopnje}
+\subsubsection{Vijačne krivulje 3.\ stopnje}
 
-%\subsection{Vijačne PH krivulje višjih stopenj}
+Najenostavnejša racionalna parametrizacija (parametrizacija najmanjše stopnje)\\krožnic oziroma premic v kompleksni ravnini je predpis \eqref{transformacija} tak, kot je. Za $\balpha(t)$ vzamemo kar števec ulomka $\aV_0(1-t)+\aV_1t,$ za $\bbeta(t)$ pa imenovalec ulomka $\bV_0(1-t)+\bV_1t.$ Ta dva polinoma vstavimo v Hopfovo preslikavo \eqref{hopf}, da dobimo hodograf $\rV'(t).$ Proporcionalni polinom \eqref{propor_poly_izpeljava} je enak
+\begin{equation*}
+	\balpha(t)\bbeta'(t)-\balpha'(t)\bbeta(t)=\aV_0\bV_1-\aV_1\bV_0.
+\end{equation*}
+Lahko nastavimo $h(t)=1$ in $\wV^2(t)=\aV_0\bV_1-\aV_1\bV_0.$ Če povzamemo, vse prostorske PH krivulje 3.\ stopnje so vijačne in hkrati tudi DPH krivulje. Vidimo tudi, da če sta si le polinoma $\balpha(t)$ in $\bbeta(t)$ tuja, je krivulja, porojena s tem procesom, monotono vijačna. Njena tangenta nima točk obrata.
+
+\subsubsection{Vijačne krivulje 5.\ stopnje - kvadratična reparametrizacija}
+\label{kvadraticna_reparametrizacija_5}
+
+Da lahko sploh govorimo o vijačni krivulji 5.\ stopnje, morata biti polinoma $\balpha(t)$ in $\bbeta(t),$ ki ju vstavimo v predpis za normalizirano Hopfovo preslikavo oziroma običajno Hopfovo preslikavo, druge stopnje. Obstajata dva načina, kako to doseči. Oglejmo si prvega, ki mu rečemo kvadratična reparametrizacija.
+
+Pri tem načinu reparametriziramo parameter $t$ z racionalno transformacijo
+\begin{equation}
+	\label{kvadraticna_reparametrizacija}
+	t\to\frac{f(t)}{g(t)}=\frac{f_0(1-t)^2+f_12(1-t)t+f_2t^2}{g_0(1-t)^2+g_12(1-t)t+g_2t^2},
+\end{equation}
+kjer sta si $f(t)$ in $g(t)$ med sabo tuja realna polinoma 2.\ stopnje, podana v Bernsteinovi bazi. Predpis za krožnico \eqref{transformacija} oziroma premico tako postane enak
+\begin{align*}
+	\zV(t)&=\frac{\aV_0\left(1-\frac{f(t)}{g(t)}\right)+\aV_1\frac{f(t)}{g(t)}}{\bV_0\left(1-\frac{f(t)}{g(t)}\right)+\bV_1\frac{f(t)}{g(t)}}\\
+	&=\frac{\aV_0(g(t)-f(t))+\aV_1f(t)}{\bV_0(g(t)-f(t))+\bV_1f(t)}\\
+	&=\frac{\balpha_0(1-t)^2+\balpha_12(1-t)t+\balpha_2t^2}{\bbeta_0(1-t)^2+\bbeta_12(1-t)t+\bbeta_2t^2},
+\end{align*}
+kjer so $\balpha_i=f_i(\aV_1-\aV_0)+g_i\aV_0$ in $\bbeta_i=f_i(\bV_1-\bV_0)+g_i\bV_0$ za $i=0,1,2$ Bernsteinovi koeficienti polinomov $\balpha(t)$ in $\bbeta(t).$ S programom \emph{Mathematica} lahko preverimo, da ima proporcionalni polinom obliko
+\begin{equation*}
+	\balpha(t)\bbeta'(t)-\balpha'(t)\bbeta(t)=h(t)(\aV_0\bV_1-\aV_1\bV_0),
+\end{equation*}
+kjer s $h(t)$ označimo realen polinom druge stopnje. Ta polinom ima Bernsteinove koeficiente enake $h_0=2(f_1g_0-f_0g_1),$ $h_1=f_2g_0-f_0g_2$ in $h_2=2(f_2g_1-f_1g_2).$ Izkaže se, da je tako podan polinom $h(t)$ enak $f'(t)g(t)-f(t)g'(t),$ kar lahko spet preverimo z \emph{Mathematico}. DPH pogoj \eqref{propor_poly_izpeljava} je tako izpolnjen s $\st(h(t))=2$ in $\st(\wV(t))=0.$ Kot smo že omenili pred začetkom tega poglavja in kot lahko zasledimo v \cite{beltranmonterde}, nam tak postopek ne da monotone vijačnice, temveč splošno vijačnico.
+
+Če preko relacije \eqref{comp_to_quat} tvorimo kvaternionski polinom $\AQ(t)=\balpha(t)+\kV\bbeta(t)$ opazimo zanimivo dejstvo. Bernsteinovi koeficienti tega polinoma se izraža v obliki
+\begin{equation}
+	\label{quatpolyberncoeffshelix5parametrization}
+	\AQ_i=f_i\big(\aV_1-\aV_0+\kV(\bV_1-\bV_0)\big)+g_i\big(\aV_0+\kV\bV_0\big)\quad\text{za}\quad i=0,1,2.
+\end{equation}
+Vse tri koeficiente $\AQ_0,$ $\AQ_1$ in $\AQ_2$ se da izraziti kot linearno kombinacijo dveh kvaternionov in sicer $\aV_1-\aV_0+\kV(\bV_1-\bV_0)$ ter $\aV_0+\kV\bV_0.$ Vsi trije koeficienti torej ležijo v isti kvaternionski ravnini, ki jo razpenjata ta dva kvaterniona. Kot je omenjeno v trditvi 1 v \cite{faroukietal2004}, je to tudi zadosten pogoj za to, da dobimo vijačno krivuljo 5.\ stopnje. Koeficient $\AQ_1$ izrazimo kot $\AQ_1=\AQ_0c_0+\AQ_2c_2,$ kjer sta $c_0,c_2\in\R$ neki konstanti. Ko to vrednost primerjamo z enačbami \eqref{quatpolyberncoeffshelix5parametrization}, ugotovimo, da se konstanti izražata kot
+\begin{equation*}
+	c_0=\frac{h_2}{2h_1}\quad\text{in}\quad c_2=\frac{h_0}{2h_1}.
+\end{equation*}
+
+\subsubsection{Vijačne krivulje 5.\ stopnje - množenje z linearnim polinomom}
+\label{mnozenje_linearni_polinom_5}
+
+Tokrat v izrazu \eqref{transformacija} množimo števec in imenovalec z istim kompleksnim linearnim polinomom $\wV(t)=\wV_0(1-t)+\wV_1t.$ Iskano racionalno parametrizacijo $\zV(t)=\balpha(t)/\bbeta(t)$ krožnice oziroma premice dosežemo z
+\begin{align*}
+	\balpha(t)&=\big(\aV_0(1-t)+\aV_1t\big)\big(\wV_0(1-t)+\wV_1t\big)\\
+	&=\aV_0\wV_0(1-t)^2+\frac{1}{2}(\aV_0\wV_1+\aV_1\wV_0)2(1-t)t+\aV_1\wV_1t^2,\\
+	\bbeta(t)&=\big(\bV_0(1-t)+\bV_1t\big)\big(\wV_0(1-t)+\wV_1t\big)\\
+	&=\bV_0\wV_0(1-t)^2+\frac{1}{2}(\bV_0\wV_1+\bV_1\wV_0)2(1-t)t+\bV_1\wV_1t^2.
+\end{align*}
+Pri računanju proporcionalnega polinoma si lahko pomagamo z \emph{Mathematico}. Dobimo, da je enak
+\begin{equation*}
+	\balpha(t)\bbeta'(t)-\balpha'(t)\bbeta(t)=\big(\sqrt{\aV_0\bV_1-\aV_1\bV_0}\big(\wV_0(1-t)+\wV_1t\big)\big)^2.
+\end{equation*}
+DPH pogoj \eqref{propor_poly_izpeljava} je izpolnjen s $\st(h(t))=0$ in $\st(\wV(t))=1.$ Kot je argumentirano v \cite{beltranmonterde}, nam ta postopek poda monotono vijačnico.
+
+V \cite{faroukietal2004} so monotone vijačnice 5.\ stopnje karakterizirane na naslednji način preko Bernsteinovih koeficientov kvaternionskega polinoma $\AQ(t):$ velja zveza
+\begin{equation}
+	\label{monotone_vijacnice_5_pogoj}
+	\AQ_1=\AQ_0\cV_0+\AQ_2\cV_2,
+\end{equation}
+kjer sta $\cV_0$ in $\cV_2$ ``kompleksni števili'' - kvaterniona, ki sta enaka 0 pri komponentah $\jV$ in $\kV.$ Za ti dve števili velja enakost
+\begin{equation}
+	\label{monotone_vijacnice_5_pogoj2}
+	4\cV_0\cV_2=1.
+\end{equation}
+Ti dve števili lahko tudi neposredno izračunamo. Tvorimo kvaternionski polinom $\AQ(t)=\balpha(t)+\kV\bbeta(t)$ preko zveze \eqref{comp_to_quat} z naslednjimi Bernsteinovimi koeficienti
+\begin{align*}
+	\AQ_0&=(\aV_0+\kV\bV_0)\wV_0,\\
+	\AQ_1&=\frac{1}{2}\big((\aV_0+\kV\bV_0)\wV_1+(\aV_1+\kV\bV_1)\wV_0\big),\\
+	\AQ_2&=(\aV_1+\kV\bV_1)\wV_1.
+\end{align*}
+Zaradi komutativnosti množenja kompleksnih števil lahko naslednje zmnožke zapišemo kot
+\begin{equation*}
+	\AQ_0\wV_1=(\aV_0+\kV\bV_0)\wV_1\wV_0\quad\text{in}\quad\AQ_2\wV_0=(\aV_1+\kV\bV_1)\wV_0\wV_1.
+\end{equation*}
+Če prvi zmnožek delimo z desne $2\wV_0,$ drugega pa z $2\wV_1$ dobimo ravno izraz za $\AQ_1$
+\begin{equation*}
+	\AQ_1=\AQ_0\left(\frac{\wV_1}{2\wV_0}\right)+\AQ_2\left(\frac{\wV_0}{2\wV_1}\right).
+\end{equation*}
+Sklepamo lahko, da je potem $\cV_0=\wV_1/2\wV_0$ in $\cV_2=\wV_0/2\wV_1,$ kar tudi ustreza pogoju \eqref{monotone_vijacnice_5_pogoj2}.
+
+Primera generiranja vijačnice preko kvadratične reparametrizacije oziroma množenja z linearnim polinomom se lahko tudi prekrivata. Če je v primeru kvadratične reparametrizacije polinom $h(t)$ v bistvu kvadrat linearnega polinoma (če drži $h_0h_2=h_1^2$) je potem proporcionalni polinom produkt kompleksne konstante in kvadrata linearnega realnega polinoma. Podobno se lahko zgodi v primeru množenja z linearnim polinomom. Če se da en koeficient polinoma $\wV(t)$ izraziti z drugim, npr.\ $\wV_1=k\wV_0,$ kjer je $k\in\R$ realna konstanta, je tudi v tem primeru proporcionalni polinom enak produktu kompleksne konstante s kvadratom realnega polinoma. Teh izrojenih primerov ne bomo obravnali.
+
+\subsection{Vijačne PH krivulje 7.\ stopnje}
+
+Pri vijačnih krivuljah 7.\ stopnje bomo postopali podobno, kot pri vijačnicah 5.~ stopnje. Polinoma $\balpha(t)$ in $\bbeta(t),$ ki ju preslikamo s Hopfovo preslikavo, da dobimo hodograf, morata biti tokrat 3.\ stopnje. Tokrat imamo na voljo tri različne načine generiranja teh dveh polinomov. Prvi način je kubična reparametrizacija, ki je analogen kvadratični reparametrizaciji \ref{kvadraticna_reparametrizacija_5} v primeru vijačnic 5.\ stopnje. Drugi način gre preko množenja s kvadratičnim polinomom, ki je analogen primeru \ref{mnozenje_linearni_polinom_5}, tretji način pa uporabi tako reparametrizacijo kot množenje s polinomom. Posvetimo se najprej prvemu primeru.
+
+\subsubsection{Kubična reparametrizacija}
+\label{kubicna_reparametrizacija_7}
+
+Kot v poglavju \ref{kvadraticna_reparametrizacija_5} tudi zdaj reparametriziramo parameter $t$ s racionalno parametrizacijo, le da tokrat izberemo polinoma $f(t)$ in $g(t)$ tretje stopnje namesto druge stopnje. Dobimo povsem analogen izraz
+\begin{equation*}
+	\zV(t)=\frac{\balpha_0(1-t)^3+\balpha_13(1-t)^2t+\balpha_23(1-t)t^2+\balpha_3t^3}{\bbeta_0(1-t)^3+\bbeta_13(1-t)^2t+\bbeta_23(1-t)t^2+\bbeta_3t^3},
+\end{equation*}
+kjer so $\balpha_i=f_i(\aV_1-\aV_0)+g_i\aV_0$ in $\bbeta_i=f_i(\bV_1-\bV_0)+g_i\bV_0$ za $i=0,1,2,3$ Bernsteinovi koeficienti polinomov $\balpha(t)$ in $\bbeta(t).$ S programom \emph{Mathematica} preverimo, da je izraz za proporcionalni polinom
+\begin{equation*}
+	\balpha(t)\bbeta'(t)-\balpha'(t)\bbeta(t)=h(t)(\aV_0\bV_1-\aV_1\bV_0)
+\end{equation*}
+povsem analogen kot v poglavju \ref{kvadraticna_reparametrizacija_5}, saj je $h(t)=f'(t)g(t)-f(t)g'(t).$ Bernsteinove koeficiente tega polinoma so enaki
+\begin{align}
+	\label{h_coeffs_cubic_repara}
+	h_0&=3(f_1g_0-f_0g_1),\quad h_1=\frac{3}{2}(f_2g_0-f_0g_2),\nonumber\\
+	h_2&=\frac{3}{2}(f_2g_1-f_1g_2)+\frac{1}{2}(f_3g_0-f_0g_3),\nonumber\\
+	h_3&=\frac{3}{2}(f_3g_1-f_1g_3),\quad h_4=3(f_3g_2-f_2g_3).
+\end{align}
+Vidimo, da je DPH pogoj \eqref{propor_poly_izpeljava} izpolnjen in velja $\st(h(t))=4$ ter $\st(\wV(t))=0.$ Dobimo splošno vijačnico 7.\ stopnje.
+
+Oglejmo si še kvaternionski polinom $\AQ(t)=\balpha(t)+\kV\bbeta(t).$ Kot v poglavju \ref{kvadraticna_reparametrizacija_5}, se Bernsteinovi koeficienti tega polinoma \eqref{quatpolyberncoeffshelix5parametrization} izražajo na enak način
+\begin{equation}
+	\label{quatpolyberncoeffshelix7parametrization}
+	\AQ_i=f_i\big(\aV_1-\aV_0+\kV(\bV_1-\bV_0)\big)+g_i\big(\aV_0+\kV\bV_0\big)\quad\text{za}\quad i=0,1,2,3.
+\end{equation}
+Sklep je podoben kot prej. Vsi ti koeficienti so linearna kombinacija kvaternionov $\aV_1-\aV_0+\kV(\bV_1-\bV_0)$ in $\aV_0+\kV\bV_0$. Potemtakem se koeficienta $\AQ_1$ in $\AQ_2$ da izraziti s pomočjo koeficientov $\AQ_0$ in $\AQ_3$ kot
+\begin{equation*}
+	\AQ_1=\AQ_0c_{10}+\AQ_3c_{13}\quad\text{in}\quad\AQ_2=\AQ_0c_{20}+\AQ_3c_{23}
+\end{equation*}
+za primerne realne konstante $c_{10},$ $c_{13},$ $c_{20}$ in $c_{23}.$ Ko vstavimo vrednosti koeficientov \eqref{quatpolyberncoeffshelix7parametrization} v zgornji enačbi in iz njih izrazimo vrednosti konstant, vidimo, da se konstante izražajo s pomočjo Bernsteinovih koeficientov polinoma $h(t),$ ki smo jih že omenili \eqref{h_coeffs_cubic_repara} ter s pomočjo vrednosti $k=f_3g_0-f_0g_3.$ Velja
+\begin{equation*}
+	c_{10}=\frac{2h_3}{3k},\quad c_{13}=\frac{h_0}{3k},\quad c_{20}=\frac{h_4}{3k},\quad c_{23}=\frac{2h_1}{3k}.
+\end{equation*}
+
+\subsubsection{Množenje s kvadratičnim polinomom}
+\label{mnozenje_kvadraticni_polinom_7}
+
+Podobno kot smo v poglavju \ref{mnozenje_linearni_polinom_5} pri krivuljah 5.\ stopnje množili števec in imenovalec ulomka \eqref{transformacija} s kompleksnim linearnim polinomom, tokrat množimo s kompleksnim kvadratičnim polinomom. Polinoma $\balpha(t)$ in $\bbeta(t)$ sta enaka
+\begin{align}
+	\balpha(t)&=\big(\aV_0(1-t)+\aV_1t\big)\big(\wV_0(1-t)^2+\wV_12(1-t)t+\wV_2t^2\big)\nonumber\\
+	\bbeta(t)&=\big(\bV_0(1-t)+\bV_1t\big)\big(\wV_0(1-t)^2+\wV_12(1-t)t+\wV_2t^2\big).
+\end{align}
+Potemtakem so Bernsteinovi koeficienti obeh polinomov enaki
+\begin{align*}
+	\balpha_0&=\aV_0\wV_0,\quad\balpha_1=\frac{1}{3}(2\aV_0\wV_1+\aV_1\wV_0),\quad\balpha_2=\frac{1}{3}(2\aV_1\wV_1+\aV_0\wV_2),\quad\balpha_3=\aV_1\wV_2\\
+	\bbeta_0&=\bV_0\wV_0,\quad\bbeta_1=\frac{1}{3}(2\bV_0\wV_1+\bV_1\wV_0),\quad\bbeta_2=\frac{1}{3}(2\bV_1\wV_1+\bV_0\wV_2),\quad\bbeta_3=\bV_1\wV_2.
+\end{align*}
+\emph{Mathematica} nam ponovno olajša delo pri preverjanju, da je proporcionalni polinom enak
+\begin{equation*}
+	\balpha(t)\bbeta'(t)-\balpha'(t)\bbeta(t)=\big(\sqrt{\aV_0\bV_1-\aV_1\bV_0}\big(\wV_0(1-t)^2+\wV_12(1-t)t+\wV_2t^2\big)\big)^2.
+\end{equation*}
+DPH pogoj \eqref{propor_poly_izpeljava} je tokrat izpolnjen pri $\st(h(t))=0$ in $\st(\wV(t))=2.$ Zaradi istega razloga kot v poglavju \ref{mnozenje_linearni_polinom_5} je pridobljena vijačnica monotono vijačna.
+
+Oglejmo si še analizo s kvaternioni. Tokrat imamo opravka s kubičnim kvaternionskim polinomom $\AQ(t)=\balpha(t)+\kV\bbeta(t)$ z naslednjimi Bernsteinovimi koeficienti
+\begin{align*}
+	\AQ_0&=(\aV_0+\kV\bV_0)\wV_0,\quad\AQ_1=\frac{1}{3}\big(2(\aV_0+\kV\bV_0)\wV_1+(\aV_1+\kV\bV_1)\wV_0\big),\\
+	\AQ_2&=\frac{1}{3}\big(2(\aV_1+\kV\bV_1)\wV_1+(\aV_0+\kV\bV_0)\wV_2\big),\quad\AQ_3=(\aV_1+\kV\bV_1)\wV_2.
+\end{align*}
+Podobno kot v poglavju \ref{mnozenje_linearni_polinom_5} lahko izrazimo koeficienta $\AQ_1$ in $\AQ_2$ s pomočjo $\AQ_0$ in $\AQ_3$ v obliki
+\begin{equation}
+	\AQ_1=\AQ_0\cV_{10}+\AQ_3\cV_{13}\quad\text{in}\quad\AQ_2=\AQ_0\cV_{20}+\AQ_3\cV_{23}.
+\end{equation}
+Ni težko preveriti, da so koeficienti $\cV_{10},$ $\cV_{13},$ $\cV_{20}$ in $\cV_{23}$ pravzaprav ``kompleksna števila'' - kvaternioni, ki so enaki 0 pri komponentah $\jV$ in $\kV$ ter se izražajo s pomočjo $\wV_0,$ $\wV_1$ in $\wV_2$ kot
+\begin{equation}
+	\cV_{10}=\frac{2\wV_1}{3\wV_0},\quad\cV_{13}=\frac{\wV_0}{3\wV_2},\quad\cV_{20}=\frac{\wV_2}{3\wV_0},\quad\cV_{23}=\frac{2\wV_1}{3\wV_2}.
+\end{equation}
+
+Tudi pri vijačnih krivuljah 7.\ stopnje pride do prekrivanja primerov kubične reparametrizacije in množenja s kvadrtičnim polinomom, podobno kot smo že videli pri vijačnih krivuljah 5.\ stopnje. Če je polinom 4.\ stopnje $h(t)$ iz primera kubične reparametrizacije \ref{kubicna_reparametrizacija_7} pravzaprav kvadrat kvadratičnega polinoma in če so v primeru množenja kvadratičnega polinoma koeficienti $\wV_0,\wV_1$ in $\wV_2$ izražajo kot $\wV_i=\cV w_i,$ kjer je $\cV\in\C$ kompleksna konstanta ter $w_i\in\R$ realne konstante za $i=0,1,2,$ je potem proporcionalni polinom v obeh primerih enak zmnožku kompleksne konstante in kvadratu realnega polinoma druge stopnje, kar nakazuje, da imamo opravka z izrojenimi DPH krivuljami.
+
+\subsubsection{Reparametrizacija in multiplikacija}
+\label{reparametrizacija_multiplikacija}
+
+Tretji način generiranja vijačnih krivulj 7.\ stopnje kombinira oba prejšnja načina: na izrazu \eqref{transformacija} najprej izvedemo kvadratično reparametrizacijo, kot je bilo opisano v poglavju \ref{kvadraticna_reparametrizacija_5} in nato pomnožimo števec in imenovalec pridobljenega ulomka s kompleksnim linearnim polinomom $\wV_0(1-t)+\wV_1t$, kot je bilo opisano v poglavju \ref{mnozenje_linearni_polinom_5}. Tako pridobljena polinoma $\balpha(t)$ in $\bbeta(t)$ sta res polinoma 3.\ stopnje, kar pomeni, da je potem vijačna krivulja, pridobljena iz hodografa, res krivulja 7.\ stopnje. Pomembno je, da najprej izvedemo reparametrizacijo in še le nato množenje, saj v nasprotnem primeru ne dobimo racionalne parametrizacije premice oziroma krožnice, kjer bi bila $\balpha(t)$ in $\bbeta(t)$ polinoma 3.\ stopnje, temveč sta potem 4.\ stopnje. Po krajšem računu ugotovimo, da so Bernsteinovi koeficienti teh dveh polinomov enaki
+\begin{align}
+	\balpha_0&=\big(f_0(\aV_1-\aV_0)+g_0\aV_0\big)\wV_0,\nonumber\\
+	\balpha_1&=\frac{1}{3}\Big(\big(f_0(\aV_1-\aV_0)+g_0\aV_0\big)\wV_1+2\big(f_1(\aV_1-\aV_0)+g_1\aV_0\big)\wV_0\Big),\nonumber\\
+	\balpha_2&=\frac{1}{3}\Big(\big(f_2(\aV_1-\aV_0)+g_2\aV_0\big)\wV_0+2\big(f_1(\aV_1-\aV_0)+g_1\aV_0\big)\wV_1\Big),\nonumber\\
+	\balpha_3&=\big(f_2(\aV_1-\aV_0)+g_2\aV_0\big)\wV_1,\nonumber\\
+	\bbeta_0&=\big(f_0(\bV_1-\bV_0)+g_0\bV_0\big)\wV_0,\nonumber\\
+	\bbeta_1&=\frac{1}{3}\Big(\big(f_0(\bV_1-\bV_0)+g_0\bV_0\big)\wV_1+2\big(f_1(\bV_1-\bV_0)+g_1\bV_0\big)\wV_0\Big),\nonumber\\
+	\bbeta_2&=\frac{1}{3}\Big(\big(f_2(\bV_1-\bV_0)+g_2\bV_0\big)\wV_0+2\big(f_1(\bV_1-\bV_0)+g_1\bV_0\big)\wV_1\Big),\nonumber\\
+	\bbeta_3&=\big(f_2(\bV_1-\bV_0)+g_2\bV_0\big)\wV_1.
+\end{align}
+Preko \emph{Mathematice} ugotovimo, da je proporcionalni polinom enak
+\begin{equation*}
+	\balpha(t)\bbeta'(t)-\balpha'(t)\bbeta(t)=\big(\sqrt{\aV_0\bV_1-\aV_1\bV_0}h(t)\big(\wV_0(1-t)+\wV_1t+\big)\big)^2,
+\end{equation*}
+kjer je $h(t)=f'(t)g(t)-f(t)g'(t)$ povsem enak, kot je zapisano v poglavju \ref{kvadraticna_reparametrizacija_5}. Tokrat je DPH pogoj \eqref{propor_poly_izpeljava} izpolnjen pri $\st(h(t))=2$ in $\st(\wV(t))=1.$
+
+Za lažji zapis kvaternionskega kubičnega polinoma $\AQ(t)=\balpha(t)+\bbeta(t)$ si najprej definirajmo kvaterniona $\VQ_0=\aV_1-\aV_0+\kV(\bV_1-\bV_0)$ in $\VQ_1=\aV_0+\kV\bV_0.$ Potem so Bernsteinovi koeficienti polinoma $\AQ(t)$ enaki
+\begin{align*}
+	\AQ_0&=(f_0\VQ_0+g_0\VQ_1)\wV_0,\\
+	\AQ_1&=\frac{1}{3}(f_0\VQ_0+g_0\VQ_1)\wV_1+\frac{2}{3}(f_1\VQ_0+g_1\VQ_1)\wV_0,\\
+	\AQ_2&=\frac{1}{3}(f_2\VQ_0+g_2\VQ_1)\wV_0+\frac{2}{3}(f_1\VQ_0+g_1\VQ_1)\wV_1,\\
+	\AQ_3&=(f_2\VQ_0+g_2\VQ_1)\wV_1.
+\end{align*}
+Kot smo že videli v prejšnjih poglavjih, lahko koeficienta $\AQ_1$ in $\AQ_2$ izrazimo s pomočjo $\AQ_0$ in $\AQ_3$ preko zveze
+\begin{equation*}
+	\AQ_1=\AQ_0\cV_{10}+\AQ_3\cV_{13}\quad\text{in}\quad\AQ_2=\AQ_0\cV_{20}+\AQ_3\cV_{23},
+\end{equation*}
+kjer so $\cV_{10},\cV_{13},\cV_{20}$ in $\cV_{23}$ kompleksne konstante, ki jih podamo s pomočjo koeficientov $\wV_0,\wV_1$ in $\wV_2$ ter Bernsteinovih koeficientov polinoma $h(t).$ Da se preveriti. da so enake
+\begin{equation}
+	\cV_{10}=\frac{h_1\wV_1+h_2\wV_0}{3h_1\wV_0},\quad\cV_{13}=\frac{h_0\wV_0}{3h_1\wV_1},\quad\cV_{20}=\frac{h_2\wV_1}{3h_1\wV_0},\quad\cV_{23}=\frac{h_1\wV_0+h_0\wV_1}{3h_1\wV_1}
+\end{equation}
+
+\subsection{Vijačne PH krivulje višjih stopenj}
+
+V poglavjih \ref{kvadraticna_reparametrizacija_5} in \ref{kubicna_reparametrizacija_7} smo videli, da so se Bernsteinovi koeficienti polinomov $\balpha(t)$ in $\bbeta(t)$ izražali preko pravzaprav iste zveze. Ta zveza je enaka tudi za višje stopnje. Recimo, da uporabimo sedaj reparametrizacijo $t\to f(t)/g(t)$ stopnje $m,$ kar pomeni, da sta polinoma $f(t)$ in $g(t)$ stopnje $m,$ ter je $m\geq 4.$ Polinoma $\balpha(t)$ in $\bbeta(t)$ sta stopnje $m,$ tako da je potem pridobljena krivulja stopnje $2m+1.$ Koeficienti se izražajo kot
+\begin{equation*}
+	\balpha_i=f_i(\aV_1-\aV_0)+g_i\aV_0\quad\text{in}\quad\bbeta_i=f_i(\bV_1-\bV_0)+g_i\bV_0\quad\text{za}\quad i=0,\dots,m.
+\end{equation*}
+Prav tako je enostavno izraziti Bernsteinove koeficiente kvaternionskega polinoma $\AQ(t)=\balpha(t)+\kV\bbeta(t),$ ki so enaki
+\begin{equation*}
+	\AQ_i=f_i\big(\aV_1-\aV_0+\kV(\bV_1-\bV_0)\big)+g_i(\aV_0+\kV\bV_0)\quad\text{za}\quad i=0,\dots,m.
+\end{equation*}
+Ker so koeficienti $f_i$ in $g_i$ realni, lahko iz zgornjega opazimo, da je $m+1$ kvaternionov linearno odvisnih od kvaternionov $\aV_1-\aV_0+\kV(\bV_1-\bV_0)$ in $\aV_0+\kV\bV_0.$
+
+Prav tako lahko posplošimo postopek množenja izraza \eqref{transformacija} s polinomom, kot smo ga spoznali v poglavjih \ref{mnozenje_linearni_polinom_5} in \ref{mnozenje_kvadraticni_polinom_7}. Polinoma $\aV_0(1-t)+\aV_1t$ in $\bV_0(1-t)+\bV_1t$ množimo s kompleksnim polinomom stopnje $m-1,$ ki ima Bernsteinove koeficiente $\wV_0,\dots,\wV_m.$ Bernsteinovi koeficienti polinomov $\balpha(t)$ in $\bbeta(t)$ so potem enaki $\balpha_0=\aV_0\wV_0,$ $\balpha_m=\aV_1\wV_{m-1},$ $\bbeta_0=\bV_0\wV_0,$ $\bbeta_m=\bV_1\wV_{m-1}$ ter za $k=1,\dots,m-1$ pa velja
+\begin{equation*}
+	\balpha_k=\frac{(m-k)\aV_0\wV_k+k\aV_1\wV_{k-1}}{m}\quad\text{in}\quad\balpha_k=\frac{(m-k)\bV_0\wV_k+k\bV_1\wV_{k-1}}{m}.
+\end{equation*}
+Formule sledijo neposredno iz pravil množenja polinomov, zapisanih v Bernsteinovi bazi. Za proporcionalni polinom tudi v splošnem velja formula $\balpha(t)\bbeta'(t)-\balpha'(t)\bbeta(t)=(\aV_0\bV_1-\aV_1\bV_0)\wV^2(t).$ Tudi pri kvaternionskem zapisu se da ugotoviti, da se koeficienti $\AQ_1,\dots,\AQ_m$ izražajo s pomočjo dveh koeficientov $\AQ_0,\AQ_m$ in kompleksnih konstant $\cV_{k0},\cV_{km}$ za $k=1,\dots,m-1.$
+
+Po zgledu iz prejšnjega poglavja \ref{reparametrizacija_multiplikacija} lahko tudi najprej uporabimo reparametrizacijo in nato izvedemo še postopek množenja s kompleksnim polinomom, da dobimo še en različen razred vijačnih krivulj.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
