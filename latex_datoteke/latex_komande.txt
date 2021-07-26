@@ -15,7 +15,10 @@ LaTeX okrajšave
 \newcommand{\aV}{\mathbf{a}}
 \newcommand{\bV}{\mathbf{b}}
 \newcommand{\cV}{\mathbf{c}}
+\newcommand{\eV}{\mathbf{e}}
+\newcommand{\fV}{\mathbf{f}}
 \newcommand{\pV}{\mathbf{p}}
+\newcommand{\qV}{\mathbf{q}}
 \newcommand{\rV}{\mathbf{r}}
 \newcommand{\iV}{\mathbf{i}}
 \newcommand{\jV}{\mathbf{j}}
@@ -32,6 +35,10 @@ LaTeX okrajšave
 \newcommand{\VQ}{\mathcal{V}}
 \newcommand{\balpha}{\boldsymbol \alpha}
 \newcommand{\bbeta}{\boldsymbol \beta}
+\newcommand{\bgamma}{\boldsymbol \gamma}
+\newcommand{\bdelta}{\boldsymbol \delta}
+\newcommand{\btalpha}{\tilde{\boldsymbol \alpha}}
+\newcommand{\btbeta}{\tilde{\boldsymbol \beta}}
 \newcommand{\dFrac}[2][t]{\frac{\mathrm{d}#2}{\mathrm{d}#1}} %odvod, default spremenljivka je t
 \DeclareMathOperator{\st}{st}
 \DeclareMathOperator{\hopf}{H}

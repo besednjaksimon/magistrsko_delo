@@ -114,7 +114,9 @@
 \newcommand{\bV}{\mathbf{b}}
 \newcommand{\cV}{\mathbf{c}}
 \newcommand{\eV}{\mathbf{e}}
+\newcommand{\fV}{\mathbf{f}}
 \newcommand{\pV}{\mathbf{p}}
+\newcommand{\qV}{\mathbf{q}}
 \newcommand{\rV}{\mathbf{r}}
 \newcommand{\iV}{\mathbf{i}}
 \newcommand{\jV}{\mathbf{j}}
@@ -131,6 +133,10 @@
 \newcommand{\VQ}{\mathcal{V}}
 \newcommand{\balpha}{\boldsymbol \alpha}
 \newcommand{\bbeta}{\boldsymbol \beta}
+\newcommand{\bgamma}{\boldsymbol \gamma}
+\newcommand{\bdelta}{\boldsymbol \delta}
+\newcommand{\btalpha}{\tilde{\boldsymbol \alpha}}
+\newcommand{\btbeta}{\tilde{\boldsymbol \beta}}
 \newcommand{\dFrac}[2][t]{\frac{\mathrm{d}#2}{\mathrm{d}#1}} %odvod, default spremenljivka je t
 
 % \DeclareMathOperator{\tr}{tr}  % morda potrebuješ operator za sled ali kaj drugega?
@@ -526,6 +532,7 @@ Sledi, da v splošnem tudi fleksijska ukrivljenost ni racionalna funkcija parame
 
 Krivulje s pitagorejskim hodografom imajo zanimivo povezavo z ``vijačnimi'' polinomskimi krivulji. Oglejmo si najprej definicijo vijačnice.\cite{kreyszig2019differential}
 \begin{definicija}
+	\label{definicija_vijacnica}
 	Krivulja $\rV$ je vijačnica, če oklepa njena enotska tangenta $\tV$ konstanten kot $\psi$ (kjer je $0<\psi \leq \frac{\pi}{2}$) z nekim fiksnim enotskim vektorjem $\aV.$ Vektor $\aV$ predstavlja os vrtenja vijačnice.
 \end{definicija}
 Ker sta vektorja $\aV$ in $\tV$ enotska, potem velja
@@ -851,6 +858,7 @@ Tu se nam ponudi nova karakterizacija DPH krivulj: DPH krivulje so tiste prostor
 Enostavno je videti, da je proporcionalni polinom identično enak nič natanko takrat, ko se polinoma $\balpha(t)$ in $\bbeta(t)$ razlikujeta za multiplikativno kompleksno konstanto. V eno smer se to pokaže direktno, za dokaz v drugo smer se pa reši preprosto diferencialno enačbo.
 S proporcionalnim polinomom se da lepo izraziti tudi fleksijsko ukrivljenost DPH krivulj in sicer kot
 \begin{equation}
+	\label{kappa_propoly}
 	\kappa=\frac{\sqrt{rho}}{\sigma^2}=2\frac{|\balpha(t)\bbeta'(t)-\balpha'(t)\bbeta(t)|}{|\balpha|^2+|\bbeta|^2}.
 \end{equation}
 Iz tega je razvidno, da vkolikor je za dano DPH krivuljo njen proporcionalni polinom identično enak 0, je potem tudi fleksijska ukrivljenost te krivulje enaka 0, kar pomeni, da imamo pravzaprav opravka z daljico (ravno črto). Če ima ta polinom kakšno realno ničlo, je ta točka lahko točka obrata za normalo in binormalo, ki vsebujeta člen $\omega,$ ki je odvisen od vrednosti proporcionalnega polinoma. Isto velja tudi za torzijsko ukrivljenost.
@@ -957,6 +965,7 @@ Oglejmo si še drugi primer, ko je $\st(h(t))=2$ in $\st(\wV(t))=0.$ Polinom $h(
 Ta sistem enačb je rešljiv natanko takrat, ko kompleksna števila $\balpha_0\bbeta_1-\balpha_1\bbeta_0,$ $\balpha_0\bbeta_2-\balpha_2\bbeta_0$ ter $\balpha_1\bbeta_2-\balpha_2\bbeta_1$ ležijo na isti premici v kompleksni ravnini.
 
 \subsection{Dvojne PH krivulje sedme stopnje}
+\label{poglavje_dvojnePHkrivulje7}
 
 Imejmo $\rV(t)$ prostorsko PH krivulja sedme stopnje, ki je podana s kompleksnima polinomoma $\balpha(t)$ in $\bbeta(t).$ Tokrat sta ta dva polinoma kubična. Po daljšem računanju vidimo, da je proporcionalni polinom enak
 \begin{align}
@@ -972,6 +981,7 @@ Za izpolnitev DPH pogoja imamo tokrat tri možnosti: ali je $\st(h(t))=0$ in \\$
 \texttt{[Še vedno ne vem, kako pridemo do tega. Fino bi bilo, da tudi to potem razložim.]}
 
 \subsubsection{Primer \texorpdfstring{$\st(h(t))=0$}{st(h(t))=0} in \texorpdfstring{$\st(\wV(t)=2)$}{st(w(t))=2}}
+\label{klasifikacija_h0w2}
 
 Lahko vzamemo kar $h(t)=1.$ Naj ima kvadratičen kompleksni polinom $\wV(t)$ Bernsteinove koeficiente $\wV_0,$ $\wV_1$ in $\wV_2.$ Če ta polinom kvadriramo in primerjamo koeficiente s koeficienti v enačbi \eqref{propoly_bern_7}, dobimo naslednje enačbe:
 \begin{align}
@@ -997,6 +1007,7 @@ Ker ima kvadratna enačba dve rešitvi, lahko vrednost $\balpha_1\bbeta_2-\balph
 Na začetku lahko torej poljubno izberemo koeficiente $\wV_0,$ $\wV_1$ in $\wV_2$ (in s tem polinom $\wV(t)$) ter še tri koeficiente polinomov $\balpha(t)$ in $\bbeta(t)$ (recimo $\balpha_0,$ $\balpha_1$ in $\bbeta_0$) in nato rešimo bilinearni sistem enačb \eqref{sistem_st7h0w2}. Ob upoštevanju zadnje enakosti so potem vse vrednosti Bernsteinovih koeficientov polinomov $\balpha(t)$ in $\bbeta(t)$ tako določene, da je prostorska PH krivulja, ki je porojena iz teh dveh kompleksnih polinomov, res dvojna PH krivulja.
 
 \subsubsection{Primer \texorpdfstring{$\st(h(t))=2$}{st(h(t))=2} in \texorpdfstring{$\st(\wV(t)=1)$}{st(w(t))=1}}
+\label{klasifikacija_h2w1}
 
 Vzamemo $h_0,$ $h_1,$ $h_2$ za Bernsteinove koeficiente polinoma $h(t)$ ter $\wV_0$ in $\wV_1$ za Bernsteinove koeficiente polinoma $\wV(t).$ Če poračunamo $h(t)\wV^2(t)$ in primerjamo Bernsteinove tega polinoma s koeficienti proporcionalnega polinoma \eqref{propoly_bern_7}, dobimo naslednji sistem enačb:
 \begin{align}
@@ -1023,6 +1034,7 @@ Rešitvi kvadratne enačbe podamo s pomočjo koeficientov polinomov $h(t)$ in $\
 Postopamo podobno kot prej. Poljubno izberemo koeficiente $h_0,$ $h_1,$ $h_2,$ $\wV_0,$ $\wV_1$ ter še tri koeficiente polinomov $\balpha(t)$ in $\bbeta(t)$ (recimo $\balpha_0,$ $\balpha_1$ in $\bbeta_0$). Potem rešimo sistem enačb \eqref{sistem_st7h2w1}. Ob upoštevanju zadnje enakosti je sklep isti kot prej. Vse vrednosti Bernsteinovih koeficientov polinomov $\balpha(t)$ in $\bbeta(t)$ so s tem tako določene, da je prostorska PH krivulja, ki je porojena iz teh dveh kompleksnih polinomov, res dvojna PH krivulja.
 
 \subsubsection{Primer \texorpdfstring{$\st(h(t))=4$}{st(h(t))=4} in \texorpdfstring{$\st(\wV(t)=0)$}{st(w(t))=0}}
+\label{klasifikacija_h4w0}
 
 Obravnavajmo še zadnji primer. Naj bodo $h_0,$ $h_1,$ $h_2,$ $h_3$ in $h_4$ Bernsteinovi koeficienti polinoma $h(t),$ polinom $\wV(t)$ pa naj bo identično enak konstanti $\wV_0.$ Če spet primerjamo istoležne koeficiente proporcionalnega polinoma \eqref{propoly_bern_7} s koeficienti polinoma $h(t)\wV^2(t)$ in jih enačimo, dobimo
 \begin{align}
@@ -1121,6 +1133,7 @@ Razmerje $\zV(t)=\balpha(t)/\bbeta(t)$ nam poda racionalno krivuljo v kompleksni
 Zelo uporabna lastnost stereografske projekcije je, da se vse krožnice na $S^2$ preslikajo v premice ali krožnice na kompleksni ravnini. To je razloženo v poglavju ``Stereographic projection'' v \cite{needham1998visual}. Ker je po posledici \ref{vijacnica_slika_tangente} slika enotske tangente splošne vijačnice na sferi krožnica, lahko pridobimo potrebne pogoje za konstrukcijo vijačnic tako, da izberemo taka kompleksna polinoma $\balpha(t)$ in $\bbeta(t),$ katerih razmerje $\zV(t)=\balpha(t)/\bbeta(t)$ nam poda racionalno parametrizacijo premice oziroma krožnice v $\C.$ Slika premice oziroma krožnice z normalizirano Hopfovo preslikavo je torej krožnica na $S^2,$ torej je po posledici \ref{vijacnica_slika_tangente} taka krivulja res vijačna.
 
 \subsection{Kompleksne premice in krožnice}
+\label{poglavje_kompleksne_premice_kroznice}
 
 Za konstrukcijo različnih vijačnih polinomskih krivulj bo pomembna naslednja funkcija, ki realno os preslika v množico točk v kompleksni ravnini. Ima predpis
 \begin{equation}
@@ -1264,6 +1277,7 @@ Sklepamo lahko, da je potem $\cV_0=\wV_1/2\wV_0$ in $\cV_2=\wV_0/2\wV_1,$ kar tu
 Primera generiranja vijačnice preko kvadratične reparametrizacije oziroma množenja z linearnim polinomom se lahko tudi prekrivata. Če je v primeru kvadratične reparametrizacije polinom $h(t)$ v bistvu kvadrat linearnega polinoma (če drži $h_0h_2=h_1^2$) je potem proporcionalni polinom produkt kompleksne konstante in kvadrata linearnega realnega polinoma. Podobno se lahko zgodi v primeru množenja z linearnim polinomom. Če se da en koeficient polinoma $\wV(t)$ izraziti z drugim, npr.\ $\wV_1=k\wV_0,$ kjer je $k\in\R$ realna konstanta, je tudi v tem primeru proporcionalni polinom enak produktu kompleksne konstante s kvadratom realnega polinoma. Teh izrojenih primerov ne bomo obravnali.
 
 \subsection{Vijačne PH krivulje 7.\ stopnje}
+\label{podpoglavje_vijacne7stopnje}
 
 Pri vijačnih krivuljah 7.\ stopnje bomo postopali podobno, kot pri vijačnicah 5.~ stopnje. Polinoma $\balpha(t)$ in $\bbeta(t),$ ki ju preslikamo s Hopfovo preslikavo, da dobimo hodograf, morata biti tokrat 3.\ stopnje. Tokrat imamo na voljo tri različne načine generiranja teh dveh polinomov. Prvi način je kubična reparametrizacija, ki je analogen kvadratični reparametrizaciji \ref{kvadraticna_reparametrizacija_5} v primeru vijačnic 5.\ stopnje. Drugi način gre preko množenja s kvadratičnim polinomom, ki je analogen primeru \ref{mnozenje_linearni_polinom_5}, tretji način pa uporabi tako reparametrizacijo kot množenje s polinomom. Posvetimo se najprej prvemu primeru.
 
@@ -1392,12 +1406,233 @@ Formule sledijo neposredno iz pravil množenja polinomov, zapisanih v Bernsteino
 
 Po zgledu iz prejšnjega poglavja \ref{reparametrizacija_multiplikacija} lahko tudi najprej uporabimo reparametrizacijo in nato izvedemo še postopek množenja s kompleksnim polinomom, da dobimo še en različen razred vijačnih krivulj.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Nevijačne dvojne PH krivulje}
+
+Po trditvi \ref{trditev_vijacnica_DPH} vemo, da je vsaka polinomska vijačna krivulja tudi dvojna PH krivulja. Iz primera \ref{PH_ne_vijacnica} je pa tudi razvidno, da obratno ni nujno res: obstajajo dvojne PH krivulje, ki niso nujno polinomske vijačnice. Le-te morajo biti vsaj stopnje sedem, saj za nižje stopnje dvojne PH krivulje sovpadajo z vijačnicami \cite[Izrek 1, str.\ 121]{beltranmonterde}. V tem poglavju bomo raziskali pogoje, ki nam bodo za vsak tip dvojne PH krivulje (kot so bili opisani v poglavje \ref{poglavje_dvojnePHkrivulje7}) povedali, ali je dana dvojna PH krivulja 7.\ stopnje nevijačna ali vijačna.
+
+Pri analizi si bomo pomagali s Hopfovim modelom. Začeli bom z nekaj lemami, ki jih bomo v nadaljevanju uporabili pri posameznih primerih dvojnih PH krivulj. Za kubična polinoma $\balpha(t)$ in $\bbeta(t),$ ki porodita ustrezno DPH krivuljo, bomo v nadaljevanju z $\bgamma(t)$ označili največji skupni delitelj polinomov $\balpha(t)$ in $\bbeta(t),$ tako da velja $\balpha(t)=\bgamma(t)\btalpha(t)$ in $\bbeta(t)=\bgamma(t)\btbeta(t).$ Stopnjo polinoma $\bgamma(t)$ označimo z $r,$ tako da je potem stopnja polinomov $\btalpha(t)$ in $\btbeta(t)$ enaka $3-r.$ Ker imamo opravka s krivuljo 7.\ stopnje, sta potem polinoma $\balpha(t)$ in $\bbeta(t)$ kubična in tako velja $0\leq r \leq 3.$
+
+\begin{lema}
+	\label{lema_1}
+	Če polinoma $\balpha(t)$ in $\bbeta(t)$ porodita nevijačno DPH krivuljo, je potem $r \leq 1.$
+\end{lema}
+\begin{proof}
+	Recimo, da je $r=3.$ Potem sta si polinoma $\balpha(t)$ in $\bbeta(t)$ proporcionalna, tako da je njun proporcionalni polinom identično enak 0. Potem je po enačbi \eqref{kappa_propoly} tudi fleksijska ukrivljenost krivulje, ki ju generirata polinoma, enaka 0, kar pomeni, da imamo pravzaprav opravka s premico, premica pa je trivialno vijačna krivulja, saj lahko vzamemo v definiciji \ref{definicija_vijacnica} kot $\psi=0.$
+	
+	Oglejmo si sedaj primer, ko je $r=2.$ Potem je $\bgamma(t)$ kvadratičen polinom, polinoma $\btalpha(t)$ in $\btbeta(t)$ pa sta linearna. Sledi, da $\zV(t)=\balpha(t)/\bbeta(t)=\btalpha(t)/\btbeta(t)$ definira premico oziroma krožnico v kompleksni ravnini, kot smo opisali v poglavju \ref{poglavje_kompleksne_premice_kroznice} in kot se vidi iz enačbe \eqref{transformacija}. Slika premice oziroma krožnice z normalizirano Hopfovo preslikavo je krožnica na $S^2$ in nam normalizirana Hopfova preslikava poda izraz za enotsko tangento, je po posledici \ref{vijacnica_slika_tangente} krivulja, porojena s polinomoma $\balpha(t)$ in $\bbeta(t),$ res vijačna. V primerih $r=3$ in $r=2$ obakrat dobimo vijačne DPH krivulje, torej mora za nevijačne DPH krivulje res držati $r \leq 1.$
+\end{proof}
+
+\begin{lema}
+	\label{lema_2}
+	Če polinoma $\balpha(t)$ in $\bbeta(t)$ porodita nevijačno DPH krivuljo in velja $r=1,$ je potem polinom $h(t)$ v DPH pogoju \eqref{propor_poly_izpeljava} nekonstanten in ni kvadrat kakega drugega polinoma.
+\end{lema}
+\begin{proof}
+	Če je $r=1,$ sta polinoma $\balpha(t)$ in $\bbeta(t)$ linearna, medtem ko sta polinoma $\btalpha(t)$ in $\btbeta(t)$ kvadratična. Proporcionalni polinom teh dveh polinomov $\btalpha(t)\btbeta'(t)-\btalpha'(t)\btbeta(t)$ je tudi kvadratičen. Predrugačimo DPH pogoj \eqref{propor_poly_izpeljava} v
+	\begin{equation}
+		\label{propor_poly_tilde}
+		\bgamma^2(t)\big(\btalpha(t)\btbeta'(t)-\btalpha'(t)\btbeta(t)\big)=h(t)\wV^2(t).
+	\end{equation}
+	Če je polinom $h(t)$ identično enak neki realni konstanti ali pa je kvadrat nekega drugega realnega polinoma, je potem
+	\begin{equation}
+		\label{propor_poly_tilde2}
+		\btalpha(t)\btbeta'(t)-\btalpha'(t)\btbeta(t)=\bdelta^2(t),
+	\end{equation}
+	kjer je $\bdelta(t)$ kompleksen linearni polinom. Recimo, da je $\tau$ ničla tega polinoma. Potem velja
+	\begin{equation}
+		\label{propor_poly_tilde3}
+		\btalpha(\tau)\btbeta'(\tau)-\btalpha'(\tau)\btbeta(\tau)=\btalpha(\tau)\btbeta''(\tau)-\btalpha''(\tau)\btbeta(\tau)=0.
+	\end{equation}
+	Polinoma $\btalpha(t)$ in $\btbeta(t)$ sta si tuja po definiciji. Iz tega lahko sklepamo, da vrednosti $\btalpha(\tau)$ in $\btbeta(\tau)$ ne moreta biti obe hkrati enaki nič. Označimo s $k$ razmerje $\btbeta(\tau)/\btalpha(\tau).$ Iz zgornje enačbe potem sledi
+	\begin{equation}
+		\btbeta(\tau)=k\btalpha(\tau),\quad\btbeta'(\tau)=k\btalpha'(\tau),\quad\btbeta''(\tau)=k\btalpha''(\tau).
+	\end{equation}
+	Ker sta polinoma $\btalpha(t)$ in $\btbeta(t)$ kvadratična, je moč iz zgornjih enakosti sklepati, da sta polinoma proporcionalna. To pa je v protislovju s predpostavko, da sta sti tuja.
+	
+	Privzemimo, da je sedaj $\btalpha(\tau)=0\neq\btbeta(\tau).$ Če ta podatka vnesemo v enačbe \eqref{propor_poly_tilde3}, vidimo, da je $\btalpha'(\tau)=\btalpha''(\tau)=0.$ Potem lahko polinom $\btalpha(t)$ zapišemo kot $\btalpha(t)=\btalpha_0(t-\tau)^2$ za neko neničelno kompleksno konstanto $\balpha_0.$ Na podoben način zapišemo tudi polinom $\bdelta(t),$ ki je enak $\bdelta(t)=\bdelta_0(t-\tau)$ za neničelno kompleksno konstanto $\bdelta_0.$ Če vstavimo to dvoje v enačbo \eqref{propor_poly_tilde2}, dobimo
+	\begin{align*}
+		\big(\btalpha_0(t-\tau)^2\big)\btbeta'(t)-\big(2\btalpha_0(t-\tau)\big)\btbeta(t)&=\bdelta_0^2(t-\tau)^2\\
+		\btalpha_0\big(\btbeta'(t)(t-\tau)-2\btbeta(t)\big)&=\bdelta_0^2(t-\tau)\\
+		2\btalpha_0\btbeta(t)&=(t-\tau)\big(-\bdelta_0^2+\btalpha_0\btbeta'(t)\big).
+	\end{align*}
+	Po tej izpeljavi je $\btbeta(\tau)=0,$ kar pa je v nasprotju s predpostavko, da je $\btbeta(\tau)\neq0.$ Do podobnega protislovja pridemo, če predpostavimo $\btalpha(\tau)\neq0$ in $\btbeta(\tau)=0.$ Dokazali smo, da če je $r=1$ in je polinom $h(t)$ konstanten ali enak kvadratu nekega drugega polinoma, DPH pogoj ni izpolnjen.
+\end{proof}
+
+\begin{lema}
+	\label{lema_3}
+	Naj bodo $\aV_1,\aV_2,\bV_1$ in $\bV_2$ taka kompleksna števila, da velja $\aV_1\bV_2-\aV_2\bV_1\neq 0$ in naj bo $\phi$ realna spremenljivka. Če velja $|\bV_1|\neq|\bV_2|$ nam funkcija s predpisom
+	\begin{equation}
+		\label{funkcija_lema3}
+		\zV(\phi)=\frac{\aV_1e^{\iu\phi}+\aV_2}{\bV_1e^{\iu\phi}+\bV_2}
+	\end{equation}
+	poda krožnico s središčem v $\zV_c$ in polmerom $R,$ ki sta podana s
+	\begin{equation}
+		\zV_c=\frac{\aV_1\bar{\bV}_1-\aV_2\bar{\bV}_2}{|\bV_1|^2-|\bV_2|^2}\quad\text{in}\quad R=\left|\frac{\aV_2\bV_1-\aV_1\bV_2}{|\bV_1|^2-|\bV_2|^2}\right|.
+	\end{equation}
+	Če velja $|\bV_1|=|\bV_2|,$ nam zgornja funkcija poda premico namesto krožnice.
+\end{lema}
+\begin{proof}
+	Če je res $\aV_1\bV_2-\aV_2\bV_1=0,$ je potem $\aV_1/\aV_2=\bV_1/\bV_2=k,$ kjer je $k$ kompleksna konstanta. V tem primeru se nam tudi funkcija \eqref{funkcija_lema3} izrodi v konstantno funkcijo. Ta primer nas ne zanima.
+	
+	Oglejmo si raje primer $\aV_1\bV_2-\aV_2\bV_1\neq 0$ in izraz $\zV(\phi)-\zV_c.$ Enak je
+	\begin{align*}
+		\zV(\phi)-\zV_c&=\frac{(\aV_1e^{\iu\phi}+\aV_2)(|\bV_1|^2-|\bV_2|^2)-(\aV_1\bar{\bV}_1-\aV_2\bar{\bV}_2)(\bV_1e^{\iu\phi}+\bV_2)}{(\bV_1e^{\iu\phi}+\bV_2)(|\bV_1|^2-|\bV_2|^2)}\\
+		&=\frac{\aV_1|\bV_2|^2+\aV_2|\bV_1|^2-\aV_1\bar{\bV}_1\bV_2+\aV_2\bV_1\bar{\bV}_2e^{\iu\phi}}{(\bV_1e^{\iu\phi}+\bV_2)(|\bV_1|^2-|\bV_2|^2)}\\
+		&=\frac{\aV_2\bV_1-\aV_1\bV_2}{|\bV_1|^2-|\bV_2|^2}\cdot\frac{\bar{\bV}_1e^{-\iu\phi}+\bar{\bV}_2}{\bV_1e^{\iu\phi}+\bV_2}e^{\iu\phi}.
+	\end{align*}
+	Zanima nas absolutna vrednost zgornjega izraza. V absolutni vrednosti levega ulomka prepoznamo izraz za $R,$ v desnem ulomku pa opazimo, da je števec enak konjugirani vrednosti imenovalca. Absolutna vrednost desnega ulomka je tako enaka 1, prav tako je enaka 1 vrednost izraza $e^{\iu\phi}.$ Tako velja $|\zV(\phi)-\zV_c|=R,$ torej je za $|\bV_1|\neq|\bV_2|$ slika funkcije $\zV(\phi)$ res krožnica s središčem $\zV_c$ in polmerom $R.$
+	
+	Če je $|\bV_1|=|\bV_2|,$ postane točka $\zV_c$ ``točka v neskončnosti'', polmer $R$ pa tudi postane neskončen, kar pa ustreza karakterizaciji premice.
+\end{proof}
+
+\begin{lema}
+	\label{lema_4}
+	Če sta $\tau_1,\tau_2$ obe realni števili ali kompleksni si konjugirani števili, nam funkcija
+	\begin{equation}
+		\label{funkcija_lema4}
+		\zV(t)=\frac{\aV_1(t-\tau_1)^m+\aV_2(t-\tau_2)^m}{\bV_1(t-\tau_1)^m+\bV_2(t-\tau_2)^m}
+	\end{equation}
+	realne spremenljivke $t$ za celo število $m$ poda premico oziroma krožnico v kompleksni ravnini.
+\end{lema}
+\begin{proof}
+	Označimo $\fV(t)=(t-\tau_1)^m/(t-\tau_2)^m.$ Potem velja
+	\begin{equation*}
+		\zV(t)=\frac{\aV_1\fV(t)+\aV_2}{\bV_1\fV(t)+\bV_2}.
+	\end{equation*}
+	Če sta $\tau_1,\tau_2$ realni števili, postane funkcija $\fV(t)$ realna funkcija $f(t).$ Vidimo, da imamo spet opravka z racionalno reparametrizacijo $t\to f(t)$ parametra $t$ v izrazu \eqref{transformacija}, ki opisuje krožnico oziroma premico v kompleksni ravnini.
+	
+	Če sta si $\tau_1,\tau_2$ kompleksni konjugirani si števili, lahko predpis za funkcijo $\fV(t)$ zapišemo krajše kot $\exp(\iu2m\arg(t-\tau_1)).$ Označimo $\phi=2m\arg(t-\tau_1).$ Opazimo, da ima potem funkcija $\zV(t)$ enak predpis kot funkcija \eqref{funkcija_lema3} iz leme \ref{lema_3}, katere slika je krožnica oziroma premica v kompleksni ravnini.
+\end{proof}
+
+\subsection{Primer \texorpdfstring{$\st(h(t))=0$}{st(h(t))=0} in \texorpdfstring{$\st(\wV(t)=2)$}{st(w(t))=2}}
+\label{locevanje_h0w2}
+
+V tem podpoglavju bomo raziskali pogoje pri katerih je dana DPH krivulja 7.\ stopnje vijačna oziroma nevijačna. Algebraične pogoje, katerim morajo zadostiti koeficienti polinomov $\balpha(t),\bbeta(t)$ in $\wV(t),$ da lahko sploh govorimo o DPH krivulji, smo že obravnavali v poglavju \ref{klasifikacija_h0w2}. Polinom $h(t)$ naj bo identično enak konstanti $h_0.$ Kriterij za ločevanje vijačnih in nevijačnih DPH krivulj znotraj tega primera je predstavljen v naslednji trditvi.
+\begin{trditev}
+	\label{locevanje_trditev_h0w2}
+	Naj polinoma $\balpha(t),\bbeta(t)$ generirata tako dvojno PH krivuljo, da je v DPH pogoju \eqref{propor_poly_izpeljava} polinom $h(t)$ konstanten in polinom $\wV(t)$ kvadratičen. Krivulja je nevijačna, če ničli $\tau_1,\tau_2$ polinoma $\wV(t)$ nista realni in nista kompleksni si konjugirani števili in če se da polinoma $\balpha(t)$ in $\bbeta(t)$ izraziti kot
+	\begin{equation}
+		\label{polinoma_h0w2}
+		\balpha(t)=\aV_1(t-\tau_1)^3+\aV_2(t-\tau_2)^3\quad\text{in}\quad\bbeta(t)=\bV_1(t-\tau_1)^3+\bV_2(t-\tau_2)^3,
+	\end{equation}
+	kjer velja $\aV_1\bV_2-\aV_2\bV_1\neq0.$
+\end{trditev}
+\begin{proof}
+	Po lemah \ref{lema_1} in \ref{lema_2} je dovolj obravnavati primer $r=0,$ saj je polinom $h(t)$ identično enak konstanti. Ker je $r=0,$ je polinom $\bgamma(t)$ konstanten in sta si polinoma $\balpha(t)$ in $\bbeta(t)$ tuja. Potem je proporcionalni polinom enak
+	\begin{equation}
+		\balpha(t)\bbeta'(t)-\balpha'(t)\bbeta(t)=h_0\wV^2(t).
+	\end{equation}
+	Naj bosta $\tau_1,\tau_2$ ničli polinoma $\wV(t),$ ki je druge stopnje. Sledi, da sta $\tau_1,\tau_2$ dvojni ničli proporcionalnega polinoma. Če zgornjo enačbo odvajamo in vstavimo katerikoli od ničel, vidimo, da velja
+	\begin{equation}
+		\label{enacbe_propoly_tau}
+		\balpha(\tau_i)\bbeta'(\tau_i)-\balpha'(\tau_i)\bbeta(\tau_i)=\balpha(\tau_i)\bbeta''(\tau_i)-\balpha''(\tau_i)\bbeta(\tau_i)=0
+	\end{equation}
+	za $i=1,2.$ Predpostavimo najprej, da sta ničli $\tau_1,\tau_2$ različni. Zapišimo sedaj polinoma $\balpha(t)$ in $\bbeta(t)$ v spremenjeni Bernsteinovi bazi na naslednji način:
+	\begin{equation*}
+		\balpha(t)=\sum_{k=0}^3\pV_k\binom{3}{k}(t-\tau_1)^k(\tau_2-t)^{3-k},\quad\bbeta(t)=\sum_{k=0}^3\qV_k\binom{3}{k}(t-\tau_1)^k(\tau_2-t)^{3-k},
+	\end{equation*}
+	kjer so $\pV_k,\qV_k$ ustrezni kompleksni koeficienti. Ker je polinom $\bgamma(t)$ največji skupni delitelj polinomov $\balpha(t),\bbeta(t)$ enak konstanti, sledi, da vrednosti $\balpha(\tau_i),\bbeta(\tau_i)$ ne moreta biti obe hkrati enaki nič za $i=1,2.$ Sedaj bomo ločili dva primera.
+	
+	Obravnajmo najprej primer, ko velja $\balpha(\tau_i)\neq0$ in $\bbeta(\tau_i)\neq0$ za $i=1,2.$ Enačbe \eqref{enacbe_propoly_tau} lahko preoblikujemo v
+	\begin{equation*}
+		\frac{\balpha'(\tau_i)}{\balpha(\tau_i)}=\frac{\bbeta'(\tau_i)}{\bbeta(\tau_i)},\quad\frac{\balpha''(\tau_i)}{\balpha(\tau_i)}=\frac{\bbeta''(\tau_i)}{\bbeta(\tau_i)},
+	\end{equation*}
+	za $i=1,2.$ Zaradi lastnosti odvajanja polinomov v Bernsteinovi bazi lahko zgornje enačbe zapišemo kar s pomočjo koeficientov polinomov kot
+	\begin{equation*}
+		\frac{\pV_1}{\pV_0}=\frac{\qV_1}{\qV_0},\quad\frac{\pV_2}{\pV_0}=\frac{\qV_2}{\qV_0}\text{ za }i=1\text{ in }\frac{\pV_2}{\pV_3}=\frac{\qV_2}{\qV_3},\quad\frac{\pV_1}{\pV_3}=\frac{\qV_1}{\qV_3}\text{ za }i=2.
+	\end{equation*}
+	Če je eden od koeficientov $\pV_1,\pV_2$ neničelen, lahko iz zgornjega sklepamo, da je eden od koeficientov $\qV_1,\qV_2$ neničelen. Iz preostalih enačb vidimo, da sta si potem polinoma $\balpha(t)$ in $\bbeta(t)$ nista tuja, kar pa je v protislovju s predpostavko. Do istega zaključka pridemo, če je eden od koeficientov $\qV_1,\qV_2$ neničelen. Če je $\pV_1=\pV=0$ in $\qV_1=\qV_2=0,$ sta potem polinoma $\balpha(t)$ in $\bbeta(t)$ enaka
+	\begin{equation*}
+		\balpha(t)=\pV_0(\tau_2-t)^3+\pV_3(t-\tau_1)^3\quad\text{in}\quad\bbeta(t)=\qV_0(\tau_2-t)^3+\qV_3(t-\tau_1)^3,
+	\end{equation*}
+	kjer dodatno predpostavimo $\pV_0\qV_3-\pV_3\qV_0\neq0,$ da zagotovimo tujost polinomov. Če definiramo $\aV_1=\pV_3,$ $\aV_2=-\pV_0,$ $\bV_1=\qV_3$ in $\bV_2=-\qV_0,$ dobimo obliko polinomov, kot je že zabeležena \eqref{polinoma_h0w2} v sami trditvi. Prav tako se pogoj $\pV_0\qV_3-\pV_3\qV_0\neq0$ spremeni v $\aV_1\bV_2-\aV_2\bV_1\neq0,$ ki je tudi vsebovan v sami trditvi. Tako podana polinoma po lemi \ref{lema_4} porodita nevijačno DPH krivuljo, saj $\tau_1,\tau_2$ nista obe realni števili in si nista konjugirani si kompleksni števili ter tako slika $\zV(t)=\balpha(t)/\bbeta(t)$ ne poda krožnice oziroma premice v kompleksni ravnini.
+	
+	Oglejmo si še primer, da je vsaj ena od vrednosti $\balpha(\tau_i)$ in $\bbeta(\tau_i)$ za $i=1,2$ enaka nič. Recimo, da je $\balpha(\tau_1)=0.$ Ker sta si polinoma $\balpha(t)$ in $\bbeta(t)$ tuja, sledi, da je $\bbeta(\tau_1)=\qV_0\neq0.$ Iz enačb \eqref{enacbe_propoly_tau} lahko potem sklepamo, da velja $\balpha'(\tau_1)=\balpha''(\tau_1)=0.$ Drugače povedano, za koeficiente $\pV_i$ velja, da so za $i=0,1,2$ enaki nič. Polinom $\balpha(t)$ je tako enak $\pV_3(t-\tau_1)^3.$ Podobno kot prej, lahko iz enačb \eqref{enacbe_propoly_tau} pri $i=2$ vidimo, da velja $\qV_1=\qV_2=0.$ Polinom $\bbeta(t)$ je tako enak $\qV_0(\tau_2-t)^3+\qV_3(t-\tau_1)^3.$ Ponovno dobimo isto obliko kot je zapisana v \eqref{polinoma_h0w2}, le da tokrat velja $\aV_1=\pV_3,$ $\aV_2=0,$ $\bV_1=\qV_3$ in $\bV_2=-\qV_0.$ Do analognih sklepov pridemo, če predpostavimo $\balpha(\tau_2)=0$ ali $\bbeta(\tau_1)=0$ ali $\bbeta(\tau_2)=0.$ V vsakemu od teh primerov je eden od koeficientov $\aV_1,\aV_2,\bV_1,\bV_2$ enak nič. Zaradi istega razloga kot v prejšnjem primeru je DPH krivulja, porojena iz polinomov $\balpha(t)$ in $\bbeta(t)$ nevijačna, saj po lemi \ref{lema_4} slika funkcije $\zV(t)=\balpha(t)/\bbeta(t)$ ni enaka krožnici oziroma premici v kompleksni ravnini.
+	
+	Tekom dokaza smo predpostavili, da sta ničli $\tau_1,\tau_2$ različni. Če velja $\tau_1=\tau_2,$ ima potem polinom $\wV(t)$ ničlo drugo stopnje in je potem polinom $\wV^2(t)$ pravzaprav enak linearnemu polinomu na četrto potenco. Da se preveriti \texttt{[kako?]}, da mora biti $h_0=0$ in je tako proporcionalni polinom enak 0, kar pomeni, da sta si polinoma $\balpha(t)$ in $\bbeta(t)$ nista tuja, kar je v protislovju s predpostavko.
+\end{proof}
+
+\subsection{Primer \texorpdfstring{$\st(h(t))=2$}{st(h(t))=2} in \texorpdfstring{$\st(\wV(t)=1)$}{st(w(t))=1}}
+\label{locevanje_h2w1}
+
+Tokrat bomo raziskali kriterije, pri katerih ločimo vijačne od nevijačnih DPH krivulj, kakršne smo že raziskali v poglavju \ref{klasifikacija_h2w1}. Po lemi \ref{lema_1} je dovolj obravnavati primere, ko je $\bgamma(t)=\gcd(\balpha(t),\bbeta(t))$ stopnje $r=0$ ali $r=1.$ V naslednjih dveh trditvah bomo videli, da nevijačne krivulje v tem primeru obstajajo samo, kadar je $r=0.$
+\begin{trditev}
+	Naj bosta polinoma $\balpha(t)$ in $\bbeta(t)$ taka, da je $\bgamma(t)$ stopnje $r=1$ ter naj generirata tako dvojno PH krivuljo, da je polinom $h(t)$ druge stopnje in da je polinom $\wV(t)$ linearen. Potem je ta dvojna PH krivulja vijačna.
+\end{trditev}
+\begin{proof}
+	Po lemi \ref{lema_2} je dovolj obravnavati take kvadratične polinome $h(t),$ ki imajo različni ničli $\tau_1,\tau_2.$ Iz enačbe \eqref{propor_poly_tilde} v lemi \ref{lema_2} je razvidno, da zaradi različnosti ničel polinoma $h(t)$ polinom $\bgamma(t)$ nima skupnega faktorja s polinomom $h(t),$ temveč z $\wV(t).$ Še več, pravzaprav se razlikujeta za multiplikativno konstanto. Podobno velja za $\btalpha(t)\btbeta'(t)-\btalpha'(t)\btbeta(t)$ in $h(t).$ Če najprej napišemo polinoma $\btalpha(t),\btbeta(t)$ v primerno izbrani Bernsteinovi bazi
+	\begin{align*}
+		\btalpha(t)&=\pV_0(\tau_2-t)^2+\pV_12(\tau_2-t)(t-\tau_1)+\pV_2(t-\tau_1)^2,\\
+		\btbeta(t)&=\qV_0(\tau_2-t)^2+\qV_12(\tau_2-t)(t-\tau_1)+\qV_2(t-\tau_1)^2,
+	\end{align*}
+	za primerno izbrane kompleksne koeficiente $\pV_0,\pV_1,\pV_2,\qV_0,\qV_1$ in $\qV_2.$ Po zgornjem razmisleku mora biti polinom $\btalpha(t)\btbeta'(t)-\btalpha'(t)\btbeta(t)$ enak nič pri $\tau_1,\tau_2.$ Iz tega sklepamo, da veljajo enačbi
+	\begin{equation*}
+		\pV_0\qV_1-\pV_1\qV_0=0\quad\text{in}\quad\pV_1\qV_2-\pV_2\qV_1=0,
+	\end{equation*}
+	saj je
+	\begin{align*}
+		\btalpha(t)\btbeta'(t)-\btalpha'(t)\btbeta(t)&=(\tau_2-\tau_1)\big(2(\pV_0\qV_1-\pV_1\qV_0)(\tau_2-t)^2\\
+		&+(\pV_0\qV_2-\pV_2\qV_0)2(\tau_2-t)(t-\tau_1)
+		+2(\pV_1\qV_2-\pV_2\qV_1)(t-\tau_1)^2\big).
+	\end{align*}
+	Če $\pV_1,\qV_1$ nista oba enaka nič, lahko iz zgornjih dveh enačb vidimo, da se potem polinoma $\btalpha(t)$ in $\btbeta(t)$ razlikujeta za multiplikativno konstanto (če je eden od njih ničelni polinom, to velja trivialno), kar je v protislovju s tem, da sta si $\btalpha(t)$ in $\btbeta(t)$ tuja. Edina možnost, ki preostane, je, da vzamemo $\pV_1=\qV_1=0.$ Zapišemo $\aV_1=\pV_2,$ $\aV_2=\pV_0,$ $\bV_1=\qV_2$ in $\bV_2=\qV_0.$ Po potrebi konstante $\aV_1,\aV_2,\bV_1,\bV_2$ pomnožimo še s konstanto. Tako pridobimo zapis obeh polinomov $\balpha(t)$ in $\bbeta(t),$ ki sta enaka
+	\begin{align*}
+		\balpha(t)&=\wV(t)\big(\aV_1(t-\tau_1)^2+\aV_2(t-\tau_2)^2\big),\\
+		\bbeta(t)&=\wV(t)\big(\bV_1(t-\tau_1)^2+\bV_2(t-\tau_2)^2\big).\\
+	\end{align*}
+	Ker je $h(t)$ realen polinom, morati biti ničli $\tau_1,\tau_2$ realni števili ali pa kompleksni konjugirani si števili. Po lemi \ref{lema_4} lahko potem sklepamo, da je slika funkcije $\zV(t)=\balpha(t)/\bbeta(t)$ krožnica oziroma premica v kompleksni ravnini, torej mora biti DPH krivulja, ki jo generirata $\balpha(t)$ in $\bbeta(t)$ res vijačna.
+\end{proof}
+Pri $\st(h(t))=2,$ $\st(\wV(t))=1$ in $r=1$ tako res ne moremo dobiti nevijačne krivulje. Oglejmo si še primer, ko sta si $\balpha(t)$ in $\bbeta(t)$ tuja, torej ko je $r=0.$
+\begin{trditev}
+	Naj bosta polinoma $\balpha(t)$ in $\bbeta(t)$ taka, da je $\bgamma(t)$ stopnje $r=0$ ter naj generirata tako dvojno PH krivuljo, da je polinom $h(t)$ druge stopnje in da je polinom $\wV(t)$ linearen. Potem je taka dvojna PH krivulja nevijačna.
+\end{trditev}
+\begin{proof}
+	V poglavju \ref{podpoglavje_vijacne7stopnje} smo se seznanili z vsemi možnimi tipi vijačnih krivulj 7.\ stopnje, kjer smo preoblikavali izraz za parametrizacijo krožnice oziroma premice \eqref{transformacija} v kompleksni ravnini. Obdelali smo kubično reparametrizacijo, množenje s kvadratičnim polinomom ter kombinacijo kvadratične reparametrizacije in množenja z linearnim polinomom. Pokazali smo, da samo pri tej zadnji možnosti \ref{reparametrizacija_multiplikacija} je DPH pogoj \eqref{propor_poly_izpeljava} izpolnjen pri $\st(h(t))=2$ in $\st(\wV(t))=1.$ Za take krivulje morata imeti $\balpha(t)$ in $\bbeta(t)$ skupen faktor v polinomu $\wV(t).$ Če sta si $\balpha(t)$ in $\bbeta(t)$ tuja in velja $\st(h(t))=2$ in $\st(\wV(t))=1,$ lahko zaključimo, da je taka krivulja nevijačna.
+\end{proof}
+
+\subsection{Primer \texorpdfstring{$\st(h(t))=4$}{st(h(t))=4} in \texorpdfstring{$\st(\wV(t)=0)$}{st(w(t))=0}}
+\label{locevanje_h4w0}
+
+Preostal nam je še zadnji primer. Tokrat si bomo pomagali z rezultati iz poglavja \ref{kubicna_reparametrizacija_7}. Pridobili bomo računski kriterij, preko katerega bomo ločili vijačne od nevijačni DPH krivulj.
+\begin{trditev}
+	Dvojna PH krivulja 7.\ stopnje, pri kateri je DPH pogoj \eqref{propor_poly_izpeljava} izpolnjen pri $\st(h(t))=4$ in $\st(\wV(t))=0$ je nevijačna, če je izraz
+	\begin{equation}
+		\label{diskriminanta}
+		\Delta=9h_2^2+3h_0h_4-12h_1h_3,
+	\end{equation}
+	ki je podan z Bernsteinovimi koeficienti polinoma $h(t),$ negativen.
+\end{trditev}
+\begin{proof}
+	V poglavju \ref{kubicna_reparametrizacija_7} smo že omenili, je DPH krivulja pri $\st(h(t))=4$ in \\$\st(\wV(t))~=0~$ vijačna natanko takrat, ko se da polinom $h(t)$ zapisati s pomočjo kubičnih realnih polinomov $f(t),g(t)$ in sicer kot $h(t)=f'(t)g(t)-f(t)g'(t).$ To enakost lahko zapišemo drugače s pomočjo Bernsteinovih koeficientov vseh treh polinomov, kot smo že videli v enačbah \eqref{h_coeffs_cubic_repara}. To si pravzaprav lahko interpretiramo kot sistem petih linearnih enačb s šestimi spremenljivkami oblike $f_ig_j-f_jg_i,$ kjer je $i\neq j$ za $0\leq i,j\leq 3.$ Eno od teh spremenljivk si lahko poljubno izberemo. Naj bo $f_2g_1-f_1g_2=c.$ Dobimo sistem
+	\begin{align*}
+		f_1g_0-f_0g_1&=\frac{1}{3}h_0,\quad f_2g_0-f_0g_2=\frac{2}{3}h_1,\quad f_3g_0-f_0g_3=2h_2-3c,\\
+		f_2g_1-f_1g_2&=c,\quad f_3g_1-f_1g_3=\frac{2}{3}h_3,\quad f_3g_2-f_2g_3=\frac{1}{3}h_4.
+	\end{align*}
+	Da zagotovimo neprotislovnost sistema, mora biti izpolnjen naslednji pogoj \texttt{[od kje to pride?]}
+	\begin{equation*}
+		(f_2g_0-f_0g_2)(f_3g_1-f_1g_3)-(f_2g_1-f_1g_2)(f_3g_0-f_0g_3)=(f_1g_0-f_0g_1)(f_3g_2-f_2g_3),
+	\end{equation*}
+	ki ga s pomočjo koeficientov polinoma $h(t)$ in števila $c$ preoblikujemo v
+	\begin{equation*}
+		\left(\frac{2}{3}h_1\right)\left(\frac{2}{3}h_3\right)-c(2h_2-3c)=\left(\frac{1}{3}h_0\right)\left(\frac{1}{3}h_4\right).
+	\end{equation*}
+	To enačbo lahko preoblikujemo v kvadratno enačbo za $c:$
+	\begin{equation*}
+		27c^2-18h_2c+4h_1h_3-h_0h_4=0.
+	\end{equation*}
+	Rešitvi enačbe sta enaki
+	\begin{equation*}
+		c=f_2g_1-f_1g_2=\frac{1}{9}\left(3h_2\pm\sqrt{9h_2^2+3h_0h_4-12h_1h_3}\right).
+	\end{equation*}
+	Rešitev je realna natanko tedaj, ko je diskriminanta $\Delta$ zgornje enačbe nenegativna. V teh primerih se polinom $h(t)$ da zapisati v obliki $h(t)=f'(t)g(t)-f(t)g'(t)$ za realna polinoma $f(t),g(t)$ tretje stopnje. Dvojna PH krivulja, za katero to velja, je vijačna, saj nam potem izraz $\balpha(t)/\bbeta(t)$ poda kubično reparametrizacijo krožnice oziroma premice v kompleksni ravnini.
+	
+	Če je diskriminanta $\Delta$ negativna, ne obstajata taka realna kubična polinoma $f(t),g(t)$, da bi lahko $h(t)$ izrazili v obliki $f'(t)g(t)-f(t)g'(t).$ V teh primerih ne moremo pridobiti kubične reparametrizacije krožnice oziroma premice v kompleksni ravnini, torej imamo v takih primerih opravka s nevijačnimi DPH krivuljami.
+\end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\section{Nevijačne dvojne PH krivulje}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %\section{Integrali po \texorpdfstring{$\omega$}{ω}-kompleksih}
 %\subsection{Definicija}
