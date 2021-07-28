@@ -211,9 +211,9 @@ Zahvaljujem se \dots
 \tableofcontents
 
 % list of figures
-% \cleardoublepage
-% \pdfbookmark[1]{\listfigurename}{kazalo-slik}
-% \listoffigures
+ \cleardoublepage
+ \pdfbookmark[1]{\listfigurename}{kazalo-slik}
+ \listoffigures
 % end list of figures
 
 \cleardoublepage
@@ -282,45 +282,45 @@ katerem razdelku.
 
 \cite{struik1961lectures}
 Krivulje v prostoru si lahko predstavljamo kot tirnice, po katerih potuje točka v gibanju. Najlažje jih podamo
-v parametrični obliki $\rV:I \to \R^3, I \subseteq \R$, \newline $\rV(\xi)=(x(\xi),y(\xi),z(\xi)), \text{ } \xi \in I$, kjer so 
+v parametrični obliki $\rV:I \to \R^3, I \subseteq \R$, \newline $\rV(t)=(x(t),y(t),z(t)), \text{ } \xi \in I$, kjer so 
 $x,\text{ } y \text{ in } z$ običajne skalarne funkcije parametra $\xi.$ Več različnih parametrizacij lahko opisuje
 isto krivuljo. V nadaljevanju bomo predpostavili, da so $x$, $y$ in $z$ vsaj dvakrat zvezno odvedljive funkcije.
 Odvod krivulje $\rV$ dobimo tako, da krivuljo odvajamo po komponentah:
-$$\rV':I \to \R^3, \quad \rV'(\xi)=(x'(\xi),y'(\xi),z'(\xi)) \text{ za } \xi \in I.$$
+$$\rV':I \to \R^3, \quad \rV'(t)=(x'(t),y'(t),z'(t)) \text{ za } t \in I.$$
 Vektorsko polje, ki ga pri tem dobimo, imenujemo tudi \textit{hodograf} krivulje $\rV.$
 
 \subsection{Ločna dolžina in tangenta na krivuljo}
 
 \cite{farouki2008pythagorean}
-Pravimo, da je krivulja $\rV$ regularna, če je njen odvod $\rV'(\xi) \neq 0$ za vse vrednosti $\xi$ z intervala $I.$ Od sedaj bomo privzeli, da je krivulja regularna. Odvod regularne krivulje pa lahko zapišemo tudi v malce drugačni obliki
+Pravimo, da je krivulja $\rV$ regularna, če je njen odvod $\rV'(t) \neq 0$ za vse vrednosti $t$ z intervala $I.$ Od sedaj bomo privzeli, da je krivulja regularna. Odvod regularne krivulje pa lahko zapišemo tudi v malce drugačni obliki
 \begin{equation}
 	\label{eq2_1}
-	\rV'(\xi)=\sigma(\xi)\tV(\xi),
+	\rV'(t)=\sigma(t)\tV(t),
 \end{equation}
-kjer je $\sigma(\xi)$ funkcija, ki slika z začetne domene $I$ v $\R$
+kjer je $\sigma(t)$ funkcija, ki slika z začetne domene $I$ v $\R$
 \begin{equation}
-	\sigma(\xi)=\lVert \rV'(\xi)\rVert=\sqrt{x'^2(\xi)+y'^2(\xi)+z'^2(\xi)}
+	\sigma(t)=\lVert \rV'(t)\rVert=\sqrt{x'^2(t)+y'^2(t)+z'^2(t)}
 \end{equation}
-in predstavlja spremembo ločne dolžine krivulje v odvisnosti od parametra $\xi.$ V enačbi \eqref{eq2_1} je s $\tV(\xi)$ označeno enotsko tangentsko vektorsko polje na krivuljo $\rV,$ izračunano pri parametru $\xi$
+in predstavlja spremembo ločne dolžine krivulje v odvisnosti od parametra $t.$ V enačbi \eqref{eq2_1} je s $\tV(t)$ označeno enotsko tangentsko vektorsko polje na krivuljo $\rV,$ izračunano pri parametru $t$
 \begin{equation}
-	\tV(\xi)=\frac{\rV'(\xi)}{\lVert \rV'(\xi) \rVert}=
-	\frac{\rV'(\xi)}{\sigma(\xi)}.
+	\tV(t)=\frac{\rV'(t)}{\lVert \rV'(t) \rVert}=
+	\frac{\rV'(t)}{\sigma(t)}.
 \end{equation}
-S pomočjo funkcije $\sigma(\xi)$ lahko izrazimo tudi dolžino loka krivulje. Če je $I=[a,b],$ je potem ločna dolžina enaka
+S pomočjo funkcije $\sigma(t)$ lahko izrazimo tudi dolžino loka krivulje. Če je $I=[a,b],$ je potem ločna dolžina enaka
 \begin{equation}
-	\int_a^b\sqrt{x'^2(\xi)+y'^2(\xi)+z'^2(\xi)}d\xi=\int_a^b\lVert \rV'(\xi) \rVert d\xi =\int_a^b\sigma(\xi)d\xi.
+	\int_a^b\sqrt{x'^2(t)+y'^2(t)+z'^2(t)}dt=\int_a^b\lVert \rV'(t) \rVert dt =\int_a^b\sigma(t)dt.
 \end{equation}
 
 \subsection{Ukrivljenost in Frenetovo ogrodje}
 
-Sedaj bomo uvedli dve novi enotski vektorski polji, ki bodo skupaj z enotsko tangento tvorili ortonormalno bazo za prostor $\R^3.$ V nadaljevanju bomo ponekod v enačbah in izpeljavah zaradi preglednosti izpustili parameter $\xi.$
+Sedaj bomo uvedli dve novi enotski vektorski polji, ki bodo skupaj z enotsko tangento tvorili ortonormalno bazo za prostor $\R^3.$ V nadaljevanju bomo ponekod v enačbah in izpeljavah zaradi preglednosti izpustili parameter $t.$
 
-Ker je $\tV$ enotsko tangento polje, vedno velja $\tV \cdot \tV=\lVert \tV \rVert^2 =1.$ Če to enačbo odvajamo, dobimo, da je $\mathbf{t'} \cdot \tV=0,$ kar pomeni, da je $\mathbf{t'}$ pravokoten na $\tV$ pri vsakemu parametru $\xi.$ Torej lahko (implicitno) definiramo enotsko vektorsko polje $\pV$ na naslednji način: odvod enotske tangente je enak
+Ker je $\tV$ enotsko tangento polje, vedno velja $\tV \cdot \tV=\lVert \tV \rVert^2 =1.$ Če to enačbo odvajamo, dobimo, da je $\mathbf{t'} \cdot \tV=0,$ kar pomeni, da je $\mathbf{t'}$ pravokoten na $\tV$ pri vsakemu parametru $t.$ Torej lahko (implicitno) definiramo enotsko vektorsko polje $\pV$ na naslednji način: odvod enotske tangente je enak
 \begin{equation}
 	\label{eq2_5}
-	\mathbf{t'}(\xi)=\sigma(\xi)\kappa(\xi)\pV(\xi),
+	\mathbf{t'}(t)=\sigma(t)\kappa(t)\pV(t),
 \end{equation}
-kjer je $\kappa(\xi)$ nenegativna funkcija parametra $\xi.$ Tako ima vektorsko polje $\pV$ isto smer kot $\mathbf{t'}.$ Prav tako je $\pV$ pravokoten na enotsko tangento $\tV.$ Da bi lahko $\kappa(\xi)$ in $\pV$ eksplicitno izrazili, si s pomočjo enačbe \eqref{eq2_1} oglejmo drugi odvod krivulje $\rV:$
+kjer je $\kappa(t)$ nenegativna funkcija parametra $t.$ Tako ima vektorsko polje $\pV$ isto smer kot $\mathbf{t'}.$ Prav tako je $\pV$ pravokoten na enotsko tangento $\tV.$ Da bi lahko $\kappa(t)$ in $\pV$ eksplicitno izrazili, si s pomočjo enačbe \eqref{eq2_1} oglejmo drugi odvod krivulje $\rV:$
 \begin{equation}
 	\label{eq2_6}
 	\rV''=\sigma'\tV+\sigma\mathbf{t'}.
@@ -328,14 +328,14 @@ kjer je $\kappa(\xi)$ nenegativna funkcija parametra $\xi.$ Tako ima vektorsko p
 Iz \eqref{eq2_1} in zgornje enačbe sledi naslednja enakost
 \begin{equation}
 	\label{eq2_7}
-	\rV'(\xi) \times \rV''(\xi)=\sigma^3(\xi)\kappa(\xi)\tV(\xi) \times \pV(\xi).
+	\rV'(t) \times \rV''(t)=\sigma^3(t)\kappa(t)\tV(t) \times \pV(t).
 \end{equation}
 Ker je $\pV$ definirano kot enotsko vektorsko polje, ki je ortogonalno na $\tV,$ je potem
 \begin{equation}
 	\label{kappa1}
-	\kappa(\xi)=\frac{\lVert \rV'(\xi) \times \rV''(\xi) \rVert}{\lVert \rV'(\xi) \rVert^3}=\frac{\lVert \rV'(\xi) \times \rV''(\xi) \rVert}{\sigma^3(\xi)}.
+	\kappa(t)=\frac{\lVert \rV'(t) \times \rV''(t) \rVert}{\lVert \rV'(t) \rVert^3}=\frac{\lVert \rV'(t) \times \rV''(t) \rVert}{\sigma^3(t)}.
 \end{equation}
-To lahko naredimo, saj smo predpostavili, da je $\kappa(\xi)$ nenegativna funkcija. Sedaj si oglejmo, čemu je enaka naslednja količina:
+To lahko naredimo, saj smo predpostavili, da je $\kappa(t)$ nenegativna funkcija. Sedaj si oglejmo, čemu je enaka naslednja količina:
 \begin{align}
 	\frac{\rV'\times \rV''}{\lVert \rV'\times \rV'' \rVert} \times \tV &= \frac{1}{\lVert \rV'\times \rV'' \rVert} \left ( \sigma^3 \frac{\lVert \rV'\times \rV'' \rVert}{\sigma^3}\tV \times \pV\right ) \times \tV \nonumber \\
 	&= (\tV \times \pV) \times \tV \nonumber \\
@@ -348,14 +348,14 @@ Definirali smo že enotsko tangento in enotsko normalo. Najti moramo še eno eno
 	\label{binormala}
 	\bV=\tV \times \pV=\frac{\rV'\times \rV''}{\lVert \rV'\times \rV'' \rVert}.
 \end{equation}
-Tej vrednosti pravimo \textit{binormala} krivulje $\rV.$ Vektorska polja $\tV,\mathbf{ p}, \mathbf{ b}$ na vsaki točki krivulje $\rV$ tvorijo ortonormirano bazo prostora $\R^3.$ To trojico imenujemo tudi \textit{Frenetovo ogrodje}. Če je binormala nek konstanten vektor za vsak parameter $\xi$ (z dolžino~1), sledi, da vektorski polji $\tV$ in $\pV$ ležita v isti ravnini, kar pomeni, da celotna krivulja $\rV$ leži v tej isti ravnini.
+Tej vrednosti pravimo \textit{binormala} krivulje $\rV.$ Vektorska polja $\tV,\mathbf{ p}, \mathbf{ b}$ na vsaki točki krivulje $\rV$ tvorijo ortonormirano bazo prostora $\R^3.$ To trojico imenujemo tudi \textit{Frenetovo ogrodje}. Če je binormala nek konstanten vektor za vsak parameter $t$ (z dolžino~1), sledi, da vektorski polji $\tV$ in $\pV$ ležita v isti ravnini, kar pomeni, da celotna krivulja $\rV$ leži v tej isti ravnini.
 
-Recimo, da velja $\mathbf{b'} \neq 0.$ To pomeni, da imamo res opravka s prostorsko krivuljo. Če odvajamo enačbo \eqref{binormala} in uporabimo \eqref{eq2_5}, dobimo, da je odvod binormale enak $\mathbf{b'}=\tV \times \mathbf{p'}.$ Ker ima za vsak parameter $\xi$ vektor $\pV$ dolžino 1, sta potem vektorski polji $\pV$ in $\mathbf{p'}$ ortogonalni (to lahko takoj preverimo z odvajanjem skalarnega produkta vektorskega polja $\pV$ s samim seboj). Torej se da izraziti $\mathbf{p'}$ z $\bV$ in $\tV,$ kar pa pomeni, da se da $\mathbf{b'}$ izraziti z $\tV \times \bV:$
+Recimo, da velja $\mathbf{b'} \neq 0.$ To pomeni, da imamo res opravka s prostorsko krivuljo. Če odvajamo enačbo \eqref{binormala} in uporabimo \eqref{eq2_5}, dobimo, da je odvod binormale enak $\mathbf{b'}=\tV \times \mathbf{p'}.$ Ker ima za vsak parameter $t$ vektor $\pV$ dolžino 1, sta potem vektorski polji $\pV$ in $\mathbf{p'}$ ortogonalni (to lahko takoj preverimo z odvajanjem skalarnega produkta vektorskega polja $\pV$ s samim seboj). Torej se da izraziti $\mathbf{p'}$ z $\bV$ in $\tV,$ kar pa pomeni, da se da $\mathbf{b'}$ izraziti z $\tV \times \bV:$
 \begin{equation}
 	\label{eq2_11}
-	\mathbf{b'}(\xi)=\sigma(\xi)\tau(\xi)\tV(\xi)\times \bV(\xi)=-\sigma(\xi)\tau(\xi)\pV(\xi).
+	\mathbf{b'}(t)=\sigma(t)\tau(t)\tV(t)\times \bV(t)=-\sigma(t)\tau(t)\pV(t).
 \end{equation}
-Funkciji $\tau(\xi)$ pravimo \textit{torzijska ukrivljenost} krivulje $\rV.$ Da se dokopljemo do njenega eksplicitnega zapisa, najprej preuredimo in odvajamo enačbo \eqref{eq2_7}:
+Funkciji $\tau(t)$ pravimo \textit{torzijska ukrivljenost} krivulje $\rV.$ Da se dokopljemo do njenega eksplicitnega zapisa, najprej preuredimo in odvajamo enačbo \eqref{eq2_7}:
 \begin{align*}
 	(\rV' \times \rV'')'&=(\sigma^3\kappa \bV)'\\
 	\rV' \times \rV''' &= 3\sigma^2\sigma'\kappa\bV+\sigma^3\kappa'\bV+\sigma^3\kappa\mathbf{b'}\\
@@ -368,7 +368,7 @@ V zadnjem koraku smo upoštevali vrednost količine $\mathbf{b'}.$ Če vrednost 
 Pri tem smo upoštevali \eqref{eq2_6}, \eqref{eq2_5} in ortonormiranost Frenetovega ogrodja. Če obrnemo mešani produkt v zgornji enačbi in upoštevamo \eqref{kappa1}, vidimo, da je torzijska ukrivljenost enaka
 \begin{equation}
 	\label{tau1}
-	\tau(\xi)=\frac{[\rV'(\xi), \rV''(\xi), \rV'''(\xi)]}{\lVert \rV'(\xi)\times \rV''(\xi) \rVert^2}
+	\tau(t)=\frac{(\rV'(t)\times\rV''(t))\cdot\rV'''(t)]}{\lVert \rV'(t)\times \rV''(t) \rVert^2}
 \end{equation}
 Vidimo torej, da torzijska ukrivljenost krivulje neničelna natanko takrat, ko so $\rV', \text{ } \rV''$ in $\rV'''$ linearno neodvisni, kar je ravno takrat, ko je krivulja res prostorska.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -381,10 +381,10 @@ Polinomske in racionalne krivulje se v računalniško podprtem geometrijskem obl
 \subsection{Definicije}
 
 \begin{definicija}
-	Prostorska polinomska krivulja $\rV:I \to \R^3,$ $\rV(\xi)=(x(\xi),y(\xi),z(\xi)),$ kjer je $I$ zaprt interval v $\R^3,$ ima \emph{pitagorejski hodograf}, če obstaja tak realen polinom $\sigma,$ da velja
+	Prostorska polinomska krivulja $\rV:I \to \R^3,$ $\rV(t)=(x(t),y(t),z(t)),$ kjer je $I$ zaprt interval v $\R^3,$ ima \emph{pitagorejski hodograf}, če obstaja tak realen polinom $\sigma,$ da velja
 	\begin{equation}
 		\label{pitagorejski}
-		x'^2(\xi)+y'^2(\xi)+z'^2(\xi)=\sigma^2(\xi).
+		x'^2(t)+y'^2(t)+z'^2(t)=\sigma^2(t).
 	\end{equation}
 \end{definicija}
 
@@ -395,50 +395,50 @@ Temu pogoju pravimo tudi \emph{pitagorejski pogoj,} krivulji pa lahko krajše re
 \end{equation}
 za nek realen polinom $\sigma(t).$ Naslednji izrek nam bo pokazal, kako izpolniti pitagorejski pogoj za prostorske krivulje.
 \begin{izrek}
-	Naj za paroma tuje realne polinome $a(\xi),b(\xi),c(\xi)$ in $d(\xi)$ velja pitagorejski pogoj
+	Naj za paroma tuje realne polinome $a(t),b(t),c(t)$ in $d(t)$ velja pitagorejski pogoj
 	\begin{equation}
 		\label{pogoj_izrek4_2}
-		a^2(\xi)+b^2(\xi)+c^2(\xi)=d^2(\xi).
+		a^2(t)+b^2(t)+c^2(t)=d^2(t).
 	\end{equation}
-	Potem obstajajo taki realni polinomi $u(\xi),v(\xi),p(\xi)$ in $q(\xi),$ da se $a(\xi),b(\xi),c(\xi)$ in $d(\xi)$ izražajo na naslednji način:
+	Potem obstajajo taki realni polinomi $u(t),v(t),p(t)$ in $q(t),$ da se $a(t),b(t),c(t)$ in $d(t)$ izražajo na naslednji način:
 	\begin{align}
-		a(\xi)&=u^2(\xi)+v^2(\xi)-p^2(\xi)-q^2(\xi), \nonumber \\
-		b(\xi)&=2[u(\xi)q(\xi)+v(\xi)p(\xi)], \nonumber \\
-		c(\xi)&=2[v(\xi)q(\xi)-u(\xi)p(\xi)], \nonumber \\
-		d(\xi)&=u^2(\xi)+v^2(\xi)+p^2(\xi)+q^2(\xi). \label{izrek4_3}
+		a(t)&=u^2(t)+v^2(t)-p^2(t)-q^2(t), \nonumber \\
+		b(t)&=2[u(t)q(t)+v(t)p(t)], \nonumber \\
+		c(t)&=2[v(t)q(t)-u(t)p(t)], \nonumber \\
+		d(t)&=u^2(t)+v^2(t)+p^2(t)+q^2(t). \label{izrek4_3}
 	\end{align}
 \end{izrek}
 
 \begin{proof}
 	Enačbo \eqref{pogoj_izrek4_2} obrnemo in nato razstavimo
 	\begin{align}
-		b^2(\xi)+c^2(\xi)&=d^2(\xi)-a^2(\xi), \nonumber \\
-		[b(\xi)+\iu c(\xi)][b(\xi)-\iu c(\xi)]&=[d(\xi)-a(\xi)][d(\xi)+a(\xi)] \label{dokaz4_4}
+		b^2(t)+c^2(t)&=d^2(t)-a^2(t), \nonumber \\
+		[b(t)+\iu c(t)][b(t)-\iu c(t)]&=[d(t)-a(t)][d(t)+a(t)] \label{dokaz4_4}
 	\end{align}
-	Ker sta si realna polinoma $b(\xi)$ in $c(\xi)$ tuja, potem kompleksna polinoma $b(\xi)+\iu c(\xi)$ in $b(\xi)-\iu c(\xi)$ nimata skupnih ničel. To sledi iz lastnosti računanja največjega skupnega delitelja polinomov. Velja tudi, da nimata realnih ničel in zapisa je očitno, da je ničla enega polinoma enaka konjugirani vrednosti drugega polinoma. Ker sta $d(\xi)-a(\xi)$ in $d(\xi)+a(\xi)$ realna polinoma, se ju lahko razcepi na pare konjugiranih si linearnih kompleksnih polinomov na tak način, da en polinom iz vsakega para deli polinom $b(\xi)+\iu c(\xi),$ drug polinom iz para pa deli polinom $b(\xi)-\iu c(\xi).$ Povedano drugače, polinoma $b(\xi) \pm \iu c(\xi)$ imata obliko
+	Ker sta si realna polinoma $b(t)$ in $c(t)$ tuja, potem kompleksna polinoma $b(t)+\iu c(t)$ in $b(t)-\iu c(t)$ nimata skupnih ničel. To sledi iz lastnosti računanja največjega skupnega delitelja polinomov. Velja tudi, da nimata realnih ničel in zapisa je očitno, da je ničla enega polinoma enaka konjugirani vrednosti drugega polinoma. Ker sta $d(t)-a(t)$ in $d(t)+a(t)$ realna polinoma, se ju lahko razcepi na pare konjugiranih si linearnih kompleksnih polinomov na tak način, da en polinom iz vsakega para deli polinom $b(t)+\iu c(t),$ drug polinom iz para pa deli polinom $b(t)-\iu c(t).$ Povedano drugače, polinoma $b(t) \pm \iu c(t)$ imata obliko
 	\begin{equation}
 	\label{dokaz4_5}
-		b(\xi)+ \iu c(\xi)=f(\xi)\bar{g}(\xi), \quad b(\xi)-\iu c(\xi)=\bar{f}(\xi)g(\xi),
+		b(t)+ \iu c(t)=f(t)\bar{g}(t), \quad b(t)-\iu c(t)=\bar{f}(t)g(t),
 	\end{equation}
-	kjer sta $f(\xi)$ in $g(\xi)$ taka dva kompleksna polinoma, da velja
+	kjer sta $f(t)$ in $g(t)$ taka dva kompleksna polinoma, da velja
 	\begin{equation}
 		\label{dokaz4_6}
-		d(\xi)-a(\xi)=f(\xi)\bar{f}(\xi), \quad d(\xi)+a(\xi)=g(\xi)\bar{g}(\xi).
+		d(t)-a(t)=f(t)\bar{f}(t), \quad d(t)+a(t)=g(t)\bar{g}(t).
 	\end{equation}
-	Kompleksna polinoma $f(\xi)$ in $g(\xi)$ lahko zapišemo tudi kot $f(\xi)=\sqrt{2}[p(\xi)+\iu q(\xi)]$ in $g(\xi)=\sqrt{2}[v(\xi)+\iu u(\xi)],$ kjer so $p(\xi),q(\xi),v(\xi)$ in $u(\xi)$ realni polinomi. Če vnesemo te izraze v enačbe \eqref{dokaz4_5} in \eqref{dokaz4_6}, lahko iz njih dobimo izraze za polinome $a(\xi),b(\xi),c(\xi)$ in $d(\xi),$ kot so zapisani v \eqref{izrek4_3}.\\
+	Kompleksna polinoma $f(t)$ in $g(t)$ lahko zapišemo tudi kot $f(t)=\sqrt{2}[p(t)+\iu q(t)]$ in $g(t)=\sqrt{2}[v(t)+\iu u(t)],$ kjer so $p(t),q(t),v(t)$ in $u(t)$ realni polinomi. Če vnesemo te izraze v enačbe \eqref{dokaz4_5} in \eqref{dokaz4_6}, lahko iz njih dobimo izraze za polinome $a(t),b(t),c(t)$ in $d(t),$ kot so zapisani v \eqref{izrek4_3}.\\
 \texttt{[Se mi zdi, da tu ni potrebno nič več dodati?]}
 \end{proof}
 
-Z nekaj računanja lahko preverimo, da ima za dane realne polinome $p(\xi),$ $q(\xi),$ $v(\xi)$ in $u(\xi)$ prostorska krivulja $\rV(\xi)$ pitagorejski hodograf, če za njene komponente velja
+Z nekaj računanja lahko preverimo, da ima za dane realne polinome $p(t),$ $q(t),$ $v(t)$ in $u(t)$ prostorska krivulja $\rV(t)$ pitagorejski hodograf, če za njene komponente velja
 \begin{align}
-	x'(\xi)&=u^2(\xi)+v^2(\xi)-p^2(\xi)-q^2(\xi), \nonumber \\
-	y'(\xi)&=2[u(\xi)q(\xi)+v(\xi)p(\xi)], \nonumber \\
-	z'(\xi)&=2[v(\xi)q(\xi)-u(\xi)p(\xi)], \label{eq4_7}
+	x'(t)&=u^2(t)+v^2(t)-p^2(t)-q^2(t), \nonumber \\
+	y'(t)&=2[u(t)q(t)+v(t)p(t)], \nonumber \\
+	z'(t)&=2[v(t)q(t)-u(t)p(t)], \label{eq4_7}
 \end{align}
 ter za parametrično hitrost
 \begin{equation}
 	\label{eq4_8}
-	\sigma(\xi)=u^2(\xi)+v^2(\xi)+p^2(\xi)+q^2(\xi).
+	\sigma(t)=u^2(t)+v^2(t)+p^2(t)+q^2(t).
 \end{equation}
 
 \begin{opomba}
@@ -452,7 +452,7 @@ ter za parametrično hitrost
 	kjer sta si $u(t)$ in $v(t)$ tuja polinoma. Dokaz je dostopen na strani 386 v \cite{farouki2008pythagorean}. Tako je potem ravninska PH krivulja $\rV(t)=(x(t),y(t))$ definirana s pomočjo polinomov $u(t),$ $v(t)$ in $w(t)$ preko odvodov
 	\begin{equation}
 		\label{poly_ravninska_PH}
-		x'^2(t)=\big(u^2(t)-v^2(t)\big)w(t)\quad\text{in}\quad y'^2(t)=2u(t)v(t)w(t),
+		x'(t)=\big(u^2(t)-v^2(t)\big)w(t)\quad\text{in}\quad y'(t)=2u(t)v(t)w(t),
 	\end{equation}
 	ki jih potem še integriramo.
 \end{opomba}
@@ -461,7 +461,7 @@ Pri krivulji, ki je podana z enačbami \eqref{eq4_7} sicer nimamo zagotovila, da
 
 \begin{definicija}
 	\label{primitiven_hodo}
-	Za krivuljo s pitagorejskim hodografom $\rV'(\xi)=(x'(\xi),y'(\xi),z'(\xi))$ pravimo, da ima \emph{primitiven} pitagorejski hodograf, če je največji skupni delitelj komponent hodografa konstanten: $\gcd(x'(\xi),y'(\xi),z'(\xi))~=~\mathrm{konstanta}.$
+	Za krivuljo s pitagorejskim hodografom $\rV'(t)=(x'(t),y'(t),z'(t))$ pravimo, da ima \emph{primitiven} pitagorejski hodograf, če je največji skupni delitelj komponent hodografa konstanten: $\gcd(x'(t),y'(t),z'(t))~=~\mathrm{konstanta}.$
 \end{definicija}
 
 V praksi se raje uporablja primitivne hodografe, saj je skupna ničla komponent hodografa v splošnem lahko tudi točka obrata krivulja (torej točka, kjer tangentni vektor spremeni smer \texttt{[to poved se mora še rahlo preoblikovati]}). Izbira paroma si tujih polinomov $p,q,v$ in $u$ še ne zagotavlja, da je potem hodograf res primitiven. 
@@ -573,11 +573,11 @@ Naslednja trditev nam bo osvetila povezavo med vijačnimi polinomskimi krivuljam
 	Če je polinomska krivulja vijačnica, ima potem tudi pitagorejski hodograf.
 \end{trditev}
 \begin{proof}
-	Za prostorko krivuljo $\rV(\xi)$ lahko njeno enotsko tangento zapišemo kot $\frac{\rV'(\xi)}{\lVert \rV'(\xi) \rVert}.$ Potem lahko enačbo \eqref{pogoj_vijacnica} preoblikujemo kot
+	Za prostorko krivuljo $\rV(t)$ lahko njeno enotsko tangento zapišemo kot $\frac{\rV'(t)}{\lVert \rV'(t) \rVert}.$ Potem lahko enačbo \eqref{pogoj_vijacnica} preoblikujemo kot
 	\begin{equation}
-		\aV \cdot \rV'(\xi)=\cos \psi \lVert \rV'(\xi) \rVert.
+		\aV \cdot \rV'(t)=\cos \psi \lVert \rV'(t) \rVert.
 	\end{equation}
-	Leva stran enačba predstavlja polinom v spremenljivki $\xi.$ Na desni strani enačbe se lahko nahaja polinom, če je $\rV(\xi)$ PH krivulja, kajti samo PH krivulje lahko imajo hitrost $\lVert \rV'(\xi) \rVert$ polinomsko.
+	Leva stran enačba predstavlja polinom v spremenljivki $\xi.$ Na desni strani enačbe se lahko nahaja polinom, če je $\rV(t)$ PH krivulja, kajti samo PH krivulje lahko imajo hitrost $\lVert \rV'(t) \rVert$ polinomsko.
 \end{proof}
 Če je krivulja polinomska vijačnica, je potem tudi PH krivulja. Ali velja tudi obratno? Odgovor na to vprašanje je negativen, kot lahko vidimo iz spodnjega primera.\cite{beltranmonterde}
 \begin{primer}
@@ -859,7 +859,7 @@ Enostavno je videti, da je proporcionalni polinom identično enak nič natanko t
 S proporcionalnim polinomom se da lepo izraziti tudi fleksijsko ukrivljenost DPH krivulj in sicer kot
 \begin{equation}
 	\label{kappa_propoly}
-	\kappa=\frac{\sqrt{rho}}{\sigma^2}=2\frac{|\balpha(t)\bbeta'(t)-\balpha'(t)\bbeta(t)|}{|\balpha|^2+|\bbeta|^2}.
+	\kappa=\frac{\sqrt{\rho}}{\sigma^2}=2\frac{|\balpha(t)\bbeta'(t)-\balpha'(t)\bbeta(t)|}{|\balpha|^2+|\bbeta|^2}.
 \end{equation}
 Iz tega je razvidno, da vkolikor je za dano DPH krivuljo njen proporcionalni polinom identično enak 0, je potem tudi fleksijska ukrivljenost te krivulje enaka 0, kar pomeni, da imamo pravzaprav opravka z daljico (ravno črto). Če ima ta polinom kakšno realno ničlo, je ta točka lahko točka obrata za normalo in binormalo, ki vsebujeta člen $\omega,$ ki je odvisen od vrednosti proporcionalnega polinoma. Isto velja tudi za torzijsko ukrivljenost.
 
@@ -1054,7 +1054,8 @@ Ta enačba se preoblikuje v
 \end{equation*}
 Ta kvadratna enačba za $\zV$ ima rešitvi podani s koeficienti $h_0,\dots,h_4$ in $\wV_0.$ Rešitvi sta enaki
 \begin{equation}
-	\zV=\balpha_1\bbeta_2-\balpha_2\bbeta_1=\frac{1}{9}\left(3h_2\pm\sqrt{9h_2^2+3h_0h_4-12h_1h_3}\right)\wV_0^2.\label{st7h4w0}
+	\label{st7h4w0}
+	\zV=\balpha_1\bbeta_2-\balpha_2\bbeta_1=\frac{1}{9}\left(3h_2\pm\sqrt{9h_2^2+3h_0h_4-12h_1h_3}\right)\wV_0^2.
 \end{equation}
 Obnovimo: na začetku poljubno izberemo koeficiente $h_0,\dots,h_4,$ $\wV_0$ ter še tri koeficiente polinomov $\balpha(t)$ in $\bbeta(t).$ Kot smo že videli v prejšnjih primerih, ponavadi izberemo kar $\balpha_0,$ $\balpha_1$ in $\bbeta_0.$ S pomočjo teh znanih podatkov rešimo sistem enačb \eqref{sistem_st7h4w0} in upoštevamo zadnjo enakost. Pridobljena PH krivulja je s tem res DPH krivulja.
 
@@ -1324,10 +1325,11 @@ Podobno kot smo v poglavju \ref{mnozenje_linearni_polinom_5} pri krivuljah 5.\ s
 	\bbeta(t)&=\big(\bV_0(1-t)+\bV_1t\big)\big(\wV_0(1-t)^2+\wV_12(1-t)t+\wV_2t^2\big).
 \end{align}
 Potemtakem so Bernsteinovi koeficienti obeh polinomov enaki
-\begin{align*}
+\begin{align}
+	\label{mnozenje_kvadraticni_polinom_7_koef}
 	\balpha_0&=\aV_0\wV_0,\quad\balpha_1=\frac{1}{3}(2\aV_0\wV_1+\aV_1\wV_0),\quad\balpha_2=\frac{1}{3}(2\aV_1\wV_1+\aV_0\wV_2),\quad\balpha_3=\aV_1\wV_2\\
 	\bbeta_0&=\bV_0\wV_0,\quad\bbeta_1=\frac{1}{3}(2\bV_0\wV_1+\bV_1\wV_0),\quad\bbeta_2=\frac{1}{3}(2\bV_1\wV_1+\bV_0\wV_2),\quad\bbeta_3=\bV_1\wV_2.
-\end{align*}
+\end{align}
 \emph{Mathematica} nam ponovno olajša delo pri preverjanju, da je proporcionalni polinom enak
 \begin{equation*}
 	\balpha(t)\bbeta'(t)-\balpha'(t)\bbeta(t)=\big(\sqrt{\aV_0\bV_1-\aV_1\bV_0}\big(\wV_0(1-t)^2+\wV_12(1-t)t+\wV_2t^2\big)\big)^2.
@@ -1596,6 +1598,7 @@ Pri $\st(h(t))=2,$ $\st(\wV(t))=1$ in $r=1$ tako res ne moremo dobiti nevijačne
 
 Preostal nam je še zadnji primer. Tokrat si bomo pomagali z rezultati iz poglavja \ref{kubicna_reparametrizacija_7}. Pridobili bomo računski kriterij, preko katerega bomo ločili vijačne od nevijačni DPH krivulj.
 \begin{trditev}
+	\label{trditev_locevanje_h4w0}
 	Dvojna PH krivulja 7.\ stopnje, pri kateri je DPH pogoj \eqref{propor_poly_izpeljava} izpolnjen pri $\st(h(t))=4$ in $\st(\wV(t))=0$ je nevijačna, če je izraz
 	\begin{equation}
 		\label{diskriminanta}
@@ -1629,6 +1632,116 @@ Preostal nam je še zadnji primer. Tokrat si bomo pomagali z rezultati iz poglav
 	
 	Če je diskriminanta $\Delta$ negativna, ne obstajata taka realna kubična polinoma $f(t),g(t)$, da bi lahko $h(t)$ izrazili v obliki $f'(t)g(t)-f(t)g'(t).$ V teh primerih ne moremo pridobiti kubične reparametrizacije krožnice oziroma premice v kompleksni ravnini, torej imamo v takih primerih opravka s nevijačnimi DPH krivuljami.
 \end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Izračunani primeri}
+
+V tem poglavju si bomo na podlagi do zdaj znanih dejstev ogledali, kako konstruirati prostorsko (dvojno) PH krivuljo 7.\ stopnje. Obdelali bomo dva primera, eno vijačno ter eno nevijačno krivuljo.
+
+Spomnimo se najprej, kako izražamo hodograf prostorske PH krivulje \eqref{kvaternion} v kvaterenionski obliki. Recimo, da imamo kubični kvaternionski polinom, podan v Bernsteinovi bazi kot
+\begin{equation}
+	\AQ(t)=\AQ_0(1-t)^3+\AQ_13(1-t)^2t+\AQ_23(1-t)t^2+\AQ_3t^3.
+\end{equation}
+PH krivuljo lahko podamo kot Bézierjevo krivuljo
+\begin{equation*}
+	\rV(t)=\sum_{i=0}^7\pV_i\binom{7}{i}(1-t)^{7-i}t^i
+\end{equation*}
+s kontrolnimi točkami $\pV_i=x_i\iV+y_i\jV+z_i\kV,$ kjer je $0\leq i\leq 7.$ Hodograf te krivulje je potem enak
+\begin{equation*}
+	\rV'(t)=7\sum_{i=0}^6(\pV_{i+1}-\pV_i)\binom{6}{i}(1-t)^{6-i}t^i=\AQ(t)\iV\AQ^*(t).
+\end{equation*}
+S primerjavo koeficientov vidimo, da se kontrolne točke krivulje da izraziti s pomočjo Bersteinovih koeficientov polinoma $\AQ(t).$ Kontrolne točke so enake
+\begin{align}
+	\label{kontrolne_tocke}
+	\pV_1&=\pV_0+\frac{1}{7}\AQ_0\iV\AQ_0^*,\nonumber\\
+	\pV_2&=\pV_1+\frac{1}{14}(\AQ_0\iV\AQ_1^*+\AQ_1\iV\AQ_0^*),\nonumber\\
+	\pV_3&=\pV_2+\frac{1}{35}(\AQ_0\iV\AQ_2^*+3\AQ_1\iV\AQ_1^*+\AQ_2\iV\AQ_0^*),\nonumber\\
+	\pV_4&=\pV_3+\frac{1}{140}(\AQ_0\iV\AQ_3^*+9\AQ_1\iV\AQ_2^*+9\AQ_2\iV\AQ_1^*+\AQ_3\iV\AQ_0^*),\nonumber\\
+	\pV_5&=\pV_4+\frac{1}{35}(\AQ_1\iV\AQ_3^*+3\AQ_2\iV\AQ_2^*+\AQ_3\iV\AQ_1^*),\nonumber\\
+	\pV_6&=\pV_5+\frac{1}{14}(\AQ_2\iV\AQ_3^*+\AQ_3\iV\AQ_2^*),\nonumber\\
+	\pV_7&=\pV_6+\frac{1}{7}\AQ_3\iV\AQ_3^*.
+\end{align}
+Ponavadi vzamemo $\pV_0=(0,0,0)$ kot integracijsko konstanto.
+
+\begin{primer}[Vijačna krivulja, generirana preko množenja s kvadratičnim polinomom]
+	Videli bomo, kako konstruirati tak tip vijačne krivulje, kot smo ga že spoznali v poglavju \ref{mnozenje_kvadraticni_polinom_7}. Za izraz $\zV(t),$ ki predstavlja premico oziroma krožnico v kompleksni ravnini \eqref{transformacija} izberemo najprej naslednje konstante
+	\begin{equation*}
+		\aV_0=5\iu,\quad\aV_1=1+\iu,\quad\bV_0=1-\iu,\quad\bV_1=2+5\iu.
+	\end{equation*}
+	Polinom $\wV(t)$ podamo preko Bernsteinovih koeficientov $\wV_0=1,$ $\wV_1=1+\iu$ in $\wV_2=1.$ Števec in imenovalec izraza $\zV(t)$ množimo z $\wV(t),$ dobimo $\zV(t)=\balpha(t)/\bbeta(t).$ Potem se Bernsteinove koeficiente polinomov $\balpha(t)$ in $\bbeta(t)$ izračuna preko enačb \eqref{mnozenje_kvadraticni_polinom_7_koef}. Enaki so
+	\begin{align*}
+		\balpha_0&=5\iu,\quad\balpha_1=-3+\frac{11}{3}\iu,\quad\balpha_2=3\iu,\quad\balpha_3=1+\iu,\\
+		\bbeta_0&=1-\iu,\quad\bbeta_1=2+\frac{5}{3}\iu,\quad\bbeta_2=-\frac{5}{3}+\frac{13}{3}\iu,\quad\bbeta_3=2+5\iu.
+	\end{align*}
+	Do kvaternionskega polinoma $\AQ(t)$ se dokopljemo preko zveze $\AQ(t)=\balpha(t)+\kV\bbeta(t).$ S pomočjo Bernsteinovih koeficientov tega polinoma bomo lahko izrazili kontrolne točke hodografa krivulje oziroma krivulje same, kot smo že opisali v enačbah \eqref{kontrolne_tocke}. Koeficienti so enaki
+	\begin{align*}
+		\AQ_0&=5\iV-\jV+\kV,\quad\AQ_1=-3+\frac{11}{3}\iV+\frac{5}{3}\jV+2\kV,\\
+		\AQ_2&=3\iV+\frac{13}{3}\jV-\frac{5}{3}\kV,\quad\AQ_3=1+\iV+5\jV+2\kV.
+	\end{align*}
+	\begin{figure}[h!]
+	  \centering
+	  \includegraphics[width=0.5\textwidth]{images/quat_poly_multi.pdf}
+	% \caption[caption za v kazalo]{Dolg caption pod sliko}
+	  \caption[Primer vijačne krivulje.]{Na sliki je razviden graf vijačne krivulje s pripadajočim kontrolnim poligonom, ki smo jo pridobili z množenjem števca in imenovalca izraza \eqref{transformacija} s polinomom $\wV(t).$}
+	  \label{fig:quat_poly_multi}
+	\end{figure}
+	
+	Za integracijsko konstanto si izberemo točko $\pV_0=(0,0,0).$ Ostale kontrolne točke krivulje izračunamo preko enačb \eqref{kontrolne_tocke}. Dobimo krivuljo $\rV(t),$ ki ima komponente enake
+	\begin{align*}
+		x(t)&=-\frac{80}{7}t^7-\frac{20}{3}t^6+\frac{252}{5}t^5-76t^4+24t^3-15t^2+23t,\\
+		y(t)&=-\frac{184}{7}t^7+108t^6-\frac{784}{5}t^5+90t^4-\frac{86}{3}t^3+35t^2-10t,\\
+		z(t)&=-\frac{80}{7}t^7+\frac{88}{3}t^6-\frac{72}{5}t^5-16t^4+\frac{20}{3}t^3+2t^2+10t.
+	\end{align*}
+	Hodograf ni primitiven, saj velja
+	\begin{equation*}
+		\gcd(x'(t),y'(t),z'(t))=4t^4-8t^3+4t^2+1.
+	\end{equation*}
+	Parametrična hitrost krivulje je enaka
+	\begin{equation*}
+		\sigma(t)=\lVert\rV'(t)\rVert=216t^6-632t^5+724t^4-416t^3+162t^2-50t+27,
+	\end{equation*}
+	razmerje med fleksijsko in torzijsko ukrivljenost pa je enako $|\kappa(t)/\tau(t)|=\sqrt{829}/2.$
+\end{primer}
+
+\begin{primer}[$\st(h(t))=4,$ $\st(\wV(t))=0,$ Nevijačna]
+	Konstruirali bomo tak tip krivulje, kot smo ga že analizirali v poglavju \ref{klasifikacija_h4w0}. Za začetek si izberemo naslednja polinoma $h(t)$ in $\wV(t),$ izražena preko njihovih Bernsteinovih koeficientov
+	\begin{equation*}
+		h_0=1,\quad h_1=2,\quad h_2=2,\quad h_3=2,\quad h_4=1,\quad \wV_0=1.
+	\end{equation*}
+	Že po trditvi \ref{trditev_locevanje_h4w0} vidimo, da smo si tako izbrali koeficiente realnega polinoma $h(t),$ da je količina $\Delta=9h_2^2+3h_0h_4-12h_1h_4=-9$ negativna in s tem tudi krivulja, ki jo bomo generirali, nevijačna. Prosto si še izberemo vrednosti koeficientov $\balpha_0=1,$ $\balpha_1=1,$ in $\bbeta_0=-1.$ Nato rešimo bilinearni sistem enačb \eqref{sistem_st7h4w0} in pri tem upoštevamo rešitev z minus znakom pri $\zV=\balpha_1\bbeta_2-\balpha_2\bbeta_1$ v enačbi \eqref{st7h4w0}. Sistem lahko rešimo kar s pomočjo programa \emph{Mathematica}. Tako dobimo naslednje Bernsteinove koeficiente za polinoma $\balpha(t)$ in $\bbeta(t):$
+	\begin{align*}
+		\balpha_0&=1,\quad\balpha_1=1,\quad\balpha_2=2+\iu,\quad\balpha_3=2+3\iu,\\
+		\bbeta_0&=-1,\quad\bbeta_1=-\frac{2}{3},\quad\bbeta_2=-\frac{2}{3}-\iu,\quad\bbeta_3=-2\iu.
+	\end{align*}
+	Z relacijo $\AQ(t)=\balpha(t)+\kV\bbeta(t)$ pridobimo kvaternionski zapis, preko katerega bomo izrazili zapis hodografa krivulje. Bernsteinovi koeficienti kvaternionskega polinoma $\AQ(t)$ so enaki
+	\begin{equation*}
+		\AQ_0=1-\kV,\quad\AQ_1=1-\frac{2}{3}\kV,\quad\AQ_2=2+\iV-\jV-\frac{2}{3}\kV,\quad\AQ_3=2+3\iV-2\jV.
+	\end{equation*}
+	\begin{figure}[h]
+	  \centering
+	  \includegraphics[width=0.5\textwidth]{images/h4w0_nevijacna.pdf}
+	% \caption[caption za v kazalo]{Dolg caption pod sliko}
+	  \caption[Primer nevijačne krviulje.]{Na sliki je razviden graf vijačne krivulje s pripadajočim kontrolnim poligonom, za katero velja $\st(h(t))=0$ in $\st(\wV(t))=2.$}
+	  \label{fig:h4w0_nevijacna}
+	\end{figure}
+	
+	Za integracijsko konstanto si kot prej izberemo točko $\pV_0=(0,0,0).$ Ostale kontrolne točke krivulje izračunamo preko enačb \eqref{kontrolne_tocke}. Tako dobimo krivuljo $\rV(t),$ ki ima komponente enake
+	\begin{align*}
+		x(t)&=\frac{2}{7}t^7-\frac{2}{3}t^6+\frac{6}{5}t^5+t^3+t^2,\\
+		y(t)&=-\frac{4}{7}t^7+\frac{8}{3}t^6-\frac{28}{5}t^5+3t^4-\frac{8}{3}t^3+t^2-2t,\\
+		z(t)&=\frac{4}{7}t^7-2t^6-\frac{12}{5}t^5+t^4.
+	\end{align*}
+	Hodograf je primitiven, saj velja $\gcd(x'(t),y'(t),z'(t))=1.$ Parametrična hitrost krivulje $\sigma(t)$ je enaka
+	\begin{equation*}
+		\sigma(t)=\lVert\rV'(t)\rVert=6t^6-20t^5+30t^4-8t^3+9t^2-2t+2.
+	\end{equation*}
+	Razmerje med fleksijsko in torzijsko ukrivljenostjo je enako
+	\begin{equation*}
+		\left|\frac{\kappa(t)}{\tau(t)}\right|=\left|\frac{-2t^4+4t^3-6t^2+4t+1}{8t^4+2t^3-6t^2+12t}\right|,
+	\end{equation*}
+	kar ni identično enako konstanti. Tudi po Lancretovem izreku \ref{lancret} lahko preverimo, da je taka krivulja nevijačna.
+\end{primer}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
