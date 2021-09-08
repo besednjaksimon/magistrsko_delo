@@ -85,7 +85,7 @@
 % ukazi za matematična okolja
 \theoremstyle{definition} % tekst napisan pokončno
 \newtheorem{definicija}{Definicija}[section]
-\newtheorem{primer}[definicija]{Primer}
+%\newtheorem{primer}[definicija]{Primer}
 \newtheorem{opomba}[definicija]{Opomba}
 \newtheorem{aksiom}{Aksiom}
 
@@ -94,6 +94,19 @@
 \newtheorem{izrek}[definicija]{Izrek}
 \newtheorem{trditev}[definicija]{Trditev}
 \newtheorem{posledica}[definicija]{Posledica}
+
+\newtheoremstyle{primerstyle}% name of the style to be used
+  {}% measure of space to leave above the theorem. E.g.: 3pt
+  {}% measure of space to leave below the theorem. E.g.: 3pt
+  {}% name of font to use in the body of the theorem
+  {0pt}% measure of space to indent
+  {\bfseries}% name of head font
+  {}% punctuation between head and body
+  {0pt}% space after theorem head; " " = normal interword space
+  {\thmname{#1}\thmnumber{ #2}\textnormal{\thmnote{ (#3)}}}
+  
+\theoremstyle{primerstyle}
+\newtheorem{primer}[definicija]{Primer}
 
 \numberwithin{equation}{section}  % števec za enačbe zgleda kot (2.7) in se resetira v vsakem poglavju
 
@@ -635,7 +648,7 @@ Naslednja trditev nam bo osvetila povezavo med vijačnimi polinomskimi krivuljam
 Če je krivulja polinomska vijačnica, potem je tudi PH krivulja. Ali velja tudi obratno? Odgovor na to vprašanje je negativen, kot lahko vidimo iz spodnjega primera \cite{beltranmonterde}.
 \begin{primer}
 	\label{PH_ne_vijacnica}
-	Dana je naslednja krivulja
+	\textbf{.} Dana je naslednja krivulja
 	\begin{equation*}
 		\rV(t)=\left ( \frac{t^7}{21}+\frac{t^5}{5}+t^3-3t,-\frac{t^4}{2}+3t^2,-2t^3 \right ).
 	\end{equation*}
@@ -1487,6 +1500,7 @@ Po zgledu iz prejšnjega poglavja \ref{reparametrizacija_multiplikacija} lahko t
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Nevijačne dvojne PH krivulje}
+\label{poglavje_nevijacne}
 
 Po trditvi \ref{trditev_vijacnica_DPH} vemo, da je vsaka polinomska vijačna krivulja tudi DPH krivulja. Iz primera \ref{PH_ne_vijacnica} je pa tudi razvidno, da obratno ni nujno res: obstajajo DPH krivulje, ki niso nujno polinomske vijačnice. Le-te morajo biti vsaj stopnje sedem, saj za nižje stopnje DPH krivulje sovpadajo z vijačnicami \cite[Izrek 1, str.\ 121]{beltranmonterde}. V tem poglavju bomo raziskali pogoje, ki nam bodo za vsak tip DPH krivulje stopnje 7, opisanih v poglavju \ref{poglavje_dvojnePHkrivulje7}, povedali, ali je dana DPH krivulja stopnje 7 nevijačna ali vijačna.
 
@@ -1595,7 +1609,7 @@ Pri analizi si bomo pomagali s Hopfovim modelom. Začeli bomo z nekaj lemami, ki
 	Vidimo, da je $\zV(t)$ enaka kompoziciji preslikav $\hV(\bell(t)),$ kjer sta $$\hV(\wV)=\frac{\aV_1\wV+\aV_2}{\bV_1\wV+\bV_2}\quad\text{in}\quad\bell(t)=\left(\frac{r_1(t)}{r_2(t)}\right)^me^{\iu(m(\arg(t-\btau_1)-\arg(t-\btau_2)))}.$$ V izrazu za $\hV$ prepoznamo Möbiusovo transformacijo, ki slika premice oziroma krožnice v kompleksni ravnini v premice oziroma krožnice \cite{needham1998visual}. Ker je inverzna Möbiusova transformacija prav tako Möbiusova transformacija, nam tudi inverz preslikave $\hV$ slika premice oziroma krožnice v kompleksni ravnini v premice oziroma krožnice. Ker predpis $\bell(t)$ ne predstavlje premice oziroma krožnice v kompleksni ravnini, potem tudi izraz $\zV(t)=\hV(\bell(t))$ ne more predstavljati premice oziroma krožnice v kompleksni ravnini. 
 \end{proof}
 
-\subsection{Primer \texorpdfstring{$\st(h)=0$}{\st(h)=0} in \texorpdfstring{$\st(\wV)=2$}{\st(w)=2}}
+\subsection{Primer \texorpdfstring{$\st(h)=0$}{st(h)=0} in \texorpdfstring{$\st(\wV)=2$}{st(w)=2}}
 \label{locevanje_h0w2}
 
 V tem podpoglavju bomo raziskali pogoje, pri katerih je dana DPH krivulja stopnje 7 vijačna oziroma nevijačna. Algebraične pogoje, katerim morajo zadostiti koeficienti polinomov $\balpha,\bbeta$ in $\wV,$ da lahko sploh govorimo o DPH krivulji, smo že obravnavali v poglavju \ref{klasifikacija_h0w2}. Polinom $h$ naj bo identično enak konstanti $h_0.$ Kriterij za ločevanje vijačnih in nevijačnih DPH krivulj znotraj tega primera je predstavljen v naslednji trditvi.
@@ -1648,7 +1662,8 @@ V tem podpoglavju bomo raziskali pogoje, pri katerih je dana DPH krivulja stopnj
 
 Tokrat bomo raziskali kriterije, pri katerih ločimo vijačne od nevijačnih DPH krivulj, kakršne smo že raziskali v poglavju \ref{klasifikacija_h2w1}. Po lemi \ref{lema_1} je dovolj obravnavati primere, ko je $\bgamma(t)=\gcd(\balpha(t),\bbeta(t))$ stopnje $r=0$ ali $r=1.$ V naslednjih dveh trditvah bomo videli, da nevijačne krivulje v tem primeru obstajajo samo, kadar je $r=0.$
 \begin{trditev}
-	Naj bosta polinoma $\balpha$ in $\bbeta$ taka, da je $\bgamma$ stopnje $r=1$ ter naj generirata tako dvojno PH krivuljo, da je polinom $h$ druge stopnje in da je polinom $\wV$ linearen. Potem je ta dvojna PH krivulja vijačna.
+	\label{locevanje_h2w1_trditev1}
+	Naj bosta polinoma $\balpha$ in $\bbeta$ taka, da je $\bgamma$ stopnje $r=1$ ter naj generirata tako DPH krivuljo, da je polinom $h$ druge stopnje in da je polinom $\wV$ linearen. Potem je ta DPH krivulja vijačna.
 \end{trditev}
 \begin{proof}
 	Po lemi \ref{lema_2} je dovolj obravnavati take kvadratične polinome $h,$ ki imajo različni ničli $\tau_1,\tau_2.$ Iz enačbe \eqref{propor_poly_tilde} v lemi \ref{lema_2} je razvidno, da zaradi različnosti ničel polinoma $h$ polinom $\bgamma$ nima skupnega faktorja s polinomom $h,$ temveč z $\wV.$ Še več, pravzaprav se razlikujeta za multiplikativno konstanto. Podobno velja za $\btalpha(t)\btbeta'(t)-\btalpha'(t)\btbeta(t)$ in $h(t).$ Napišimo najprej polinoma $\btalpha,\btbeta$ v primerno izbrani Bernsteinovi bazi
@@ -1675,7 +1690,8 @@ Tokrat bomo raziskali kriterije, pri katerih ločimo vijačne od nevijačnih DPH
 \end{proof}
 Pri $\st(h)=2,$ $\st(\wV)=1$ in $r=1$ tako res ne moremo dobiti nevijačne krivulje. Oglejmo si še primer, ko sta si $\balpha$ in $\bbeta$ tuja, torej ko je $r=0.$
 \begin{trditev}
-	Naj bosta polinoma $\balpha$ in $\bbeta$ taka, da je $\bgamma$ stopnje $r=0$ ter naj generirata tako dvojno PH krivuljo, da je polinom $h$ druge stopnje in da je polinom $\wV$ linearen. Potem je taka dvojna PH krivulja nevijačna.
+	\label{locevanje_h2w1_trditev2}
+	Naj bosta polinoma $\balpha$ in $\bbeta$ taka, da je $\bgamma$ stopnje $r=0$ ter naj generirata tako DPH krivuljo, da je polinom $h$ druge stopnje in da je polinom $\wV$ linearen. Potem je taka DPH krivulja nevijačna.
 \end{trditev}
 \begin{proof}
 	V poglavju \ref{podpoglavje_vijacne7stopnje} smo se seznanili z vsemi možnimi tipi vijačnih krivulj stopnje 7, kjer smo preoblikovali izraz za parametrizacijo krožnice oziroma premice \eqref{transformacija} v kompleksni ravnini. Obdelali smo kubično reparametrizacijo, množenje s kvadratičnim polinomom ter kombinacijo kvadratične reparametrizacije in množenja z linearnim polinomom. Pokazali smo, da je samo pri tej zadnji možnosti \ref{reparametrizacija_multiplikacija} DPH pogoj \eqref{propor_poly_izpeljava} izpolnjen pri $\st(h)=2$ in $\st(\wV)=1.$ Za take krivulje morata imeti $\balpha$ in $\bbeta$ skupen faktor v polinomu $\wV.$ Če sta si $\balpha$ in $\bbeta$ tuja in velja $\st(h)=2$ in $\st(\wV)=1,$ lahko zaključimo, da je taka krivulja nevijačna.
@@ -1692,7 +1708,7 @@ Preostal nam je še zadnji primer. Tokrat si bomo pomagali z rezultati iz poglav
 		\label{diskriminanta}
 		\Delta=9h_2^2+3h_0h_4-12h_1h_3,
 	\end{equation}
-	ki je podan z Bernsteinovimi koeficienti polinoma $h,$ negativen.
+	ki je podan z Bernsteinovimi koeficienti polinoma $h,$ negativen. Če je $\Delta$ nenegativen, je potem krivulja vijačna.
 \end{trditev}
 \begin{proof}
 	V poglavju \ref{kubicna_reparametrizacija_7} smo že omenili, je DPH krivulja pri $\st(h)=4$ in $\st(\wV)~=0~$ vijačna natanko takrat, ko se da polinom $h$ zapisati s pomočjo kubičnih realnih polinomov $f,g,$ in sicer kot $h(t)=f'(t)g(t)-f(t)g'(t).$ To enakost lahko zapišemo drugače s pomočjo Bernsteinovih koeficientov vseh treh polinomov, kot smo že videli v enačbah \eqref{h_coeffs_cubic_repara}. To si pravzaprav lahko interpretiramo kot sistem petih linearnih enačb s šestimi spremenljivkami oblike $f_ig_j-f_jg_i,$ kjer je $i\neq j$ za $0\leq i,j\leq 3.$ Eno od teh spremenljivk si lahko poljubno izberemo. Naj bo $f_2g_1-f_1g_2=c.$ Dobimo sistem
@@ -1725,7 +1741,7 @@ Preostal nam je še zadnji primer. Tokrat si bomo pomagali z rezultati iz poglav
 
 \section{Izračunani primeri}
 
-V tem poglavju si bomo na podlagi do zdaj znanih dejstev ogledali, kako konstruirati prostorsko DPH krivuljo stopnje 7. Obdelali bomo dva primera, eno vijačno ter eno nevijačno krivuljo.
+V tem poglavju si bomo na podlagi do zdaj znanih dejstev ogledali, kako konstruirati prostorsko DPH krivuljo stopnje 7. Obdelali bomo primere vijačnih krivulj, do katerih pridemo z kubično reparametrizacijo, množenjem s kvadratičnim polinomom, reparametrizacijo in multiplikacijo, ter še nekaj primerov vijačnih in nevijačnih krivulj.
 
 Spomnimo se najprej, kako izražamo hodograf prostorske PH krivulje \eqref{kvaternion} v kvaternionski obliki. Recimo, da imamo kubični kvaternionski polinom, podan v Bernsteinovi bazi kot
 \begin{equation}
@@ -1741,37 +1757,72 @@ s kontrolnimi točkami $\pV_i=x_i\iV+y_i\jV+z_i\kV,$ kjer je $0\leq i\leq 7.$ Ho
 \end{equation*}
 S primerjavo koeficientov vidimo, da se kontrolne točke krivulje da izraziti s pomočjo Bersteinovih koeficientov polinoma $\AQ.$ Kontrolne točke so enake
 \begin{align}
-	\label{kontrolne_tocke}
 	\pV_1&=\pV_0+\frac{1}{7}\AQ_0\iV\AQ_0^*,\nonumber\\
 	\pV_2&=\pV_1+\frac{1}{14}(\AQ_0\iV\AQ_1^*+\AQ_1\iV\AQ_0^*),\nonumber\\
 	\pV_3&=\pV_2+\frac{1}{35}(\AQ_0\iV\AQ_2^*+3\AQ_1\iV\AQ_1^*+\AQ_2\iV\AQ_0^*),\nonumber\\
-	\pV_4&=\pV_3+\frac{1}{140}(\AQ_0\iV\AQ_3^*+9\AQ_1\iV\AQ_2^*+9\AQ_2\iV\AQ_1^*+\AQ_3\iV\AQ_0^*),\nonumber\\
+	\pV_4&=\pV_3+\frac{1}{140}(\AQ_0\iV\AQ_3^*+9\AQ_1\iV\AQ_2^*+9\AQ_2\iV\AQ_1^*+\AQ_3\iV\AQ_0^*),\label{kontrolne_tocke}\\
 	\pV_5&=\pV_4+\frac{1}{35}(\AQ_1\iV\AQ_3^*+3\AQ_2\iV\AQ_2^*+\AQ_3\iV\AQ_1^*),\nonumber\\
 	\pV_6&=\pV_5+\frac{1}{14}(\AQ_2\iV\AQ_3^*+\AQ_3\iV\AQ_2^*),\nonumber\\
-	\pV_7&=\pV_6+\frac{1}{7}\AQ_3\iV\AQ_3^*.
+	\pV_7&=\pV_6+\frac{1}{7}\AQ_3\iV\AQ_3^*.\nonumber
 \end{align}
-Ponavadi vzamemo $\pV_0=(0,0,0)$ kot integracijsko konstanto.
+V primerih, ki sledijo, bomo povsod vzeli $\pV_0=(0,0,0)$ kot integracijsko konstanto.
 
-\begin{primer}[Vijačna krivulja, generirana preko množenja s kvadratičnim polinomom]
-	Videli bomo, kako konstruirati tak tip vijačne krivulje, kot smo ga spoznali v poglavju \ref{mnozenje_kvadraticni_polinom_7}. Za izraz $\zV(t),$ ki predstavlja premico oziroma krožnico v kompleksni ravnini \eqref{transformacija} izberemo najprej naslednje konstante
+\begin{primer}
+	\textnormal{ }(Kubična reparametrizacija)\textbf{.}
+	Konstruirali bomo tak tip vijačne krivulje, kot je opisan v poglavju \ref{kubicna_reparametrizacija_7}. Za izraz $\zV(t),$ ki predstavlja premico oziroma krožnico v kompleksni ravnini \eqref{transformacija}, izberemo konstante
+	\begin{equation*}
+		\aV_0=1,\quad\aV_1=1+\iu,\quad\bV_0=1-\iu,\quad\bV_1=\iu.
+	\end{equation*}
+	Nato podamo še reparametrizacijsko funkcijo $f/g,$ ki jo izrazimo s pomočjo polinomov $f,g,$ ta polinoma pa podamo preko njunih Bernsteinovih koeficientov $$(f_0,f_1,f_2,f_3)=(1,2,2,1)\quad\text{in}\quad(g_0,g_1,g_2,g_3)=(1,2,3,3).$$ Ko reparametrizacijo izvedemo, dobimo $\zV(t)=\balpha(t)/\bbeta(t),$ kjer so Bernsteinovi koeficienti polinomov $\balpha$ in $\bbeta$ enaki $$(\balpha_0,\balpha_1,\balpha_2,\balpha_3)=(1+\iu,2+2\iu,3+2\iu,3+\iu)\quad\text{in}\quad(\bbeta_0,\bbeta_1,\bbeta_2,\bbeta_3)=(\iu,2\iu,1+\iu,2-\iu).$$ S pretvorbo $\AQ_\ell=\balpha_\ell+\kV\bbeta_\ell$ pridemo do Bernsteinovih koeficientov kvaternionskega polinoma $\AQ.$ Koeficienti so enaki
+	\begin{align*}
+		\AQ_0&=1+\iV+\jV,&\AQ_2&=3+2\iV+\jV+\kV,\\
+		\AQ_1&=2+2\iV+2\jV,&\AQ_3&=3+\iV-\jV+2\kV.
+	\end{align*}
+	Za integracijsko konstanto si izberemo točko $\pV_0=(0,0,0).$ Ostale kontrolne točke krivulje izračunamo preko zvez \eqref{kontrolne_tocke}. Enake so
+	\begin{align*}
+		\pV_0&=(0,0,0),&\pV_4&=(2.1, 2.82857, -2.48571),\\
+		\pV_1&=(0.142857, 0.285714, -0.285714),&\pV_5&=(3.61429, 3.91429, -2.65714),\\
+		\pV_2&=(0.428571, 0.857143, -0.857143)&\pV_6&=(5.04286, 5.05714, -1.94286),\\
+		\pV_3&=(1, 1.77143, -1.71429)&\pV_7&=(5.75714, 6.48571, -0.514286).
+	\end{align*}
+	S tem postopkom dobimo krivuljo $\rV,$ s komponentami
+	\begin{align*}
+		x(t)&=-\frac{1}{7}t^7+3t^6-\frac{48}{5}t^5+\frac{7}{2}t^4+5t^3+3t^2+t,\\
+		y(t)&=\frac{2}{7}t^7-2t^6+\frac{36}{5}t^5-9t^4+2t^3+6t^2+2t,\\
+		z(t)&=\frac{2}{7}t^7-t^6-\frac{24}{5}t^5+13t^4-6t^2-2t.
+	\end{align*}
+	\begin{figure}[h!]
+	  \centering
+	  \includegraphics[width=0.5\textwidth]{images/cubic_reparametrization.pdf}
+	% \caption[caption za v kazalo]{Dolg caption pod sliko}
+	  \caption[Primer vijačne krivulje, pridobljene s kubično reparametrizacijo]{Na sliki je razviden graf vijačne krivulje s pripadajočim kontrolnim poligonom, ki smo jo pridobili s postopkom kubične reparametrizacije parametra $t$ v izrazu \eqref{transformacija}.}
+	  \label{fig:cubic_reparametrization}
+	\end{figure}
+	
+	Hodograf je primitiven, saj je $\gcd(x'(t),y'(t),z'(t))=1.$ Parametrična hitrost krivulje je enaka $$\sigma(t)=\lVert\rV'(t)\rVert=3t^6-18t^5+54t^4-54t^3+9t^2+18t+3,$$ razmerje med fleksijsko in torzijsko ukrivljenostjo pa je enako $|\kappa(t)/\tau(t)|=\sqrt{5}/2.$
+\end{primer}
+
+\begin{primer}
+	\textnormal{ }(Množenje s kvadratičnim polinomom)\textbf{.}
+	Videli bomo, kako konstruirati tak tip vijačne krivulje, kot smo ga spoznali v poglavju \ref{mnozenje_kvadraticni_polinom_7}. Za izraz $\zV(t),$ ki predstavlja premico oziroma krožnico v kompleksni ravnini \eqref{transformacija}, izberemo najprej naslednje konstante
 	\begin{equation*}
 		\aV_0=5\iu,\quad\aV_1=1+\iu,\quad\bV_0=1-\iu,\quad\bV_1=2+5\iu.
 	\end{equation*}
-	Polinom $\wV$ podamo preko Bernsteinovih koeficientov $\wV_0=1,$ $\wV_1=1+\iu$ in $\wV_2=1.$ Števec in imenovalec izraza $\zV(t)$ množimo z $\wV(t),$ dobimo $\zV(t)=\balpha(t)/\bbeta(t).$ Potem se Bernsteinove koeficiente polinomov $\balpha(t)$ in $\bbeta(t)$ izračuna preko enačb \eqref{mnozenje_kvadraticni_polinom_7_koef1} in \eqref{mnozenje_kvadraticni_polinom_7_koef2}. Enaki so
+	Polinom $\wV$ podamo preko Bernsteinovih koeficientov $\wV_0=1,$ $\wV_1=1+\iu$ in $\wV_2=1.$ Števec in imenovalec izraza $\zV(t)$ množimo z $\wV(t),$ dobimo $\zV(t)=\balpha(t)/\bbeta(t).$ Potem se Bernsteinove koeficiente polinomov $\balpha$ in $\bbeta$ izračuna preko enačb \eqref{mnozenje_kvadraticni_polinom_7_koef1} in \eqref{mnozenje_kvadraticni_polinom_7_koef2}. Enaki so
 	\begin{align*}
-		\balpha_0&=5\iu,\quad\balpha_1=-3+\frac{11}{3}\iu,\quad\balpha_2=3\iu,\quad\balpha_3=1+\iu,\\
-		\bbeta_0&=1-\iu,\quad\bbeta_1=2+\frac{5}{3}\iu,\quad\bbeta_2=-\frac{5}{3}+\frac{13}{3}\iu,\quad\bbeta_3=2+5\iu.
+		\balpha_0&=5\iu,&\balpha_1&=-3+\frac{11}{3}\iu,&\balpha_2&=3\iu,&\balpha_3&=1+\iu,\\
+		\bbeta_0&=1-\iu,&\bbeta_1&=2+\frac{5}{3}\iu,&\bbeta_2&=-\frac{5}{3}+\frac{13}{3}\iu,&\bbeta_3&=2+5\iu.
 	\end{align*}
 	Do kvaternionskega polinoma $\AQ$ se dokopljemo preko zveze $\AQ(t)=\balpha(t)+\kV\bbeta(t).$ S pomočjo Bernsteinovih koeficientov tega polinoma lahko izrazimo kontrolne točke hodografa krivulje oziroma krivulje same, kot smo že opisali v enačbah \eqref{kontrolne_tocke}. Koeficienti so enaki
 	\begin{align*}
-		\AQ_0&=5\iV-\jV+\kV,\quad\AQ_1=-3+\frac{11}{3}\iV+\frac{5}{3}\jV+2\kV,\\
-		\AQ_2&=3\iV+\frac{13}{3}\jV-\frac{5}{3}\kV,\quad\AQ_3=1+\iV+5\jV+2\kV.
+		\AQ_0&=5\iV-\jV+\kV,&\AQ_2&=3\iV+\frac{13}{3}\jV-\frac{5}{3}\kV,\\
+		\AQ_1&=-3+\frac{11}{3}\iV+\frac{5}{3}\jV+2\kV,&\AQ_3&=1+\iV+5\jV+2\kV.
 	\end{align*}
 	\begin{figure}[h!]
 	  \centering
 	  \includegraphics[width=0.5\textwidth]{images/quat_poly_multi.pdf}
 	% \caption[caption za v kazalo]{Dolg caption pod sliko}
-	  \caption[Primer vijačne krivulje.]{Na sliki je razviden graf vijačne krivulje s pripadajočim kontrolnim poligonom, ki smo jo pridobili z množenjem števca in imenovalca izraza \eqref{transformacija} s polinomom $\wV.$}
+	  \caption[Primer vijačne krivulje, pridobljene s postopkom množenja z linearnim polinomom]{Na sliki je razviden graf vijačne krivulje s pripadajočim kontrolnim poligonom, ki smo jo pridobili z množenjem števca in imenovalca izraza \eqref{transformacija} s polinomom $\wV.$}
 	  \label{fig:quat_poly_multi}
 	\end{figure}
 	
@@ -1784,7 +1835,7 @@ Ponavadi vzamemo $\pV_0=(0,0,0)$ kot integracijsko konstanto.
 	\end{align*}
 	Dobimo krivuljo $\rV,$ ki ima komponente enake
 	\begin{align*}
-		x(t)&=-\frac{80}{7}t^7-\frac{20}{3}t^6+\frac{252}{5}t^5-76t^4+24t^3-15t^2+23t,\\
+		x(t)&=-\frac{80}{7}t^7+\frac{20}{3}t^6+\frac{252}{5}t^5-76t^4+24t^3-15t^2+23t,\\
 		y(t)&=-\frac{184}{7}t^7+108t^6-\frac{784}{5}t^5+90t^4-\frac{86}{3}t^3+35t^2-10t,\\
 		z(t)&=-\frac{80}{7}t^7+\frac{88}{3}t^6-\frac{72}{5}t^5-16t^4+\frac{20}{3}t^3+2t^2+10t.
 	\end{align*}
@@ -1799,17 +1850,284 @@ Ponavadi vzamemo $\pV_0=(0,0,0)$ kot integracijsko konstanto.
 	razmerje med fleksijsko in torzijsko ukrivljenost pa je enako $|\kappa(t)/\tau(t)|=\sqrt{829}/2.$
 \end{primer}
 
-\begin{primer}[$\st(h)=4,$ $\st(\wV)=0,$ Nevijačna]
-	Konstruirali bomo tak tip krivulje, kot smo ga analizirali v poglavju \ref{klasifikacija_h4w0}. Za začetek si izberemo naslednja polinoma $h$ in $\wV,$ izražena v Bernsteinovi bazi z izbiro koeficientov
+\begin{primer}
+	\textnormal{ }(Reparametrizacija in multiplikacija)\textbf{.}
+	Tu bomo generirali tak tip krivulje, kot smo ga obravnavali v poglavju \ref{reparametrizacija_multiplikacija}. Podobno kot v prejšnjih primerih, si najprej izberemo konstante
+	\begin{equation*}
+		\aV_0=1+\iu,\quad\aV_1=1,\quad\bV_0=1-\iu,\quad\bV_1=2.
+	\end{equation*}
+	Potem izvedemo kvadratično reparametrizacijo preko reparametrizacijske funkcije $f/g,$ ki je določena z naslednjimi Bernsteinovi koeficienti polinomov $f$ in $g:$
+	$$(f_0,f_1,f_2)=(1,2,1)\quad\text{in}\quad(g_0,g_1,g_2)=(1,2,2).$$ Nato v ulomku \eqref{transformacija} množimo števec in imenovalec ulomka z linearnim kompleksnim polinomom $\wV,$ ki je podan z Bernsteinovimi koeficienti $(\wV_0,\wV_1)=(1,1+\iu).$ Bernsteinove koeficiente polinomov $\balpha$ in $\bbeta$ lahko tako izračunamo kar preko enačb \eqref{mnozenje_repara_7_koef}. Enaki so
+	\begin{align*}
+		\balpha_0&=1,&\balpha_1&=\frac{5}{3}+\frac{1}{3}\iu,&\balpha_2&=2+\frac{5}{3}\iu,&\balpha_3&=1+3\iu,\\
+		\bbeta_0&=2,&\bbeta_1&=\frac{10}{3}+\frac{2}{3}\iu,&\bbeta_2&=\frac{11}{3}+\frac{7}{3}\iu,&\bbeta_3&=4+2\iu.
+	\end{align*}
+	Bernsteinove koeficiente kvaternionskega polinoma $\AQ$ izrazimo preko zveze $\AQ_\ell=\balpha_\ell+\kV\bbeta_\ell$ za $\ell=0,1,2,3.$ Enaki so
+	\begin{align*}
+		\AQ_0&=1+2\kV,&\AQ_2&=2+\frac{5}{3}\iV+\frac{7}{3}\jV+\frac{11}{3}\kV,\\
+		\AQ_1&=\frac{5}{3}+\frac{1}{3}\iV+\frac{2}{3}\jV+\frac{10}{3}\kV,&\AQ_3&=1+3\iV+2\jV+4\kV.
+	\end{align*}
+	Kontrolne točke krivulje $\rV$ izračunamo iz \eqref{kontrolne_tocke}:
+	\begin{align*}
+		\pV_0&=(0,0,0),&\pV_4&=(-3.5619, 4.92381, 0.314286),\\
+		\pV_1&=(-0.428571, 0.571429, 0),&\pV_5&=(-5.28571, 7.57143, 0.980952),\\
+		\pV_2&=(-1.14286, 1.52381, 0)&\pV_6&=(-7.04762, 10.7143, 2.6),\\
+		\pV_3&=(-2.19048, 2.95238, 0.0571429)&\pV_7&=(-8.47619, 13.5714, 5.45714).
+	\end{align*}
+	S tem je krivulja $\rV$ določena. Njene komponente so enake
+	\begin{align*}
+		x(t)&=-\frac{8}{7}t^7+\frac{10}{3}t^6-2t^5+2t^4-\frac{5}{3}t^3-6t^2-3t,\\
+		y(t)&=\frac{4}{7}t^7-\frac{10}{3}t^6+2t^5-t^4+\frac{10}{3}t^3+8t^2+4t,\\
+		z(t)&=-\frac{8}{7}t^7+2t^6-\frac{2}{5}t^5+3t^4+2t^3.
+	\end{align*}
+	Hodograf ni primitiven, saj je $\gcd(x'(t),y'(t),z'(t))=t^2+1.$ Parametrična hitrost krivulje je tu enaka
+	\begin{equation*}
+		\sigma(t)=\lVert\rV'(t)\rVert=12t^6-28t^5+18t^4-8t^3+11t^2+20t+5,
+	\end{equation*}
+	razmerje med fleksijsko in torzijsko ukrivljenost pa je enako $|\kappa(t)/\tau(t)|=\sqrt{10}.$
+	\begin{figure}[h!]
+	  \centering
+	  \includegraphics[width=0.5\textwidth]{images/reparametrization_multi.pdf}
+	% \caption[caption za v kazalo]{Dolg caption pod sliko}
+	  \caption[Primer vijačne krivulje, pridobljene s postopkom reparametrizacije in multiplikacije]{Na sliki je razviden graf vijačne krivulje s pripadajočim kontrolnim poligonom, ki smo jo pridobili s postopkom reparametrizacije in multiplikacije}
+	  \label{fig:reparametrization_multi}
+	\end{figure}
+\end{primer}
+
+Sedaj bomo obravnavali še razne primere konstrukcij DPH krivulj za različne stopnje polinomov $h$ in $\wV,$ kot smo jih analizirali v poglavju \ref{poglavje_dvojnePHkrivulje7}. Obenem bomo še uporabili kriterije za ločevanje med vijačnimi in nevijačnimi krivuljami, kot smo jih razvili v poglavju \ref{poglavje_nevijacne}.
+
+\begin{primer}
+	\label{primer_h0w2_vijacna}
+	\textnormal{ }(Vijačna, $\st(h)=0,\st(\wV)=2$)\textbf{.}
+	Ogledali si bomo primer krivulje takega tipa, kot smo ga obravnavali v poglavju \ref{klasifikacija_h0w2}. Najprej si izberemo polinoma $h$ in $\wV$ z naslednjimi Bernsteinovimi koeficienti
+	$$h_0=1,\quad\wV_0=1,\quad\wV_1=1+\iu,\quad\wV_2=\iu.$$
+	Izberemo si še vrednosti koeficientov $\balpha_0=1,\balpha_1=2\iu$ in $\bbeta_0=\iu,$ ter drugo rešitev za $\zV$ v \eqref{st7h0w2}. Nato lahko rešimo sistem enačb \eqref{sistem_st7h0w2}. Sistem lahko rešimo kar s pomočjo programa \emph{Mathematica}. Ko to naredimo, dobimo vse Bernsteinove koeficiente za polinoma $\balpha$ in $\bbeta:$
+	\begin{align*}
+		\balpha_0&=1,&\balpha_1&=2\iu,&\balpha_2&=-4+\frac{5}{3}\iu,&\balpha_3&=-4-2\iu,\\
+		\bbeta_0&=\iu,&\bbeta_1&=-\frac{5}{3},&\bbeta_2&=-1-\frac{10}{3}\iu,&\bbeta_3&=2-3\iu.
+	\end{align*}
+	S pomočjo teh koeficientov lahko izračunamo tudi Bernsteinove koeficiente kvaternionskega polinoma $\AQ,$ ki so enaki
+	\begin{align*}
+		\AQ_0&=1+\jV,&\AQ_2&=-4+\frac{5}{3}\iV-\frac{10}{3}\jV-\kV,\\
+		\AQ_1&=2\iV-\frac{5}{3}\kV,&\AQ_3&=-4-2\iV-3\jV+2\kV.
+	\end{align*}
+	\begin{figure}[h]
+	  \centering
+	  \includegraphics[width=0.5\textwidth]{images/h0w2_vijacna.pdf}
+	% \caption[caption za v kazalo]{Dolg caption pod sliko}
+	  \caption[Primer vijačne krivulje ($\st(h)=4,$ $\st(\wV)=0$)]{Na sliki je razviden graf vijačne krivulje s pripadajočim kontrolnim poligonom, za katero velja $\st(h)=0$ in $\st(\wV)=2.$}
+	  \label{fig:h0w2_vijacna}
+	\end{figure}
+	Ob upoštevanju zvez \eqref{kontrolne_tocke} so kontrolne točke krivulje $\rV$ enake
+	\begin{align*}
+		\pV_0&=(0,0,0),&\pV_4&=(0.266667, 0.0857143, -0.952381),\\
+		\pV_1&=(0, 0, -0.285714),&\pV_5&=(0.8, -0.142857, -3.10476),\\
+		\pV_2&=(0, 0.047619, -0.285714)&\pV_6&=(1.46667, -0.47619, -5.9619),\\
+		\pV_3&=(0.0666667, 0.0857143, -0.438095)&\pV_7&=(2.46667, -1.04762, -10.5333).
+	\end{align*}
+	Komponente krivulje $\rV$ so potem enake
+	\begin{align*}
+		x(t)&=2t^7-\frac{14}{3}t^6+\frac{14}{5}t^5+\frac{7}{3}t^3,\\
+		y(t)&=-\frac{12}{7}t^7+\frac{14}{3}t^6-4t^5+t^4-2t^3+t^2,\\
+		z(t)&=-12t^7+32t^6-\frac{136}{5}t^5+8t^4-\frac{46}{3}t^3+6t^2-2t.
+	\end{align*}
+	Hodograf ni primitiven, saj je $\gcd(x'(t),y'(t),z'(t))=2t^4-4t^3+2t^2+1.$ Parametrična hitrost krivulje je enaka
+	\begin{equation*}
+		\sigma(t)=\lVert\rV'(t)\rVert=86t^6-196t^5+138t^4-32t^3+47t^2-12t+2,
+	\end{equation*}
+	razmerje med fleksijsko in torzijsko ukrivljenost pa je enako $|\kappa(t)/\tau(t)|=1/7.$ Po Lancretovem izreku \ref{lancret} velja, da je ta krivulja vijačna.
+\end{primer}
+
+\begin{primer}
+	\label{primer_h0w2_nevijacna}
+	\textnormal{ }(Nevijačna, $\st(h)=0,\st(\wV)=2$)\textbf{.}
+	Sedaj si bomo ogledali še primer nevijačne krivulje, kjer je $\st(h)=0$ in $\st(\wV)=2.$ Izberemo si ista polinoma $h$ in $\wV$ in iste koeficiente $\balpha_0,\balpha_1$ in $\bbeta_0,$ kot smo jih izbrali v primeru \ref{primer_h0w2_vijacna}, le da vzamemo prvi izraz za $\zV$ namesto drugega v \eqref{st7h0w2}. Potem rešimo sistem enačb \eqref{sistem_st7h0w2} in dobimo Bernsteinove koeficiente za polinoma $\balpha$ in $\bbeta:$
+	\begin{align*}
+		\balpha_0&=1,&\balpha_1&=2\iu,&\balpha_2&=-4+3\iu,&\balpha_3&=-12-2\iu,\\
+		\bbeta_0&=\iu,&\bbeta_1&=-\frac{5}{3},&\bbeta_2&=-\frac{7}{3}-\frac{10}{3}\iu,&\bbeta_3&=2-\frac{29}{3}\iu.
+	\end{align*}
+	Bernsteinovi koeficienti kvaternionskega polinoma $\AQ$ so potem enaki
+	\begin{align*}
+		\AQ_0&=1+\jV,&\AQ_2&=-4+3\iV-\frac{10}{3}\jV-\frac{7}{3}\kV,\\
+		\AQ_1&=2\iV-\frac{5}{3}\kV,&\AQ_3&=-12-2\iV-\frac{29}{3}\jV+2\kV.
+	\end{align*}
+	Kontrolne točke krivulje $\rV$ so enake
+	\begin{align*}
+		\pV_0&=(0,0,0),&\pV_4&=(0.304762, 0.0857143, -1.37143),\\
+		\pV_1&=(0, 0, -0.285714),&\pV_5&=(0.990476, 0.00952381, -4.4381),\\
+		\pV_2&=(0, 0.047619, -0.285714)&\pV_6&=(3.05397, -0.32381, -14.1524),\\
+		\pV_3&=(0.0666667, 0.0857143, -0.438095)&\pV_7&=(10.2762, -1.65714, -48.4381).
+	\end{align*}
+	S kontrolni točkami krivulje $\rV$ so določene tudi komponente krivulje $\rV,$ ki so enake
+	\begin{align*}
+		x(t)&=\frac{86}{63}t^7+\frac{22}{9}t^6+\frac{14}{5}t^5+\frac{4}{3}t^4+\frac{7}{3}t^3,\\
+		y(t)&=-\frac{4}{21}t^7-\frac{2}{3}t^6-\frac{4}{5}t^5+t^4-2t^3+t^2,\\
+		z(t)&=-\frac{124}{21}t^7-\frac{40}{3}t^6-\frac{56}{5}t^5-\frac{20}{3}t^4-\frac{46}{3}t^3+6t^2-2t.
+	\end{align*}
+	Hodograf je primitiven, saj je $\gcd(x'(t),y'(t),z'(t))=1/9,$ parametrična hitrost krivulje pa je enaka
+	\begin{equation*}
+		\sigma(t)=\lVert\rV'(t)\rVert=\frac{382}{9}t^6+\frac{244}{3}t^5+58t^4+\frac{80}{3}t^3+47t^2-12t+2,
+	\end{equation*}
+	razmerje med fleksijsko in torzijsko ukrivljenost pa je enako $$\left|\frac{\kappa(t)}{\tau(t)}\right|=\left|\frac{9(2t^4-4t^3+2t^2+1)^2}{460t^8-1840t^7-296t^6-2688t^5+1272t^4+624t^3-180t^2+144t+63}\right|.$$ Po Lancretovem izreku \ref{lancret} vidimo, da je ta krivulja nevijačna.
+	
+	To lahko preverimo tudi drugače. Polinom $\wV$ ima ničli $\btau_1,\btau_2=\frac{1}{2}(1\pm\sqrt{2}+\iu).$ Ti ničli nista obe realni, in nista par konjugiranih si kompleksnih števil. Z nekaj osnovnega računanja lahko preverimo, da se da polinoma $\balpha$ in $\bbeta$ zapisati v obliki \eqref{polinoma_h0w2} s koeficienti
+	\begin{align*}
+		\aV_1&=\frac{1}{2}\big(\sqrt{2}-1+(4\sqrt{2}-5)\iu\big),&\bV_1&=\frac{1}{3}\big(6-5\sqrt{2}+(\sqrt{2}-1)\iu\big),\\
+		\aV_2&=-\frac{1}{2}\big(\sqrt{2}+1+(4\sqrt{2}+5)\iu\big),&\bV_2&=\frac{1}{3}\big(6+5\sqrt{2}-(\sqrt{2}+1)\iu\big).
+	\end{align*}
+	Ker velja $\aV_1\bV_2-\aV_2\bV_1=-\frac{\sqrt{2}}{3}\iu\neq 0,$ so potem pogoji za trditev \ref{locevanje_trditev_h0w2} izpolnjeni in je krivulja tudi po tej trditvi res nevijačna.
+	\begin{figure}[h]
+	  \centering
+	  \includegraphics[width=0.5\textwidth]{images/h0w2_nevijacna.pdf}
+	% \caption[caption za v kazalo]{Dolg caption pod sliko}
+	  \caption[Primer nevijačne krivulje ($\st(h)=4,$ $\st(\wV)=0$)]{Na sliki je razviden graf nevijačne krivulje s pripadajočim kontrolnim poligonom, za katero velja $\st(h)=0$ in $\st(\wV)=2.$}
+	  \label{fig:h0w2_nevijacna}
+	\end{figure}
+\end{primer}
+
+\begin{primer}
+	\label{primer_h2w1_vijacna}
+	\textnormal{ }(Vijačna, $\st(h)=2,\st(\wV)=1$)\textbf{.}
+	Sedaj je na vrsti primer krivulje takega tipa, kot smo ga obravnavali v poglavju \ref{klasifikacija_h2w1}. Izberimo si naslednje Bernsteinove koeficiente za polinoma $h$ in $\wV:$
+	$$h_0=1,\quad h_1=2,\quad h_2=1,\quad\wV_0=\iu,\quad\wV_1=1.$$
+	Podobno kot v prejšnjih primerih si izberemo vrednosti $\balpha_0=1,$ $\balpha_1=1,$ $\bbeta_=-1$ ter drugo rešitev za $\zV$ v \eqref{st7h2w1}. Sedaj imamo vse potrebno, da lahko rešimo sistem \eqref{sistem_st7h0w2} in da dobimo Bernsteinove koeficiente polinomov $\balpha$ in $\bbeta:$
+	\begin{align*}
+		\balpha_0&=1,&\balpha_1&=1,&\balpha_2&=2-\frac{1}{3}\iu,&\balpha_3&=2-5\iu,\\
+		\bbeta_0&=-1,&\bbeta_1&=-\frac{4}{3},&\bbeta_2&=-\frac{8}{3}+\frac{2}{3}\iu,&\bbeta_3&=-2+7\iu.
+	\end{align*}
+	Kvaternionski polinom $\AQ$ ima potem naslednje Bernsteinove koeficiente
+	\begin{align*}
+		\AQ_0&=1-\kV,&\AQ_2&=2-\frac{1}{3}\iV+\frac{2}{3}\jV-\frac{8}{3}\kV,\\
+		\AQ_1&=1-\frac{4}{3}\kV,&\AQ_3&=2-5\iV+7\jV-2\kV.
+	\end{align*}
+	Kontrolne točke krivulje $\rV$ so potemtakem enake
+	\begin{align*}
+		\pV_0&=(0,0,0),&\pV_4&=(-0.35238, -1.8571, -0.076191),\\
+		\pV_1&=(0, -0.28571, 0),&\pV_5&=(-0.68571, -3.0762, -0.17143),\\
+		\pV_2&=(-0.04762, -0.61905, 0)&\pV_6&=(-1.3048, -5.2191, -0.36191),\\
+		\pV_3&=(-0.15238, -1.1143, -0.019048)&\pV_7&=(-4.7333, -16.362, -1.5048).
+	\end{align*}
+	\begin{figure}[h]
+	  \centering
+	  \includegraphics[width=0.45\textwidth]{images/h2w1_vijacna.pdf}
+	% \caption[caption za v kazalo]{Dolg caption pod sliko}
+	  \caption[Primer vijačne krivulje ($\st(h)=2,$ $\st(\wV)=1$)]{Na sliki je razviden graf vijačne krivulje s pripadajočim kontrolnim poligonom, za katero velja $\st(h)=2$ in $\st(\wV)=1.$}
+	  \label{fig:h2w1_vijacna}
+	\end{figure}
+
+	Komponente krivulje $\rV$ so tako enake
+	\begin{align*}
+		x(t)&=-2t^7-t^6+\frac{3}{5}t^5-t^4-\frac{1}{3}t^3-t^2,\\
+		y(t)&=-\frac{52}{7}t^7+\frac{2}{3}t^6-\frac{18}{5}t^5+t^4-4t^3-t^2-2t,\\
+		z(t)&=-\frac{4}{7}t^7-\frac{2}{3}t^6+\frac{2}{5}t^5-\frac{2}{3}t^3.
+	\end{align*}
+	Hodograf ni primitiven, saj je $\gcd(x'(t),y'(t),z'(t))=2t^2-2t+1.$ Parametrična hitrost krivulje je enaka
+	\begin{equation*}
+		\sigma(t)=\lVert\rV'(t)\rVert=54t^6-2t^5+17t^4-4t^3+13t^2+2t+2,
+	\end{equation*}
+	razmerje med fleksijsko in torzijsko ukrivljenost pa je enako $|\kappa(t)/\tau(t)|=1/2.$ Po Lancretovem izreku \ref{lancret} velja, da je ta krivulja vijačna.
+	
+	Ni težko videti, da je $\bgamma(t)=\gcd(\balpha(t),\bbeta(t))=(1+\iu)t-1.$ Torej je $r=\st(\bgamma)=1.$ Po trditvi \ref{locevanje_h2w1_trditev1} lahko še lažje preverimo, da je ta krivulja res vijačna.
+\end{primer}
+
+\begin{primer}
+	\label{primer_h2w1_nevijacna}
+	\textnormal{ }(Nevijačna, $\st(h)=2,\st(\wV)=1$)\textbf{.}
+	Sedaj si bomo ogledali še primer nevijačne krivulje, kjer je $\st(h)=2$ in $\st(\wV)=1.$ Izberemo si ista polinoma $h$ in $\wV$ in iste koeficiente $\balpha_0,\balpha_1$ in $\bbeta_0,$ kot smo jih izbrali v primeru \ref{primer_h2w1_vijacna}, le da vzamemo prvi izraz za $\zV$ namesto drugega v \eqref{st7h0w2}. Nato še rešimo sistem enačb \eqref{sistem_st7h0w2} in dobimo Bernsteinove koeficiente za polinoma $\balpha$ in $\bbeta:$
+	\begin{align*}
+	\balpha_0&=1,&\balpha_1&=1,&\balpha_2&=2+\iu,&\balpha_3&=2-\iu,\\
+		\bbeta_0&=-1,&\bbeta_1&=-\frac{4}{3},&\bbeta_2&=-\frac{8}{3}-\frac{2}{3}\iu,&\bbeta_3&=-2+\frac{5}{3}\iu.
+	\end{align*}
+	Bernsteinovi koeficienti kvaternionskega polinoma $\AQ$ so tako enaki
+	\begin{align*}
+		\AQ_0&=1-\kV,&\AQ_2&=2+\iV-\frac{2}{3}\jV-\frac{8}{3}\kV,\\
+		\AQ_1&=1-\frac{4}{3}\kV,&\AQ_3&=2-\iV+\frac{5}{3}\jV-2\kV.
+	\end{align*}
+	Preko enačb \eqref{kontrolne_tocke} izračunamo, da so kontrolne točke krivulje $\rV$ enake
+	\begin{align*}
+		\pV_0&=(0,0,0),&\pV_4&=(-0.352381, -1.85714, -0.114286),\\
+		\pV_1&=(0, -0.285714, 0),&\pV_5&=(-0.609524, -3.15238, -0.361905),\\
+		\pV_2&=(-0.047619, -0.619048, 0)&\pV_6&=(-0.784127, -4.15238, -0.552381),\\
+		\pV_3&=(-0.152381, -1.11429, -0.0190476)&\pV_7&=(-1.0381, -5.77143, -0.933333).
+	\end{align*}
+	S kontrolni točkami krivulje $\rV$ imamo določene tudi komponente krivulje $\rV,$ ki so enake
+	\begin{align*}
+		x(t)&=-\frac{22}{63}t^7-\frac{5}{9}t^6+\frac{11}{5}t^5-t^4-\frac{1}{3}t^3-t^2,\\
+		y(t)&=-\frac{124}{21}t^7+\frac{34}{3}t^6-\frac{26}{5}t^5+t^4-4t^3-t^2-2t,\\
+		z(t)&=-\frac{4}{3}t^7+2t^6+\frac{2}{5}t^5-\frac{4}{3}t^4-\frac{2}{3}t^3.
+	\end{align*}
+	Hodograf je primitiven, saj je $\gcd(x'(t),y'(t),z'(t))=1/9,$ parametrična hitrost krivulje pa je enaka
+	\begin{equation*}
+		\sigma(t)=\lVert\rV'(t)\rVert=\frac{382}{9}t^6-\frac{206}{3}t^5+25t^4-4t^3+13t^2+2t+2,
+	\end{equation*}
+	razmerje med fleksijsko in torzijsko ukrivljenost pa je enako $$\left|\frac{\kappa(t)}{\tau(t)}\right|=\left|\frac{9(2t^2-2t-1)(2t^2-2t+1)^2}{2(92t^6-276t^5-60t^4+228t^3-126t^2+54t+9)}\right|.$$ Po Lancretovem izreku \ref{lancret} je ta krivulja nevijačna.
+	
+	Lažje lahko to preverimo s pomočjo trditve \ref{locevanje_h2w1_trditev2}. Ni težko videti, da sta si polinoma $\balpha$ in $\bbeta$ tuja, torej je $r=\st(\bgamma)=\st(\gcd(\balpha,\bbeta))=0.$ Po trditvi \ref{locevanje_h2w1_trditev2} je naša krivulja nevijačna.
+	\begin{figure}[h]
+	  \centering
+	  \includegraphics[width=0.5\textwidth]{images/h2w1_nevijacna.pdf}
+	% \caption[caption za v kazalo]{Dolg caption pod sliko}
+	  \caption[Primer nevijačne krivulje ($\st(h)=2,$ $\st(\wV)=1$)]{Na sliki je razviden graf nevijačne krivulje s pripadajočim kontrolnim poligonom, za katero velja $\st(h)=2$ in $\st(\wV)=1.$}
+	  \label{fig:h2w1_nevijacna}
+	\end{figure}
+\end{primer}
+
+\begin{primer}
+	\textnormal{ }(Vijačna, $\st(h)=4,$ $\st(\wV)=0$)\textbf{.}
+	Konstruirali bomo krivuljo takega tipa, kot smo ga analizirali v poglavju \ref{klasifikacija_h4w0}. Za začetek si izberemo naslednja polinoma $h$ in $\wV,$ izražena v Bernsteinovi bazi z izbiro koeficientov
+	\begin{equation*}
+		h_0=-1,\quad h_1=2,\quad h_2=3,\quad h_3=4,\quad h_4=-5,\quad \wV_0=1.
+	\end{equation*}
+	Vidimo, da je količina $\Delta=9h_2^2+3h_0h_4-12h_1h_4=0$ nenegativna in po trditvi \ref{trditev_locevanje_h4w0} sledi, da je krivulja, ki jo generiramo, vijačna. Prosto si izberemo še vrednosti koeficientov $\balpha_0=1,$ $\balpha_1=1-\iu$ in $\bbeta_0=-1-\iu.$ Nato rešimo sistem enačb \eqref{sistem_st7h4w0} in pri tem upoštevamo rešitev, ki ima pozitivni predznak pri korenu v $\zV=\balpha_1\bbeta_2-\balpha_2\bbeta_1$ v enačbi \eqref{st7h4w0}. Tako dobimo naslednje Bernsteinove koeficiente za polinoma $\balpha$ in $\bbeta:$
+	\begin{align*}
+		\balpha_0&=1,&\balpha_1&=1-\iu,&\balpha_2&=-1+4\iu,&\balpha_3&=-1+9\iu,\\
+		\bbeta_0&=-1+\iu,&\bbeta_1&=-\frac{1}{3}+2\iu,&\bbeta_2&=-\frac{5}{3}-5\iu,&\bbeta_3&=-5-10\iu.
+	\end{align*}
+	Z relacijo $\AQ(t)=\balpha(t)+\kV\bbeta(t)$ pridobimo kvaternionski zapis, preko katerega izrazimo zapis hodografa krivulje. Bernsteinovi koeficienti kvaternionskega polinoma $\AQ$ so enaki
+	\begin{align*}
+		\AQ_0&=1+\jV-\kV,&\AQ_2&=-1+4\iV-5\jV-\frac{5}{3}\kV,\\
+		\AQ_1&=1-\iV+2\jV-\frac{1}{3}\kV,&\AQ_3&=-1+9\iV-10\jV-5\kV.
+	\end{align*}
+	Za integracijsko konstanto si kot ponavadi izberemo točko $\pV_0=(0,0,0).$ Ostale kontrolne točke krivulje izračunamo preko enačb \eqref{kontrolne_tocke}. Enake so
+	\begin{align*}
+		\pV_0&=(0,0,0),&\pV_4&=(0.247619, 0.742857, 0.228571),\\
+		\pV_1&=(-0.142857, -0.285714, -0.285714),&\pV_5&=(-0.2, -1.06667, -0.971429),\\
+		\pV_2&=(-0.333333, -0.619048, -0.571429)&\pV_6&=(-3.24762, -12.2571, -8.11429),\\
+		\pV_3&=(-0.380952, -0.828571, -0.742857)&\pV_7&=(-9.39048, -36.5429, -23.8286).
+	\end{align*}
+	\begin{figure}[h]
+	  \centering
+	  \includegraphics[width=0.5\textwidth]{images/h4w0_vijacna.pdf}
+	% \caption[caption za v kazalo]{Dolg caption pod sliko}
+	  \caption[Primer vijačne krivulje.]{Na sliki je razviden graf vijačne krivulje s pripadajočim kontrolnim poligonom, za katero velja $\st(h)=4$ in $\st(\wV)=0.$}
+	  \label{fig:h4w0_vijacna}
+	\end{figure}
+	
+	S tem dobimo krivuljo $\rV,$ ki ima komponente enake
+	\begin{align*}
+		x(t)&=-\frac{48}{7}t^7+36t^6-\frac{276}{5}t^5+12t^4+\frac{20}{3}t^3-t^2-t,\\
+		y(t)&=-\frac{120}{7}t^7+100t^6-\frac{872}{5}t^5+52t^4+6t^3-t^2-2t,\\
+		z(t)&=-\frac{80}{7}t^7+64t^6-\frac{552}{5}t^5+32t^4+4t^3-2t.
+	\end{align*}
+	Hodograf je primitiven, saj velja $\gcd(x'(t),y'(t),z'(t))=1.$ Parametrična hitrost krivulje $\sigma(t)$ je enaka
+	\begin{equation*}
+		\sigma(t)=\lVert\rV'(t)\rVert=152t^6-744t^5+1068t^4-248t^3-26t^2+2t+3.
+	\end{equation*}
+	Razmerje med fleksijsko in torzijsko ukrivljenostjo je enako $|\kappa(t)/\tau(t)|=1/8,$ kar je identično enako konstanti. Tudi po Lancretovem izreku \ref{lancret} lahko preverimo, da je taka krivulja res nevijačna.
+\end{primer}
+
+\begin{primer}
+	\textnormal{ }(Nevijačna, $\st(h)=4,$ $\st(\wV)=0$)\textbf{.}
+	Sedaj si bomo še ogledali nevijačno krivuljo, kjer je $\st(h)=4$ in $\st(\wV)=0.$ Izberemo si naslednja polinoma $h$ in $\wV,$ izražena v Bernsteinovi bazi z izbiro koeficientov
 	\begin{equation*}
 		h_0=1,\quad h_1=2,\quad h_2=2,\quad h_3=2,\quad h_4=1,\quad \wV_0=1.
 	\end{equation*}
-	Vidimo, da je količina $\Delta=9h_2^2+3h_0h_4-12h_1h_4=-9$ negativna in po trditvi \ref{trditev_locevanje_h4w0} sledi, da je krivulja, ki jo generiramo, nevijačna. Prosto si izberemo še vrednosti koeficientov $\balpha_0=1,$ $\balpha_1=1$ in $\bbeta_0=-1.$ Nato rešimo bilinearni sistem enačb \eqref{sistem_st7h4w0} in pri tem upoštevamo rešitev, ki je negativno predznačena pri $\zV=\balpha_1\bbeta_2-\balpha_2\bbeta_1$ v enačbi \eqref{st7h4w0}. Sistem lahko rešimo kar s pomočjo programa \emph{Mathematica}. Tako dobimo naslednje Bernsteinove koeficiente za polinoma $\balpha$ in $\bbeta:$
+	Tokrat je količina $\Delta=9h_2^2+3h_0h_4-12h_1h_4=-9$ negativna in po trditvi \ref{trditev_locevanje_h4w0} sledi, da je krivulja, ki jo generiramo, nevijačna. Podobno kot v prejšnjih primerih si prosto izberemo še vrednosti koeficientov $\balpha_0=1,$ $\balpha_1=1$ in $\bbeta_0=-1.$ Nato rešimo sistem enačb \eqref{sistem_st7h4w0} in pri tem upoštevamo rešitev, ki ima negativni predznak pri korenu v $\zV=\balpha_1\bbeta_2-\balpha_2\bbeta_1$ v enačbi \eqref{st7h4w0}. Dobimo naslednje Bernsteinove koeficiente za polinoma $\balpha$ in $\bbeta:$
 	\begin{align*}
-		\balpha_0&=1,\quad\balpha_1=1,\quad\balpha_2=2+\iu,\quad\balpha_3=2+3\iu,\\
-		\bbeta_0&=-1,\quad\bbeta_1=-\frac{2}{3},\quad\bbeta_2=-\frac{2}{3}-\iu,\quad\bbeta_3=-2\iu.
+		\balpha_0&=1,&\balpha_1&=1,&\balpha_2&=2+\iu,&\balpha_3&=2+3\iu,\\
+		\bbeta_0&=-1,&\bbeta_1&=-\frac{2}{3},&\bbeta_2&=-\frac{2}{3}-\iu,&\bbeta_3&=-2\iu.
 	\end{align*}
-	Z relacijo $\AQ(t)=\balpha(t)+\kV\bbeta(t)$ pridobimo kvaternionski zapis, preko katerega izrazimo zapis hodografa krivulje. Bernsteinovi koeficienti kvaternionskega polinoma $\AQ$ so enaki
+	Bernsteinovi koeficienti kvaternionskega polinoma $\AQ$ so enaki
 	\begin{equation*}
 		\AQ_0=1-\kV,\quad\AQ_1=1-\frac{2}{3}\kV,\quad\AQ_2=2+\iV-\jV-\frac{2}{3}\kV,\quad\AQ_3=2+3\iV-2\jV.
 	\end{equation*}
@@ -1821,7 +2139,7 @@ Ponavadi vzamemo $\pV_0=(0,0,0)$ kot integracijsko konstanto.
 	  \label{fig:h4w0_nevijacna}
 	\end{figure}
 	
-	Za integracijsko konstanto si kot prej izberemo točko $\pV_0=(0,0,0).$ Ostale kontrolne točke krivulje izračunamo preko enačb \eqref{kontrolne_tocke}. Enake so
+	Kontrolne točke krivulje izračunamo preko enačb \eqref{kontrolne_tocke}. Enake so
 	\begin{align*}
 		\pV_0&=(0,0,0),&\pV_4&=(0.4, -1.07619, 0.0285714),\\
 		\pV_1&=(0, -0.285714, 0),&\pV_5&=(0.819048, -1.55238, 0.257143),\\
@@ -1832,7 +2150,7 @@ Ponavadi vzamemo $\pV_0=(0,0,0)$ kot integracijsko konstanto.
 	\begin{align*}
 		x(t)&=\frac{2}{7}t^7-\frac{2}{3}t^6+\frac{6}{5}t^5+t^3+t^2,\\
 		y(t)&=-\frac{4}{7}t^7+\frac{8}{3}t^6-\frac{28}{5}t^5+3t^4-\frac{8}{3}t^3+t^2-2t,\\
-		z(t)&=\frac{4}{7}t^7-2t^6-\frac{12}{5}t^5+t^4.
+		z(t)&=\frac{4}{7}t^7-2t^6+\frac{12}{5}t^5+t^4.
 	\end{align*}
 	Hodograf je primitiven, saj velja $\gcd(x'(t),y'(t),z'(t))=1.$ Parametrična hitrost krivulje $\sigma(t)$ je enaka
 	\begin{equation*}
