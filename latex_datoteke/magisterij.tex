@@ -129,12 +129,14 @@
 \newcommand{\eV}{\mathbf{e}}
 \newcommand{\fV}{\mathbf{f}}
 \newcommand{\hV}{\mathbf{h}}
+\newcommand{\nV}{\mathbf{n}}
 \newcommand{\pV}{\mathbf{p}}
 \newcommand{\qV}{\mathbf{q}}
 \newcommand{\rV}{\mathbf{r}}
 \newcommand{\iV}{\mathbf{i}}
 \newcommand{\jV}{\mathbf{j}}
 \newcommand{\kV}{\mathbf{k}}
+\newcommand{\vV}{\mathbf{v}}
 \newcommand{\wV}{\mathbf{w}}
 \newcommand{\zV}{\mathbf{z}}
 \newcommand{\ndr}{\lVert \mathbf{r}'\rVert} % norma prvega odvoda
@@ -145,10 +147,12 @@
 \newcommand{\DQ}{\mathcal{D}}
 \newcommand{\QQ}{\mathcal{Q}}
 \newcommand{\VQ}{\mathcal{V}}
+\newcommand{\UQ}{\mathcal{U}}
 \newcommand{\balpha}{\boldsymbol \alpha}
 \newcommand{\bbeta}{\boldsymbol \beta}
 \newcommand{\bgamma}{\boldsymbol \gamma}
 \newcommand{\bdelta}{\boldsymbol \delta}
+\newcommand{\brho}{\boldsymbol \rho}
 \newcommand{\btau}{\boldsymbol \tau}
 \newcommand{\btalpha}{\tilde{\boldsymbol \alpha}}
 \newcommand{\btbeta}{\tilde{\boldsymbol \beta}}
@@ -294,8 +298,10 @@ Napišite kratek zgodovinski in matematični uvod.  Pojasnite motivacijo za prob
 nastopa, kje vse je bil obravnavan. Na koncu opišite tudi organizacijo dela -- kaj je v
 katerem razdelku.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Prostorske krivulje}
-\subsection{Osnovne lastnosti}
+\section{Osnovni pojmi in uvodne definicije}
+
+\subsection{Prostorske krivulje}
+\subsubsection{Osnovne lastnosti}
 
 Krivulje v prostoru si lahko predstavljamo kot tirnice, po katerih potuje točka v gibanju. Najlažje jih podamo
 v parametrični obliki
@@ -309,7 +315,7 @@ Odvod krivulje $\rV$ dobimo tako, da krivuljo odvajamo po komponentah:
 $$\rV':I \to \R^3, \quad \rV'(t)=(x'(t),y'(t),z'(t)), \quad t \in I.$$
 Vektorsko polje, ki ga pri tem dobimo, imenujemo tudi \textit{hodograf} krivulje $\rV.$ Več o parametrično podanih krivuljah si lahko bralec prebere v \cite{struik1961lectures}.
 
-\subsection{Ločna dolžina in tangenta na krivuljo}
+\subsubsection{Ločna dolžina in tangenta na krivuljo}
 
 Pravimo, da je krivulja $\rV$ regularna, če je njen odvod $\rV'(t) \neq 0$ za vse vrednosti $t \in I.$ Od sedaj bomo privzeli, da je krivulja regularna. Odvod regularne krivulje pa lahko zapišemo tudi v malce drugačni obliki
 \begin{equation}
@@ -322,6 +328,7 @@ kjer je $\sigma(t)$ funkcija, ki slika z začetne domene $I$ v $\R,$
 \end{equation}
 in predstavlja spremembo ločne dolžine krivulje v odvisnosti od parametra $t,$ s $\tV(t)$ pa je označeno enotsko tangentsko vektorsko polje na krivuljo $\rV,$ izračunano pri parametru $t,$
 \begin{equation}
+	\label{enotski_tangentni_vektor}
 	\tV(t)=\frac{\rV'(t)}{\lVert \rV'(t) \rVert}=
 	\frac{\rV'(t)}{\sigma(t)}.
 \end{equation}
@@ -330,7 +337,18 @@ S pomočjo funkcije $\sigma(t)$ lahko izrazimo tudi dolžino loka krivulje. Če 
 	\int_a^b\sqrt{x'^2(t)+y'^2(t)+z'^2(t)}dt=\int_a^b\lVert \rV'(t) \rVert dt =\int_a^b\sigma(t)dt.
 \end{equation}
 
-\subsection{Ukrivljenost in Frenetovo ogrodje}
+Na intervalu $I=[a,b]$ lahko dolžino loka od točke $a$ do $t$ izrazimo tudi kot funkcijo parametra $t:$
+\begin{equation}
+	\label{naravna_parametrizacija}
+	s=s(t)=\int_a^t\sigma(\xi)d\xi.
+\end{equation}
+Če je krivulja $\rV$ regularna, je po osnovnem izreku analize funkcija \eqref{naravna_parametrizacija} zvezno odvedljiva, povsod različna od nič:
+$$\frac{ds}{dt}=\sigma(t)=\lVert\rV'(t)\rVert.$$
+Torej lahko vzamemo $s=s(t)$ kot nov parameter na $I.$ Taki parametrizaciji pravimo \emph{naravna parametrizacija} krivulje $\rV.$ Označimo $\brho(s)=\rV(t(s)).$ Izračunajmo odvod krivulje po parametru $s:$
+$$\frac{d\brho}{ds}=\rV'(t(s))\frac{dt(s)}{ds}=\frac{\rV'(t(s))}{\frac{ds}{dt}}=\frac{\rV'(t(s))}{\lVert\rV'(t(s))\rVert}.$$
+Dobili smo enotski tangenti vektor \eqref{enotski_tangentni_vektor}, kar pomeni, da je dolžina $\lVert\brho'(s)\rVert$ vedno enaka 1. Drugače povedano: parametrična hitrost pri naravni parametrizaciji je identično enaka 1. Več o naravni parametrizaciji si lahko bralec prebere v \cite[str. 51]{lipschutz1969schaum}.
+
+\subsubsection{Ukrivljenost in Frenetovo ogrodje}
 
 Sedaj bomo uvedli dve novi enotski vektorski polji, ki bosta skupaj z enotsko tangento v vsaki točki na krivulji tvorili ortonormalno bazo za prostor $\R^3.$ V nadaljevanju bomo ponekod v enačbah in izpeljavah zaradi preglednosti izpustili parameter $t.$
 
@@ -358,8 +376,8 @@ To lahko naredimo, saj smo predpostavili, da je $\kappa(t)$ nenegativna funkcija
 \begin{align}
 	\frac{\rV'\times \rV''}{\lVert \rV'\times \rV'' \rVert} \times \tV &= \frac{1}{\lVert \rV'\times \rV'' \rVert} \left ( \sigma^3 \frac{\lVert \rV'\times \rV'' \rVert}{\sigma^3}\tV \times \pV\right ) \times \tV \nonumber \\
 	&= (\tV \times \pV) \times \tV \nonumber \\
-	&= -(\tV \cdot \pV)\tV + (\tV \cdot \tV)\pV \nonumber \\
-	&= \pV. \label{normala}
+	&= -(\tV \cdot \pV)\tV + (\tV \cdot \tV)\pV \label{normala} \\
+	&= \pV. \nonumber
 \end{align}
 Količini $\pV$ pravimo \textit{normala} ali \textit{glavna normala} na krivuljo $\rV,$ količini $\kappa$ pa \textit{fleksijska ukrivljenost} krivulje $\rV.$ Enostavno se da preveriti, da je fleksijska ukrivljenost neodvisna od izbire parametrizacije krivulje.
 Definirali smo že enotsko tangento in enotsko normalo. Najti moramo še eno enotsko vektorsko polje, ki je ortogonalno na obe prejšnji. To lahko naredimo direktno z vektorskim produktom
@@ -390,12 +408,224 @@ Pri tem smo upoštevali \eqref{eq2_6}, \eqref{eq2_5} in ortonormiranost Frenetov
 	\tau(t)=\frac{\big(\rV'(t)\times\rV''(t)\big)\cdot\rV'''(t)}{\lVert \rV'(t)\times \rV''(t) \rVert^2}.
 \end{equation}
 Vidimo torej, da je torzijska ukrivljenost krivulje neničelna natanko takrat, ko so $\rV', \text{ } \rV''$ in $\rV'''$ linearno neodvisni, kar je ravno takrat, ko je krivulja res prostorska.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Bernsteinovi polinomi in Bézierjeve krivulje}
+
+Poskusimo sedaj izraziti še odvod glavne normale. Najprej iz formul \eqref{normala} in \eqref{binormala} opazimo, da velja $\pV=\bV\times\tV.$ Sedaj odvajamo
+\begin{align*}
+	\pV'&=(\bV\times\tV)'\\
+	&=\bV'\times\tV+\bV\times\tV'\\
+	&=(-\sigma\tau\pV)\times\tV+\bV\times(\sigma\kappa\pV)\\
+	&=-\sigma\kappa\tV+\sigma\tau\bV.
+\end{align*}
+Pri računanju smo uporabili formuli \eqref{eq2_5} in \eqref{eq2_11} za odvod enotske tangente in odvod binormale. Vse te tri formule lahko kompaktneje zapišemo v matrični obliki
+\begin{equation}
+	\label{frenetove_formule}
+	\begin{bmatrix}
+		\tV'\\
+		\pV'\\
+		\bV'
+	\end{bmatrix}=
+	\sigma
+	\begin{bmatrix}
+		0&\kappa&0\\
+		-\kappa&0&\tau\\
+		0&-\tau&0
+	\end{bmatrix}
+	\begin{bmatrix}
+		\tV\\
+		\pV\\
+		\bV
+	\end{bmatrix}.
+\end{equation}
+Če je krivulja $\rV$ podana v naravni parametrizaciji, vemo, da je njena parametrična hitrost identično enaka 1: $\sigma\equiv 1.$ Zato se v naravni parametrizaciji te formule izražajo takole:
+\begin{equation}
+	\label{naravne_frenetove_formule}
+	\begin{bmatrix}
+		\tV'\\
+		\pV'\\
+		\bV'
+	\end{bmatrix}=
+	\begin{bmatrix}
+		0&\kappa&0\\
+		-\kappa&0&\tau\\
+		0&-\tau&0
+	\end{bmatrix}
+	\begin{bmatrix}
+		\tV\\
+		\pV\\
+		\bV
+	\end{bmatrix}.
+\end{equation}
+Tem formulam pravimo tudi \emph{Frenetove formule.}
+
+\subsection{Bézierjeve krivulje in Bernsteinovi polinomi}
+\label{bern_poli_bez_kri_poglavje}
+Polinomske in racionalne krivulje se v računalniško podprtem geometrijskem oblikovanju na široko uporabljajo, saj nam omogočajo učinkovitejše računanje. Eden izmed najpomembnejših tipov krivulj so Bézierjeve krivulje. Spomnili se bomo, kako pridemo do njih preko Bernsteinovih polinomov ter si ogledali nekaj lastnosti \cite{farin2002handbook}.
+
+\emph{Splošna Bézierjeva krivulja stopnje} $n$ je oblike
+\begin{equation}
+	\label{splosna_bezier}
+	\rV(t)=\sum_{i=0}^n\bV_iB_i^n(t)\quad t\in[0,1],
+\end{equation}
+kjer so
+\begin{equation}
+	\label{splosni_bernstein}
+	B_i^n(t)=\binom{n}{i}(1-t)^{n-i}t^i
+\end{equation}
+\emph{Bernsteinovi polinomi stopnje} $n$ z binomskimi koeficienti
+$$\binom{n}{i}=\frac{n!}{(n-i)!i!}\quad\text{za}\quad 0\leq i \leq n\quad\text{in}\quad\binom{n}{i}=0\quad\text{za}\quad i>n,$$
+točke $\bV_i\in\R^3$ pa sestavljajo \emph{kontrolni poligon} Bézierjeve krivulje in jim zato rečemo tudi kontrolne točke.
+\pagebreak
+
+Naštejmo sedaj nekaj najpomembnejših lastnosti Bézierjevih krivulj:
+\begin{itemize}
+	\item Vsaka Bézierjeva krivulja interpolira začetno in končno kontrolno točko: $\rV(0)=\bV_0$ in $\rV(1)=\bV_n.$
+	\item \emph{Simetričnost:} Kontrolni poligon $\bV_0,\dots,\bV_n$ in kontrolni poligon $\bV_n,\dots,\bV_0,$ kjer si točke sledijo v obratnem vrstnem redu, opisujeta isto krivuljo.
+	\item \emph{Afina invarianca:} Če z afino preslikavo $\Phi$ preslikamo kontrolni poligon in tako pridobimo novo krivuljo (definirano na preslikanem kontrolnem poligonu), je to natanko ista krivulja, kot če bi začetno krivuljo preslikali s preslikavo $\Phi:$
+	$$\sum_{i=0}^n\Phi(\bV_i)B_i^n(t)=\Phi\big(\sum_{i=0}^n\bV_iB_i^n(t)\big).$$
+	\item \emph{Konveksna ovojnica:} Točka $\rV(t)$ na krivulji za $t\in[0,1]$ leži v konveksni ovojnici kontrolnega poligona.
+	\item \emph{Psevdo-lokalna kontrola:} Recimo, da premaknemo $i$-to kontrolno točko. Krivulja se najbolj premakne v okolici točke $t=i/n.$ Vse točke na krivulji se premaknejo v smeri, ki jo določa vektor razlike med novo in staro kontrolno točko.
+	\item \emph{Reparametrizacija:} Še posebej pri interpolaciji krivulj pride prav, če imamo podan t.i. \emph{globalni parameter} $u\in[a,b].$ Potem lahko izrazimo \emph{lokalni parameter} $t\in[0,1]$ s transformacijo $t=(u-a)/(b-a).$
+\end{itemize}
+Točke na Bézierjevih krivuljah ponavadi računamo z \emph{de Casteljaujevim algoritmom,} o katerem si lahko zainteresirani bralec več prebere v \cite{farin2002handbook}. Zanimal nas bo tudi odvod ali hodograf Bézierjeve krivulje. Določimo ga na naslednji način:
+\begin{equation}
+	\label{odvod_bezier}
+	\frac{d\rV(t)}{dt}=\rV'(t)=n\sum_{i=0}^{n-1}\Delta\bV_iB_i^{n-1}(t),
+\end{equation}
+kjer je $\Delta\bV_i=\bV_{i+1}-\bV_i$ za $i=0,\dots,n-1.$ Tej količini rečemo \emph{prema diferenca.} Tako je hodograf $\rV'$ pravzaprav Bézierjeva krivulja stopnje $n-1.$ Za robne točke hodografa velja $\rV'(0)=n\Delta\bV_0$ in $\rV'(1)=n\Delta\bV_{n-1},$ kar pomeni, da sta tangentna vektorja v robnih točkah na krivulji $\rV$ vzporedna z robnima stranicama kontrolnega poligona.
+
+Oglejmo si še nekaj lastnosti Bernsteinovih polinomov:
+\begin{itemize}
+	\item \emph{Particija enote:} Za vsak $t$ je vsota Bernsteinovih polinomov enaka ena:
+	$$\sum_{i=0}^nB_i^n=(1+(1-t))^n=1.$$
+	\item Vsak Bernsteinov polinom je nenegativen na intervalu $[0,1].$ Z uporabo te in prejšnje vidimo, zakaj res velja lastnost konveksne ovojnice pri Bézierjevih krivuljah.
+	\item \emph{Simetričnost:} Iz \eqref{splosni_bernstein} je razvidno, da velja $B_i^n(t)=B_{n-i}^n(1-t).$ Posledično so tudi Bézierjeve krivulje simetrične.
+	\item \emph{Rekurzija:} Polinome stopnje $n$ lahko izrazimo s pomočjo polinomov stopnje $n-1:$
+	$$B_i^n(t)=(1-t)B_i^{n-1}(t)+tB_{i-1}^{n-1}(t).$$
+	S pomočjo te lastnosti se izpelje tudi de Casteljaujev algoritem.
+	\item Preprosto lahko preverimo:
+	$$B_i^n(0)=\delta_{i,0}\quad\text{in}\quad B_i^n(1)=\delta_{i,n}\quad\text{kjer je}\quad \delta_{i,j}=\begin{cases}
+										   		1 & \text{če } i=j\\
+										   		0 & \text{če } i\neq j.
+										   \end{cases}$$
+	Zato Bézierjeva krivulja interpolira začetno in končno kontrolno točko.
+	\item \emph{Lokalni maksimum:} Polinom $B_i^n(t)$ ima v točki $t=i/n$ lokalni maksimum. Iz tega tudi sledi lastnost psevdo-lokalne kontrole Bézierjevih krivulj.
+\end{itemize}
+
+\subsection{Vektorski prostor kvaternionov}
+\label{kvaternioni_poglavje}
+
+\emph{Kvaternioni} so števila oblike $\AQ=a+a_x\iV+a_y\jV+a_z\kV,$ kjer so $a,a_x,a_y,a_z$ realna števila. Za simbole $\iV,\jV,\kV$ veljajo zveze
+\begin{equation}
+	\label{kvat_osnove}
+	\iV^2=\jV^2=\kV^2=\iV\jV\kV=-1.
+\end{equation}
+Tukaj je z 1 mišljena običajna realna enota za množenje. Iz \eqref{kvat_osnove} sledijo naslednje zveze
+\begin{equation}
+	\label{kvat_osnove2}
+	\iV\jV=-\jV\iV=\kV,\quad\jV\kV=-\kV\jV=\iV,\quad\kV\iV=-\iV\kV=\jV.
+\end{equation}
+Množica $\{1,\iV,\jV,\kV\}$ je baza prostora kvaternionov, ki ga označimo z $\quat.$ Ker so produkti baznih elementov med seboj nekomutativni, v splošnem velja $\AQ\BQ\neq\BQ\AQ$ za $\AQ,\BQ\in\quat.$ Množenje kvaternionov je asociativna operacija, zato velja $(\AQ\BQ)\CQ=\AQ(\BQ\CQ)$ za $\AQ,\BQ,\CQ\in\quat.$
+
+Vsota dveh kvaternionov $\AQ=a+a_x\iV+a_y\jV+a_z\kV$ in $\BQ=b+b_x\iV+b_y\jV+b_z\kV$ je enaka
+\begin{equation}
+	\label{kvat_vsota}
+	\AQ+\BQ=(a+b)+(a_x+b_x)\iV+(a_y+b_y)\jV+(a_z+b_z)\kV.
+\end{equation}
+Produkt dveh kvaternionov je zaradi enačb \eqref{kvat_osnove} in \eqref{kvat_osnove2} enak
+\begin{align}
+	\AQ\BQ=&(ab-a_xb_x-a_yb_y-a_zb_z)\nonumber\\
+	&+(ab_x+ba_x+a_yb_z-a_zb_y)\iV\label{kvat_produkt}\\
+	&+(ab_y+ba_y+a_zb_x-a_xb_z)\jV\nonumber\\
+	&+(ab_z+ba_z+a_xb_y-a_yb_x)\kV.\nonumber
+\end{align}
+Če si bazne elemente $\iV,\jV,\kV$ predstavljamo kot standardno bazo prostora $\R^3,$ lahko rečemo, da ima kvaternion $\AQ$ \emph{skalarni del} $a$ in \emph{vektorski del} $\aV=a_x\iV+a_y\jV+a_z\kV.$ Krajše lahko zato kvaternion $\AQ$ zapišemo kot $\AQ=(a,\aV).$ Vsako realno število $a$ lahko razumemo kot ``skalarni kvaternion'' $(a,\mathbf{0}),$ vsak trirazsežni vektor $\aV$ pa kot ``vektoski kvaternion'' $(0,\aV).$ Take kvaternione lahko preprosteje označimo kar z $a$ oziroma $\aV.$
+
+Če pišemo $\AQ=(a,\aV)$ in $\BQ=(b,\bV),$ lahko vsoto \eqref{kvat_vsota} krajše zapišemo kot
+\begin{equation}
+	\label{kvat_vsota2}
+	\AQ+\BQ=(a+b,\aV+\bV),
+\end{equation}
+kjer uporabimo običajno pravilo za seštevanje vektorjev. Podobno iz \eqref{kvat_produkt} vidimo, da je produkt enak
+\begin{equation}
+	\label{kvat_produkt2}
+	\AQ\BQ=(ab-\aV\cdot\bV,a\bV+b\aV+\aV\times\bV),
+\end{equation}
+kjer uporabimo običajna pravila za seštevanje vektorjev in za skalarni ter vektorski produkt.
+
+Vsakemu kvaternionu $\AQ=(a,\aV)$ lahko določimo \emph{konjugirano vrednost} $\AQ^*=(a,-\aV)$ ter normo $\lVert\AQ\rVert,$ ki jo podamo z
+\begin{equation}
+	\label{kvat_norma}
+	\lVert\AQ\rVert=\sqrt{\AQ^*\AQ}=\sqrt{\AQ\AQ^*}=\sqrt{a^2+\lVert\aV\rVert^2}.
+\end{equation}
+Iz pravila za produkt \eqref{kvat_produkt2} ni težko videti, da velja $(\AQ\BQ)^*=\BQ^*\AQ^*.$ Če sta $\aV,\bV$ vektorska kvaterniona (torej lahko nanju gledamo kot na vektorja v $\R^3$) lahko izpeljemo formulo za izračun vektorskega produkta s pomočjo kvaternionov:
+\begin{align}
+	\frac{1}{2}\aV\bV-\frac{1}{2}\bV^*\aV^*&=\frac{1}{2}(-\aV\cdot\bV,\aV\times\bV)-\frac{1}{2}\big(-(-\bV)\cdot(-\aV),(-\bV)\times(-\aV)\big)\nonumber\\
+	&=\frac{1}{2}(-\aV\cdot\bV,\aV\times\bV)-\frac{1}{2}(-\bV\cdot\aV,\bV\times\aV)\label{kvat_vekt_prod}\\
+	&=(0,\aV\times\bV)=\aV\times\bV.\nonumber
+\end{align}
+
+Če je $\lVert\UQ\rVert=1,$ pravimo, da je $\UQ$ \emph{enotski kvaternion}. Vsak enotski kvaternion lahko zapišemo v obliki $\UQ=(\cos\frac{1}{2}\theta,\sin\frac{1}{2}\theta\nV),$ kjer je $\theta\in[0,2\pi)$ in $\nV$ nek enotski vektor v $\R^3.$ Produkt dveh enotskih kvaternionov je vedno enotski kvaternion. Za vsak vektorski kvaternion $\vV$ in enotski kvaternion $\UQ$ je produkt $\UQ\vV\UQ^*$ vedno enak vektorskemu kvaternionu (torej kvaternionu, ki ima skalarni del enak 0). Produkt lahko interpretiramo kot rotacijo vektorja $\vV$ za kot $\theta$ okoli osi $\nV.$ Lahko je videti, da dosežemo isto z uporabo kvaterniona $-\UQ=(-\cos\frac{1}{2}\theta,-\sin\frac{1}{2}\theta\nV),$ ki poda zasuk za kot $2\pi-\theta$ okoli osi, ki jo predstavlja vektor $-\nV$ \cite[str. 387]{faroukietal2004}.
+
+V nadaljevanju nam bo prišla prav rešitev enačbe
+\begin{equation}
+	\label{QiQ_enacba}
+	\QQ\iV\QQ^*=\cV,
+\end{equation}
+kjer je $\cV$ vektorski kvaternion. Zato se ji podrobneje posvetimo v tej lemi \cite[poglavje 3.2]{farouki2002hermite}.
+\begin{lema}
+	\label{QiQ_enacba_lema}
+	Naj bo $\cV$ vektorski kvaternion in naj bo $\vV=\frac{\cV}{\lVert\cV\rVert}=\lambda\iV+\mu\jV+\nu\kV$. Potem se splošna rešitev enačbe \eqref{QiQ_enacba} izraža v obliki
+	\begin{align}
+		\QQ(\phi)=\sqrt{\frac{1}{2}(1+\lambda)\lVert\cV\rVert}\Big(&-\sin\phi+\cos\phi\iV+\frac{\mu\cos\phi+\nu\sin\phi}{1+\lambda}\jV\nonumber\\
+		&+\frac{\nu\cos\phi-\mu\sin\phi}{1+\lambda}\kV\Big),\label{QiQ_enacba_resitev}
+	\end{align}
+	ali v ekvivalentni obliki
+	\begin{equation}
+		\label{QiQ_enacba_resitev2}
+		\QQ(\phi)=\sqrt{\frac{1}{2}(1+\lambda)\lVert\cV\rVert}\Big(\iV+\frac{\mu}{1+\lambda}\jV+\frac{\nu}{1+\lambda}\kV\Big)(\cos\phi+\sin\phi\iV),
+	\end{equation}
+	kjer je $\phi$ prost parameter.
+\end{lema}
+
+\begin{proof}
+	Pišimo $\QQ=q_0+q_x\iV+q_y\jV+q_z\kV.$ Ob upoštevanju pravil za množenje vidimo, da je enačba \eqref{QiQ_enacba} ekvivalentna sistemu treh enačb
+	\begin{equation}
+		\label{QiQ_enacba_sistem}
+		q_0^2+q_x^2-q_y^2-q_z^2=\lambda\lVert\cV\rVert,\quad 2(q_0q_z+q_xq_y)=\mu\lVert\cV\rVert,\quad 2(q_xq_z-q_0q_y)=\nu\lVert\cV\rVert,
+	\end{equation}
+	za neznanke $q_0,q_x,q_y,q_z.$ Ker imamo tri enačbe in štiri nenznanke, ima splošna rešitev enačbe \eqref{QiQ_enacba} eno stopnjo prostosti.
+	
+	Če postavimo $q_0=0,$ lahko s pomočjo \eqref{QiQ_enacba_sistem} preverimo, da je
+	\begin{equation}
+		\label{QiQ_enacba_partikularna}
+		\QQ=\pm\sqrt{\frac{1}{2}(1+\lambda)\lVert\cV\rVert}\Big(\iV+\frac{\mu}{1+\lambda}\jV+\frac{\nu}{1+\lambda}\kV\Big)
+	\end{equation}
+	partikularna rešitev enačbe \eqref{QiQ_enacba}. Naj bo sedaj $\AQ$ kvaternion, ki reši enačbo
+	\begin{equation}
+		\label{AiA_enacba}
+		\AQ\iV\AQ^*=\iV.
+	\end{equation}
+	Potem je tudi $\QQ\AQ$ rešitev za \eqref{QiQ_enacba}, saj velja
+	$$(\QQ\AQ)\iV(\QQ\AQ)^*=\QQ(\AQ\iV\AQ^*)\QQ^*=\QQ\iV\QQ^*.$$
+	Kvaternion, ki reši enačbo \eqref{AiA_enacba}, je oblike
+	\begin{equation}
+		\label{AiA_enacba_resitev}
+		\AQ=\cos\phi+\sin\phi\iV,
+	\end{equation}
+	kot lahko sklepamo iz naslednjega sistema enačb, ki je ekvivalenten enačbi \eqref{AiA_enacba}, če vzamemo $\AQ=a_0+a_x\iV+a_y\jV+a_z\kV$:
+	$$a_0^2+a_x^2-a_y^2-a_z^2=1,\quad 2(a_0a_z+a_xa_y)=0,\quad 2(a_xa_z-a_0a_y)=0.$$
+	Tu je $\phi$ prost parameter. Torej lahko za splošno rešitev enačbe \eqref{QiQ_enacba} vzamemo
+	\begin{align*}
+		\QQ(\phi)=\sqrt{\frac{1}{2}(1+\lambda)\lVert\cV\rVert}\Big(&-\sin\phi+\cos\phi\iV+\frac{\mu\cos\phi+\nu\sin\phi}{1+\lambda}\jV\\
+		&+\frac{\nu\cos\phi-\mu\sin\phi}{1+\lambda}\kV\Big),
+	\end{align*}
+	kjer je $\phi$ prost parameter. Vemo, da velja $\sin(\phi+\pi)=-\sin\phi$ in $\cos(\phi+\pi)=-\cos\phi.$ Ko torej preidemo iz partikularne rešitve \eqref{QiQ_enacba_partikularna} na splošno \eqref{QiQ_enacba_resitev}, nam $\pm$ predznaka ni potrebno pisati, saj nam že premik parametra $\phi$ za $\pi$ spremeni predznak rešitve.
+\end{proof}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Krivulje s pitagorejskim hodografom}
 
-Polinomske in racionalne krivulje se v računalniško podprtem geometrijskem oblikovanju na široko uporabljajo, saj nam omogočajo učinkovitejše računanje. Pomemben podrazred takih krivulj so krivulje s pitagorejskim hodografom, saj je pri le-teh izračun dolžine loka krivulje zelo preprost. Poleg tega ponujajo še marsikatere druge privlačne lastnosti, zato jih je vredno analizirati. Uporablja pa se jih tudi v realnem svetu, npr. pri CNC strojih. V tem poglavju si bomo ogledali definicijo in nekaj osnovnih lastnosti.
+Pomemben podrazred Bézierjevih krivulj so krivulje s pitagorejskim hodografom, saj je pri le-teh izračun dolžine loka krivulje zelo preprost. Poleg tega ponujajo še marsikatere druge privlačne lastnosti, zato jih je vredno analizirati. Uporablja pa se jih tudi v realnem svetu, npr. pri CNC strojih. V tem poglavju si bomo ogledali definicijo in nekaj osnovnih lastnosti.
 
 \subsection{Definicije}
 
@@ -563,7 +793,7 @@ Iz vsega povedanega lahko sklepamo, da vsebujeta tako normala kot binormala čle
 	$$u(t)=\sum_{i=0}^mu_it^i\quad\text{in}\quad p(t)=\sum_{i=0}^mp_it^i$$
 	za ustrezne koeficiente $u_i,p_i\in\R.$ Potem je polinom $u(t)p'(t)-u'(t)p(t)$ enak
 	\begin{equation*}
-		\left(\sum_{i=0}^mu_it^i\right)\left(\sum_{i=0}^{m-1}(i+1)p_{i+1}t^i+\right)-\left(\sum_{i=0}^{m-1}(i+1)u_{i+1}t^i\right)\left(\sum_{i=0}^mp_it^i\right).
+		\left(\sum_{i=0}^mu_it^i\right)\left(\sum_{i=0}^{m-1}(i+1)p_{i+1}t^i\right)-\left(\sum_{i=0}^{m-1}(i+1)u_{i+1}t^i\right)\left(\sum_{i=0}^mp_it^i\right).
 	\end{equation*}
 	Koeficient pri členu $t^{2m-1}$ polinoma $u(t)p'(t)-t'(t)p(t)$ je enak
 	$$u_mmp_m-mu_mp_m=0,$$
@@ -598,9 +828,10 @@ Ker sta vektorja $\aV$ in $\tV$ enotska, potem velja
 	  \centering
 	  \includegraphics[width=0.3\textwidth]{images/simple_helix.pdf}
 	% \caption[caption za v kazalo]{Dolg caption pod sliko}
-	  \caption[Primer preposte vijačnice.]{Na sliki je razviden graf vijačnice $\rV(t)=(5\cos{t},\sin{t},t).$ Os vrtenja predstavlja vektor $\aV=(0,0,1).$ Zlahka lahko po formuli \eqref{pogoj_vijacnica} preverimo, da je kot med osjo $\aV$ in enotsko tangento $\tV$ enak $\pi/4$ za vsak $t.$}
+	  \caption[Primer preposte vijačnice]{Na sliki je razviden graf vijačnice $\rV(t)=(5\cos{t},\sin{t},t).$ Os vrtenja predstavlja vektor $\aV=(0,0,1).$ Zlahka lahko po formuli \eqref{pogoj_vijacnica} preverimo, da je kot med osjo $\aV$ in enotsko tangento $\tV$ enak $\pi/4$ za vsak $t.$}
 	  \label{fig:simple_helix}
 	\end{figure}
+
 Zanimivo dejstvo o vijačnicah, ki nam bo prišlo prav kasneje, je Lancretov izrek \cite{kreyszig2019differential}.
 \begin{izrek}[Lancret]
 	\label{lancret}
@@ -608,30 +839,41 @@ Zanimivo dejstvo o vijačnicah, ki nam bo prišlo prav kasneje, je Lancretov izr
 \end{izrek}
 \begin{proof}
 	Naj bo krivulja $\rV(s)$ vijačnica izražena v naravni parametrizaciji. Torej drži enačba \eqref{pogoj_vijacnica} za nek vektor $\aV$ in kot $\psi.$ Če to enačbo odvajamo po $s$ in upoštevamo \eqref{eq2_5}, dobimo
-	\begin{equation}
+	\begin{equation*}
 		\aV \cdot \tV'=\kappa \aV \cdot \pV=0.
-	\end{equation}
+	\end{equation*}
 	Zaradi predpostavke in nenegativnosti $\kappa$ sledi, da je $\kappa > 0.$ Torej mora veljati
 	\begin{equation}
 	\label{eq4_19}
 	\aV \cdot \pV=0.
 	\end{equation}
 	To pomeni, da je v vsaki točki na krivulji enotska normala pravokotna na os vrtenja $\aV.$ Vektor $\aV$ se torej ves čas nahaja v ravnini, ki jo razpenjati enotska tangenta $\tV$ ter enotska binormala $\bV.$ Če velja formula \eqref{pogoj_vijacnica}, je potem iz slike \ref{fig:lancret} razvidno, da mora veljati tudi
-	\begin{equation}
+	\begin{equation*}
 		\aV \cdot \bV=\sin \psi.
-	\end{equation}
+	\end{equation*}
 	\begin{figure}[h!]
 	  \centering
 	  \includegraphics[width=0.5\textwidth]{images/lancret.pdf}
 	% \caption[caption za v kazalo]{Dolg caption pod sliko}
-	  \caption[Os vijačnice v primerjavi z enotsko tangento, normalo in binormalo.]{Os vijačnice v primerjavi z enotsko tangento, normalo in binormalo.}
+	  \caption[Os vijačnice v primerjavi z enotsko tangento, normalo in binormalo]{Os vijačnice v primerjavi z enotsko tangento, normalo in binormalo.}
 	  \label{fig:lancret}
 	\end{figure}
-	Sedaj odvajajmo enačbo \eqref{eq4_19} in upoštevamo Frenetovo formulo za odvod enotske normale v naravni parametrizaciji \cite{kreyszig2019differential}. Dobimo naslednji izraz:
-	\begin{equation}
+	
+	Sedaj odvajajmo enačbo \eqref{eq4_19} in upoštevamo Frenetovo formulo za odvod enotske normale v naravni parametrizaciji \eqref{naravne_frenetove_formule}. Dobimo naslednji izraz:
+	\begin{equation*}
 		\aV \cdot \pV'=\aV \cdot (-\kappa \tV+\tau \bV)=-\kappa \cos \psi + \tau \sin \psi=0.
-	\end{equation}
-	Torej je $\frac{\tau(s)}{\kappa(s)}=\cot \psi,$ kar je res konstantna vrednost. Dokaz v drugo smer je dostopen v \cite{kreyszig2019differential}.
+	\end{equation*}
+	Torej je $\frac{\tau(s)}{\kappa(s)}=\cot \psi,$ kar je res konstantna vrednost.
+	
+	Dokažimo izrek še v drugo smer. Predpostavimo, da je za krivuljo $\rV,$ podano v naravni parametrizaciji, razmerje med torzijsko in fleksijsko krivuljo konstanto
+	$$\frac{\tau(s)}{\kappa(s)}=c_0,$$
+	kjer je $c_0\in\R.$ Velja torej $c_0\kappa-\tau=0.$ Ob upoštevanju \eqref{naravne_frenetove_formule}, vidimo, da velja
+	$$c_0\tV'+\bV'=(c_0\kappa-\tau)\pV=0.$$
+	Ko ta izraz integriramo, dobimo $c_0\tV+\bV=\cV^*,$ kjer je $\cV^*$ neničelen konstanten vektor. Če ta vektor normaliziramo, dobimo
+	$$\cV=\frac{\cV^*}{\lVert\cV^*\rVert}=\frac{c_0\tV+\bV}{\sqrt{1+c_0^2}}.$$
+	Sedaj lahko skalarno pomnožimo vektor $\cV$ z enotsko tangento $\tV.$ Dobimo
+	$$\cV\cdot\tV=\frac{c_0}{\sqrt{1+c_0^2}}.$$
+	Po Pitagorovem izreku je jasno, da je ta skalarni produkt strogo manjši od 1. Torej enotska tangenta $\tV$ oklepa konstanten kot s konstantnim vektorjem $\cV.$ Sledi, da je krivulja $\rV$ vijačnica, kar pa je tisto, kar smo želeli dokazati.
 \end{proof}
 Naslednja trditev nam bo osvetila povezavo med vijačnimi polinomskimi krivuljami (vijačnicami, ki so hkrati tudi polinomske krivulje) in PH krivuljami \cite{faroukietal2004}.
 \begin{trditev}
@@ -679,7 +921,7 @@ Tvorimo kvaternionski polinom na naslednji način
 \begin{equation}
 	\AQ(t)=u(t)+v(t)\iV+p(t)\jV+q(t)\kV.
 \end{equation}
-Če kvaternione z ničelnim skalarnim delom identificiramo z vektorji v $\R^3,$ ugotovimo, da lahko enačbe \eqref{eq4_7} precej bolj kompaktno zapišemo s pomočjo zgornjega polinoma. Izračunamo
+Če kvaternione z ničelnim skalarnim delom identificiramo z vektorji v $\R^3,$ kot smo opisali v poglavju \ref{kvaternioni_poglavje}, ugotovimo, da lahko enačbe \eqref{eq4_7} precej bolj kompaktno zapišemo s pomočjo zgornjega polinoma. Izračunamo
 \begin{align}
 	\AQ(t)\iV\AQ^*(t)=&[u^2(t)+v^2(t)-p^2(t)-q^2(t)]\iV, \nonumber \\
 	&+2[u(t)q(t)+v(t)p(t)]\jV, \label{kvaternion} \\
@@ -731,10 +973,9 @@ Parametrična hitrost ima v Hopfovi predstavitvi enostaven zapis, in sicer $$\lV
 
 Spoznali smo dva načina, kako izraziti hodograf PH krivulje: s pomočjo kvaternionske predstavitve ter predstavitve s Hopfovo preslikavo. Pretvorba med eno in drugo predstavitvijo je dokaj enostavna. Če identificiramo imaginarno enoto v kompleksnih številih $\iu$ z imaginarno enoto $\iV$ v kvaternionih, vidimo, da se do kvaternionske oblike $\AQ(t)=u(t)+v(t)\iV+p(t)\jV+q(t)\kV$ da priti s pomočjo kompleksnih polinomov $\balpha(t)=u(t)+\iu v(t)$ in $\bbeta(t)=q(t)+\iu p(t)$ na naslednji način:
 \begin{align}
-	\label{comp_to_quat}
 	\balpha(t)+\kV\bbeta(t) &= u(t)+\iu v(t)+\kV(q(t)+ \iu p(t)) \nonumber \\
-	&=u(t)+v(t)\iV + p(t)\jV+ q(t)\kV \nonumber \\
-	&= \AQ(t).
+	&=u(t)+v(t)\iV + p(t)\jV+ q(t)\kV \label{comp_to_quat} \\
+	&= \AQ(t).\nonumber
 \end{align}
 
 Tudi kompleksna polinoma $\balpha(t)$ in $\bbeta(t)$ ni težko pridobiti iz kvaternionskega polinoma $\AQ(t).$ Hitro se da preveriti, da res velja
@@ -742,7 +983,19 @@ Tudi kompleksna polinoma $\balpha(t)$ in $\bbeta(t)$ ni težko pridobiti iz kvat
 	\label{quat_to_comp}
 		\balpha(t) = \frac{1}{2}\big(\AQ(t)-\iV\AQ(t)\iV\big) \quad \text{in} \quad \bbeta(t)= \frac{1}{2}\kV\big(\AQ(t)+\iV\AQ(t)\iV\big).
 \end{equation}
-\texttt{[Za dani hodograf je možno pridobiti enoparametrsko družino kvaternionskih polinomov, prav tako velja to za kompleksna polinoma. Mogoče dodam kasneje.]}
+
+\begin{opomba}
+	Za dani hodograf $\rV'(t)=(x'(t),y'(t),z'(t))$ je možno pridobiti enoparametrsko družino kvaternionskih polinomov. Ker je $\rV'=\AQ\iV\AQ^*,$ je po lemi \ref{QiQ_enacba_lema} kvaternionski polinom $\AQ$ enak
+	\begin{align*}
+		\AQ(t)=\sqrt{\frac{1}{2}(\sigma(t)+x'(t))}\Big(&-\sin\phi+\cos\phi\iV+\frac{y'(t)\cos\phi+z'(t)\sin\phi}{\sigma(t)+x'(t)}\jV\\
+		&+\frac{z'(t)\cos\phi-y'(t)\sin\phi}{\sigma(t)+x'(t)}\kV\Big),
+	\end{align*}
+	kjer je $\phi$ prost parameter. Prav tako lahko preko pretvorbe \eqref{quat_to_comp} vidimo, da je za dani hodograf možno pridobiti enoparametrsko družino kompleksnih polinomov $\balpha$ in $\bbeta,$ ki ustrezajo danemu hodografu:
+	\begin{align*}
+		\balpha(t)&=\sqrt{\frac{1}{2}(\sigma(t)+x'(t))}\big(-\sin\phi+\iu\cos\phi\big),\\
+		\bbeta(t)&=\frac{\big(z'(t)\cos\phi-y'(t)\sin\phi\big)+\iu\big(y'(t)\cos\phi+z'(t)\sin\phi\big)}{\sqrt{2(\sigma(t)+x'(t))}}.
+	\end{align*}
+\end{opomba}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Dvojne PH krivulje}
@@ -804,21 +1057,48 @@ Za DPH krivuljo tretje in pete stopnje velja tudi obrat trditve: vsaka polinomsk
 
 Iz enačbe \eqref{rho3over2} je razvidno, da je za DPH krivulje razmerje med fleksijsko in torzijsko ukrivljenostjo enako
 \begin{equation}
-	\frac{\kappa}{\tau}=\frac{\omega^3}{(\rV'\times\rV'')\cdot\rV'''}.
+	\label{DPH_razmerje_ukrv_omega_mesani}
+	\frac{\kappa}{\tau}=\frac{\omega^3}{(\rV'\times\rV'')\cdot\rV'''}=\tan\psi.
 \end{equation}
-Če je polinomska krivulja $\rV$ vijačnica, je po trditvi \ref{trditev_vijacnica_DPH} hkrati tudi DPH krivulja in zato mora biti po Lancretovem izreku \ref{lancret} razmerje med $\omega^3$ in $(\rV'\times\rV'')\cdot\rV'''$ konstantno. Če je stopnja PH krivulje enaka $n,$ je potem stopnja polinoma $\rho	$ enaka $2n-6,$ kot smo videli v trditvi \ref{stopnja_rho_trditev}. 
+Če je polinomska krivulja $\rV$ vijačnica, je po trditvi \ref{trditev_vijacnica_DPH} hkrati tudi DPH krivulja in zato mora biti po Lancretovem izreku \ref{lancret} razmerje med $\omega^3$ in $(\rV'\times\rV'')\cdot\rV'''$ konstantno. Če je stopnja PH krivulje enaka $n,$ je potem stopnja polinoma $\rho	$ enaka $2n-6,$ kot smo videli v trditvi \ref{stopnja_rho_trditev}. Iz tega sledi, da je $\st(\omega)=n-3.$
 
-To pomeni, da je razmerje med ukrivljenostima za kubične PH krivulje vedno konstantno, saj sta tako obe količini $\omega^3$ in $(\rV'\times\rV'')\cdot\rV'''$ konstantni. Slednje lahko preverimo po daljšem, a elementarnem računanju. Torej lahko sklepamo, je vsaka kubična PH krivulja hkrati vijačnica in tako tudi DPH krivulja. 
+To pomeni, da je razmerje med ukrivljenostima za kubične PH krivulje vedno konstantno, saj sta tako obe količini $\omega^3$ in $(\rV'\times\rV'')\cdot\rV'''$ konstantni. Slednje lahko preverimo po daljšem, a elementarnem računanju. Torej lahko sklepamo, da je vsaka kubična PH krivulja hkrati vijačnica in tako tudi DPH krivulja.
+\begin{primer}
+	\textbf{.} Dana je krivulja $\rV(t)=(\frac{1}{3}t^3-t,\frac{2}{3}t^3-2t^2+2t,-\frac{2}{3}t^3+t^2-2t).$ Hitro lahko vidimo, da je njen hodograf enak $\rV'(t)=(t^2-1,2t^2-4t+2,-2t^2+2t-2).$ Z nekaj računanja ni težko preveriti, da je parametrična hitrost te krivulje enaka
+	$$\sigma(t)=3t^2-4t+3,$$
+	torej imamo res opravka s PH krivuljo. Izračunajmo še $\rV'\times\rV'':$
+	$$\rV'(t)\times\rV''(t)=\big(4(t^2-1),2(t^2-4t+1),4(t-1)^2\big).$$
+	Preverimo lahko, da je kvadrat norme zgornjega vektorskega produkta enak
+	$$\lVert\rV'(t)\times\rV''(t)\rVert^2=4(3t^2-4t+3)^2=4\sigma^2(t).$$
+	Po \eqref{DPH_pogoj} je potem naša krivulja DPH krivulja in velja $\omega\equiv2,$ torej je tudi $\omega^3$ konstantna funkcija. Izračunajmo sedaj še mešani produkt $(\rV'\times\rV'')\cdot\rV'''.$ Enak je
+	$$\big(\rV'(t)\times\rV''(t)\big)\cdot\rV'''(t)=-16.$$
+	Po enačbi \eqref{DPH_razmerje_ukrv_omega_mesani} je potem razmerje med fleksijsko in torzijsko ukrivljenostjo enako $-\frac{1}{2}.$ Tako smo za to PH krivuljo stopnje 3 videli, da je hkrati tudi vijačnica in DPH krivulja.
+\end{primer}
 
-Za PH krivulje stopnje 5 prav tako velja, da so DPH krivulje, torej za njih velja $(\rV'\times\rV'')\cdot\rV'''=\tan \psi\ \omega^3.$ 
+Za PH krivulje stopnje 5 prav tako velja, da so DPH krivulje \cite[Izrek 1]{beltranmonterde}, torej za njih velja 
+\begin{equation}
+	\label{mesani_kotangens_omega}
+	(\rV'\times\rV'')\cdot\rV'''=\cot\psi\ \omega^3.
+\end{equation}
+\begin{primer}
+	\textbf{.} Dana je krivulja $\rV(t)=(-t^4+\frac{2}{3}t^3-t,\frac{8}{5}t^5-3t^4+4t^3-3t^2+2t,t^4-\frac{8}{3}t^3+3t^2-2t).$ Njen hodograf je potem enak $$\rV'(t)=(-4t^3+2t^2-1,8t^4-12t^3+12t^2-6 t+2,4t^3-8t^2+6 t-2).$$ Izkaže se, da je parametrična hitrost te krivulje enaka
+	$$\sigma(t)=8t^4-12t^3+14t^2-8t+3.$$
+	Dana krivulja je PH krivulja. Podobno kot v prejšnjem primeru izračunamo $\rV'\times\rV'':$
+	$$\rV'(t)\times\rV''(t)=\big(-8(t^2-2t)(2t^2-2t+1)^2,6(2t^2-2t+1)^2,-2(2t^2-2t+1)^2(4t^2+4t-3)\big).$$
+	Potem je kvadrat norme zgornjega vektorskega produkta enak
+	$$\lVert\rV'(t)\times\rV''(t)\rVert^2=8(2t^2-2t+1)^4(4t^2-2t+3)^2=\omega^2(t)\sigma^2().$$
+	Po \eqref{DPH_pogoj} je potem naša krivulja DPH krivulja, ker lahko določimo $$\omega(t)=\sqrt{8}(2t^2-2t+1).$$ Tudi formula za stopnjo $\st(\omega)=n-3=5-3=2$ je izpolnjena. Sedaj si oglejmo še mešani produkt $(\rV'\times\rV'')\cdot\rV'''.$ Enak je
+	$$\big(\rV'(t)\times\rV''(t)\big)\cdot\rV'''(t)=48(2t^2-2t+1)^3.$$
+	Po enačbi \eqref{DPH_razmerje_ukrv_omega_mesani} je potem razmerje med fleksijsko in torzijsko ukrivljenostjo enako $\frac{\sqrt{2}}{3}.$ Tako smo za tudi to PH krivuljo stopnje 5 videli, da je hkrati tudi vijačnica in DPH krivulja.
+\end{primer}
 
-Če DPH krivulja sedme oziroma višje stopnje zadostuje zadnji enakosti za nek kot $\psi,$ je potem tudi vijačnica. Torej se to enakost lahko uporablja kot ``sito'', ki ločuje vijačne od nevijačnih DPH krivulj.
+Če DPH krivulja sedme oziroma višje stopnje enakosti \eqref{mesani_kotangens_omega} za nek kot $\psi,$ je potem tudi vijačnica. To enakost se lahko uporablja kot ``sito'', ki ločuje vijačne od nevijačnih DPH krivulj stopenj 7 ali več.
 
 \subsection{Kvaternionska predstavitev dvojnih PH krivulj}
 
 Kot smo že videli v poglavju \ref{PH_kvaternioni} o izražanju PH krivulj v kvaternionski obliki, se lahko hodograf običajne PH krivulje $\rV$ izraža s pomočjo kvaternionskega polinoma $\AQ(t)$ kot $\rV'(t)=\AQ(t)\iV\AQ^*(t),$ parametrična hitrost pa kot $\sigma(t)=\lVert \AQ(t) \rVert^2.$ 
 
-Sedaj bomo izpeljali izraz za $\rho,$ kot smo ga navedli v \eqref{rho2}. Začnemo z $$\rV''=\AQ'\iV\AQ^*+\AQ\iV\AQ'^*(t).$$ Če gledamo na $\rV'$ in $\rV''$ kot kvaterniona z ničelnim skalarnim delom, se potem njun vektorski produkt $\rV'\times\rV''$ izrazi kot polovica njunega produkta brez polovice produkta njunih konjugiranih vrednosti, kot smo že videli v trditvi \ref{kvat_vekt_prod}. Tako imamo
+Sedaj bomo izpeljali izraz za $\rho,$ kot smo ga navedli v \eqref{rho2}. Začnemo z $$\rV''=\AQ'\iV\AQ^*+\AQ\iV\AQ'^*(t).$$ Če gledamo na $\rV'$ in $\rV''$ kot kvaterniona z ničelnim skalarnim delom, se potem njun vektorski produkt $\rV'\times\rV''$ izrazi kot polovica njunega produkta brez polovice njunega konjugiranega produkta, kot smo videli v \eqref{kvat_vekt_prod}. Tako imamo
 \begin{equation*}
 	\rV'\times\rV''=\frac{1}{2}\left ( (\AQ\iV\AQ^*)(\AQ'\iV\AQ^*+\AQ\iV\AQ'^*)-(\AQ'\iV\AQ^*+\AQ\iV\AQ'^*)^*(\AQ\iV\AQ^*)^* \right )
 \end{equation*}
@@ -889,7 +1169,7 @@ Vektorski produkt $\rV'\times\rV''$ lahko pri DPH krivuljah s pomočjo kvaternio
 		\label{kvat_enacba_QiQ2}
 		\QQ\iV\QQ^*=2\sigma^2\big((a^2-b^2)\jV+2ab\kV\big),
 	\end{equation}
-	kjer je $\QQ=\AQ^*\BQ.$ Po trditvi \ref{kvat_enacba_QiQ} ima splošna rešitev enačbe \eqref{kvat_enacba_QiQ2} obliko
+	kjer je $\QQ=\AQ^*\BQ.$ Po lemi \ref{QiQ_enacba_lema} ima splošna rešitev enačbe \eqref{kvat_enacba_QiQ2} obliko
 	\begin{equation*}
 		\QQ=\sigma\frac{((a^2+b^2)\iV+(a^2-b^2)\jV+2ab\kV)}{\sqrt{a^2+b^2}}(\cos\phi+\sin\phi\iV),
 	\end{equation*}
@@ -921,7 +1201,7 @@ Za nadaljnjo obravnavo in klasifikacijo dvojnih PH krivulj se predstavitev le-te
 	\label{rho_propoly}
 	\rho(t)=4|\balpha(t)\bbeta'(t)-\balpha'(t)\bbeta(t)|^2.
 \end{equation}
-Tu se nam ponudi nova karakterizacija DPH krivulj: DPH krivulje so tiste prostorske krivulje, za katere je $|\balpha(t)\bbeta'(t)-\balpha'(t)\bbeta(t)|^2$ popolni kvadrat nekega realnega polinoma. Izkaže se, da je polinom $\balpha(t)\bbeta'(t)-\balpha'(t)\bbeta(t)$ pomemben za nadaljnji študij DPH krivulj, zato si zasluži tudi svojo definicijo.\texttt{[Ali je spodnje ime/prevod primeren?]}
+Tu se nam ponudi nova karakterizacija DPH krivulj: DPH krivulje so tiste prostorske krivulje, za katere je $|\balpha(t)\bbeta'(t)-\balpha'(t)\bbeta(t)|^2$ popolni kvadrat nekega realnega polinoma. Izkaže se, da je polinom $\balpha(t)\bbeta'(t)-\balpha'(t)\bbeta(t)$ pomemben za nadaljnji študij DPH krivulj, zato si zasluži tudi svojo definicijo.
 \begin{definicija}
 	Polinomu $\balpha(t)\bbeta'(t)-\balpha'(t)\bbeta(t)$, ki ga sestavimo iz polinomov $\balpha(t)=u(t)+\iu v(t)$ ter $\bbeta(t)=q(t)+\iu p(t)$ za neke realne polinome $u(t),$ $v(t),$ $p(t)$ ter $q(t),$ pravimo tudi \emph{polinom proporcionalnosti} polinomov $\balpha(t)$ in $\bbeta(t)$ (angl.:\ \emph{proportionality polynomial}).
 \end{definicija}
@@ -1915,7 +2195,7 @@ Sedaj bomo obravnavali še razne primere konstrukcij DPH krivulj za različne st
 	  \centering
 	  \includegraphics[width=0.5\textwidth]{images/h0w2_vijacna.pdf}
 	% \caption[caption za v kazalo]{Dolg caption pod sliko}
-	  \caption[Primer vijačne krivulje ($\st(h)=4,$ $\st(\wV)=0$)]{Na sliki je razviden graf vijačne krivulje s pripadajočim kontrolnim poligonom, za katero velja $\st(h)=0$ in $\st(\wV)=2.$}
+	  \caption[Primer vijačne krivulje ($\st(h)=0,$ $\st(\wV)=2$)]{Na sliki je razviden graf vijačne krivulje s pripadajočim kontrolnim poligonom, za katero velja $\st(h)=0$ in $\st(\wV)=2.$}
 	  \label{fig:h0w2_vijacna}
 	\end{figure}
 	Ob upoštevanju zvez \eqref{kontrolne_tocke} so kontrolne točke krivulje $\rV$ enake
@@ -1980,7 +2260,7 @@ Sedaj bomo obravnavali še razne primere konstrukcij DPH krivulj za različne st
 	  \centering
 	  \includegraphics[width=0.5\textwidth]{images/h0w2_nevijacna.pdf}
 	% \caption[caption za v kazalo]{Dolg caption pod sliko}
-	  \caption[Primer nevijačne krivulje ($\st(h)=4,$ $\st(\wV)=0$)]{Na sliki je razviden graf nevijačne krivulje s pripadajočim kontrolnim poligonom, za katero velja $\st(h)=0$ in $\st(\wV)=2.$}
+	  \caption[Primer nevijačne krivulje ($\st(h)=0,$ $\st(\wV)=2$)]{Na sliki je razviden graf nevijačne krivulje s pripadajočim kontrolnim poligonom, za katero velja $\st(h)=0$ in $\st(\wV)=2.$}
 	  \label{fig:h0w2_nevijacna}
 	\end{figure}
 \end{primer}
@@ -2099,7 +2379,7 @@ Sedaj bomo obravnavali še razne primere konstrukcij DPH krivulj za različne st
 	  \centering
 	  \includegraphics[width=0.5\textwidth]{images/h4w0_vijacna.pdf}
 	% \caption[caption za v kazalo]{Dolg caption pod sliko}
-	  \caption[Primer vijačne krivulje.]{Na sliki je razviden graf vijačne krivulje s pripadajočim kontrolnim poligonom, za katero velja $\st(h)=4$ in $\st(\wV)=0.$}
+	  \caption[Primer vijačne krivulje ($\st(h)=4,$ $\st(\wV)=0$)]{Na sliki je razviden graf vijačne krivulje s pripadajočim kontrolnim poligonom, za katero velja $\st(h)=4$ in $\st(\wV)=0.$}
 	  \label{fig:h4w0_vijacna}
 	\end{figure}
 	
@@ -2135,7 +2415,7 @@ Sedaj bomo obravnavali še razne primere konstrukcij DPH krivulj za različne st
 	  \centering
 	  \includegraphics[width=0.5\textwidth]{images/h4w0_nevijacna.pdf}
 	% \caption[caption za v kazalo]{Dolg caption pod sliko}
-	  \caption[Primer nevijačne krviulje.]{Na sliki je razviden graf vijačne krivulje s pripadajočim kontrolnim poligonom, za katero velja $\st(h)=4$ in $\st(\wV)=0.$}
+	  \caption[Primer nevijačne krivulje ($\st(h)=4,$ $\st(\wV)=0$)]{Na sliki je razviden graf vijačne krivulje s pripadajočim kontrolnim poligonom, za katero velja $\st(h)=4$ in $\st(\wV)=0.$}
 	  \label{fig:h4w0_nevijacna}
 	\end{figure}
 	
