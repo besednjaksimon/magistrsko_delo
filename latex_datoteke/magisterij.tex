@@ -126,6 +126,7 @@
 \newcommand{\aV}{\mathbf{a}}
 \newcommand{\bV}{\mathbf{b}}
 \newcommand{\cV}{\mathbf{c}}
+\newcommand{\dV}{\mathbf{d}}
 \newcommand{\eV}{\mathbf{e}}
 \newcommand{\fV}{\mathbf{f}}
 \newcommand{\hV}{\mathbf{h}}
@@ -136,6 +137,7 @@
 \newcommand{\iV}{\mathbf{i}}
 \newcommand{\jV}{\mathbf{j}}
 \newcommand{\kV}{\mathbf{k}}
+\newcommand{\uV}{\mathbf{u}}
 \newcommand{\vV}{\mathbf{v}}
 \newcommand{\wV}{\mathbf{w}}
 \newcommand{\zV}{\mathbf{z}}
@@ -167,7 +169,7 @@
 \DeclareMathOperator{\nhopf}{\hat{H}}
 
 % bold matematika znotraj \textbf{ }, tudi v naslovih, kot \omega spodaj
-\makeatletter \g@addto@macro\bfseries{\boldmath} \makeatother
+%\makeatletter \g@addto@macro\bfseries{\boldmath} \makeatother
 
 % Poimenuj kazalo slik kot ``Kazalo slik'' in ne ``Slike''
 \addto\captionsslovene{
@@ -509,6 +511,18 @@ Oglejmo si še nekaj lastnosti Bernsteinovih polinomov:
 										   \end{cases}$$
 	Zato Bézierjeva krivulja interpolira začetno in končno kontrolno točko.
 	\item \emph{Lokalni maksimum:} Polinom $B_i^n(t)$ ima v točki $t=i/n$ lokalni maksimum. Iz tega tudi sledi lastnost psevdo-lokalne kontrole Bézierjevih krivulj.
+\end{itemize}
+
+Na kratko bomo omenili tudi \emph{racionalne Bézierjeve krivulje,} ki jih bomo v nadaljevanjanju potrebovali. Prostorska racionalna Bézierjeva krivulja stopnje $n$ je parametrična krivulja, ki jo določajo kontrolne točke $\cV_i\in\R^3$ z utežmi $w_i\in\R.$ Parameter $t$ teče na intervalu $[0,1].$ Krivulja ima predpis
+\begin{equation}
+	\label{racionalna_bezier_krivulja}
+	\rV(t)=\frac{\sum_{i=0}^nw_i\cV_iB_i^n(t)}{\sum_{i=0}^nw_iB_i^n(t)}.
+\end{equation}
+Iz predpisa \eqref{racionalna_bezier_krivulja} je razvidno naslednje: če so vse uteži $w_i$ enake 1, je potem jasno, da imamo opravka z običajno Bézierjevo krivuljo, saj velja $\sum_{i=0}^nB_i^n(t)=1.$ Prav tako ni težko opaziti, da če so vse uteži $w_i$ nenegativne in če je vsaj ena utež strogo pozitivna, potem krivulja $\rV(t)$ nima nobene singularne točke. Za racionalne Bézierjeve krivulje veljajo naslednje lastnosti, ki veljajo za običajne Bézierjeve krivulje:
+\begin{itemize}
+	\item \emph{Afina invarianca.}
+	\item \emph{Koveksna ovojnica:} ta lastnost drži, če so vse uteži $w_i\geq0.$
+	\item Vsaka racionalna Bézierjeva krivulja interpolira začetno in končno kontrolno točko: $$\rV(0)=\frac{w_0\cV_0}{w_0}=\cV_0\quad\text{in}\quad\rV(1)=\frac{w_n\cV_n}{w_n}=\cV_n.$$
 \end{itemize}
 
 \subsection{Vektorski prostor kvaternionov}
@@ -1620,7 +1634,7 @@ Pri računanju polinoma proporcionalnosti si lahko pomagamo z \emph{Mathematico}
 \end{equation*}
 DPH pogoj \eqref{propor_poly_izpeljava} je izpolnjen s $\st(h)=0$ in $\st(\wV)=1.$ Kot je argumentirano v \cite{beltranmonterde}, nam ta postopek poda monotono vijačnico.
 
-V \cite{faroukietal2004} so monotone vijačnice stopnje 5 karakterizirane na naslednji način preko Bernsteinovih koeficientov kvaternionskega polinoma $\AQ.$ velja zveza
+V \cite{faroukietal2004} so monotone vijačnice stopnje 5 karakterizirane na naslednji način preko Bernsteinovih koeficientov kvaternionskega polinoma $\AQ.$ Velja zveza
 \begin{equation}
 	\label{monotone_vijacnice_5_pogoj}
 	\AQ_1=\AQ_0\cV_0+\AQ_2\cV_2,
@@ -2443,6 +2457,305 @@ Sedaj bomo obravnavali še razne primere konstrukcij DPH krivulj za različne st
 	kar ni identično enako konstanti. Tudi po Lancretovem izreku \ref{lancret} lahko preverimo, da je taka krivulja nevijačna.
 \end{primer}
 
+\section{Hermitska interpolacija DPH krivulj stopnje 5}
+
+V tem razdelku se bomo osredotočili na hermitsko interpolacijo ``splošnih'' vijačnih DPH krivulj stopnje 5, torej takih, za katere velja $\gcd(x',y',z')=$ konstanta. Najprej pa si bomo podrobneje ogledali, kako izraziti enotsko tangento takih krivulj s pomočjo racionalne Bézierjeve krivulje ter pogoj, pri katerem nam hodograf take krivulje res poda (splošno) vijačnico.
+
+\subsection{Pogoj za vijačnost}
+
+Enotsko tangento DPH krivulje stopnje 5 lahko izrazimo kot racionalno Bézierjevo krivuljo s predpisom
+\begin{equation}
+	\label{enotska_tangenta_rac_bezier}
+	\tV(t)=\frac{\rV'(t)}{\lVert\rV'(t)\rVert}=\frac{\sum_{k=0}^4w_k\tV_k\binom{4}{k}(1-t)^{4-k}t^k}{\sum_{k=0}^4w_k\binom{4}{k}(1-t)^{4-k}t^k}
+\end{equation}
+z utežmi $w_0,\dots,w_4$ in kontrolnimi točkami $\tV_0,\dots,\tV_4,$ ki so enake
+\begin{align}
+	\label{utezi_tangenta}
+	w_0&=\AQ_0\AQ_0^*,\nonumber\\
+	w_1&=\frac{1}{2}(\AQ_0\AQ_1^*+\AQ_1\AQ_0^*),\nonumber\\
+	w_2&=\frac{1}{6}(\AQ_0\AQ_2^*+\AQ_1\AQ_1^*+\AQ_2\AQ_0^*),\\
+	w_3&=\frac{1}{2}(\AQ_1\AQ_2^*+\AQ_2\AQ_1^*),\nonumber\\
+	w_4&=\AQ_2\AQ_2^*\nonumber
+\end{align}
+in
+\begin{align}
+	\label{utezene_kontrolne_tangenta}
+	w_0\tV_0&=\AQ_0\iV\AQ_0^*,\nonumber\\
+	w_1\tV_1&=\frac{1}{2}(\AQ_0\iV\AQ_1^*+\AQ_1\iV\AQ_0^*),\nonumber\\
+	w_2\tV_2&=\frac{1}{6}(\AQ_0\iV\AQ_2^*+\AQ_1\iV\AQ_1^*+\AQ_2\iV\AQ_0^*),\\
+	w_3\tV_3&=\frac{1}{2}(\AQ_1\iV\AQ_2^*+\AQ_2\iV\AQ_1^*),\nonumber\\
+	w_4\tV_4&=\AQ_2\iV\AQ_2^*.\nonumber
+\end{align}
+Označimo sedaj kvaternione
+\begin{equation}
+	\label{hermit_kvaternioni}
+	\AQ_r=a_r+\aV_r=a_r+a_{rx}\iV+a_{ry}\jV+a_{rz}\kV\quad r=0,1,2,
+\end{equation}
+na podoben način, kot smo jih označili v poglavju \ref{kvaternioni_poglavje} o kvaternionih. Potem lahko kontrolne točke racionalne Bézierjeve krivulje \eqref{enotska_tangenta_rac_bezier} izrazimo s pomočjo skalarnih in vektorskih delov kvaternionov $\AQ_0,\AQ_1,\AQ_2.$ Enake so
+\begin{align}
+	\label{kontrolne_tangenta}
+	\tV_0&=\frac{(a_0^2-\lVert\aV_0\rVert^2)\iV+2a_{0x}\aV_0-2a_0\iV\times\aV_0}{a_0^2+\lVert\aV_0\rVert^2},\nonumber\\
+	\tV_1&=\frac{(a_0a_1-\aV_0\cdot\aV_1)\iV+a_{1x}\aV_0+a_{0x}\aV_1-\iV\times(a_1\aV_0+a_0\aV_1)}{a_0a_1+\aV_0\cdot\aV_1},\nonumber\\
+	\tV_2&=2\frac{(a_1^2-\lVert\aV_1\rVert^2)\iV+2a_{1x}\aV_1-2a_1\iV\times\aV_1}{2(a_1^2+\lVert\aV_1\rVert^2)+a_2a_0+\aV_2\cdot\aV_0}\nonumber\\
+	&+\frac{(a_2a_0-\aV_2\cdot\aV_0)\iV+a_{0x}\aV_2+a_{2x}\aV_0-\iV\times(a_0\aV_2+a_2\aV_0)}{2(a_1^2+\lVert\aV_1\rVert^2)+a_2a_0+\aV_2\cdot\aV_0},\\
+	\tV_3&=\frac{(a_1a_2-\aV_1\cdot\aV_2)\iV+a_{2x}\aV_1+a_{1x}\aV_2-\iV\times(a_2\aV_1+a_1\aV_2)}{a_1a_2+\aV_1\cdot\aV_2},\nonumber\\
+	\tV_4&=\frac{(a_2^2-\lVert\aV_2\rVert^2)\iV+2a_{2x}\aV_2-2a_2\iV\times\aV_2}{a_2^2+\lVert\aV_2\rVert^2}.\nonumber
+\end{align}
+Če je slika enotske tangente krožnica, vemo po posledici \ref{vijacnica_slika_tangente}, da imamo opravka z vijačno krivuljo. Za DPH krivuljo stopnje 5 tako obstaja preprost kriterij, ki nam določa, ali je dana krivulja splošna vijačna DPH krivulja.
+\begin{trditev}
+	\label{lin_odvisnost_pogoj_helix}
+	Če so kvaternionski koeficienti $\AQ_0,\AQ_1,\AQ_2$ med seboj linearno odvisni, nam hodograf $\rV'(t)=\AQ(t)\iV\AQ^*(t)$ poda (splošno) vijačno DPH krivuljo stopnje 5.
+\end{trditev}
+\begin{proof}
+	Če so kvaternionski koeficienti $\AQ_0,\AQ_1,\AQ_2$ med seboj linearno odvisni, lahko $\AQ_1$ zapišemo kot
+	\begin{equation}
+		\label{AQ1_lin_odv}
+		\AQ_1=c_0\AQ_0+c_2\AQ_2
+	\end{equation}
+	za ustrezni števili $c_0,c_2\in\R.$ Upoštevaje to dejstvo, so enačbe \eqref{utezi_tangenta} in \eqref{utezene_kontrolne_tangenta} enake
+	\begin{align}
+		\label{utezi_tangenta_2}
+		w_0&=\AQ_0\AQ_0^*,\nonumber\\
+		w_1&=c_0\AQ_0\AQ_0^*+\frac{1}{2}c_2(\AQ_0\AQ_2^*+\AQ_2\AQ_0^*),\nonumber\\
+		w_2&=\frac{1}{6}\big(4c_0^2\AQ_0\AQ_0^*+(1+4c_0c_2)(\AQ_0\AQ_2^*+\AQ_2\AQ_0^*)+4c_2^2\AQ_2\AQ_2^*\big),\\
+		w_3&=\frac{1}{2}c_0(\AQ_0\AQ_2^*+\AQ_2\AQ_0^*)+c_2\AQ_2\AQ_2^*,\nonumber\\
+		w_4&=\AQ_2\AQ_2^*\nonumber
+	\end{align}
+	in
+	\begin{align}
+		\label{utezene_kontrolne_tangenta_2}
+		w_0\tV_0&=\AQ_0\iV\AQ_0^*,\nonumber\\
+		w_1\tV_1&=c_0\AQ_0\iV\AQ_0^*+\frac{1}{2}c_2(\AQ_0\iV\AQ_2^*+\AQ_2\iV\AQ_0^*),\nonumber\\
+		w_2\tV_2&=\frac{1}{6}\big(4c_0^2\AQ_0\iV\AQ_0^*+(1+4c_0c_2)(\AQ_0\iV\AQ_2^*+\AQ_2\iV\AQ_0^*)+4c_2^2\AQ_2\iV\AQ_2^*\big),\\
+		w_3\tV_3&=\frac{1}{2}c_0(\AQ_0\iV\AQ_2^*+\AQ_2\iV\AQ_0^*)+c_2\AQ_2\iV\AQ_2^*,\nonumber\\
+		w_4\tV_4&=\AQ_2\iV\AQ_2^*.\nonumber
+	\end{align}
+	Enotska tangenta je ravninska krivulja (in s tem tudi krožnica) natanko takrat, ko so kontrolne točke $\tV_0,\dots,\tV_4$ koplanarne. To lahko preverimo tako, da vzamemo kombinacijo štirih kontrolnih točk in si ogledamo volumen tetraedra, ki ga te štiri točke določajo. Označimo $\tV_r=(t_{rx},t_{ry},t_{rz}).$ Dve taki kombinaciji sta na primer
+	\begin{equation}
+		\label{determinanti_tetraeder}
+		\begin{vmatrix}
+			t_{0x}&t_{0y}&t_{0z}&1\\
+			t_{1x}&t_{1y}&t_{1z}&1\\
+			t_{2x}&t_{2y}&t_{2z}&1\\
+			t_{3x}&t_{3y}&t_{3z}&1
+		\end{vmatrix}
+		\quad\text{in}\quad
+		\begin{vmatrix}
+			t_{1x}&t_{1y}&t_{1z}&1\\
+			t_{2x}&t_{2y}&t_{2z}&1\\
+			t_{3x}&t_{3y}&t_{3z}&1\\
+			t_{4x}&t_{4y}&t_{4z}&1.
+		\end{vmatrix}
+	\end{equation}
+	Izkaže se, da so vse determinante enake 0 za vsako kombinacijo štirih kontrolnih točk pri poljubni izbiri $\AQ_0,\AQ_2$ in $c_0,c_2,$ kar preverimo s pomočjo programa \emph{Mathematica}. To pomeni, da je vsak tako določen tetraeder pravzaprav izrojen in je vseh pet kontrolnih točk $\tV_0,\dots,\tV_4$ koplanarnih pri poljubni izbiri $\AQ_0,\AQ_2$ in $c_0,c_2.$ Potem je tudi enotska tangenta $\tV$ ravninska krivulja in s tem krožnica. Po posledici \ref{vijacnica_slika_tangente} nam potem hodograf $\rV'(t)=\AQ(t)\iV\AQ^*(t)$ poda (splošno) vijačno DPH krivuljo stopnje 5.
+\end{proof}
+Iz kvaternionskih koeficientov \eqref{hermit_kvaternioni} je mogoče določiti tudi os vrtenja $\aV$ vijačne krivulje in kot $\psi$ med enotsko tangento $\tV$ in osjo $\aV,$ kot nam to opisuje pogoj \eqref{pogoj_vijacnica}.
+\begin{trditev}
+	\label{os_kot_helix}
+	Za vijačno DPH krivuljo stopnje 5, določene s kvaternionskimi koeficienti \eqref{hermit_kvaternioni}, kjer je $\AQ_1=c_0\AQ_0+c_2\AQ_2,$ sta os $\aV$ in kot $\psi$ iz pogoja \eqref{pogoj_vijacnica} neodvisna od izbire $c_0,c_2$ in sta določena s predpisoma
+	\begin{equation}
+		\label{predpis_os_helix}
+		\aV=\frac{a_0\aV_2-a_2\aV_0+\aV_0\times\aV_2}{\lVert a_0\aV_2-a_2\aV_0+\aV_0\times\aV_2\rVert}
+	\end{equation}
+	ter
+	\begin{equation}
+		\label{predpis_kot_helix}
+		\cos\psi=\frac{a_0a_{2x}-a_2a_{0x}-a_{0y}a_{2z}+a_{0z}a_{2y}}{\lVert a_0\aV_2-a_2\aV_0+\aV_0\times\aV_2\rVert}.
+	\end{equation}
+\end{trditev}
+\begin{proof}
+	Enotsko tangento $\tV$ podamo kot racionalno Bézierjevo krivuljo \eqref{enotska_tangenta_rac_bezier} z utežmi \eqref{utezi_tangenta_2} in uteženemi kontrolnimi točkami \eqref{utezene_kontrolne_tangenta_2}. Pogoj $\aV\cdot\tV=\cos\psi$ \eqref{pogoj_vijacnica} je potem ekvivalenten pogoju
+	\begin{equation}
+		\label{lin_sistem_helix}
+		\sum_{k=0}^4w_k(\aV\cdot\tV_k-\cos\psi)\binom{4}{k}(1-t)^{4-k}t^k\equiv0.
+	\end{equation}
+	Iz tega sledi, da velja
+	\begin{equation}
+		\label{lin_sistem_helix_2}
+		w_k(\aV\cdot\tV_k-\cos\psi)=0,\quad\text{za}\quad k=0,\dots,4.
+	\end{equation}
+	To nam določa homogeni sistem petih linearnih enačb v štirih neznankah: $\cos\psi$ in v komponentah enotskega vektorja $\aV.$ Kakor pri dokazu trditve \ref{lin_odvisnost_pogoj_helix} se lahko opremo na program \emph{Mathematica,} da preverimo, da nam predpisa  \eqref{predpis_os_helix} in \eqref{predpis_kot_helix} res podata rešitev sistema \eqref{lin_sistem_helix_2}, ki je neodvisna od izbire $c_0$ in $c_2.$
+\end{proof}
+\begin{primer}
+	\textbf{. }Naj bodo $\AQ_0=-1-\jV-\kV,\AQ_2=1+2\kV$ in $c_0=c_2=\frac{3}{2}.$ S takimi izbirami dobimo hodograf
+	\begin{align*}
+		x'(t)&=-8t^4+24t^3-22t^2+4t-1,\\
+		y'(t)&=-8t^3+24t^2-14t+2,\\
+		z'(t)&=-8t^3+8 t^2+2 t-2,\\
+		\sigma(t)&=8t^4-24t^3+30t^2-12t+3,
+	\end{align*}
+	za katerega velja $\gcd(x',y',z')=1.$ Po \eqref{hermit_kvaternioni} in enačbi \eqref{predpis_os_helix} vidimo, da je $\aV=(\frac{\sqrt{6}}{3},\frac{\sqrt{6}}{6},-\frac{\sqrt{6}}{6}),$ kot $\psi$ med osjo $\aV$ in enotsko tangento $\tV$ je pa po enačbi \eqref{predpis_kot_helix} enak $\arccos\frac{\sqrt{6}}{3}\approx35.2644^\circ.$
+\end{primer}
+
+\subsection{Hermitska interpolacija}
+
+Recimo, da imamo kvadratični kvaternionski polinom, podan v Bernsteinovi bazi kot
+\begin{equation*}
+	\AQ(t)=\AQ_0(1-t)^2+\AQ_12(1-t)t+\AQ_2t^2.
+\end{equation*}
+DPH krivuljo stopnje 5 lahko podamo kot Bézierjevo krivuljo
+\begin{equation*}
+	\rV(t)=\sum_{k=0}^5\pV_k\binom{5}{k}(1-t)^{5-k}t^k
+\end{equation*}
+s kontrolnimi točkami $\pV_i=x_k\iV+y_k\jV+z_k\kV,$ kjer je $0\leq k\leq5.$ Hodograf te krivulje je enak
+\begin{equation*}
+	\rV'(t)=5\sum_{k=0}^4(\pV_{k+1}-\pV_k)\binom{4}{k}(1-t)^{4-k}t^k=\AQ(t)\iV\AQ^*(t).
+\end{equation*}
+S primerjavo koeficientov vidimo, da so kontrolne točke enake
+\begin{align}
+	\label{hermit_kontrolne}
+	\pV_1&=\pV_0+\frac{1}{5}\AQ_0\iV\AQ_0^*,\nonumber\\
+	\pV_2&=\pV_1+\frac{1}{10}(\AQ_0\iV\AQ_1^*+\AQ_1\iV\AQ_0^*),\nonumber\\
+	\pV_3&=\pV_2+\frac{1}{30}(\AQ_0\iV\AQ_2^*+4\AQ_1\iV\AQ_1^*+\AQ_2\iV\AQ_0^*),\\
+	\pV_4&=\pV_3+\frac{1}{10}(\AQ_1\iV\AQ_2^*+\AQ_2\iV\AQ_1^*),\nonumber\\
+	\pV_5&=\pV_4+\frac{1}{5}\AQ_2\iV\AQ_2^*.\nonumber
+\end{align}
+
+Želimo interpolirati naslednje podatke z našo krivuljo:
+\begin{equation}
+	\label{hermit_data}
+	\rV(0)=\pV_i,\quad\rV'(0)=\dV_i\quad\text{in}\quad\rV(1)=\pV_f,\quad\rV'(1)=\dV_f,
+\end{equation}
+kjer sta $\pV_i,\pV_f\in\R^3$ začetna in končna interpolacijska točka ter $\dV_i,\dV_f\in\R^3$ pa ustrezni smeri. Interpolacija odvodov nam poda enačbi
+\begin{equation}
+	\label{hermit_sistem1}
+	\AQ_0\iV\AQ_0^*=\dV_i\quad\text{in}\quad\AQ_2\iV\AQ_2^*=\dV_f
+\end{equation}
+Z uporabo \eqref{hermit_kontrolne} in \eqref{hermit_data} vidimo, da velja
+\begin{equation}
+	\label{hermit_integral}
+	\int_0^1\rV(t)dt=\Delta\pV=\pV_f-\pV_i.
+\end{equation}
+Po krajšem računu se lahko prepričamo, da je potem res
+\begin{align}
+	\label{hermit_sistem2}
+	(3&\AQ_0+4\AQ_1+3\AQ_2)\iV(3\AQ_0+4\AQ_1+3\AQ_2)^*\nonumber\\
+	&=120\Delta\pV-15(\dV_i+\dV_f)+5(\AQ_0\iV\AQ_2^*+\AQ_2\iV\AQ_0^*).
+\end{align}
+Za kvaternionske neznanke $\AQ_0,\AQ_1,\AQ_2$ nam enačbe \eqref{hermit_sistem1} in \eqref{hermit_sistem2} podajo sistem enačb. Kontrolne točke $\pV_k=x_k\iV+y_k\jV+z_k\kV$ izračunamo iz \eqref{hermit_kontrolne}, kjer vzamemo $\pV_0=\pV_i.$ Po konstrukciji velja tudi $\pV_5=\pV_f.$
+
+Označimo sedaj $\dV_i=\lVert\dV_i\rVert(\lambda_i,\mu_i,\nu_i)$ in $\dV_f=\lVert\dV_f\rVert(\lambda_f,\mu_f,\nu_f).$ Po lemi \ref{QiQ_enacba_lema} lahko rešitvi enačb \eqref{hermit_sistem1} zapišemo kot
+\begin{align}
+	\label{hermit_AQ0}
+	\AQ_0=\sqrt{\frac{1}{2}(1+\lambda_i)\lVert\dV_i\rVert}\Big(&-\sin\phi_0+\cos\phi_0\iV+\frac{\mu_i\cos\phi_0+\nu_i\sin\phi_0}{1+\lambda_i}\jV\nonumber\\
+		&+\frac{\nu_i\cos\phi_0-\mu_i\sin\phi_0}{1+\lambda_i}\kV\Big)
+\end{align}
+in
+\begin{align}
+	\label{hermit_AQ2}
+	\AQ_2=\sqrt{\frac{1}{2}(1+\lambda_f)\lVert\dV_f\rVert}\Big(&-\sin\phi_2+\cos\phi_2\iV+\frac{\mu_f\cos\phi_2+\nu_f\sin\phi_2}{1+\lambda_f}\jV\nonumber\\
+		&+\frac{\nu_f\cos\phi_2-\mu_f\sin\phi_2}{1+\lambda_f}\kV\Big),
+\end{align}
+kjer sta $\phi_0,\phi_2$ prosti spremenljivki. Predpostavimo, da so kvaternionski koeficienti $\AQ_0,\AQ_1,\AQ_2$ linearno odvisni, tako da velja \eqref{AQ1_lin_odv}. Po trditvi \ref{lin_odvisnost_pogoj_helix} je potem krivulja, s katero interpoliramo, vijačna DPH krivulja stopnje 5. Enakost \eqref{AQ1_lin_odv} vstavimo v \eqref{hermit_sistem2}, da dobimo
+\begin{align}
+	\label{hermit_sistem3}
+	(1&+3(c_0+c_2)+4c_0c_2)(\AQ_0\iV\AQ_2^*+\AQ_2\iV\AQ_0^*)\nonumber\\
+	&=30\Delta\pV-(6+c_0+4c_0^2)\dV_i-(6+c_2+4c_2^2)\dV_f.
+\end{align}
+Iz \eqref{hermit_AQ0} in \eqref{hermit_AQ2} sledi, da lahko vsoto $\AQ_0\iV\AQ_2^*+\AQ_2\iV\AQ_0^*$ zapišemo kot
+\begin{equation}
+	\label{vsotaA0iA2}
+	\AQ_0\iV\AQ_2^*+\AQ_2\iV\AQ_0^*=\sqrt{\lVert\dV_i\rVert\lVert\dV_f\rVert}(c_x\iV+c_y\jV+c_z\kV)=\uV\cos\phi+\vV\sin\phi,
+\end{equation}
+kjer so
+\begin{align}
+	\label{cxcycz}
+	c_x&=\frac{\big((1+\lambda_i)(1+\lambda_f)-(\mu_i\mu_f+\nu_i\nu_f)\big)\cos\phi-(\mu_i\nu_f-\mu_f\nu_i)\sin\phi}{\sqrt{(1+\lambda_i)(1+\lambda_f)}},\nonumber\\
+	c_y&=\frac{\big((1+\lambda_f)\mu_i+(1+\lambda_i)\mu_f\big)\cos\phi+\big((1+\lambda_i)\nu_f-(1+\lambda_f)\nu_i\big)\sin\phi}{\sqrt{(1+\lambda_i)(1+\lambda_f)}},\\
+	c_z&=\frac{\big((1+\lambda_f)\nu_i+(1+\lambda_i)\nu_f\big)\cos\phi+\big((1+\lambda_f)\mu_i-(1+\lambda_i)\mu_f\big)\sin\phi}{\sqrt{(1+\lambda_i)(1+\lambda_f)}},\nonumber
+\end{align}
+z $\phi=\phi_2-\phi_0.$ Zapis vektorjev $\uV$ in $\vV$ se lahko razbere iz \eqref{cxcycz} ob upoštevanju vsote \eqref{vsotaA0iA2}.
+
+Vektorska enačba \eqref{hermit_sistem3} nam poda sistem treh skalarnih enačb v spremenljivkah $c_0,c_2,\phi.$ Naj bosta $k_0=c_0+\frac{3}{4}$ in $k_2=c_2+\frac{3}{4}.$ Enačbo \eqref{hermit_sistem3} lahko potem enostavneje zapišemo kot
+\begin{equation}
+	\label{hermit_sistem4}
+	\dV_i16k_0^2+\dV_f16k_2^2+(\uV\cos\phi+\vV\sin\phi)(16k_0k_2-5)=\hV,
+\end{equation}
+kjer je $\hV=120\Delta\pV-15(\dV_i+\dV_f)$ in $\AQ_0\iV\AQ_2^*+\AQ_2\iV\AQ_0^*=\uV\cos\phi+\vV\sin\phi.$ Vektorsko enačbo \eqref{hermit_sistem4} lahko obravnavamo kot sistem linearnih enačb v spremenljivkah $16k_0^2,16k_2^2,16k_0k_2-5.$ S Cramerjevim pravilom pridemo do rešitev
+\begin{align}
+	16k_0^2&=\frac{[\hV,\dV_f,\uV\cos\phi+\vV\sin\phi]}{[\dV_i,\dV_f,\uV\cos\phi+\vV\sin\phi]},\label{16k02}\\
+	16k_2^2&=\frac{[\dV_i,\hV,\uV\cos\phi+\vV\sin\phi]}{[\dV_i,\dV_f,\uV\cos\phi+\vV\sin\phi]},\label{16k22}\\
+	16k_0k_2-5&=\frac{[\dV_i,\dV_f,\hV]}{[\dV_i,\dV_f,\uV\cos\phi+\vV\sin\phi]}\label{16k0k2-5},
+\end{align}
+kjer je z $[\aV,\bV,\cV]$ označen mešani produkt $(\aV\times\bV)\cdot\cV$ oziroma $3\times3$ determinanta $\det([\aV,\bV,\cV]).$ Očitno morajo te rešitve zadostovati pogoju
+\begin{equation}
+	\label{pogoj_kompat}
+	(16k_0^2)(16k_2^2)=\big((16k_0k_2-5)+5\big)^2.
+\end{equation}
+S pomočjo substitucije $\xi=\tan\frac{1}{2}\phi$ lahko zapišemo $\cos\phi=(1-\xi^2)/(1+\xi^2)$ in $\sin\phi=2\xi/(1+\xi^2).$ Ob upoštevanju rešitev \eqref{16k02}-\eqref{16k0k2-5} in pogoja \eqref{pogoj_kompat} dobimo enačbo stopnje 4 oblike
+\begin{equation}
+	\label{enacba_stopnja4}
+	d_4\xi^4+d_3\xi^3+d_2\xi^2+d_1\xi+d_0=0
+\end{equation}
+v spremenljivki $\xi,$ kjer so koeficienti enaki
+\begin{align}
+	\label{d_koeficienti}
+	d_4=&[\hV,\dV_f,\uV][\dV_i,\hV,\uV]-[\dV_i,\dV_f,\hV-5\uV]^2,\nonumber\\
+	d_3=&-2[\hV,\dV_f,\uV][\dV_i,\hV,\vV]-2[\dV_i,\hV,\uV][\hV,\dV_f,\vV]-20[\dV_i,\dV_f,\vV][\dV_i,\dV_f,\hV-5\uV],\nonumber\\
+	d_2=&-2[\hV,\dV_f,\uV][\dV_i,\hV,\uV]+4[\hV,\dV_f,\vV][\dV_i,\hV,\vV]\nonumber\\
+	&-100[\dV_i,\dV_f,\vV]^2-2[\dV_i,\dV_f,\hV-5\uV][\dV_i,\dV_f,\hV+5\uV],\\
+	d_1=&2[\hV,\dV_f,\vV][\dV_i,\hV,\uV]+2[\dV_i,\hV,\vV][\hV,\dV_f,\uV]-20[\dV_i,\dV_f,\vV][\dV_i,\dV_f,\hV+5\uV],\nonumber\\
+	d_0=&[\hV,\dV_f,\uV][\dV_i,\hV,\uV]-[\dV_i,\dV_f,\hV+5\uV]^2.\nonumber
+\end{align}
+Ker je enačba \eqref{enacba_stopnja4} stopnje 4, ima lahko štiri, dve ali nič realnih ničel. Za vsako realno ničlo $\xi$ lahko poračunamo izraza $\cos\phi=(1-\xi^2)/(1+\xi^2)$ in $\sin\phi=2\xi/(1+\xi^2)$ ter ju vstavimo v \eqref{16k02}-\eqref{16k0k2-5}. Izraza za $16k_0^2$ in $16k_2^2$ morata biti oba nenegativna. Vsak od teh dveh izrazov nam poda dve možni vrednosti, ki se razlikujeta v predznaku. Tako dobimo štiri različne kombinacije parov $(k_0,k_2),$ ki pa niso vsi vredu. Upoštevati moramo tudi enačbo \eqref{16k0k2-5}, kar eliminira dve možnosti. Tako nam vsaka realna ničla enačbe \eqref{enacba_stopnja4} poda največ dva različna para vrednosti $(k_0,k_2),$ kar pomeni, da lahko za dane podatke \eqref{hermit_data} generiramo sodo število (med 0 in 8) različnih interpolacijskih vijačnih DPH krivulj stopnje 5. 
+
+Pri konstrukciji vijačne DPH krivulje postopamo takole: izberemo ustrezno rešitev $\xi,k_0,k_2$ in nastavimo $\phi_0=0.$ Ker je $\phi=\phi_2-\phi_0$ in $\phi=2\arctan\xi,$ je potem $\phi_2=2\arctan\xi.$ S pomočjo \eqref{hermit_AQ0} in \eqref{hermit_AQ2} pridemo do izrazov za $\AQ_0$ in $\AQ_2.$ Upoštevamo tudi, da velja $c_0=k_0-\frac{3}{4}$ in $c_2=k_2-\frac{3}{4}.$ Preko enakosti \eqref{AQ1_lin_odv} poračunamo še $\AQ_1.$ Sedaj imamo znane vse potrebne podatke, da lahko poračunamo kontrolne točke \eqref{hermit_kontrolne} krivulje.
+
+Ker imamo na voljo več rešitev za naš interpolacijski problem, se je smiselno vprašati, katera rešitev je ``najboljša''. Najboljša bi bila tista rešitev, pri kateri je krivulja v prostoru najmanj ukrivljena. Za mero ukrivljenosti lahko recimo vzamemo integral
+\begin{equation}
+	\label{energija_integral}
+	E=\int_0^1\omega^2(t)\lVert\rV'(t)\rVert dt,
+\end{equation}
+kjer je $\omega=\sqrt{\kappa^2+\tau^2}$ \emph{totalna ukrivljenost} prostorske krivulje $\rV.$ Integral \eqref{energija_integral} ponazarja prožnostno energijo, ki je potrebna, da ravno elastično palico spravimo v obliko, ki jo ponazarja prostorska krivulja $\rV.$ Zvijanje v prostoru je definirano s pomočjo Frenetovega ogrodja $(\tV,\pV,\bV)$ in vektorja kotne hitrosti Fenetovega ogrodja $\dV=\tau\tV+\kappa\bV,$ ki mu pravimo tudi \emph{Darbouxjev vektor} \cite{kreyszig2019differential}. Izkaže se, da je to zvijanje krivulje bolje definirati na drugačnem ortonormiranem ogrodju krivulje (kjer je ena od komponent še vedno enotska tangenta). Tako bomo to definirali na \emph{rotacijsko minimizirajočih ogrodjih} \cite{farouki2002exact}. Za energijo bomo uporabili izraz
+\begin{equation}
+	\label{prava_energija}
+	E_{RMF}=\int_0^1\kappa^2(t)\lVert\rV'(t)\rVert dt.
+\end{equation}
+``Najboljša'' interpolacijska krivulja je torej krivulja pri tisti rešitev, za katero ima \eqref{prava_energija} najmanjšo vrednost.
+
+\begin{primer}
+	\textbf{. }Za začetne podatke $\pV_i=(0,0,0),$ $\dV_i=(1,0,1),$ $\pV_f=(1,1,1),$ $\dV_f=(0,1,1)$ ima enačba \eqref{enacba_stopnja4} štiri ničle
+	\begin{equation}
+		\label{hermit_nicle}
+		\xi_1\approx=-0.059419,\quad\xi_2\approx-1.761857,\quad\xi_3\approx19.411014,\quad\xi_4\approx0.661850.
+	\end{equation}
+	Ničli $\xi_1$ in $\xi_3$ zavržemo, saj nam ne dasta nenegativnih vrednosti za $k_0^2$ in $k_2^2.$ Ničla $\xi_2$ nam da par ustreznih rešitev
+	\begin{equation}
+		\label{par_resitev1}
+		(k_0,k_2,\phi)=(\mp1.705395,\pm1.705395,-2.109108).
+	\end{equation}
+	Za ta par ustreznih rešitev lahko izračunamo os vijačnice $\aV$ ter kot $\psi$ med osjo in enotsko tangento:
+	\begin{equation}
+		\label{par_resitev1_oskot}
+		\aV=(-0.309913,-0.309913,-0.898837),\quad\psi=148.728^\circ.
+	\end{equation}
+	Absolutna vrednost razmerja med fleksijsko in torzijsko ukrivljenostjo znaša $|\kappa/\tau|=0.607333$ za obe krivulji. Za obe krivulji je vrednost energije \eqref{prava_energija} enaka $E_{RMF}=322.30.$
+	\begin{figure}[h]
+	  \centering
+	  \includegraphics[width=0.4\textwidth]{images/hermit1.pdf}
+	  \includegraphics[width=0.4\textwidth]{images/hermit2.pdf}
+	  \includegraphics[width=0.4\textwidth]{images/hermit3.pdf}
+	  \includegraphics[width=0.4\textwidth]{images/hermit4.pdf}
+	% \caption[caption za v kazalo]{Dolg caption pod sliko}
+	  \caption[Interpolacijske DPH krivulje]{Štiri interpolacijske DPH krivulje s pripadajočimi kontrolnimi poligoni za podatke $\pV_i=(0,0,0),$ $\pV_f=(1,1,1),$ $\dV_i=(1,0,1)$ in $\dV_f=(0,1,1).$ Zgoraj: krivulji, definirani z ničlo $\xi_2.$ Spodaj: krivulji, definirani z ničlo $\xi_4.$}
+	  \label{hermit_grafi_krivulj}
+	\end{figure}
+	
+	Podobno pridobimo tudi pri ničli $\xi_4$ dve interpolacijski krivulji, katere lahko podamo preko parametrov
+	\begin{equation}
+		\label{par_resitev2}
+		(k_0,k_2,\phi)=(\mp1.850380,\mp1.850380,1.169321).
+	\end{equation}
+	Os vijačnice $\aV$ in kot $\psi$ sta tokrat enaka
+	\begin{equation}
+		\label{par_resitev2_oskot}
+		\aV=(0.354664,0.354664,0.865117),\quad\psi=30.3998^\circ.
+	\end{equation}
+	Tokrat je za oba primera absolutna vrednost razmerja med fleksijsko in torzijsko ukrivljenostjo enaka $|\kappa/\tau|=0.586692,$ energija je pri izbiri $k_0=k_2=1.850380$ enaka $E_{RMF}=1.27,$ pri izbiri $k_0=k_2=-1.850380$ pa je enaka $E_{RMF}=89.58.$
+	
+	``Najboljša'' interpolacijska krivulja je tista krivulja, ki ima najmanjšo energijo $E_{RMF}.$ V našem primeru je to krivulja, ki jo dobimo pri ničli $\xi_4$ in izbiri $k_0=k_2=1.850380.$ Na sliki \ref{hermit_grafi_krivulj} se nahaja spodaj levo.
+	
+\end{primer}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
