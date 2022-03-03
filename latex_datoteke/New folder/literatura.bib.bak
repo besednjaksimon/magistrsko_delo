@@ -1,37 +1,37 @@
 % Encoding: UTF-8
 
 @Article{beltranmonterde,
-  title={A characterization of quintic helices},
-  author={Beltran, JV and Monterde, J},
-  journal={Journal of computational and applied mathematics},
-  volume={206},
-  number={1},
-  pages={116--121},
-  year={2007},
-  publisher={Elsevier},
+  author    = {Beltran, JV and Monterde, J},
+  journal   = {J. Comput. Appl. Math.},
+  title     = {A characterization of quintic helices},
+  year      = {2007},
+  number    = {1},
+  pages     = {116--121},
+  volume    = {206},
+  publisher = {Elsevier},
 }
 
 @Article{choi2002clifford,
-  title={Clifford algebra, spin representation, and rational parameterization of curves and surfaces},
-  author={Choi, Hyeong In and Lee, Doo Seok and Moon, Hwan Pyo},
-  journal={Advances in Computational Mathematics},
-  volume={17},
-  number={1},
-  pages={5--48},
-  year={2002},
-  publisher={Springer}
+  author    = {Choi, Hyeong In and Lee, Doo Seok and Moon, Hwan Pyo},
+  journal   = {Adv. Comput. Math.},
+  title     = {Clifford algebra, spin representation, and rational parameterization of curves and surfaces},
+  year      = {2002},
+  number    = {1},
+  pages     = {5--48},
+  volume    = {17},
+  publisher = {Springer},
 }
 
 @Book{struik1961lectures,
-  title={Lectures on classical differential geometry},
-  author={Struik, Dirk Jan},
-  year={1961},
-  publisher={Courier Corporation}
+  author    = {Struik, Dirk Jan},
+  publisher = {Dover Publications},
+  title     = {Lectures on classical differential geometry},
+  year      = {1988},
 }
 
 @Article{DPHclanek1,
   author    = {Farouki, Rida T and Giannelli, Carlotta and Sestini, Alessandra},
-  journal   = {Journal of Symbolic Computation},
+  journal   = {J. Symb. Comput.},
   title     = {{Helical polynomial curves and double Pythagorean hodographs I. Quaternion and Hopf map representations}},
   year      = {2009},
   number    = {2},
@@ -42,7 +42,7 @@
 
 @Article{DPHclanek2,
   author    = {Farouki, Rida T and Giannelli, Carlotta and Sestini, Alessandra},
-  journal   = {Journal of Symbolic Computation},
+  journal   = {J. Symb. Comput.},
   title     = {{Helical polynomial curves and double Pythagorean hodographs II. Enumeration of low-degree curves}},
   year      = {2009},
   number    = {4},
@@ -52,29 +52,32 @@
 }
 
 @Book{kreyszig2019differential,
-  title={Differential geometry},
-  author={Kreyszig, Erwin},
-  booktitle={Differential Geometry},
-  year={2019},
-  publisher={University of Toronto Press}
+  author    = {Kreyszig, Erwin},
+  publisher = {Dover Publications},
+  title     = {Differential geometry},
+  year      = {1991},
+  booktitle = {Differential Geometry},
 }
 
 @Article{faroukietal2004,
-  title={Characterization and construction of helical polynomial space curves},
-  author={Farouki, Rida T and Han, Chang Yong and Manni, Carla and Sestini, Alessandra},
-  journal={Journal of Computational and Applied Mathematics},
-  volume={162},
-  number={2},
-  pages={365--392},
-  year={2004},
-  publisher={Elsevier}
+  author    = {Farouki, Rida T and Han, Chang Yong and Manni, Carla and Sestini, Alessandra},
+  journal   = {J. Comput. Appl. Math.},
+  title     = {Characterization and construction of helical polynomial space curves},
+  year      = {2004},
+  number    = {2},
+  pages     = {365--392},
+  volume    = {162},
+  publisher = {Elsevier},
 }
 
 @Book{farouki2008pythagorean,
-  title={Pythagorean—hodograph Curves},
-  author={Farouki, Rida T},
-  year={2008},
-  publisher={Springer}
+  author    = {Farouki, Rida T},
+  publisher = {Springer},
+  title     = {Pythagorean-hodograph curves: algebra and geometry inseparable},
+  year      = {2008},
+  address   = {Berlin},
+  series    = {Geometry and Computing},
+  volume    = {1},
 }
 
 @Misc{oeis,
@@ -238,8 +241,8 @@
 
 @Article{farouki2002exact,
   author    = {Farouki, Rida T},
-  journal   = {Graphical Models},
-  title     = {Exact rotation-minimizing frames for spatial Pythagorean-hodograph curves},
+  journal   = {Graph. Models},
+  title     = {Exact rotation-minimizing frames for spatial {Pythagorean}-hodograph curves},
   year      = {2002},
   number    = {6},
   pages     = {382--395},
@@ -260,8 +263,8 @@
 
 @Article{farouki2002hermite,
   author    = {Farouki, Rida T and al-Kandari, Mohammad and Sakkalis, Takis},
-  journal   = {Advances in Computational Mathematics},
-  title     = {Hermite interpolation by rotation-invariant spatial Pythagorean-hodograph curves},
+  journal   = {Adv. Comput. Math.},
+  title     = {Hermite interpolation by rotation-invariant spatial {Pythagorean}-hodograph curves},
   year      = {2002},
   number    = {4},
   pages     = {369--383},
@@ -306,6 +309,17 @@
   publisher = {Elsevier},
   title     = {Handbook of computer aided geometric design},
   year      = {2002},
+}
+
+@Article{farouki1990pythagorean,
+  author    = {Farouki, Rida T and Sakkalis, Takis},
+  journal   = {IBM J. Res. Dev.},
+  title     = {Pythagorean hodographs},
+  year      = {1990},
+  number    = {5},
+  pages     = {736--752},
+  volume    = {34},
+  publisher = {IBM},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}

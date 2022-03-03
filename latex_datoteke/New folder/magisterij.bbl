@@ -1,0 +1,67 @@
+\begin{thebibliography}{10}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
+  \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\Url}\fi
+
+\bibitem{beltranmonterde}
+J.~Beltran in J.~Monterde, \emph{A characterization of quintic helices},
+  Journal of computational and applied mathematics \textbf{206}(1) (2007)
+  116--121.
+
+\bibitem{choi2002clifford}
+H.~I. Choi, D.~S. Lee in H.~P. Moon, \emph{Clifford algebra, spin
+  representation, and rational parameterization of curves and surfaces},
+  Advances in Computational Mathematics \textbf{17}(1) (2002) 5--48.
+
+\bibitem{farin2002handbook}
+G.~Farin, J.~Hoschek in M.-S. Kim, \emph{Handbook of Computer Aided Geometric
+  Design}, Elsevier, 2002.
+
+\bibitem{farouki2002exact}
+R.~T. Farouki, \emph{Exact rotation-minimizing frames for spatial
+  {Pythagorean}-hodograph curves}, Graphical Models \textbf{64}(6) (2002)
+  382--395.
+
+\bibitem{farouki2008pythagorean}
+R.~T. Farouki, \emph{Pythagorean—hodograph Curves}, Springer, 2008.
+
+\bibitem{farouki2002hermite}
+R.~T. Farouki, M.~al~Kandari in T.~Sakkalis, \emph{Hermite interpolation by
+  rotation-invariant spatial {Pythagorean}-hodograph curves}, Advances in
+  Computational Mathematics \textbf{17}(4) (2002) 369--383.
+
+\bibitem{DPHclanek1}
+R.~T. Farouki, C.~Giannelli in A.~Sestini, \emph{{Helical polynomial curves and
+  double Pythagorean hodographs I. Quaternion and Hopf map representations}},
+  Journal of Symbolic Computation \textbf{44}(2) (2009) 161--179.
+
+\bibitem{DPHclanek2}
+R.~T. Farouki, C.~Giannelli in A.~Sestini, \emph{{Helical polynomial curves and
+  double Pythagorean hodographs II. Enumeration of low-degree curves}}, Journal
+  of Symbolic Computation \textbf{44}(4) (2009) 307--332.
+
+\bibitem{farouki1990pythagorean}
+R.~T. Farouki in T.~Sakkalis, \emph{Pythagorean hodographs}, IBM Journal of
+  Research and Development \textbf{34}(5) (1990) 736--752.
+
+\bibitem{faroukietal2004}
+R.~T. Farouki in~dr., \emph{Characterization and construction of helical
+  polynomial space curves}, Journal of Computational and Applied Mathematics
+  \textbf{162}(2) (2004) 365--392.
+
+\bibitem{kreyszig2019differential}
+E.~Kreyszig, \emph{Differential geometry}, Dover Publications, 1991.
+
+\bibitem{lipschutz1969schaum}
+M.~M. Lipschutz, \emph{Schaum's outline of theory and problems of differential
+  geometry}, McGraw-Hill, 1969.
+
+\bibitem{needham1998visual}
+T.~Needham, \emph{Visual complex analysis}, Oxford University Press, 1998.
+
+\bibitem{struik1961lectures}
+D.~J. Struik, \emph{Lectures on classical differential geometry}, Dover
+  Publications, 1988.
+
+\end{thebibliography}
